@@ -1,8 +1,6 @@
-import Account from "@pages/account/Account";
-import AccountMessages from "@pages/account/accountMessages/AccountMessages";
-import AccountSettings from "@pages/account/accountSettings/AccountSettings";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import "./App.module.scss";
+import { Account, AccountMessages, AccountSettings } from "@pages/account";
+import Error from "@pages/error";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
 	return (
@@ -15,7 +13,7 @@ function App() {
 				</Route>
 				<Route path="/market" element={<>market</>} />
 				<Route path="/market-item" element={<>market-item</>} />
-				<Route path="*" element={<Navigate to="/" replace />} />
+				<Route path="*" element={<Error />} />
 			</Routes>
 		</BrowserRouter>
 	);
