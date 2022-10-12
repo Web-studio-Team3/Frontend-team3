@@ -1,0 +1,58 @@
+@import "../../styles/variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 94px;
+
+    &__logo svg {
+        width: 210px;
+        height: 46px;
+    }
+
+    &__menu {
+        display: flex;
+        gap: 15px;
+    }
+
+    &__item {}
+
+    &__link {
+        display: inline-block;
+
+        &_category {
+            box-sizing: border-box;
+            border: 3px solid $green-light;
+            border-radius: 11px;
+            font-family: 'Ubuntu';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 18px;
+            color: $green-light;
+            text-decoration: none;
+            padding: 4px 10px;
+        }
+
+        &_create-ad {
+            box-sizing: border-box;
+            background: #7E5AF0;
+            border-radius: 11px;
+            font-family: 'Ubuntu';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 18px;
+            color: #D9D9D9;
+            text-decoration: none;
+            padding: 7px 13px;
+        }
+
+        &_icon:hover,
+        &_icon.active {
+            & svg {
+                stroke: $green;
+            }
+        }
+    }
+}
