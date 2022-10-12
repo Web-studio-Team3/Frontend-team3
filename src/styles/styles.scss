@@ -12,6 +12,27 @@
     padding: 0;
 }
 
+/* W3C standard
+   сейчас только для Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $grey;
+}
+
+/* для Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: none;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: $grey;
+    border-radius: 20px;
+}
+
 html,
 body,
 div,

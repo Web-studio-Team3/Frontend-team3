@@ -530,3 +530,17 @@ export const ShieldDoneIcon = (): JSX.Element => {
 		</svg>
 	);
 };
+
+export const NewMessageIcon = (): JSX.Element => {
+	return (
+		<svg
+			width="32"
+			height="32"
+			viewBox="0 0 32 32"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<circle cx="16" cy="16" r="16" fill="#7E5AF0" />
+		</svg>
+	);
+};

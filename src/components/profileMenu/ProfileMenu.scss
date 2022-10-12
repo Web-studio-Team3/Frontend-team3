@@ -19,12 +19,25 @@
     }
 
     &__item {
+        margin-bottom: 15px;
+        cursor: pointer;
+
+        &:nth-last-child(-n + 1) {
+            margin-bottom: 0px;
+        }
+    }
+
+    &__icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    &__link {
         display: flex;
         gap: 15px;
         height: 25px;
         align-items: center;
-        margin-bottom: 15px;
-        cursor: pointer;
+        text-decoration: none;
 
         &:hover .profile-menu__icon svg,
         &.active svg {
@@ -35,15 +48,6 @@
         &.active .profile-menu__text {
             color: $green;
         }
-
-        &:nth-last-child(-n + 1) {
-            margin-bottom: 0px;
-        }
-    }
-
-    &__icon {
-        width: 25px;
-        height: 25px;
     }
 
     &__text {

@@ -1,12 +1,14 @@
 @import "../../../styles/variables.scss";
 
-.account-settings {
+.account-messages {
 
     &__heading {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 55px;
+        padding-bottom: 55px;
+        margin-right: 20px;
+        border-bottom: 1px solid $grey-light;
     }
 
     &__title {
@@ -25,6 +27,7 @@
     &__logout-icon {
         background: none;
         cursor: pointer;
+        border: none;
 
         &:hover svg {
             stroke: $green;
@@ -33,7 +36,6 @@
 
     &__content {
         padding-top: 40px;
-        border-top: 1px solid $grey-light;
         display: flex;
         flex-direction: column;
         gap: 15px;

@@ -1,5 +1,6 @@
 import Account from "@pages/account/Account";
-import AccountSettings from "@pages/account/accounteSettings/AccountSettings";
+import AccountMessages from "@pages/account/accountMessages/AccountMessages";
+import AccountSettings from "@pages/account/accountSettings/AccountSettings";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.module.scss";
 
@@ -10,6 +11,7 @@ function App() {
 				<Route path="/" element={<>main</>} />
 				<Route path="/account/" element={<Account />}>
 					<Route path="settings" element={<AccountSettings />} />
+					<Route path="messages" element={<AccountMessages />} />
 				</Route>
 				<Route path="/market" element={<>market</>} />
 				<Route path="/market-item" element={<>market-item</>} />
