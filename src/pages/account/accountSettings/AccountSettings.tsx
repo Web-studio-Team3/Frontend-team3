@@ -1,21 +1,24 @@
-import "./AccountSettings.scss";
-import UserData from "@components/userData/UserData";
-import UserSettings from "@components/userSettings/UserSettings";
-import { LogoutIcon, ShieldDoneIcon } from "../../../resources/icons/Icons";
+import { LogoutIcon, ShieldDoneIcon } from "@assets/icons/Icons";
+import UserData from "@components/userData";
+import UserSettings from "@components/userSettings";
+import styles from "./AccountSettings.module.scss";
 
 const AccountSettings = (): JSX.Element => {
 	return (
-		<div className="account-settings">
-			<div className="account-settings__heading">
-				<div className="account-settings__title">
-					<p className="account-settings__text">ПРОФИЛЬ</p>
+		<div className={styles["account-settings"]}>
+			<div className={styles["account-settings__heading"]}>
+				<div className={styles["account-settings__title"]}>
+					<p className={styles["account-settings__text"]}>ПРОФИЛЬ</p>
 					<ShieldDoneIcon />
 				</div>
-				<button type="button" className="account-settings__logout-icon">
+				<button
+					type="button"
+					className={styles["account-settings__logout-icon"]}
+				>
 					<LogoutIcon />
 				</button>
 			</div>
-			<div className="account-settings__content">
+			<div className={styles["account-settings__content"]}>
 				<UserData />
 				<UserSettings />
 			</div>
