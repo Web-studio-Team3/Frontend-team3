@@ -1,33 +1,32 @@
-@import '../../styles/variables.scss';
-
+@import "@styles/variables.scss";
 .user-card {
-    box-sizing: border-box;
-    width: 285px;
-    border: 1px solid $grey-light;
-    border-radius: 30px;
-    padding: 25px 35px;
+	box-sizing: border-box;
+	width: 285px;
+	border: 1px solid $grey-light;
+	border-radius: 30px;
+	padding: 25px 35px;
 
-    &__photo {
-        border-radius: 50%;
-        width: 169px;
-        height: 169px;
-        display: block;
-        object-fit: cover;
-        margin: 0px auto 34px;
-    }
+	&__photo {
+		border-radius: 50%;
+		width: 169px;
+		height: 169px;
+		display: block;
+		object-fit: cover;
+		margin: 0px auto 34px;
+	}
 
-    &__name {
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 22px;
-        color: $white;
-        margin-bottom: 5px;
-    }
+	&__name {
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 22px;
+		color: $white;
+		margin-bottom: 5px;
+	}
 
-    &__text {
-        font-weight: 300;
-        font-size: 16px;
-        line-height: 19px;
-        color: $white;
-    }
+	&__text {
+		font-weight: 300;
+		font-size: 16px;
+		line-height: 19px;
+		color: $white;
+	}
 }

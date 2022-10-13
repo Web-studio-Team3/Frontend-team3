@@ -1,58 +1,57 @@
-@import "../../styles/variables.scss";
+@import "@styles/variables.scss";
 
 .user-settings {
-    background: #2D2D33;
-    border-radius: 30px;
-    width: 100%;
-    padding: 30px;
+	background: #2d2d33;
+	border-radius: 30px;
+	width: 100%;
+	padding: 30px;
 
-    &__title {
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 29px;
-        color: $white;
-    }
+	&__title {
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 29px;
+		color: $white;
+	}
 
-    &__list {
-        margin-top: 20px;
-    }
+	&__list {
+		margin-top: 20px;
+	}
 
-    &__item {
-        display: grid;
-        grid-template-columns: 1fr 2fr 22px;
-        padding: 10px 0px;
-        border-bottom: 1px solid #44444B;
+	&__item {
+		display: grid;
+		grid-template-columns: 1fr 2fr 22px;
+		padding: 10px 0px;
+		border-bottom: 1px solid #44444b;
 
-        &:nth-last-child(-n + 1) {
-            border: none;
-        }
-    }
+		&:nth-last-child(-n + 1) {
+			border: none;
+		}
+	}
 
-    &__text {
-        font-weight: 200;
-        font-size: 15px;
-        line-height: 18px;
-        color: $white;
+	&__text {
+		font-weight: 200;
+		font-size: 15px;
+		line-height: 18px;
+		color: $white;
 
-        &.not-stated {
-            font-weight: 100;
-            font-size: 11px;
-            line-height: 13px;
-        }
-    }
+		&.not-stated {
+			font-weight: 100;
+			font-size: 11px;
+			line-height: 13px;
+		}
+	}
 
-    &__icon {
-        width: 22px;
-        height: 22px;
-        background: none;
-        border: none;
-        align-items: center;
-        padding: 0;
+	&__icon {
+		width: 22px;
+		height: 22px;
+		background: none;
+		border: none;
+		align-items: center;
+		padding: 0;
 
-
-        &:hover svg {
-            stroke: $green;
-            cursor: pointer;
-        }
-    }
+		&:hover svg {
+			stroke: $green;
+			cursor: pointer;
+		}
+	}
 }
