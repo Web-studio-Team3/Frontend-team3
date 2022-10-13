@@ -1,4 +1,4 @@
-import MessageItem from "@components/messageItem/MessageItem";
+import MessageItem from "@components/messageItem";
 import styles from "./MessageList.module.scss";
 
 const MessageList = (): JSX.Element => {

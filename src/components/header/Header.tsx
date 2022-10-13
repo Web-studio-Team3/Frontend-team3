@@ -1,10 +1,10 @@
-import classNames from "classnames";
 import {
 	ProfileIcon,
 	NotificationIcon,
 	BuyIcon,
 	LogoIcon,
-} from "../../resources/icons/Icons";
+} from "@assets/icons/Icons";
+import classNames from "classnames";
 import styles from "./Header.module.scss";
 
 const Header = (): JSX.Element => {

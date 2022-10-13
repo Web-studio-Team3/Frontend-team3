@@ -1,5 +1,5 @@
-import MessageList from "@components/messageList/MessageList";
-import { LogoutIcon } from "../../../resources/icons/Icons";
+import { LogoutIcon } from "@assets/icons/Icons";
+import MessageList from "@components/messageList";
 import styles from "./AccountMessages.module.scss";
 
 const AccountMessages = (): JSX.Element => {

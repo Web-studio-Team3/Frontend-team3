@@ -1,5 +1,3 @@
-import classNames from "classnames";
-import { NavLink } from "react-router-dom";
 import {
 	CalendarIcon,
 	BagIcon,
@@ -9,7 +7,9 @@ import {
 	WalletIcon,
 	SettingIcon,
 	SearchIcon,
-} from "../../resources/icons/Icons";
+} from "@assets/icons/Icons";
+import classNames from "classnames";
+import { NavLink } from "react-router-dom";
 import styles from "./ProfileMenu.module.scss";
 
 const ProfileMenu = (): JSX.Element => {

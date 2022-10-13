@@ -1,6 +1,6 @@
-import UserData from "@components/userData/UserData";
-import UserSettings from "@components/userSettings/UserSettings";
-import { LogoutIcon, ShieldDoneIcon } from "../../../resources/icons/Icons";
+import { LogoutIcon, ShieldDoneIcon } from "@assets/icons/Icons";
+import UserData from "@components/userData";
+import UserSettings from "@components/userSettings";
 import styles from "./AccountSettings.module.scss";
 
 const AccountSettings = (): JSX.Element => {

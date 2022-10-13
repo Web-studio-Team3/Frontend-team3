@@ -1,6 +1,6 @@
+import { NewMessageIcon } from "@assets/icons/Icons";
+import adPhoto from "@assets/img/ad-image.png";
 import classNames from "classnames";
-import { NewMessageIcon } from "../../resources/icons/Icons";
-import adPhoto from "../../resources/img/ad-image.png";
 import styles from "./MessageItem.module.scss";
 import { MessageItemProps } from "./MessageItem.props";
 

@@ -1,4 +1,4 @@
-import { PlusIcon } from "../../resources/icons/Icons";
+import { PlusIcon } from "@assets/icons/Icons";
 import styles from "./UserData.module.scss";
 
 const UserData = (): JSX.Element => {

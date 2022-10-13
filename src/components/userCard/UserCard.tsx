@@ -1,4 +1,4 @@
-import userPhoto from "../../resources/img/user-photo.png";
+import userPhoto from "@assets/img/user-photo.png";
 import styles from "./UserCard.module.scss";
 
 const UserCard = (): JSX.Element => {

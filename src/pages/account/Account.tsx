@@ -1,6 +1,6 @@
-import Header from "@components/header/Header";
-import ProfileMenu from "@components/profileMenu/ProfileMenu";
-import UserCard from "@components/userCard/UserCard";
+import Header from "@components/header";
+import ProfileMenu from "@components/profileMenu";
+import UserCard from "@components/userCard";
 import classNames from "classnames";
 import { Outlet } from "react-router-dom";
 import styles from "./Account.module.scss";

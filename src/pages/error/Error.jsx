@@ -1,4 +1,4 @@
-import { LogoIcon } from "../../resources/icons/Icons";
+import { LogoIcon } from "@assets/icons/Icons";
 import styles from "./Error.module.scss";
 
 const Error = () => {

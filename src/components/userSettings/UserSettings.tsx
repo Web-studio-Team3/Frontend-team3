@@ -1,5 +1,5 @@
+import { PlusIcon } from "@assets/icons/Icons";
 import classNames from "classnames";
-import { PlusIcon } from "../../resources/icons/Icons";
 import styles from "./UserSettings.module.scss";
 
 const UserSettings = (): JSX.Element => {
