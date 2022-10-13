@@ -1,9 +1,9 @@
 import MessageItem from "@components/messageItem/MessageItem";
-import "./MessageList.scss";
+import styles from "./MessageList.module.scss";
 
 const MessageList = (): JSX.Element => {
 	return (
-		<div className="message-list">
+		<div className={styles["message-list"]}>
 			<MessageItem
 				name="Петров Петр"
 				location="Общежитие 4"

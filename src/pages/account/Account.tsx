@@ -1,30 +1,39 @@
 import Header from "@components/header/Header";
 import ProfileMenu from "@components/profileMenu/ProfileMenu";
 import UserCard from "@components/userCard/UserCard";
+import classNames from "classnames";
 import { Outlet } from "react-router-dom";
-import "./Account.scss";
+import styles from "./Account.module.scss";
 
 const Account = (): JSX.Element => {
 	return (
 		<>
 			<Header />
-			<main className="account">
-				<div className="accounte__body container">
-					<p className="account__breadcrumbs">
-						<a href="#" className="account__link">
+			<main className={styles["account"]}>
+				<div
+					className={classNames(styles["account__body"], "container")}
+				>
+					<p className={styles["account__breadcrumbs"]}>
+						<a href="#" className={styles["account__link"]}>
 							Главная
 						</a>
 						&gt;&gt;
-						<a href="#" className="account__link">
+						<a href="#" className={styles["account__link"]}>
 							Настройки
 						</a>
 						&gt;&gt;
-						<a href="#" className="account__link active">
+						<a
+							href="#"
+							className={classNames(
+								styles["account__link"],
+								styles["active"]
+							)}
+						>
 							Профиль
 						</a>
 					</p>
-					<div className="account__content">
-						<div className="account__menu ">
+					<div className={styles["account__content"]}>
+						<div className={styles["account__menu"]}>
 							<UserCard />
 							<ProfileMenu />
 						</div>
