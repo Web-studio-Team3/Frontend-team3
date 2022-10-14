@@ -4,21 +4,16 @@ import styles from "./AccountMessages.module.scss";
 
 const AccountMessages = (): JSX.Element => {
 	return (
-		<div className={styles["account-messages"]}>
-			<div className={styles["account-messages__heading"]}>
-				<div className={styles["account-messages__title"]}>
-					<p className={styles["account-messages__text"]}>
-						СООБЩЕНИЯ
-					</p>
+		<div className={styles.section}>
+			<div className={styles.heading}>
+				<div className={styles.title}>
+					<p className={styles.text}>СООБЩЕНИЯ</p>
 				</div>
-				<button
-					type="button"
-					className={styles["account-messages__logout-icon"]}
-				>
+				<button type="button" className={styles.logoutIcon}>
 					<LogoutIcon />
 				</button>
 			</div>
-			<div className={styles["account-messages__content"]}>
+			<div className={styles.content}>
 				<MessageList />
 			</div>
 		</div>

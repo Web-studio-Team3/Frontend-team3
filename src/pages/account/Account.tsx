@@ -9,31 +9,29 @@ const Account = (): JSX.Element => {
 	return (
 		<>
 			<Header />
-			<main className={styles["account"]}>
-				<div
-					className={classNames(styles["account__body"], "container")}
-				>
-					<p className={styles["account__breadcrumbs"]}>
-						<a href="#" className={styles["account__link"]}>
+			<main className={styles.layout}>
+				<div className={classNames(styles.body, "container")}>
+					<p className={styles.breadcrumbs}>
+						<a href="#" className={styles.link}>
 							Главная
 						</a>
 						&gt;&gt;
-						<a href="#" className={styles["account__link"]}>
+						<a href="#" className={styles.link}>
 							Настройки
 						</a>
 						&gt;&gt;
 						<a
 							href="#"
 							className={classNames(
-								styles["account__link"],
-								styles["active"]
+								styles.link,
+								styles.linkActive
 							)}
 						>
 							Профиль
 						</a>
 					</p>
-					<div className={styles["account__content"]}>
-						<div className={styles["account__menu"]}>
+					<div className={styles.content}>
+						<div className={styles.menu}>
 							<UserCard />
 							<ProfileMenu />
 						</div>

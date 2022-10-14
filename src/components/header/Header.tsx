@@ -9,63 +9,51 @@ import styles from "./Header.module.scss";
 
 const Header = (): JSX.Element => {
 	return (
-		<header className={classNames(styles["header"], "container")}>
-			<div className={styles["header__logo"]}>
+		<header className={classNames(styles.section, "container")}>
+			<div className={styles.logo}>
 				<LogoIcon />
 			</div>
-			<ul className={styles["header__menu"]}>
-				<li className={styles["header__item"]}>
+			<ul className={styles.menu}>
+				<li className={styles.item}>
 					<a
 						href="#"
-						className={classNames(
-							styles["header__link"],
-							styles["header__link_category"]
-						)}
+						className={classNames(styles.link, styles.linkCategory)}
 					>
 						Категории
 					</a>
 				</li>
-				<li className={styles["header__item"]}>
+				<li className={styles.item}>
 					<a
 						href="#"
-						className={classNames(
-							styles["header__link"],
-							styles["header__link_create-ad"]
-						)}
+						className={classNames(styles.link, styles.linkCreateAd)}
 					>
 						Разместить объявление
 					</a>
 				</li>
-				<li className={styles["header__item"]}>
+				<li className={styles.item}>
 					<a
 						href="#"
-						className={classNames(
-							styles["header__link"],
-							styles["header__link_icon"]
-						)}
+						className={classNames(styles.link, styles.linkIcon)}
 					>
 						<BuyIcon />
 					</a>
 				</li>
-				<li className={styles["header__item"]}>
+				<li className={styles.item}>
 					<a
 						href="#"
 						className={classNames(
-							styles["header__link"],
-							styles["header__link_icon"],
-							styles["active"]
+							styles.link,
+							styles.linkIcon,
+							styles.linkIconActive
 						)}
 					>
 						<ProfileIcon />
 					</a>
 				</li>
-				<li className={styles["header__item"]}>
+				<li className={styles.item}>
 					<a
 						href="#"
-						className={classNames(
-							styles["header__link"],
-							styles["header__link_icon"]
-						)}
+						className={classNames(styles.link, styles.linkIcon)}
 					>
 						<NotificationIcon />
 					</a>

@@ -5,20 +5,17 @@ import styles from "./AccountSettings.module.scss";
 
 const AccountSettings = (): JSX.Element => {
 	return (
-		<div className={styles["account-settings"]}>
-			<div className={styles["account-settings__heading"]}>
-				<div className={styles["account-settings__title"]}>
-					<p className={styles["account-settings__text"]}>ПРОФИЛЬ</p>
+		<div className={styles.section}>
+			<div className={styles.heading}>
+				<div className={styles.title}>
+					<p className={styles.text}>ПРОФИЛЬ</p>
 					<ShieldDoneIcon />
 				</div>
-				<button
-					type="button"
-					className={styles["account-settings__logout-icon"]}
-				>
+				<button type="button" className={styles.logoutIcon}>
 					<LogoutIcon />
 				</button>
 			</div>
-			<div className={styles["account-settings__content"]}>
+			<div className={styles.content}>
 				<UserData />
 				<UserSettings />
 			</div>

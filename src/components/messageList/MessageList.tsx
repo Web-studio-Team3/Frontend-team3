@@ -3,7 +3,7 @@ import styles from "./MessageList.module.scss";
 
 const MessageList = (): JSX.Element => {
 	return (
-		<div className={styles["message-list"]}>
+		<div className={styles.section}>
 			<MessageItem
 				name="Петров Петр"
 				location="Общежитие 4"
