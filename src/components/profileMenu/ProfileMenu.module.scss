@@ -1,60 +1,60 @@
 @import "@styles/variables.scss";
 
-.profile-menu {
+.section {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+}
 
-	&__list {
-		box-sizing: border-box;
-		width: 285px;
-		border: 1px solid $grey-light;
-		border-radius: 30px;
-		padding: 25px 35px;
+.list {
+	box-sizing: border-box;
+	width: 285px;
+	border: 1px solid $grey-light;
+	border-radius: 30px;
+	padding: 25px 35px;
 
-		&.active {
-			background-color: $grey;
-			border: 1px solid $grey;
-		}
+	&Active {
+		background-color: $grey;
+		border: 1px solid $grey;
+	}
+}
+
+.item {
+	margin-bottom: 15px;
+	cursor: pointer;
+
+	&:nth-last-child(-n + 1) {
+		margin-bottom: 0px;
+	}
+}
+
+.icon {
+	width: 25px;
+	height: 25px;
+}
+
+.link {
+	display: flex;
+	gap: 15px;
+	height: 25px;
+	align-items: center;
+	text-decoration: none;
+
+	&:hover .icon svg,
+	&Active svg {
+		stroke: $green;
 	}
 
-	&__item {
-		margin-bottom: 15px;
-		cursor: pointer;
-
-		&:nth-last-child(-n + 1) {
-			margin-bottom: 0px;
-		}
+	&:hover .text,
+	&Active .text {
+		color: $green;
 	}
+}
 
-	&__icon {
-		width: 25px;
-		height: 25px;
-	}
-
-	&__link {
-		display: flex;
-		gap: 15px;
-		height: 25px;
-		align-items: center;
-		text-decoration: none;
-
-		&:hover .profile-menu__icon svg,
-		&.active svg {
-			stroke: $green;
-		}
-
-		&:hover .profile-menu__text,
-		&.active .profile-menu__text {
-			color: $green;
-		}
-	}
-
-	&__text {
-		font-family: "Inter";
-		font-weight: 300;
-		font-size: 16px;
-		line-height: 19px;
-		color: $white;
-	}
+.text {
+	font-family: "Inter";
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 19px;
+	color: $white;
 }

@@ -13,52 +13,28 @@ const MessageItem = ({
 	isRead,
 }: MessageItemProps): JSX.Element => {
 	return (
-		<div className={styles["message-item"]}>
-			<img
-				src={adPhoto}
-				alt="ad"
-				className={styles["message-item__image"]}
-			/>
-			<div className={styles["message-item__block"]}>
-				<div className={styles["message-item__line"]}>
-					<p
-						className={classNames(
-							styles["message-item__text"],
-							styles["message-item__text_name"]
-						)}
-					>
+		<div className={styles.section}>
+			<img src={adPhoto} alt="ad" className={styles.image} />
+			<div className={styles.block}>
+				<div className={styles.line}>
+					<p className={classNames(styles.text, styles.textName)}>
 						{name}
 					</p>
-					<p
-						className={classNames(
-							styles["message-item__text"],
-							styles["message-item__text_location"]
-						)}
-					>
+					<p className={classNames(styles.text, styles.textLocation)}>
 						{location}
 					</p>
 				</div>
-				<div className={styles["message-item__line"]}>
-					<p
-						className={classNames(
-							styles["message-item__text"],
-							styles["message-item__text_ad-name"]
-						)}
-					>
+				<div className={styles.line}>
+					<p className={classNames(styles.text, styles.textAdName)}>
 						{adName}
 					</p>
-					<p
-						className={classNames(
-							styles["message-item__text"],
-							styles["message-item__text_price"]
-						)}
-					>
+					<p className={classNames(styles.text, styles.textPrice)}>
 						{price}р
 					</p>
 				</div>
-				<p className={styles["message-item__text"]}>{message}</p>
+				<p className={styles.text}>{message}</p>
 			</div>
-			<div className={styles["message-item__icon"]}>
+			<div className={styles.icon}>
 				{isRead ? null : <NewMessageIcon />}
 			</div>
 		</div>
