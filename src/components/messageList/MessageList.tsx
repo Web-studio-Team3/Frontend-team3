@@ -6,6 +6,7 @@ import styles from "./MessageList.module.scss";
 const MessageList = (): JSX.Element => {
 	const messages = [
 		{
+			id: "1",
 			name: "Петров Петр",
 			location: "Общежитие 4",
 			adName: "Бюст Ленина",
@@ -14,6 +15,7 @@ const MessageList = (): JSX.Element => {
 			isRead: false,
 		},
 		{
+			id: "2",
 			name: "Петров Петр",
 			adName: "Бюст Ленина",
 			price: 2300,
@@ -21,6 +23,7 @@ const MessageList = (): JSX.Element => {
 			isRead: true,
 		},
 		{
+			id: "3",
 			name: "Петров Петр",
 			adName: "Бюст Ленина",
 			price: 2300,
@@ -28,6 +31,7 @@ const MessageList = (): JSX.Element => {
 			isRead: true,
 		},
 		{
+			id: "4",
 			name: "Петров Петр",
 			adName: "Бюст Ленина",
 			price: 2300,
@@ -35,6 +39,7 @@ const MessageList = (): JSX.Element => {
 			isRead: true,
 		},
 		{
+			id: "5",
 			name: "Петров Петр",
 			adName: "Бюст Ленина",
 			price: 2300,
@@ -46,8 +51,8 @@ const MessageList = (): JSX.Element => {
 	const renderMessages = (messages: Array<MessageItemProps>): JSX.Element => {
 		return (
 			<>
-				{messages.map((item) => {
-					return <MessageItem {...item} />;
+				{messages.map(({ id, ...props }) => {
+					return <MessageItem key={id} id={id} {...props} />;
 				})}
 			</>
 		);
@@ -56,7 +61,7 @@ const MessageList = (): JSX.Element => {
 	const content =
 		messages.length > 0 ? renderMessages(messages) : <MessagePlug />;
 
-	return <div className={styles.section}>{content}</div>;
+	return <ul className={styles.section}>{content}</ul>;
 };
 
 export default MessageList;

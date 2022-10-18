@@ -1,11 +1,13 @@
 @import "@styles/variables.scss";
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
 .section {
 	display: flex;
+	gap: 20px;
 	justify-content: space-between;
 	align-items: center;
 	height: 94px;
+	position: relative;
 }
 
 .logo svg {
@@ -14,11 +16,18 @@
 }
 
 .menu {
+	flex-grow: 2;
 	display: flex;
 	gap: 15px;
+	align-items: center;
 }
 
-.item {}
+.item {
+	&:first-child {
+		margin-right: 25px;
+		flex-grow: 2;
+	}
+}
 
 .link {
 	display: inline-block;
@@ -42,11 +51,17 @@
 		border-radius: 11px;
 		font-family: "Ubuntu";
 		font-weight: 400;
-		font-size: 16px;
-		line-height: 18px;
-		color: #d9d9d9;
+		font-size: 20px;
+		line-height: 23px;
+		color: $white;
 		text-decoration: none;
-		padding: 7px 13px;
+		padding: 13px 7px;
+	}
+
+	&Icon svg {
+		height: 30px;
+		width: auto;
+		vertical-align: middle;
 	}
 
 	&Icon:hover,
@@ -55,4 +70,71 @@
 			stroke: $green;
 		}
 	}
+}
+
+.form {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	// width: 500px;
+
+	// @media (max-width: 1125px) {
+	// 	max-width: 500px;
+	// 	width: 100%;
+	// }
+}
+
+.button {
+	vertical-align: middle;
+	cursor: pointer;
+
+	&Category {
+		background: none;
+		border: none;
+		width: 32px;
+		height: 32px;
+	}
+
+	&Search {
+		background: none;
+		border-radius: 0px 8px 8px 0px;
+		box-sizing: border-box;
+		position: absolute;
+		right: 0px;
+		top: 50%;
+		transform: translateY(calc(-50% - 0.2px));
+		background-color: #2D2D33;
+		padding-left: 15px;
+		padding-right: 15px;
+		height: 36.5px;
+		border: 1px solid #72757E;
+		border-left: none;
+
+		& svg {
+			vertical-align: middle;
+		}
+	}
+}
+
+.search {
+	position: relative;
+	flex-grow: 2;
+
+}
+
+.input {
+	width: 100%;
+	position: relative;
+	height: 36px;
+	border: 1px solid #72757E;
+	border-radius: 8px;
+	background: none;
+	padding: 9px 46px 9px 12px;
+	color: $white;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 17px;
+	box-sizing: border-box;
+
+	&::placeholder {}
 }

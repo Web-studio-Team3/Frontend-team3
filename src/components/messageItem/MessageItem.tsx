@@ -13,7 +13,7 @@ const MessageItem = ({
 	isRead,
 }: MessageItemProps): JSX.Element => {
 	return (
-		<div className={styles.section}>
+		<li className={styles.section}>
 			<img src={adPhoto} alt="ad" className={styles.image} />
 			<div className={styles.block}>
 				<div className={styles.line}>
@@ -37,7 +37,7 @@ const MessageItem = ({
 			<div className={styles.icon}>
 				{isRead ? null : <NewMessageIcon />}
 			</div>
-		</div>
+		</li>
 	);
 };
 

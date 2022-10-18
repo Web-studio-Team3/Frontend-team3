@@ -1,8 +1,9 @@
 import {
 	ProfileIcon,
-	NotificationIcon,
-	BuyIcon,
 	LogoIcon,
+	HeartIcon,
+	SearchIcon,
+	CategoryIcon,
 } from "@assets/icons/Icons";
 import classNames from "classnames";
 import styles from "./Header.module.scss";
@@ -15,12 +16,33 @@ const Header = (): JSX.Element => {
 			</div>
 			<ul className={styles.menu}>
 				<li className={styles.item}>
-					<a
-						href="#"
-						className={classNames(styles.link, styles.linkCategory)}
-					>
-						Категории
-					</a>
+					<form method="POST" className={styles.form}>
+						<button
+							type="button"
+							className={classNames(
+								styles.button,
+								styles.buttonCategory
+							)}
+						>
+							<CategoryIcon />
+						</button>
+						<div className={styles.search}>
+							<input
+								type="text"
+								className={styles.input}
+								placeholder="Поиск по объялениям"
+							/>
+							<button
+								type="button"
+								className={classNames(
+									styles.button,
+									styles.buttonSearch
+								)}
+							>
+								<SearchIcon />
+							</button>
+						</div>
+					</form>
 				</li>
 				<li className={styles.item}>
 					<a
@@ -35,7 +57,7 @@ const Header = (): JSX.Element => {
 						href="#"
 						className={classNames(styles.link, styles.linkIcon)}
 					>
-						<BuyIcon />
+						<HeartIcon />
 					</a>
 				</li>
 				<li className={styles.item}>
@@ -48,14 +70,6 @@ const Header = (): JSX.Element => {
 						)}
 					>
 						<ProfileIcon />
-					</a>
-				</li>
-				<li className={styles.item}>
-					<a
-						href="#"
-						className={classNames(styles.link, styles.linkIcon)}
-					>
-						<NotificationIcon />
 					</a>
 				</li>
 			</ul>
