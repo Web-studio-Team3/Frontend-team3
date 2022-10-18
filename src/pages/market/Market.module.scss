@@ -1,0 +1,38 @@
+@import "@styles/variables.scss";
+
+.layout {
+	width: 100%;
+	border-top: 1px solid $grey-light;
+	padding-top: 48px;
+	padding-bottom: 100px;
+}
+
+.body {
+}
+
+.categoriesBlock {
+	max-width: 230px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.counterItems {
+	font-size: 20px;
+	font-weight: bold;
+	color: $white;
+	span {
+		color: $grey-light;
+		padding-left: 10px;
+	}
+}
+
+.categories {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	h5 {
+		font-size: 18px;
+		color: $white;
+	}
+}
