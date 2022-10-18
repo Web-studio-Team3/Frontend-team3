@@ -1,6 +1,7 @@
 import Header from "@components/header";
 import classNames from "classnames";
 import CategoryItem from "./components/CategoryItem";
+import InformationBlock from "./components/InformationBlock";
 import styles from "./Market.module.scss";
 
 const Market = () => {
@@ -9,6 +10,8 @@ const Market = () => {
 			<Header />
 			<main className={styles.layout}>
 				<div className={classNames(styles.body, "container")}>
+					<InformationBlock currentLocation={4} />
+
 					<div className={styles.categoriesBlock}>
 						<p className={styles.counterItems}>
 							Все объявления <span>2501</span>
