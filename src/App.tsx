@@ -8,6 +8,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<>main</>} />
 				<Route path="/account/" element={<Account />}>
+					<Route index element={<AccountSettings />} />
 					<Route path="settings" element={<AccountSettings />} />
 					<Route path="messages" element={<AccountMessages />} />
 				</Route>
