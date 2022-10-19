@@ -1,13 +1,14 @@
 import { LogoutIcon, ShieldDoneIcon } from "@assets/icons/Icons";
 import UserData from "@components/userData";
 import UserSettings from "@components/userSettings";
+import classNames from "classnames";
 import styles from "./AccountSettings.module.scss";
 
 const AccountSettings = (): JSX.Element => {
 	return (
 		<div className={styles.section}>
 			<div className={styles.heading}>
-				<div className={styles.title}>
+				<div className={classNames(styles.title, styles.titleActive)}>
 					<p className={styles.text}>ПРОФИЛЬ</p>
 					<ShieldDoneIcon />
 				</div>

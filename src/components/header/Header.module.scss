@@ -16,18 +16,13 @@
 }
 
 .menu {
-	flex-grow: 2;
+	flex-grow: 1s;
 	display: flex;
 	gap: 15px;
 	align-items: center;
 }
 
-.item {
-	&:first-child {
-		margin-right: 25px;
-		flex-grow: 2;
-	}
-}
+.item {}
 
 .link {
 	display: inline-block;
@@ -76,12 +71,8 @@
 	display: flex;
 	gap: 20px;
 	align-items: center;
-	// width: 500px;
-
-	// @media (max-width: 1125px) {
-	// 	max-width: 500px;
-	// 	width: 100%;
-	// }
+	margin-right: 20px;
+	flex-grow: 2;
 }
 
 .button {
@@ -101,12 +92,11 @@
 		box-sizing: border-box;
 		position: absolute;
 		right: 0px;
-		top: 50%;
-		transform: translateY(calc(-50% - 0.2px));
+		bottom: 0;
 		background-color: #2D2D33;
 		padding-left: 15px;
 		padding-right: 15px;
-		height: 36.5px;
+		height: 36px;
 		border: 1px solid #72757E;
 		border-left: none;
 

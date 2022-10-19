@@ -513,20 +513,19 @@ export const ShieldDoneIcon = (): JSX.Element => {
 			height="28"
 			viewBox="0 0 24 28"
 			fill="none"
+			stroke="#72757E"
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<path
 				fillRule="evenodd"
 				clipRule="evenodd"
 				d="M11.6655 27C14.8854 27 22.2448 23.7981 22.2448 14.966C22.2448 6.13519 22.6281 5.44434 21.7801 4.59491C20.9307 3.74548 16.5043 1 11.6655 1C6.82682 1 2.40041 3.74548 1.55236 4.59491C0.702929 5.44434 1.08628 6.13519 1.08628 14.966C1.08628 23.7981 8.44708 27 11.6655 27Z"
-				stroke="#2AB67D"
 				strokeWidth="1.5"
 				strokeLinecap="round"
 				strokeLinejoin="round"
 			/>
 			<path
 				d="M8.08179 13.5817L10.6908 16.1948L16.0659 10.8169"
-				stroke="#2AB67D"
 				strokeWidth="1.5"
 				strokeLinecap="round"
 				strokeLinejoin="round"

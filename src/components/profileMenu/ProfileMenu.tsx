@@ -78,7 +78,8 @@ const ProfileMenu = (): JSX.Element => {
 			<ul className={classNames(styles.list, styles.listActive)}>
 				<li className={styles.item}>
 					<NavLink
-						to="./settings"
+						end
+						to="../account/me"
 						className={({ isActive }) =>
 							isActive
 								? classNames(styles.link, styles.linkActive)
