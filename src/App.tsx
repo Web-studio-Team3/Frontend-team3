@@ -1,14 +1,16 @@
 import AccountLayout from "@pages/accountLayout";
 import { AnotherAccount, AccountAds } from "@pages/anotherAccount";
 import Error from "@pages/error";
+import Market from "@pages/market";
 import { MyAccount, AccountMessages, AccountSettings } from "@pages/myAccount";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NavPage from "@pages/NavPage";
+import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 
 function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<>main</>} />
+				<Route path="/" element={<NavPage />} />
 				<Route
 					path="/account/me/"
 					element={
@@ -29,7 +31,7 @@ function App() {
 				>
 					<Route index element={<AccountAds />} />
 				</Route>
-				<Route path="/market" element={<>market</>} />
+				<Route path="/market" element={<Market />} />
 				<Route path="/market-item" element={<>market-item</>} />
 				<Route path="*" element={<Error />} />
 			</Routes>
