@@ -5,6 +5,7 @@
 	border-radius: 30px;
 	width: 100%;
 	padding: 30px;
+	position: relative;
 }
 
 .title {
@@ -49,6 +50,9 @@
 	border: none;
 	align-items: center;
 	padding: 0;
+	position: absolute;
+	right: 26px;
+	top: 26px;
 
 	&:hover svg {
 		stroke: $green;

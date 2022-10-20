@@ -1,11 +1,12 @@
 import Header from "@components/header";
-import ProfileMenu from "@components/profileMenu";
-import UserCard from "@components/userCard";
 import classNames from "classnames";
-import { Outlet } from "react-router-dom";
-import styles from "./Account.module.scss";
+import styles from "./AccountLayout.module.scss";
+import { AccountLayoutProps } from "./AccountLayoutProps";
 
-const Account = (): JSX.Element => {
+const AccountLayout = ({
+	type,
+	component,
+}: AccountLayoutProps): JSX.Element => {
 	return (
 		<>
 			<Header />
@@ -30,17 +31,11 @@ const Account = (): JSX.Element => {
 							Профиль
 						</a>
 					</p>
-					<div className={styles.content}>
-						<div className={styles.menu}>
-							<UserCard />
-							<ProfileMenu />
-						</div>
-						<Outlet />
-					</div>
+					<div className={styles.content}>{component}</div>
 				</div>
 			</main>
 		</>
 	);
 };
 
-export default Account;
+export default AccountLayout;

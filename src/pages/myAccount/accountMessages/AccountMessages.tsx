@@ -9,9 +9,6 @@ const AccountMessages = (): JSX.Element => {
 				<div className={styles.title}>
 					<p className={styles.text}>СООБЩЕНИЯ</p>
 				</div>
-				<button type="button" className={styles.logoutIcon}>
-					<LogoutIcon />
-				</button>
 			</div>
 			<div className={styles.content}>
 				<MessageList />

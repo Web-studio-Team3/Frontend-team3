@@ -1,10 +1,12 @@
 import {
 	ProfileIcon,
-	NotificationIcon,
-	BuyIcon,
 	LogoIcon,
+	HeartIcon,
+	SearchIcon,
+	CategoryIcon,
 } from "@assets/icons/Icons";
 import classNames from "classnames";
+import { NavLink } from "react-router-dom";
 import styles from "./Header.module.scss";
 
 const Header = (): JSX.Element => {
@@ -13,15 +15,31 @@ const Header = (): JSX.Element => {
 			<div className={styles.logo}>
 				<LogoIcon />
 			</div>
-			<ul className={styles.menu}>
-				<li className={styles.item}>
-					<a
-						href="#"
-						className={classNames(styles.link, styles.linkCategory)}
+			<form method="POST" className={styles.form}>
+				<button
+					type="button"
+					className={classNames(styles.button, styles.buttonCategory)}
+				>
+					<CategoryIcon />
+				</button>
+				<div className={styles.search}>
+					<input
+						type="text"
+						className={styles.input}
+						placeholder="Поиск по объялениям"
+					/>
+					<button
+						type="button"
+						className={classNames(
+							styles.button,
+							styles.buttonSearch
+						)}
 					>
-						Категории
-					</a>
-				</li>
+						<SearchIcon />
+					</button>
+				</div>
+			</form>
+			<ul className={styles.menu}>
 				<li className={styles.item}>
 					<a
 						href="#"
@@ -31,32 +49,34 @@ const Header = (): JSX.Element => {
 					</a>
 				</li>
 				<li className={styles.item}>
-					<a
-						href="#"
-						className={classNames(styles.link, styles.linkIcon)}
+					<NavLink
+						to="/account/favorites"
+						className={({ isActive }) =>
+							isActive
+								? classNames(
+										styles.linkIcon,
+										styles.linkIconActive
+								  )
+								: styles.linkIcon
+						}
 					>
-						<BuyIcon />
-					</a>
+						<HeartIcon />
+					</NavLink>
 				</li>
 				<li className={styles.item}>
-					<a
-						href="#"
-						className={classNames(
-							styles.link,
-							styles.linkIcon,
-							styles.linkIconActive
-						)}
+					<NavLink
+						to="/account/me"
+						className={({ isActive }) =>
+							isActive
+								? classNames(
+										styles.linkIcon,
+										styles.linkIconActive
+								  )
+								: styles.linkIcon
+						}
 					>
 						<ProfileIcon />
-					</a>
-				</li>
-				<li className={styles.item}>
-					<a
-						href="#"
-						className={classNames(styles.link, styles.linkIcon)}
-					>
-						<NotificationIcon />
-					</a>
+					</NavLink>
 				</li>
 			</ul>
 		</header>
