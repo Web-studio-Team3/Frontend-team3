@@ -1,28 +1,41 @@
+import { useState } from "react";
+import img from "@assets/img/market.jpg";
 import Header from "@components/header";
 import classNames from "classnames";
+import Categories from "./components/Categories";
 import CategoryItem from "./components/CategoryItem";
-import InformationBlock from "./components/InformationBlock";
+import MarketItem from "./components/marketItem/";
 import styles from "./Market.module.scss";
 
+const categories: string[] = [
+	"Личные вещи",
+	"Электроника",
+	"Для дома и дачи",
+	"Запчасти и аксессуары",
+	"Хобби и отдых",
+];
+
 const Market = () => {
+	const [currentCategory, replaceCategory] = useState("");
 	return (
 		<>
 			<Header />
 			<main className={styles.layout}>
 				<div className={classNames(styles.body, "container")}>
-					<InformationBlock currentLocation={4} />
-
-					<div className={styles.categoriesBlock}>
-						<p className={styles.counterItems}>
-							Все объявления <span>2501</span>
-						</p>
-						<div className={styles.categories}>
-							<h5>По категориям</h5>
-							<CategoryItem text="Личные Вещи" />
-							<CategoryItem text="Для дома и дачи" />
-							<CategoryItem text="Авто" />
-							<CategoryItem text="Запчасти" />
-							<CategoryItem text="Услуги" />
+					<div className={styles.mainContent}>
+						<Categories
+							currentCategory={currentCategory}
+							actionCategory={replaceCategory}
+						/>
+						<div className={styles.ItemsBlock}>
+							1{" "}
+							<MarketItem
+								image={img}
+								title="БИЗНЕС тренинг"
+								price={5000}
+								information="Реально крутой тренинг Реально крутой трг тренинг Реально крутой трг тренинг Реально крутой трг"
+								phoneCall={false}
+							></MarketItem>
 						</div>
 					</div>
 				</div>

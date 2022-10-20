@@ -10,46 +10,17 @@
 .body {
 }
 
-.categoriesBlock {
-	max-width: 230px;
+.mainContent {
+	margin-top: 30px;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	display: flex;
+}
+
+.ItemsBlock {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+	max-width: 600px;
+	width: 100%;
 }
-
-.counterItems {
-	font-size: 20px;
-	font-weight: bold;
-	color: $white;
-	span {
-		color: $grey-light;
-		padding-left: 10px;
-	}
-}
-
-.categories {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-	h5 {
-		font-size: 18px;
-		color: $white;
-	}
-}
-
-// .informationBlock {
-// 	display: flex;
-// 	flex-direction: column;
-// 	align-items: center;
-// 	margin: 0 auto;
-// 	gap: 10px;
-// 	color: white;
-// 	p {
-// 	}
-// 	button {
-// 		cursor: pointer;
-// 		color: orange;
-// 		border: none;
-// 		background-color: inherit;
-// 	}
-// }

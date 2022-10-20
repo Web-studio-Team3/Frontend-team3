@@ -1,0 +1,62 @@
+@import "@styles/variables.scss";
+
+.item {
+	display: flex;
+	gap: 10px;
+	background-color: $grey;
+	height: 150px;
+	color: $white;
+	border-radius: 10px;
+
+	img {
+		border-radius: 10px;
+		height: 100%;
+		width: 30%;
+	}
+}
+
+.info {
+	width: 100%;
+	padding-top: 10px;
+	gap: 10px;
+	display: flex;
+	flex-direction: column;
+
+	.title {
+		font-size: 16px;
+		font-weight: 600;
+	}
+	.price {
+		font-size: 20px;
+		font-weight: bold;
+	}
+	.information {
+		width: 85%;
+		font-size: 14px;
+		opacity: 0.7;
+	}
+}
+.buttonBlock {
+	display: flex;
+	gap: 20px;
+	.button1 {
+		cursor: pointer;
+		background-color: rgb(34, 120, 173);
+		border: none;
+		border-radius: 5px;
+		padding: 5px 10px;
+		font-size: 16px;
+
+		color: $white;
+	}
+	.button2 {
+		cursor: pointer;
+		background-color: rgb(31, 155, 0);
+		border: none;
+		border-radius: 5px;
+		padding: 5px 10px;
+		font-size: 16px;
+
+		color: $white;
+	}
+}
