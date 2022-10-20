@@ -1,0 +1,26 @@
+@import "@styles/variables.scss";
+
+.layout {
+	width: 100%;
+	border-top: 1px solid $grey-light;
+	padding-top: 48px;
+	padding-bottom: 100px;
+}
+
+.body {
+}
+
+.mainContent {
+	width: 100%;
+	align-items: flex-start;
+	display: flex;
+	gap: 92px;
+}
+
+.ItemsBlock {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	width: 100%;
+}
