@@ -38,7 +38,7 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
 	return (
 		<Category onClick={onClick}>
 			<RightArrow active={active} />
-			<span className={classNames({ ["active"]: active })}>{text}</span>
+			<span className={classNames({ active: active })}>{text}</span>
 		</Category>
 	);
 };

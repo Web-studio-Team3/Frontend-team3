@@ -38,6 +38,7 @@ const Categories: React.FC<CategoriesProps> = ({
 			<h5>Категории</h5>
 			{categories.map((category) => (
 				<CategoryItem
+					key={category}
 					text={category}
 					currentCategory={currentCategory}
 					onClick={() => {

@@ -1,9 +1,10 @@
 import { useState } from "react";
-import img from "@assets/img/market.jpg";
+
 import Header from "@components/header";
 import classNames from "classnames";
 import Categories from "./components/Categories";
 import CategoryItem from "./components/CategoryItem";
+import Items from "./components/Items";
 import MarketItem from "./components/marketItem/";
 import styles from "./Market.module.scss";
 
@@ -27,8 +28,8 @@ const Market = () => {
 							currentCategory={currentCategory}
 							actionCategory={replaceCategory}
 						/>
-						<div className={styles.ItemsBlock}>
-							1{" "}
+						<Items />
+						{/* <div className={styles.ItemsBlock}>
 							<MarketItem
 								image={img}
 								title="БИЗНЕС тренинг"
@@ -36,7 +37,7 @@ const Market = () => {
 								information="Реально крутой тренинг Реально крутой трг тренинг Реально крутой трг тренинг Реально крутой трг"
 								phoneCall={false}
 							></MarketItem>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</main>
