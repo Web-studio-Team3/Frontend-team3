@@ -33,7 +33,13 @@ const UserCard = ({ type }: userCardProps): JSX.Element => {
 	return (
 		<div className={styles.block}>
 			<div className={styles.photoBlock}>
-				<img src={userPhoto} alt="" className={styles.photo} />
+				<img
+					src={userPhoto}
+					alt="user"
+					className={styles.photo}
+					width={169}
+					height={169}
+				/>
 				{type === "my" ? (
 					<button type="button" className={styles.icon}>
 						<PlusIcon />

@@ -14,7 +14,13 @@ const MessageItem = ({
 }: MessageItemProps): JSX.Element => {
 	return (
 		<li className={styles.section}>
-			<img src={adPhoto} alt="ad" className={styles.image} />
+			<img
+				src={adPhoto}
+				alt="ad"
+				width={90}
+				height={103}
+				className={styles.image}
+			/>
 			<div className={styles.block}>
 				<div className={styles.line}>
 					<p className={classNames(styles.text, styles.textName)}>

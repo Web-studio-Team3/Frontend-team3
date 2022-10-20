@@ -50,7 +50,7 @@ const Header = (): JSX.Element => {
 				</li>
 				<li className={styles.item}>
 					<NavLink
-						to="/account/favorites"
+						to="/account/me/favorites"
 						className={({ isActive }) =>
 							isActive
 								? classNames(
