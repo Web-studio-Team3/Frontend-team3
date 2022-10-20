@@ -15,12 +15,15 @@ type CategoriesProps = {
 };
 
 const CategoriesBlock = styled.div`
+	flex: none;
+	margin-top: 45px;
 	border: 1px solid #72757e;
 	border-radius: 30px;
 	padding: 41px 34px 36px 34px;
 	display: flex;
 	flex-direction: column;
 	gap: 12px;
+
 	h5 {
 		font-family: "Ubuntu";
 		font-size: 21px;

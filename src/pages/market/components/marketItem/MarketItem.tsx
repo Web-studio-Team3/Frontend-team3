@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import styles from "./MarketItem.module.scss";
 
 type MarketItemProps = {
@@ -22,16 +23,17 @@ const MarketItem: React.FC<MarketItemProps> = ({
 				<p className={styles.title}>{title}</p>
 				<p className={styles.price}>{price} ₽</p>
 				<p className={styles.information}>{information}</p>
-				<div className={styles.buttonBlock}>
-					<button className={styles.button1}>
-						Написать в телеграм
-					</button>
-					{phoneCall ? (
-						<button className={styles.button2}>Позвонить</button>
-					) : (
-						<></>
-					)}
-				</div>
+			</div>
+			<div className={styles.buttonBlock}>
+				<button className={classNames(styles.button, styles.typeWrite)}>
+					Написать
+				</button>
+				<button
+					disabled={!phoneCall}
+					className={classNames(styles.button, styles.typeCall)}
+				>
+					Позвонить
+				</button>
 			</div>
 		</div>
 	);

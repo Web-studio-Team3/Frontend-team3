@@ -11,16 +11,16 @@
 }
 
 .mainContent {
-	margin-top: 30px;
-	flex-wrap: wrap;
-	justify-content: space-around;
+	width: 100%;
+	align-items: flex-start;
 	display: flex;
+	gap: 92px;
 }
 
 .ItemsBlock {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
-	max-width: 600px;
+
 	width: 100%;
 }

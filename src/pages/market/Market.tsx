@@ -29,15 +29,6 @@ const Market = () => {
 							actionCategory={replaceCategory}
 						/>
 						<Items />
-						{/* <div className={styles.ItemsBlock}>
-							<MarketItem
-								image={img}
-								title="БИЗНЕС тренинг"
-								price={5000}
-								information="Реально крутой тренинг Реально крутой трг тренинг Реально крутой трг тренинг Реально крутой трг"
-								phoneCall={false}
-							></MarketItem>
-						</div> */}
 					</div>
 				</div>
 			</main>
