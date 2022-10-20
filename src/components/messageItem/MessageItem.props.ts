@@ -1,4 +1,5 @@
 export interface MessageItemProps {
+	id: string | number;
 	name: string;
 	location?: string;
 	adName: string;

@@ -1,12 +1,10 @@
 import {
 	CalendarIcon,
-	BagIcon,
 	StarIcon,
 	HeartIcon,
 	ChatIcon,
-	WalletIcon,
 	SettingIcon,
-	SearchIcon,
+	HelpIcon,
 } from "@assets/icons/Icons";
 import classNames from "classnames";
 import { NavLink } from "react-router-dom";
@@ -29,21 +27,6 @@ const ProfileMenu = (): JSX.Element => {
 							<CalendarIcon />
 						</div>
 						<p className={styles.text}>Мои объявления</p>
-					</NavLink>
-				</li>
-				<li className={styles.item}>
-					<NavLink
-						to="./orders"
-						className={({ isActive }) =>
-							isActive
-								? classNames(styles.link, styles.linkActive)
-								: styles.link
-						}
-					>
-						<div className={styles.icon}>
-							<BagIcon />
-						</div>
-						<p className={styles.text}>Заказы</p>
 					</NavLink>
 				</li>
 				<li className={styles.item}>
@@ -91,26 +74,12 @@ const ProfileMenu = (): JSX.Element => {
 						<p className={styles.text}>Сообщения</p>
 					</NavLink>
 				</li>
-				<li className={styles.item}>
-					<NavLink
-						to="./wallet"
-						className={({ isActive }) =>
-							isActive
-								? classNames(styles.link, styles.linkActive)
-								: styles.link
-						}
-					>
-						<div className={styles.icon}>
-							<WalletIcon />
-						</div>
-						<p className={styles.text}>Кошелёк</p>
-					</NavLink>
-				</li>
 			</ul>
 			<ul className={classNames(styles.list, styles.listActive)}>
 				<li className={styles.item}>
 					<NavLink
-						to="./settings"
+						end
+						to="../account/me"
 						className={({ isActive }) =>
 							isActive
 								? classNames(styles.link, styles.linkActive)
@@ -133,7 +102,7 @@ const ProfileMenu = (): JSX.Element => {
 						}
 					>
 						<div className={styles.icon}>
-							<SearchIcon />
+							<HelpIcon />
 						</div>
 						<p className={styles.text}>Помощь</p>
 					</NavLink>

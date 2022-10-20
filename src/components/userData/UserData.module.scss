@@ -5,6 +5,7 @@
 	border-radius: 30px;
 	width: 100%;
 	padding: 30px;
+	position: relative;
 }
 
 .title {
@@ -20,7 +21,8 @@
 
 .item {
 	display: grid;
-	grid-template-columns: 1fr 2fr 22px;
+	grid-template-columns: 1fr 2fr;
+	justify-items: left;
 	padding: 10px 0px;
 	border-bottom: 1px solid #44444b;
 
@@ -43,6 +45,9 @@
 	border: none;
 	align-items: center;
 	padding: 0;
+	position: absolute;
+	right: 26px;
+	top: 26px;
 
 	&:hover svg {
 		stroke: $green;

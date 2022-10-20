@@ -1,5 +1,7 @@
-import { Account, AccountMessages, AccountSettings } from "@pages/account";
+import AccountLayout from "@pages/accountLayout";
+import { AnotherAccount, AccountAds } from "@pages/anotherAccount";
 import Error from "@pages/error";
+import { MyAccount, AccountMessages, AccountSettings } from "@pages/myAccount";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -7,9 +9,25 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<>main</>} />
-				<Route path="/account/" element={<Account />}>
-					<Route path="settings" element={<AccountSettings />} />
+				<Route
+					path="/account/me/"
+					element={
+						<AccountLayout type="my" component={<MyAccount />} />
+					}
+				>
+					<Route index element={<AccountSettings />} />
 					<Route path="messages" element={<AccountMessages />} />
+				</Route>
+				<Route
+					path="/account/id/"
+					element={
+						<AccountLayout
+							type="another"
+							component={<AnotherAccount />}
+						/>
+					}
+				>
+					<Route index element={<AccountAds />} />
 				</Route>
 				<Route path="/market" element={<>market</>} />
 				<Route path="/market-item" element={<>market-item</>} />
