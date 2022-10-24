@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import {
 	CalendarIcon,
 	StarIcon,
@@ -11,9 +12,23 @@ import { NavLink } from "react-router-dom";
 import styles from "./ProfileMenu.module.scss";
 
 const ProfileMenu = (): JSX.Element => {
+	const refsList = useRef<Array<HTMLUListElement | null>>([]);
+
+	const focusOnList = (i: 0 | 1): void => {
+		refsList.current.forEach((item) => {
+			if (item) {
+				item.classList.remove(styles.listActive);
+			}
+		});
+		refsList.current[i]?.classList.add(styles.listActive);
+	};
+
 	return (
 		<div className={styles.section}>
-			<ul className={styles.list}>
+			<ul
+				className={styles.list}
+				ref={(el) => (refsList.current[0] = el)}
+			>
 				<li className={styles.item}>
 					<NavLink
 						to="./my-ads"
@@ -22,6 +37,7 @@ const ProfileMenu = (): JSX.Element => {
 								? classNames(styles.link, styles.linkActive)
 								: styles.link
 						}
+						onClick={() => focusOnList(0)}
 					>
 						<div className={styles.icon}>
 							<CalendarIcon />
@@ -37,6 +53,7 @@ const ProfileMenu = (): JSX.Element => {
 								? classNames(styles.link, styles.linkActive)
 								: styles.link
 						}
+						onClick={() => focusOnList(0)}
 					>
 						<div className={styles.icon}>
 							<StarIcon />
@@ -52,6 +69,7 @@ const ProfileMenu = (): JSX.Element => {
 								? classNames(styles.link, styles.linkActive)
 								: styles.link
 						}
+						onClick={() => focusOnList(0)}
 					>
 						<div className={styles.icon}>
 							<HeartIcon />
@@ -67,6 +85,7 @@ const ProfileMenu = (): JSX.Element => {
 								? classNames(styles.link, styles.linkActive)
 								: styles.link
 						}
+						onClick={() => focusOnList(0)}
 					>
 						<div className={styles.icon}>
 							<ChatIcon />
@@ -75,7 +94,10 @@ const ProfileMenu = (): JSX.Element => {
 					</NavLink>
 				</li>
 			</ul>
-			<ul className={classNames(styles.list, styles.listActive)}>
+			<ul
+				className={classNames(styles.list, styles.listActive)}
+				ref={(el) => (refsList.current[1] = el)}
+			>
 				<li className={styles.item}>
 					<NavLink
 						end
@@ -85,6 +107,7 @@ const ProfileMenu = (): JSX.Element => {
 								? classNames(styles.link, styles.linkActive)
 								: styles.link
 						}
+						onClick={() => focusOnList(1)}
 					>
 						<div className={styles.icon}>
 							<SettingIcon />
@@ -100,6 +123,7 @@ const ProfileMenu = (): JSX.Element => {
 								? classNames(styles.link, styles.linkActive)
 								: styles.link
 						}
+						onClick={() => focusOnList(1)}
 					>
 						<div className={styles.icon}>
 							<HelpIcon />

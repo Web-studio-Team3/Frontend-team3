@@ -29,28 +29,28 @@
 
 	&Category {
 		box-sizing: border-box;
-		border: 3px solid $green-light;
+		border: 3px solid $green;
 		border-radius: 11px;
 		font-family: "Ubuntu";
 		font-weight: 400;
 		font-size: 16px;
 		line-height: 18px;
-		color: $green-light;
+		color: $green;
 		text-decoration: none;
 		padding: 4px 10px;
 	}
 
 	&CreateAd {
 		box-sizing: border-box;
-		background: #7e5af0;
+		background: $blue;
 		border-radius: 11px;
 		font-family: "Ubuntu";
 		font-weight: 400;
-		font-size: 20px;
-		line-height: 23px;
+		font-size: 19px;
+		line-height: 22px;
 		color: $white;
 		text-decoration: none;
-		padding: 13px 7px;
+		padding: 15px 12px;
 	}
 
 	&Icon svg {
@@ -93,11 +93,11 @@
 		position: absolute;
 		right: 0px;
 		bottom: 0;
-		background-color: #2D2D33;
+		background-color: $grey;
 		padding-left: 15px;
 		padding-right: 15px;
 		height: 36px;
-		border: 1px solid #72757E;
+		border: 1px solid $grey-light;
 		border-left: none;
 
 		& svg {
@@ -116,7 +116,7 @@
 	width: 100%;
 	position: relative;
 	height: 36px;
-	border: 1px solid #72757E;
+	border: 1px solid $grey-light;
 	border-radius: 8px;
 	background: none;
 	padding: 9px 46px 9px 12px;
