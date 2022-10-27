@@ -1,4 +1,3 @@
-import { LogoutIcon } from "@assets/icons/Icons";
 import MessageList from "@components/messageList";
 import styles from "./AccountMessages.module.scss";
 

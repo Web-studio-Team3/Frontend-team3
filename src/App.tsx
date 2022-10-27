@@ -3,8 +3,9 @@ import { AnotherAccount, AccountAds } from "@pages/anotherAccount";
 import Error from "@pages/error";
 import Market from "@pages/market";
 import { MyAccount, AccountMessages, AccountSettings } from "@pages/myAccount";
+import AccountFavorites from "@pages/myAccount/accountFavorites";
 import NavPage from "@pages/NavPage";
-import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 				>
 					<Route index element={<AccountSettings />} />
 					<Route path="messages" element={<AccountMessages />} />
+					<Route path="favorites" element={<AccountFavorites />} />
 				</Route>
 				<Route
 					path="/account/id/"
