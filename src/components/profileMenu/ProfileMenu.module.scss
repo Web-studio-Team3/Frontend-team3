@@ -23,20 +23,23 @@
 	margin-bottom: 15px;
 	cursor: pointer;
 
+
 	&:nth-last-child(-n + 1) {
 		margin-bottom: 0px;
 	}
 }
 
 .icon {
-	width: 25px;
-	height: 25px;
+	& svg {
+		width: 25px;
+		height: 25px;
+		vertical-align: middle;
+	}
 }
 
 .link {
 	display: flex;
 	gap: 15px;
-	height: 25px;
 	align-items: center;
 	text-decoration: none;
 

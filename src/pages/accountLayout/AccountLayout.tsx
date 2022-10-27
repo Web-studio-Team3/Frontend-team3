@@ -17,10 +17,6 @@ const AccountLayout = ({
 							Главная
 						</a>
 						&gt;&gt;
-						<a href="#" className={styles.link}>
-							Настройки
-						</a>
-						&gt;&gt;
 						<a
 							href="#"
 							className={classNames(
@@ -28,7 +24,7 @@ const AccountLayout = ({
 								styles.linkActive
 							)}
 						>
-							Профиль
+							Настройки
 						</a>
 					</p>
 					<div className={styles.content}>{component}</div>
