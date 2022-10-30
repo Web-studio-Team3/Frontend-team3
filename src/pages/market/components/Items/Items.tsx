@@ -86,7 +86,10 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 				</div>
 				<div>
 					<button>{Icon1}</button>
-					<button onClick={() => setItemsShort(!itemsShort)}>
+					<button
+						onClick={() => setItemsShort(!itemsShort)}
+						className={classNames({ [styles.active]: itemsShort })}
+					>
 						{Icon2}
 					</button>
 				</div>
