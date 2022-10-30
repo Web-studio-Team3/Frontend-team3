@@ -28,7 +28,7 @@ const Market = () => {
 							currentCategory={currentCategory}
 							actionCategory={replaceCategory}
 						/>
-						<Items />
+						<Items ItemsNumber={3091} />
 					</div>
 				</div>
 			</main>
