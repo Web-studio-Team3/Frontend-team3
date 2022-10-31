@@ -1,0 +1,8 @@
+@import "@styles/variables";
+.active {
+	svg {
+		path {
+			fill: $green;
+		}
+	}
+}
