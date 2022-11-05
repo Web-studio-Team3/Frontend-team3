@@ -1,4 +1,4 @@
-import FavoritesList from "@components/favoritesList";
+import FavoritesList from "@pages/myAccount/accountFavorites/components/favoritesList";
 import classNames from "classnames";
 import styles from "./AccountFavorites.module.scss";
 

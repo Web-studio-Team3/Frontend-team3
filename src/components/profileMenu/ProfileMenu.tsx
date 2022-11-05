@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import {
 	CalendarIcon,
 	StarIcon,
@@ -8,19 +8,34 @@ import {
 	HelpIcon,
 } from "@assets/icons/Icons";
 import classNames from "classnames";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import styles from "./ProfileMenu.module.scss";
 
 const ProfileMenu = (): JSX.Element => {
 	const refsList = useRef<Array<HTMLUListElement | null>>([]);
+	const path = useLocation().pathname.split("/");
+	const currentLocation = path[path.length - 1];
 
-	const focusOnList = (i: 0 | 1): void => {
+	useEffect(() => {
+		focusOnList();
+	}, [currentLocation]);
+
+	const focusOnList = (): void => {
 		refsList.current.forEach((item) => {
 			if (item) {
 				item.classList.remove(styles.listActive);
 			}
 		});
-		refsList.current[i]?.classList.add(styles.listActive);
+		if (
+			currentLocation === "my-ads" ||
+			currentLocation === "reviews" ||
+			currentLocation === "favorites" ||
+			currentLocation === "messages"
+		) {
+			refsList.current[0]?.classList.add(styles.listActive);
+		} else {
+			refsList.current[1]?.classList.add(styles.listActive);
+		}
 	};
 
 	return (
@@ -37,7 +52,6 @@ const ProfileMenu = (): JSX.Element => {
 								? classNames(styles.link, styles.linkActive)
 								: styles.link
 						}
-						onClick={() => focusOnList(0)}
 					>
 						<div className={styles.icon}>
 							<CalendarIcon />
@@ -53,7 +67,6 @@ const ProfileMenu = (): JSX.Element => {
 								? classNames(styles.link, styles.linkActive)
 								: styles.link
 						}
-						onClick={() => focusOnList(0)}
 					>
 						<div className={styles.icon}>
 							<StarIcon />
@@ -69,7 +82,6 @@ const ProfileMenu = (): JSX.Element => {
 								? classNames(styles.link, styles.linkActive)
 								: styles.link
 						}
-						onClick={() => focusOnList(0)}
 					>
 						<div className={styles.icon}>
 							<HeartIcon />
@@ -85,7 +97,6 @@ const ProfileMenu = (): JSX.Element => {
 								? classNames(styles.link, styles.linkActive)
 								: styles.link
 						}
-						onClick={() => focusOnList(0)}
 					>
 						<div className={styles.icon}>
 							<ChatIcon />
@@ -107,7 +118,6 @@ const ProfileMenu = (): JSX.Element => {
 								? classNames(styles.link, styles.linkActive)
 								: styles.link
 						}
-						onClick={() => focusOnList(1)}
 					>
 						<div className={styles.icon}>
 							<SettingIcon />
@@ -123,7 +133,6 @@ const ProfileMenu = (): JSX.Element => {
 								? classNames(styles.link, styles.linkActive)
 								: styles.link
 						}
-						onClick={() => focusOnList(1)}
 					>
 						<div className={styles.icon}>
 							<HelpIcon />
