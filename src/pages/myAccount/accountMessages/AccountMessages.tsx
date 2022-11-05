@@ -1,5 +1,5 @@
-import MessageList from "@components/messageList";
 import styles from "./AccountMessages.module.scss";
+import MessageList from "./components/messageList";
 
 const AccountMessages = (): JSX.Element => {
 	return (

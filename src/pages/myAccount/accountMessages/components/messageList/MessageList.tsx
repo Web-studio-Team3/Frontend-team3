@@ -1,6 +1,6 @@
-import MessageItem from "@components/messageItem";
-import { MessageItemProps } from "@components/messageItem/MessageItem.props";
-import MessagePlug from "@components/messagePlug";
+import MessageItem from "../messageItem";
+import { MessageItemProps } from "../messageItem/MessageItem.props";
+import MessagePlug from "../messagePlug";
 import styles from "./MessageList.module.scss";
 
 const MessageList = (): JSX.Element => {

@@ -1,5 +1,5 @@
 import UserData from "@components/userData";
-import UserSettings from "@components/userSettings";
+import UserSettings from "@pages/myAccount/accountSettings/components/userSettings";
 import styles from "./AccountAds.module.scss";
 
 const AccountAds = (): JSX.Element => {
