@@ -4,10 +4,10 @@ import classNames from "classnames";
 import styled from "styled-components";
 import FilterItem from "../FilterItem";
 import MarketItem from "../marketItem";
-
 import MarketItemShort from "../marketItemShort";
 import { Icon1, Icon2 } from "./icons";
 import styles from "./Items.module.scss";
+import { MarketItems } from "./marketItems";
 
 type ItemsProps = {
 	ItemsNumber: number;
@@ -36,9 +36,9 @@ const Content = styled.div`
 const ItemsBlock = styled.div`
 	padding: 30px 0;
 	gap: 30px;
-	flex-direction: column;
+	flex-direction: row;
+	flex-wrap: wrap;
 	display: flex;
-
 	border-top: 1px solid #72757e;
 `;
 
@@ -60,6 +60,14 @@ const Controller = styled.div`
 const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 	const [currenFilter, setFilter] = useState("Популярные");
 	const [itemsShort, setItemsShort] = useState(false);
+	const filteredItems =
+		currenFilter === "По убыванию"
+			? MarketItems.sort((a, b) => b.price - a.price)
+			: currenFilter === "По возрастанию"
+			? MarketItems.sort((a, b) => a.price - b.price)
+			: currenFilter === "Популярные"
+			? MarketItems
+			: MarketItems;
 
 	return (
 		<Content>
@@ -97,42 +105,25 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 			<ItemsBlock>
 				{!itemsShort ? (
 					<>
-						<MarketItem
-							image={img}
-							title="Playstation 4 + The last of us и джойстик"
-							price={25999}
-							information="Игровая приставка в идеальном состоянии (покупал для прохождения Tlou 2). Полный комплект, любые проверки, уместный торг."
-							phoneCall={true}
-						></MarketItem>
-						<MarketItem
-							image={img}
-							title="Фигурки Funko Pop"
-							price={1900}
-							information='"Funko Pop и amiibo 1900 каждая. Фигурки персонажей игр "убей софт" 4000 каждая. Раритетные фигурки Токсина, Расомахи и Байонетты 8000 каждая."'
-							phoneCall={false}
-						></MarketItem>
-						<MarketItem
-							image={img}
-							title="iPhone 11 128gb"
-							price={5000}
-							information="Реально крутой тренинг Реально крутой трг тренинг Реально крутой трг тренинг Реально крутой трг"
-							phoneCall={false}
-						></MarketItem>
-						<MarketItem
-							image={img}
-							title="БИЗНЕС тренинг"
-							price={28000}
-							information="Пользовалась сестра. В очень хорошем состоянии. Из недостатков, еле заметные коцки по корпусу, в остальном все как с завода. Пользовалась с января 2020. Ростест. Чек прилагается. Все родное, ничего не меняло.."
-							phoneCall={false}
-						></MarketItem>
+						{filteredItems.map((item) => (
+							<MarketItem
+								image={item.image}
+								title={item.title}
+								price={item.price}
+								information={item.information}
+								phoneCall={item.phoneCall}
+							/>
+						))}
 					</>
 				) : (
 					<>
-						<MarketItemShort
-							image={img}
-							title="БИЗНЕС тренинг"
-							price={28000}
-						/>
+						{MarketItems.map((item) => (
+							<MarketItemShort
+								image={item.image}
+								title={item.title}
+								price={item.price}
+							/>
+						))}
 					</>
 				)}
 			</ItemsBlock>

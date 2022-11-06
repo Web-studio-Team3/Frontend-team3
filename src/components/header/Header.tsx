@@ -22,7 +22,7 @@ const Header = (): JSX.Element => {
 				>
 					<CategoryIcon />
 				</button>
-				{/* <div className={styles.search}>
+				<div className={styles.search}>
 					<input
 						type="text"
 						className={styles.input}
@@ -37,7 +37,7 @@ const Header = (): JSX.Element => {
 					>
 						<SearchIcon />
 					</button>
-				</div> */}
+				</div>
 			</form>
 			<ul className={styles.menu}>
 				<li className={styles.item}>
