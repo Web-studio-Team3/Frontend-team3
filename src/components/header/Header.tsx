@@ -6,15 +6,15 @@ import {
 	CategoryIcon,
 } from "@assets/icons/Icons";
 import classNames from "classnames";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.scss";
 
 const Header = (): JSX.Element => {
 	return (
 		<header className={classNames(styles.section, "container")}>
-			<div className={styles.logo}>
+			<Link to="/" className={styles.logo}>
 				<LogoIcon />
-			</div>
+			</Link>
 			<form method="POST" className={styles.form}>
 				<button
 					type="button"
@@ -41,12 +41,12 @@ const Header = (): JSX.Element => {
 			</form>
 			<ul className={styles.menu}>
 				<li className={styles.item}>
-					<a
-						href="#"
+					<Link
+						to="/#"
 						className={classNames(styles.link, styles.linkCreateAd)}
 					>
 						Разместить объявление
-					</a>
+					</Link>
 				</li>
 				<li className={styles.item}>
 					<NavLink

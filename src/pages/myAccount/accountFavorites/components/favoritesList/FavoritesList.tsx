@@ -1,8 +1,8 @@
 import adImage1 from "@assets/img/ad-image1.png";
 import adImage2 from "@assets/img/ad-image2.png";
 import adImage3 from "@assets/img/ad-image3.png";
-import FavoritesItem from "@components/favoritesItem";
-import { FavoritesItemProps } from "@components/favoritesItem/FavoritesItem.props";
+import FavoritesItem from "./../favoritesItem";
+import { FavoritesItemProps } from "./../favoritesItem/FavoritesItem.props";
 import styles from "./FavoritesList.module.scss";
 
 const FavoritesList = (): JSX.Element => {
