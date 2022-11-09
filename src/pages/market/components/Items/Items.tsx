@@ -1,10 +1,8 @@
 import { useState } from "react";
-import img from "@assets/img/market.png";
+import { ShopItem, ShopItemSize } from "@components/ShopItem";
 import classNames from "classnames";
 import styled from "styled-components";
 import FilterItem from "../FilterItem";
-import MarketItem from "../marketItem";
-import MarketItemShort from "../marketItemShort";
 import { Icon1, Icon2 } from "./icons";
 import styles from "./Items.module.scss";
 import { MarketItems } from "./marketItems";
@@ -59,7 +57,13 @@ const Controller = styled.div`
 
 const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 	const [currenFilter, setFilter] = useState("Популярные");
-	const [itemsShort, setItemsShort] = useState(false);
+
+	const [itemsShort, setItemsShort] = useState(ShopItemSize.standart);
+	const changeItemSize = () => {
+		itemsShort === ShopItemSize.standart
+			? setItemsShort(ShopItemSize.short)
+			: setItemsShort(ShopItemSize.standart);
+	};
 	const filteredItems =
 		currenFilter === "По убыванию"
 			? MarketItems.sort((a, b) => b.price - a.price)
@@ -95,37 +99,26 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 				<div>
 					<button>{Icon1}</button>
 					<button
-						onClick={() => setItemsShort(!itemsShort)}
-						className={classNames({ [styles.active]: itemsShort })}
+						onClick={() => changeItemSize()}
+						className={classNames({
+							[styles.active]: itemsShort === ShopItemSize.short,
+						})}
 					>
 						{Icon2}
 					</button>
 				</div>
 			</Controller>
 			<ItemsBlock>
-				{!itemsShort ? (
-					<>
-						{filteredItems.map((item) => (
-							<MarketItem
-								image={item.image}
-								title={item.title}
-								price={item.price}
-								information={item.information}
-								phoneCall={item.phoneCall}
-							/>
-						))}
-					</>
-				) : (
-					<>
-						{MarketItems.map((item) => (
-							<MarketItemShort
-								image={item.image}
-								title={item.title}
-								price={item.price}
-							/>
-						))}
-					</>
-				)}
+				{filteredItems.map((item) => (
+					<ShopItem
+						image={item.image}
+						title={item.title}
+						price={item.price}
+						information={item.information}
+						phoneCall={item.phoneCall}
+						size={itemsShort}
+					/>
+				))}
 			</ItemsBlock>
 		</Content>
 	);
