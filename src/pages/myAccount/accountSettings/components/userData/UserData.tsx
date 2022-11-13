@@ -1,7 +1,8 @@
+import { FC } from "react";
 import { PlusIcon } from "@assets/icons/Icons";
 import styles from "./UserData.module.scss";
 
-const UserData = (): JSX.Element => {
+const UserData: FC = () => {
 	return (
 		<div className={styles.block}>
 			<h2 className={styles.title}>Личные данные</h2>

@@ -6,12 +6,12 @@
 	gap: 20px;
 	justify-content: space-between;
 	align-items: center;
-	height: 94px;
 	position: relative;
+	padding: 12px 0px;
 }
 
 .logo svg {
-	width: 210px;
+	width: 280px;
 	height: 46px;
 }
 
@@ -26,18 +26,15 @@
 
 .link {
 	display: inline-block;
+	text-decoration: none;
 
-	&Category {
-		box-sizing: border-box;
-		border: 3px solid $green;
-		border-radius: 11px;
-		font-family: "Ubuntu";
-		font-weight: 400;
-		font-size: 16px;
-		line-height: 18px;
-		color: $green;
+	&Text {
+		font-weight: 300;
+		font-size: 11px;
+		line-height: 13px;
+		color: $white;
 		text-decoration: none;
-		padding: 4px 10px;
+		margin-top: 4px;
 	}
 
 	&CreateAd {
@@ -46,21 +43,27 @@
 		border-radius: 11px;
 		font-family: "Ubuntu";
 		font-weight: 400;
-		font-size: 19px;
-		line-height: 22px;
+		font-size: 18px;
+		line-height: 21px;
 		color: $white;
 		text-decoration: none;
-		padding: 15px 12px;
+		padding: 12.5px 12px;
 	}
 
-	&Icon svg {
-		height: 30px;
-		width: auto;
-		vertical-align: middle;
+	&Icon {
+		text-decoration: none;
+		justify-content: center;
+		display: flex;
+		flex-direction: column;
+
+		& svg {
+			height: 30px;
+			width: auto;
+			vertical-align: middle;
+		}
 	}
 
-	&Icon:hover,
-	&IconActive {
+	&Icon:hover {
 		& svg {
 			stroke: $green;
 		}
@@ -71,7 +74,6 @@
 	display: flex;
 	gap: 20px;
 	align-items: center;
-	margin-right: 20px;
 	flex-grow: 2;
 }
 
@@ -79,11 +81,16 @@
 	vertical-align: middle;
 	cursor: pointer;
 
+	&Text {
+		font-weight: 300;
+		font-size: 11px;
+		line-height: 13px;
+		color: $white;
+	}
+
 	&Category {
 		background: none;
 		border: none;
-		width: 32px;
-		height: 32px;
 	}
 
 	&Search {
@@ -94,14 +101,16 @@
 		right: 0px;
 		bottom: 0;
 		background-color: $grey;
-		padding-left: 15px;
-		padding-right: 15px;
-		height: 36px;
+		padding-left: 12px;
+		padding-right: 12px;
+		height: 46px;
 		border: 1px solid $grey-light;
 		border-left: none;
 
 		& svg {
 			vertical-align: middle;
+			width: 22px;
+			height: 21px;
 		}
 	}
 }
@@ -115,7 +124,7 @@
 .input {
 	width: 100%;
 	position: relative;
-	height: 36px;
+	height: 46px;
 	border: 1px solid $grey-light;
 	border-radius: 8px;
 	background: none;

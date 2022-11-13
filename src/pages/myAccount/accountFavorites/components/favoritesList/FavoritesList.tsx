@@ -1,3 +1,4 @@
+import { FC } from "react";
 import adImage1 from "@assets/img/ad-image1.png";
 import adImage2 from "@assets/img/ad-image2.png";
 import adImage3 from "@assets/img/ad-image3.png";
@@ -5,7 +6,7 @@ import FavoritesItem from "./../favoritesItem";
 import { FavoritesItemProps } from "./../favoritesItem/FavoritesItem.props";
 import styles from "./FavoritesList.module.scss";
 
-const FavoritesList = (): JSX.Element => {
+const FavoritesList: FC = () => {
 	const ads = [
 		{
 			id: "1",

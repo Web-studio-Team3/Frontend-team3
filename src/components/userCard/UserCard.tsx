@@ -1,10 +1,11 @@
+import { FC } from "react";
 import { PlusIcon, ShieldDoneIcon, StarIcon } from "@assets/icons/Icons";
 import userPhoto from "@assets/img/user-photo.png";
 import classNames from "classnames";
 import styles from "./UserCard.module.scss";
 import { userCardProps } from "./UserCardProps";
 
-const UserCard = ({ type }: userCardProps): JSX.Element => {
+const UserCard: FC<userCardProps> = ({ type }) => {
 	const rating = (
 		<div className={styles.rating}>
 			<ul className={styles.list}>

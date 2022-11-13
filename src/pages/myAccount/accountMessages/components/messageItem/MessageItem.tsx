@@ -1,17 +1,18 @@
+import { FC } from "react";
 import { NewMessageIcon } from "@assets/icons/Icons";
 import adPhoto from "@assets/img/ad-image.png";
 import classNames from "classnames";
 import styles from "./MessageItem.module.scss";
 import { MessageItemProps } from "./MessageItem.props";
 
-const MessageItem = ({
+const MessageItem: FC<MessageItemProps> = ({
 	name,
 	location,
 	adName,
 	price,
 	message,
 	isRead,
-}: MessageItemProps): JSX.Element => {
+}) => {
 	return (
 		<li className={styles.section}>
 			<img

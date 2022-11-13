@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, FC } from "react";
 import {
 	CalendarIcon,
 	StarIcon,
@@ -11,7 +11,7 @@ import classNames from "classnames";
 import { NavLink, useLocation } from "react-router-dom";
 import styles from "./ProfileMenu.module.scss";
 
-const ProfileMenu = (): JSX.Element => {
+const ProfileMenu: FC = () => {
 	const refsList = useRef<Array<HTMLUListElement | null>>([]);
 	const path = useLocation().pathname.split("/");
 	const currentLocation = path[path.length - 1];

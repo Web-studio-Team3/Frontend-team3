@@ -1,10 +1,11 @@
+import { FC } from "react";
 import { LogoutIcon, ShieldDoneIcon } from "@assets/icons/Icons";
 import UserSettings from "@pages/myAccount/accountSettings/components/userSettings";
 import classNames from "classnames";
 import styles from "./AccountSettings.module.scss";
 import UserData from "./components/userData";
 
-const AccountSettings = (): JSX.Element => {
+const AccountSettings: FC = () => {
 	return (
 		<div className={styles.section}>
 			<div className={styles.heading}>

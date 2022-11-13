@@ -1,8 +1,9 @@
+import { FC } from "react";
 import FavoritesList from "@pages/myAccount/accountFavorites/components/favoritesList";
 import classNames from "classnames";
 import styles from "./AccountFavorites.module.scss";
 
-const AccountFavorites = (): JSX.Element => {
+const AccountFavorites: FC = () => {
 	return (
 		<div className={styles.section}>
 			<div className={styles.heading}>

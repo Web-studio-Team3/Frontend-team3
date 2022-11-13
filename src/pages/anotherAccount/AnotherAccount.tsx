@@ -1,8 +1,9 @@
+import { FC } from "react";
 import UserCard from "@components/userCard";
 import { Outlet } from "react-router-dom";
 import styles from "./AnotherAccount.module.scss";
 
-const AnotherAccount = (): JSX.Element => {
+const AnotherAccount: FC = () => {
 	return (
 		<>
 			<div className={styles.menu}>

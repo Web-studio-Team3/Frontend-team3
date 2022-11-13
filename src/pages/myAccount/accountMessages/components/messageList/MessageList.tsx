@@ -1,9 +1,10 @@
+import { FC } from "react";
 import MessageItem from "../messageItem";
 import { MessageItemProps } from "../messageItem/MessageItem.props";
 import MessagePlug from "../messagePlug";
 import styles from "./MessageList.module.scss";
 
-const MessageList = (): JSX.Element => {
+const MessageList: FC = () => {
 	const messages = [
 		{
 			id: "1",

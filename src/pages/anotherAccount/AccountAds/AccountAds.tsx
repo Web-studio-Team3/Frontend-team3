@@ -1,8 +1,9 @@
+import { FC } from "react";
 import UserSettings from "@pages/myAccount/accountSettings/components/userSettings";
 import UserData from "./../../myAccount/accountSettings/components/userData";
 import styles from "./AccountAds.module.scss";
 
-const AccountAds = (): JSX.Element => {
+const AccountAds: FC = () => {
 	return (
 		<div className={styles.section}>
 			<div className={styles.heading}>
