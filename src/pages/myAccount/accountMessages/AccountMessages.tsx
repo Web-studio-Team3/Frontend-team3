@@ -1,7 +1,8 @@
+import { FC } from "react";
 import styles from "./AccountMessages.module.scss";
 import MessageList from "./components/messageList";
 
-const AccountMessages = (): JSX.Element => {
+const AccountMessages: FC = () => {
 	return (
 		<div className={styles.section}>
 			<div className={styles.heading}>

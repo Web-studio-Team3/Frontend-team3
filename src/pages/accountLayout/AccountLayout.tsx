@@ -1,12 +1,10 @@
+import { FC } from "react";
 import Header from "@components/header";
 import classNames from "classnames";
 import styles from "./AccountLayout.module.scss";
 import { AccountLayoutProps } from "./AccountLayoutProps";
 
-const AccountLayout = ({
-	type,
-	component,
-}: AccountLayoutProps): JSX.Element => {
+const AccountLayout: FC<AccountLayoutProps> = ({ type, component }) => {
 	return (
 		<>
 			<Header />

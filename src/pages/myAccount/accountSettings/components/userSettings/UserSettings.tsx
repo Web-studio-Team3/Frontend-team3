@@ -1,8 +1,9 @@
+import { FC } from "react";
 import { PlusIcon } from "@assets/icons/Icons";
 import classNames from "classnames";
 import styles from "./UserSettings.module.scss";
 
-const UserSettings = (): JSX.Element => {
+const UserSettings: FC = () => {
 	return (
 		<div className={styles.block}>
 			<h2 className={styles.title}>Общие настройки</h2>

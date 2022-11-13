@@ -1,3 +1,4 @@
+import { FC } from "react";
 import {
 	ProfileIcon,
 	LogoIcon,
@@ -9,7 +10,7 @@ import classNames from "classnames";
 import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.scss";
 
-const Header = (): JSX.Element => {
+const Header: FC = () => {
 	return (
 		<header className="container">
 			<div className={styles.section}>
