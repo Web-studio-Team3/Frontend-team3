@@ -1,6 +1,6 @@
 @import "@styles/variables.scss";
 
-.item {
+.itemStandart {
 	padding: 16px 32px 32px 16px;
 	display: flex;
 	gap: 30px;
@@ -12,6 +12,23 @@
 		border-radius: 15px;
 		flex: none;
 		width: 240px;
+		height: 180px;
+	}
+}
+
+.itemShort {
+	padding: 8px 8px 42px 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 17px;
+	width: min-content;
+	background-color: $grey;
+	color: $white;
+	border-radius: 30px;
+
+	img {
+		flex: none;
+		width: 250px;
 		height: 180px;
 	}
 }
@@ -40,7 +57,7 @@
 	}
 }
 
-.buttonBlock {
+.buttonBlockStandart {
 	display: flex;
 	flex-direction: column;
 	padding: 16px 0 0 20px;
@@ -63,4 +80,8 @@
 	.typeCall {
 		background-color: #7f5af0;
 	}
+}
+
+.buttonBlockShort {
+	display: none;
 }
