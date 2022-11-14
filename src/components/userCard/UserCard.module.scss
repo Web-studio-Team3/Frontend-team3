@@ -69,37 +69,22 @@
 	font-size: 16px;
 	line-height: 19px;
 	color: $white;
+	text-decoration: none;
 
 	&Reviews {
 		font-weight: 200;
 		line-height: 21px;
 		vertical-align: middle;
 	}
+
+	&Active {
+		color: $green;
+	}
 }
 
 .rating {
 	display: flex;
-	justify-content: space-between;
+	gap: 11px;
 	align-items: center;
 	margin-top: 10px;
-}
-
-.list {
-	display: flex;
-	gap: 3px;
-}
-
-.item {
-	width: 21.33px;
-	height: 21.33px;
-
-	& svg {
-		vertical-align: middle;
-		width: 100%;
-		height: 100%;
-	}
-
-	&Filled svg {
-		fill: #D7D7D7;
-	}
 }

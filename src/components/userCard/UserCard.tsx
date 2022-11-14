@@ -1,33 +1,27 @@
 import { FC } from "react";
 import { PlusIcon, ShieldDoneIcon, StarIcon } from "@assets/icons/Icons";
 import userPhoto from "@assets/img/user-photo.png";
+import RatingStars from "@components/ratingStars";
 import classNames from "classnames";
+import { NavLink } from "react-router-dom";
 import styles from "./UserCard.module.scss";
 import { userCardProps } from "./UserCardProps";
 
-const UserCard: FC<userCardProps> = ({ type }) => {
+const UserCard: FC<userCardProps> = ({ type, userRating }) => {
+	const currentRating = userRating || 0;
 	const rating = (
 		<div className={styles.rating}>
-			<ul className={styles.list}>
-				<li className={classNames(styles.item, styles.itemFilled)}>
-					<StarIcon />
-				</li>
-				<li className={classNames(styles.item, styles.itemFilled)}>
-					<StarIcon />
-				</li>
-				<li className={classNames(styles.item, styles.itemFilled)}>
-					<StarIcon />
-				</li>
-				<li className={classNames(styles.item, styles.itemFilled)}>
-					<StarIcon />
-				</li>
-				<li className={styles.item}>
-					<StarIcon />
-				</li>
-			</ul>
-			<p className={classNames(styles.text, styles.textReviews)}>
-				3 отзыва
-			</p>
+			<RatingStars currentRating={currentRating} />
+			<NavLink
+				to="./reviews"
+				className={({ isActive }) =>
+					isActive
+						? classNames(styles.text, styles.textActive)
+						: styles.text
+				}
+			>
+				1 отзыв
+			</NavLink>
 		</div>
 	);
 

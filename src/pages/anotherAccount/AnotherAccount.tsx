@@ -7,7 +7,7 @@ const AnotherAccount: FC = () => {
 	return (
 		<>
 			<div className={styles.menu}>
-				<UserCard type="another" />
+				<UserCard type="another" userRating={5} />
 			</div>
 			<Outlet />
 		</>

@@ -1,6 +1,4 @@
 import { FC } from "react";
-import UserSettings from "@pages/myAccount/accountSettings/components/userSettings";
-import UserData from "./../../myAccount/accountSettings/components/userData";
 import styles from "./AccountAds.module.scss";
 
 const AccountAds: FC = () => {
@@ -11,10 +9,7 @@ const AccountAds: FC = () => {
 					<p className={styles.text}>ОБЪЯВЛЕНИЯ</p>
 				</div>
 			</div>
-			<div className={styles.content}>
-				<UserData />
-				<UserSettings />
-			</div>
+			<div className={styles.content}></div>
 		</div>
 	);
 };
