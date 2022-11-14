@@ -1,0 +1,27 @@
+@import "@styles/variables.scss";
+
+.rating {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.list {
+	display: flex;
+	gap: 3px;
+}
+
+.item {
+	width: 21.33px;
+	height: 21.33px;
+
+	& svg {
+		vertical-align: middle;
+		width: 100%;
+		height: 100%;
+	}
+
+	&Filled svg {
+		fill: #D7D7D7;
+	}
+}
