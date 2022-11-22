@@ -21,10 +21,7 @@ function App() {
 					<Route index element={<AccountSettings />} />
 					<Route path="messages" element={<AccountMessages />} />
 					<Route path="favorites" element={<AccountFavorites />} />
-					<Route
-						path="reviews"
-						element={<AccountReviews title="МОИ ОТЗЫВЫ" />}
-					/>
+					<Route path="reviews" element={<AccountReviews />} />
 				</Route>
 				<Route
 					path="/account/id/"
@@ -36,10 +33,7 @@ function App() {
 					}
 				>
 					<Route index element={<AccountAds />} />
-					<Route
-						path="reviews"
-						element={<AccountReviews title="1 отзыв" />}
-					/>
+					<Route path="reviews" element={<AccountReviews />} />
 				</Route>
 				<Route path="*" element={<Error />} />
 			</Routes>

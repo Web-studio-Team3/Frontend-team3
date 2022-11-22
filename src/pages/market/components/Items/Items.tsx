@@ -1,8 +1,8 @@
 import { useState } from "react";
+import FilterItem from "@components/FilterItem";
 import { ShopItem, ShopItemSize } from "@components/ShopItem";
 import classNames from "classnames";
 import styled from "styled-components";
-import FilterItem from "../FilterItem";
 import { Icon1, Icon2 } from "./icons";
 import styles from "./Items.module.scss";
 import { MarketItems } from "./marketItems";
@@ -40,7 +40,7 @@ const ItemsBlock = styled.div`
 	border-top: 1px solid #72757e;
 `;
 
-const Controller = styled.div`
+export const Controller = styled.div`
 	width: 100%;
 	padding: 14px 16px 5px 16px;
 	display: flex;
