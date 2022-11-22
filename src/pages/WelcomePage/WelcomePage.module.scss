@@ -1,0 +1,71 @@
+@import "@styles/variables.scss";
+
+.page {
+	width: 100%;
+}
+
+.body {
+	padding: 30px 0;
+	gap: 30px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.WelcomeText {
+	display: block;
+	max-width: 1090px;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 800;
+	font-size: 64px;
+	line-height: 77px;
+	text-align: center;
+
+	background: linear-gradient(
+		180deg,
+		#42c1a9 0%,
+		rgba(255, 255, 255, 0) 100%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+}
+
+.line {
+	width: 100%;
+	border-top: 1px solid #72757e;
+}
+
+@media (max-width: 700px) {
+	.warningText {
+		font-size: 250px;
+	}
+
+	.text {
+		font-size: 28px;
+	}
+}
+
+@media (max-width: 500px) {
+	.warningText {
+		font-size: 180px;
+	}
+
+	.text {
+		font-size: 24px;
+	}
+}
+
+@media (max-width: 400px) {
+	.warningText {
+		font-size: 150px;
+	}
+
+	.text {
+		font-size: 20px;
+	}
+}

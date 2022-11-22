@@ -5,13 +5,15 @@ import Error from "@pages/error";
 import Market from "@pages/market";
 import { MyAccount, AccountMessages, AccountSettings } from "@pages/myAccount";
 import AccountFavorites from "@pages/myAccount/accountFavorites";
+import { WelcomePage } from "@pages/WelcomePage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<Market />} />
+				<Route path="/" element={<WelcomePage />} />
+				<Route path="/market" element={<Market />} />
 				<Route
 					path="/account/me/"
 					element={
