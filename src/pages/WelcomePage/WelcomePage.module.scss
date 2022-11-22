@@ -39,33 +39,3 @@
 	width: 100%;
 	border-top: 1px solid #72757e;
 }
-
-@media (max-width: 700px) {
-	.warningText {
-		font-size: 250px;
-	}
-
-	.text {
-		font-size: 28px;
-	}
-}
-
-@media (max-width: 500px) {
-	.warningText {
-		font-size: 180px;
-	}
-
-	.text {
-		font-size: 24px;
-	}
-}
-
-@media (max-width: 400px) {
-	.warningText {
-		font-size: 150px;
-	}
-
-	.text {
-		font-size: 20px;
-	}
-}
