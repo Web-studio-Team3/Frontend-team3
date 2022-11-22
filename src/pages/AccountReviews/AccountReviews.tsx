@@ -1,34 +1,41 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+import FilterItem from "@components/FilterItem";
 import styles from "./AccountReviews.module.scss";
-import { AccountReviewsProps } from "./AccountReviews.props";
-import FilterItem from "./components/FilterItem";
 import GradeDistribution from "./components/gradeDistribution";
-import ReviewCard from "./components/reviewCard";
+import ReviewList from "./components/reviewList";
 import UserRating from "./components/userRating";
 
-const AccountReviews: FC<AccountReviewsProps> = ({ title }) => {
+const AccountReviews: FC = () => {
+	const [currenFilter, setFilter] = useState("Популярные");
+
 	return (
 		<div className={styles.section}>
 			<div className={styles.heading}>
 				<div className={styles.title}>
-					<p className={styles.text}>{title}</p>
+					<p className={styles.text}>ОТЗЫВЫ</p>
 				</div>
-				<div className={styles.filters}>
-					<FilterItem currentFilter="Популярные" title="Популярные" />
+				<ul className={styles.filters}>
 					<FilterItem
-						currentFilter="Популярные"
+						currentFilter={currenFilter}
+						title="Популярные"
+						updateCurrentFilter={setFilter}
+					/>
+					<FilterItem
+						currentFilter={currenFilter}
 						title="Сначала хорошие"
+						updateCurrentFilter={setFilter}
 					/>
 					<FilterItem
-						currentFilter="Популярные"
+						currentFilter={currenFilter}
 						title="Сначала плохие"
+						updateCurrentFilter={setFilter}
 					/>
-				</div>
+				</ul>
 			</div>
 			<div className={styles.content}>
 				<UserRating />
 				<GradeDistribution />
-				<ReviewCard />
+				<ReviewList />
 			</div>
 		</div>
 	);

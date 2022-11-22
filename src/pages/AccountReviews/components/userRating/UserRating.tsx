@@ -8,11 +8,11 @@ const UserRating: FC = () => {
 		<div className={styles.block}>
 			<div className={styles.line}>
 				<p className={classNames(styles.text, styles.textRating)}>
-					5,0
+					4,5
 				</p>
 				<RatingStars currentRating={5} />
 			</div>
-			<p className={styles.text}>на основании 1 оценки</p>
+			<p className={styles.text}>на основании 2 оценок</p>
 		</div>
 	);
 };
