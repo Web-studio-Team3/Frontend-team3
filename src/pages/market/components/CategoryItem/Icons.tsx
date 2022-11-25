@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
-type RightArrowProps = {
+type RightArrowProps = React.HTMLAttributes<SVGElement> & {
 	active?: boolean;
 };
 
-const RightArrowSVG = styled.svg`
-	// path:hover {
-	// 	stroke: green;
-	// }
-`;
+const RightArrowSVG = styled.svg``;
 
-export const RightArrow: React.FC<RightArrowProps> = ({ active = false }) => {
+export const RightArrow: React.FC<RightArrowProps> = ({
+	active = false,
+	...prop
+}) => {
 	return (
 		<RightArrowSVG
+			{...prop}
 			width="8"
 			height="12"
 			viewBox="0 0 8 14"

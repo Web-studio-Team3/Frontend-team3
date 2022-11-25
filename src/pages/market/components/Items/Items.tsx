@@ -36,6 +36,7 @@ const ItemsBlock = styled.div`
 	gap: 30px;
 	flex-direction: row;
 	flex-wrap: wrap;
+	justify-content: space-between;
 	display: flex;
 	border-top: 1px solid #72757e;
 `;

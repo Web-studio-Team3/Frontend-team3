@@ -21,6 +21,10 @@ const Category = styled.p`
 	.active {
 		color: green;
 	}
+	.svgActive {
+		transform: rotate(90deg);
+		transition: 0.5s;
+	}
 `;
 
 type CategoryItemProps = {
@@ -37,7 +41,10 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
 	const active = currentCategory === text ? true : false;
 	return (
 		<Category onClick={onClick}>
-			<RightArrow active={active} />
+			<RightArrow
+				active={active}
+				className={classNames({ svgActive: active })}
+			/>
 			<span className={classNames({ active: active })}>{text}</span>
 		</Category>
 	);

@@ -1,0 +1,37 @@
+.wrapper {
+	width: 100%;
+	background: #2d2d33;
+	border-radius: 16px;
+	padding: 21px 12px 21px 28px;
+}
+
+.hidden {
+	display: none;
+}
+
+.content {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	p {
+		max-width: 660px;
+		font-family: "Ubuntu";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 18px;
+		color: #fffffe;
+		line-height: 133.9%;
+	}
+	a {
+		color: #2cb67d;
+		border-bottom: 2px solid #2cb67d;
+		text-decoration: none;
+	}
+}
+
+.buttonClose {
+	cursor: pointer;
+	background-color: inherit;
+	border: none;
+	display: flex;
+}
