@@ -30,7 +30,9 @@ export const ShopItem: FC<ShopItemProps> = ({
 			<div className={styles.info}>
 				<p className={styles.title}>{title}</p>
 				<p className={styles.price}>{price} ₽</p>
-				<p className={styles.information}>{information}</p>
+				{size === ShopItemSize.standart ? (
+					<p className={styles.information}>{information}</p>
+				) : null}
 			</div>
 			<div className={styles[`buttonBlock${size}`]}>
 				<button className={classNames(styles.button, styles.typeWrite)}>
