@@ -2,6 +2,7 @@ import AccountLayout from "@pages/accountLayout";
 import AccountReviews from "@pages/AccountReviews";
 import { AnotherAccount, AccountAds } from "@pages/anotherAccount";
 import Error from "@pages/error";
+import { LoginPage } from "@pages/LoginPage";
 import Market from "@pages/market";
 import { MyAccount, AccountMessages, AccountSettings } from "@pages/myAccount";
 import AccountFavorites from "@pages/myAccount/accountFavorites";
@@ -36,6 +37,7 @@ function App() {
 					<Route path="reviews" element={<AccountReviews />} />
 				</Route>
 				<Route path="*" element={<Error />} />
+				<Route path="/login" element={<LoginPage />} />
 			</Routes>
 		</BrowserRouter>
 	);
