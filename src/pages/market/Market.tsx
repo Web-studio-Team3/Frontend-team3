@@ -20,7 +20,11 @@ const Market = () => {
 							actionCategory={replaceCategory}
 						/>
 						<div className={styles.mainContent}>
-							<WelcomeBlock />
+							{localStorage.getItem("login") === "true" ? (
+								<WelcomeBlock />
+							) : (
+								<></>
+							)}
 							<Items ItemsNumber={3091} />
 						</div>
 					</div>

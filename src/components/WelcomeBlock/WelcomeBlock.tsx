@@ -1,15 +1,13 @@
 import { FC, useState } from "react";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
-import { WelcomeBlockProps } from ".";
 import styles from "./WelcomeBlock.module.scss";
 
-export const WelcomeBlock: FC<WelcomeBlockProps> = (props) => {
+export const WelcomeBlock = () => {
 	const [hidden, setHidden] = useState(false);
 	return (
 		<div
 			className={classNames(styles.wrapper, { [styles.hidden]: hidden })}
-			{...props}
 		>
 			<div className={styles.content}>
 				<p>
@@ -19,8 +17,8 @@ export const WelcomeBlock: FC<WelcomeBlockProps> = (props) => {
 					</p>
 					<p>
 						<Link to=".">Зарегистрируйтесь</Link> или{" "}
-						<Link to=".">Войдите</Link>, чтобы воспользоваться всеми
-						функциями.
+						<Link to="/login">Войдите</Link>, чтобы воспользоваться
+						всеми функциями.
 					</p>
 				</p>
 				<button

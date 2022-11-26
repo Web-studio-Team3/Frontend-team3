@@ -14,7 +14,7 @@ const Header: FC = () => {
 	return (
 		<header className="container">
 			<div className={styles.section}>
-				<Link to="/market" className={styles.logo}>
+				<Link to="/" className={styles.logo}>
 					<LogoIcon />
 				</Link>
 				<form method="POST" className={styles.form}>
