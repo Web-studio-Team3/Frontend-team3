@@ -9,6 +9,12 @@ import styles from "./Market.module.scss";
 
 const Market = () => {
 	const [currentCategory, replaceCategory] = useState("");
+	const [upd, setUpd] = useState("");
+	setInterval(() => {
+		if (localStorage.getItem("Login") !== "true") {
+			setUpd("  ");
+		}
+	}, 1000);
 	return (
 		<>
 			<Header />
@@ -20,7 +26,7 @@ const Market = () => {
 							actionCategory={replaceCategory}
 						/>
 						<div className={styles.mainContent}>
-							{localStorage.getItem("login") === "true" ? (
+							{localStorage.getItem("Login") !== "true" ? (
 								<WelcomeBlock />
 							) : (
 								<></>

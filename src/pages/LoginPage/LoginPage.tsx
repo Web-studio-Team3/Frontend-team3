@@ -32,10 +32,8 @@ export const LoginPage = () => {
 				<button
 					className={styles.loginButton}
 					onClick={() => {
-						// eslint-disable-next-line no-console
-						console.log(Login + " " + Password);
 						SetLoginSucces(true);
-						localStorage.setItem("login", "true");
+						localStorage.setItem("Login", "true");
 					}}
 				>
 					Вход

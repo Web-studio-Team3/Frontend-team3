@@ -1,5 +1,5 @@
 @import "@styles/variables.scss";
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
 
 .section {
 	display: flex;
@@ -22,7 +22,8 @@
 	align-items: center;
 }
 
-.item {}
+.item {
+}
 
 .link {
 	display: inline-block;
@@ -118,7 +119,6 @@
 .search {
 	position: relative;
 	flex-grow: 2;
-
 }
 
 .input {
@@ -135,5 +135,15 @@
 	line-height: 17px;
 	box-sizing: border-box;
 
-	&::placeholder {}
+	&::placeholder {
+	}
+}
+
+.exitButton {
+	background-color: inherit;
+	border: none;
+	cursor: pointer;
+	&Hidden {
+		display: none;
+	}
 }
