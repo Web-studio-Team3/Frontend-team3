@@ -17,7 +17,7 @@
 }
 
 .itemShort {
-	padding: 8px 8px 42px 8px;
+	padding: 8px 0px 42px 0;
 	display: flex;
 	flex-direction: column;
 	gap: 17px;
@@ -25,13 +25,18 @@
 	min-width: 200px;
 	background-color: $grey;
 	color: $white;
-	border-radius: 30px;
+	border-radius: 23px;
+	box-sizing: border-box;
 
 	img {
 		flex: none;
 		margin: 0 auto;
-		width: 95%;
-		height: 150px;
+		width: 100%;
+		height: 174px;
+		border-top-left-radius: 15px;
+		border-top-right-radius: 15px;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
 	}
 }
 
@@ -41,17 +46,20 @@
 	gap: 5px;
 	display: flex;
 	flex-direction: column;
+	padding: 0px 8px;
 
 	.title {
 		font-weight: 700;
 		font-size: 18px;
 		line-height: 22px;
 	}
+
 	.price {
 		font-weight: 700;
 		font-size: 24px;
 		line-height: 29px;
 	}
+
 	.information {
 		font-size: 14px;
 		line-height: 17px;
@@ -64,6 +72,7 @@
 	flex-direction: column;
 	padding: 16px 0 0 20px;
 	gap: 14px;
+
 	.button {
 		cursor: pointer;
 		border: none;
@@ -72,13 +81,16 @@
 		font-size: 20px;
 		line-height: 24px;
 		color: $white;
+
 		&:disabled {
 			opacity: 0.25;
 		}
 	}
+
 	.typeWrite {
 		background-color: #59c598;
 	}
+
 	.typeCall {
 		background-color: #7f5af0;
 	}
