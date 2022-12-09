@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Breadcrumbs from "@components/breadcrumbs";
 import Header from "@components/header";
 import classNames from "classnames";
 import styles from "./AccountLayout.module.scss";
@@ -10,21 +11,7 @@ const AccountLayout: FC<AccountLayoutProps> = ({ type, component }) => {
 			<Header />
 			<main className={styles.layout}>
 				<div className={classNames(styles.body, "container")}>
-					<p className={styles.breadcrumbs}>
-						<a href="#" className={styles.link}>
-							Главная
-						</a>
-						&gt;&gt;
-						<a
-							href="#"
-							className={classNames(
-								styles.link,
-								styles.linkActive
-							)}
-						>
-							Настройки
-						</a>
-					</p>
+					<Breadcrumbs />
 					<div className={styles.content}>{component}</div>
 				</div>
 			</main>

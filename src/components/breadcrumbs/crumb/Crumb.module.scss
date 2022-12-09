@@ -1,0 +1,12 @@
+@import "@styles/variables.scss";
+
+.link {
+    color: $white;
+    text-decoration: none;
+    cursor: pointer;
+
+    &Active {
+        color: $green;
+        cursor: default;
+    }
+}
