@@ -7,14 +7,57 @@ import {
 	SettingIcon,
 	HelpIcon,
 } from "@assets/icons/Icons";
+import { IBreadCrumbsLocationState } from "@components/breadcrumbs/Breadcrumbs";
 import classNames from "classnames";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { v4 } from "uuid";
 import styles from "./ProfileMenu.module.scss";
 
 const ProfileMenu: FC = () => {
 	const refsList = useRef<Array<HTMLUListElement | null>>([]);
-	const path = useLocation().pathname.split("/");
-	const currentLocation = path[path.length - 1];
+	const path = useLocation().pathname;
+	const splittedPath = path.split("/");
+	const currentLocation = splittedPath[splittedPath.length - 1];
+	console.log("render profile");
+	const navigate = useNavigate();
+	const state = useLocation().state as IBreadCrumbsLocationState[];
+
+	const initialBreadCrumbs = [
+		{
+			id: v4(),
+			path: "/",
+			title: "Главная",
+		},
+		{
+			id: v4(),
+			path: "/account/me",
+			title: "Профиль",
+		},
+	];
+
+	useEffect(() => {
+		let state = initialBreadCrumbs;
+		switch (currentLocation) {
+			case "reviews":
+				state = [...state, { id: v4(), path, title: "Отзывы" }];
+				break;
+			case "favorites":
+				state = [...state, { id: v4(), path, title: "Избранное" }];
+				break;
+			case "my-ads":
+				state = [...state, { id: v4(), path, title: "Мои объявления" }];
+				break;
+			case "messages":
+				state = [...state, { id: v4(), path, title: "Сообщения" }];
+				break;
+			case "help":
+				state = [...state, { id: v4(), path, title: "Помощь" }];
+				break;
+			default:
+				break;
+		}
+		if (state) navigate(path, { state });
+	}, [path, state === null]);
 
 	useEffect(() => {
 		focusOnList();

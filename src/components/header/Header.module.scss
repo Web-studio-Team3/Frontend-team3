@@ -22,8 +22,7 @@
 	align-items: center;
 }
 
-.item {
-}
+.item {}
 
 .link {
 	display: inline-block;
@@ -135,14 +134,14 @@
 	line-height: 17px;
 	box-sizing: border-box;
 
-	&::placeholder {
-	}
+	&::placeholder {}
 }
 
 .exitButton {
 	background-color: inherit;
 	border: none;
 	cursor: pointer;
+
 	&Hidden {
 		display: none;
 	}
