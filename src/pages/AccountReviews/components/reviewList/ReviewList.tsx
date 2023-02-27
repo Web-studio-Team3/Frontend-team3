@@ -1,24 +1,18 @@
 import { FC } from "react";
+import { ReviewListItem } from "@pages/AccountReviews/AccountReviews";
 import ReviewCard from "../reviewCard";
 import styles from "./ReviewList.module.scss";
 
-const ReviewList: FC = () => {
+export type ReviewListProps = {
+	reviews: ReviewListItem[];
+};
+
+const ReviewList: FC<ReviewListProps> = ({ reviews }) => {
 	return (
 		<ul className={styles.list}>
-			<ReviewCard
-				id={1}
-				userName="Вася"
-				ad="Худи оверсайз"
-				reviewText="Очень ответсвенный продавец, хорошая коммуникация по сделкам, внимательная и хорошая упаковка товара. "
-				rate={5}
-			/>
-			<ReviewCard
-				id={2}
-				userName="Иван"
-				ad="Iphone 11"
-				reviewText="Телефон полностью соответствует описанию, только коробка пришла помятой"
-				rate={4}
-			/>
+			{reviews.map((review) => (
+				<ReviewCard key={review.id} {...review} />
+			))}
 		</ul>
 	);
 };

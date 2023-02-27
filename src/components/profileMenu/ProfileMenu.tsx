@@ -18,7 +18,7 @@ const ProfileMenu: FC = () => {
 	const path = useLocation().pathname;
 	const splittedPath = path.split("/");
 	const currentLocation = splittedPath[splittedPath.length - 1];
-	console.log("render profile");
+
 	const navigate = useNavigate();
 	const state = useLocation().state as IBreadCrumbsLocationState[];
 
