@@ -44,8 +44,6 @@
 }
 
 .icon {
-	width: 22px;
-	height: 22px;
 	background: none;
 	border: none;
 	align-items: center;
@@ -53,6 +51,12 @@
 	position: absolute;
 	right: 26px;
 	top: 26px;
+
+	& svg {
+		width: 22px;
+		height: 22px;
+		display: block;
+	}
 
 	&:hover svg {
 		stroke: $green;
