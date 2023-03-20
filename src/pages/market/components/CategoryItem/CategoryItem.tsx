@@ -1,31 +1,8 @@
 import { ReactEventHandler } from "react";
 import classNames from "classnames";
 import styled from "styled-components";
+import styles from "./CategoryItem.module.scss";
 import { RightArrow } from "./Icons";
-
-const Category = styled.p`
-	font-family: "Ubuntu";
-	font-size: 16px;
-	cursor: pointer;
-	color: white;
-
-	&:hover {
-		color: green;
-		svg path {
-			stroke: green;
-		}
-	}
-	span {
-		padding-left: 10px;
-	}
-	.active {
-		color: green;
-	}
-	.svgActive {
-		transform: rotate(90deg);
-		transition: 0.5s;
-	}
-`;
 
 type CategoryItemProps = {
 	text: string;
@@ -40,13 +17,15 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
 }) => {
 	const active = currentCategory === text ? true : false;
 	return (
-		<Category onClick={onClick}>
+		<p onClick={onClick} className={classNames(styles.p)}>
 			<RightArrow
 				active={active}
-				className={classNames({ svgActive: active })}
+				className={classNames({ [styles.svgActive]: active })}
 			/>
-			<span className={classNames({ active: active })}>{text}</span>
-		</Category>
+			<span className={classNames({ [styles.active]: active })}>
+				{text}
+			</span>
+		</p>
 	);
 };
 
