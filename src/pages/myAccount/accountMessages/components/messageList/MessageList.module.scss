@@ -1,7 +1,11 @@
 .section {
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
-    height: 535px;
-    overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 35px;
+	height: 535px;
+	overflow-y: auto;
+}
+
+.link {
+	text-decoration: none;
 }
