@@ -623,3 +623,95 @@ export const CategoryIcon = (): JSX.Element => {
 		</svg>
 	);
 };
+
+export const BackArrowIcon = (): JSX.Element => {
+	return (
+		<svg
+			width="39"
+			height="39"
+			viewBox="0 0 39 39"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			stroke="white"
+		>
+			<path
+				d="M11.3279 19.5H27.6719"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M18.8564 27.0038C18.8564 27.0038 11.3284 21.9478 11.3284 19.4998C11.3284 17.0518 18.8564 12.0038 18.8564 12.0038"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M19.5 1C5.626 1 1 5.626 1 19.5C1 33.374 5.626 38 19.5 38C33.374 38 38 33.374 38 19.5C38 5.626 33.374 1 19.5 1Z"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+		</svg>
+	);
+};
+
+export const SendIcon = (): JSX.Element => {
+	return (
+		<svg
+			width="32"
+			height="26"
+			viewBox="0 0 32 26"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			stroke="white"
+		>
+			<path
+				d="M1 13.0491L31 13.0491"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M13.1006 25.098C13.1006 25.098 1.00059 18.576 1.00059 13.052C1.00059 7.524 13.1006 1 13.1006 1"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+		</svg>
+	);
+};
+
+export const UploadIcon = (): JSX.Element => {
+	return (
+		<svg
+			width="39"
+			height="39"
+			viewBox="0 0 39 39"
+			fill="none"
+			stroke="white"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				d="M19.2578 25.082V1"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M25.0898 19.2285L19.2578 25.0845L13.4258 19.2285"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M28.24 10.0173C35.398 10.6773 38 13.3573 38 24.0173C38 38.2173 33.378 38.2173 19.5 38.2173C5.618 38.2173 1 38.2173 1 24.0173C1 13.3573 3.6 10.6773 10.76 10.0173"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+		</svg>
+	);
+};

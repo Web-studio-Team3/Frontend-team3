@@ -17,7 +17,9 @@ const ProfileMenu: FC = () => {
 	const refsList = useRef<Array<HTMLUListElement | null>>([]);
 	const path = useLocation().pathname;
 	const splittedPath = path.split("/");
-	const currentLocation = splittedPath[splittedPath.length - 1];
+	const currentLocation = isNaN(Number(splittedPath[splittedPath.length - 1]))
+		? splittedPath[splittedPath.length - 1]
+		: splittedPath[splittedPath.length - 2];
 
 	const navigate = useNavigate();
 	const state = useLocation().state as IBreadCrumbsLocationState[];
@@ -37,6 +39,8 @@ const ProfileMenu: FC = () => {
 
 	useEffect(() => {
 		let state = initialBreadCrumbs;
+		console.log(currentLocation);
+
 		switch (currentLocation) {
 			case "reviews":
 				state = [...state, { id: v4(), path, title: "Отзывы" }];
