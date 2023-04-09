@@ -1,11 +1,13 @@
 import AccountLayout from "@pages/accountLayout";
 import AccountReviews from "@pages/AccountReviews";
 import { AnotherAccount, AccountAds } from "@pages/anotherAccount";
+import { CreateNewItem } from "@pages/CreateNewItem";
 import Error from "@pages/error";
 import { LoginPage } from "@pages/LoginPage";
 import Market from "@pages/market";
 import { MyAccount, AccountMessages, AccountSettings } from "@pages/myAccount";
 import AccountFavorites from "@pages/myAccount/accountFavorites";
+import Registration from "@pages/Registration/Registration";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -38,6 +40,11 @@ function App() {
 				</Route>
 				<Route path="*" element={<Error />} />
 				<Route path="/login" element={<LoginPage />} />
+				<Route path="/registration" element={<Registration />} />
+				<Route
+					path="/create-new-item-page"
+					element={<CreateNewItem />}
+				/>
 			</Routes>
 		</BrowserRouter>
 	);
