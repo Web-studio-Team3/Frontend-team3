@@ -99,3 +99,11 @@
 .buttonBlockShort {
 	display: none;
 }
+
+.link {
+	text-decoration: none;
+	&:hover > div {
+		background: #202023;
+		transition: background 0.2s ease-out;
+	}
+}

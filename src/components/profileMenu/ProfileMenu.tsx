@@ -9,63 +9,17 @@ import {
 } from "@assets/icons/Icons";
 import { IBreadCrumbsLocationState } from "@components/breadcrumbs/Breadcrumbs";
 import classNames from "classnames";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { v4 } from "uuid";
+import { NavLink, useLocation } from "react-router-dom";
 import styles from "./ProfileMenu.module.scss";
 
 const ProfileMenu: FC = () => {
 	const refsList = useRef<Array<HTMLUListElement | null>>([]);
-	const path = useLocation().pathname;
-	const splittedPath = path.split("/");
-	const currentLocation = isNaN(Number(splittedPath[splittedPath.length - 1]))
-		? splittedPath[splittedPath.length - 1]
-		: splittedPath[splittedPath.length - 2];
-
-	const navigate = useNavigate();
 	const state = useLocation().state as IBreadCrumbsLocationState[];
-
-	const initialBreadCrumbs = [
-		{
-			id: v4(),
-			path: "/",
-			title: "Главная",
-		},
-		{
-			id: v4(),
-			path: "/account/me",
-			title: "Профиль",
-		},
-	];
-
-	useEffect(() => {
-		let state = initialBreadCrumbs;
-		console.log(currentLocation);
-
-		switch (currentLocation) {
-			case "reviews":
-				state = [...state, { id: v4(), path, title: "Отзывы" }];
-				break;
-			case "favorites":
-				state = [...state, { id: v4(), path, title: "Избранное" }];
-				break;
-			case "my-ads":
-				state = [...state, { id: v4(), path, title: "Мои объявления" }];
-				break;
-			case "messages":
-				state = [...state, { id: v4(), path, title: "Сообщения" }];
-				break;
-			case "help":
-				state = [...state, { id: v4(), path, title: "Помощь" }];
-				break;
-			default:
-				break;
-		}
-		if (state) navigate(path, { state });
-	}, [path, state === null]);
+	const currentLocation = state ? state[state.length - 1].title : "";
 
 	useEffect(() => {
 		focusOnList();
-	}, [currentLocation]);
+	}, [state]);
 
 	const focusOnList = (): void => {
 		refsList.current.forEach((item) => {
@@ -74,10 +28,10 @@ const ProfileMenu: FC = () => {
 			}
 		});
 		if (
-			currentLocation === "my-ads" ||
-			currentLocation === "reviews" ||
-			currentLocation === "favorites" ||
-			currentLocation === "messages"
+			currentLocation === "Мои объявления" ||
+			currentLocation === "Отзывы" ||
+			currentLocation === "Избранное" ||
+			currentLocation === "Сообщения"
 		) {
 			refsList.current[0]?.classList.add(styles.listActive);
 		} else {

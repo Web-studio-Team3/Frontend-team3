@@ -2,6 +2,7 @@ import img from "@assets/img/market.png";
 
 const MarketItems = [
 	{
+		id: 1,
 		image: img,
 		title: "Playstation 4 + The last of us и джойстик",
 		price: 25999,
@@ -10,6 +11,7 @@ const MarketItems = [
 		phoneCall: true,
 	},
 	{
+		id: 2,
 		image: img,
 		title: "Фигурки Funko Pop",
 		price: 1900,
@@ -18,6 +20,7 @@ const MarketItems = [
 		phoneCall: false,
 	},
 	{
+		id: 3,
 		image: img,
 		title: "iPhone 11 128gb",
 		price: 5000,
@@ -26,6 +29,7 @@ const MarketItems = [
 		phoneCall: false,
 	},
 	{
+		id: 4,
 		image: img,
 		title: "БИЗНЕС тренинг",
 		price: 28000,
@@ -34,6 +38,7 @@ const MarketItems = [
 		phoneCall: false,
 	},
 	{
+		id: 5,
 		image: img,
 		title: "БИЗНЕС тренинг",
 		price: 28000,
@@ -42,6 +47,7 @@ const MarketItems = [
 		phoneCall: false,
 	},
 	{
+		id: 6,
 		image: img,
 		title: "БИЗНЕС тренинг",
 		price: 28000,

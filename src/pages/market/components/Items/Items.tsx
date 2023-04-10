@@ -112,6 +112,7 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 			<ItemsBlock>
 				{filteredItems.map((item) => (
 					<ShopItem
+						id={item.id}
 						image={item.image}
 						title={item.title}
 						price={item.price}
