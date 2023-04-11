@@ -10,7 +10,7 @@
 .body {
 }
 
-.content {
+.wrapper {
 	width: 100%;
 	align-items: flex-start;
 	display: flex;
@@ -18,5 +18,16 @@
 
 	& > div {
 		margin-top: 0px;
+	}
+}
+
+.content {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 63px;
+
+	.similarAdverts {
+		grid-column: 1 / -1;
+		grid-row: span 2;
 	}
 }

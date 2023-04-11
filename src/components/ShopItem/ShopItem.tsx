@@ -1,7 +1,8 @@
 import { FC } from "react";
 import { IBreadCrumbsLocationState } from "@components/breadcrumbs/Breadcrumbs";
 import classNames from "classnames";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import cn from "classnames";
+import { useLocation, useNavigate } from "react-router-dom";
 import { v4 } from "uuid";
 import styles from "./ShopItem.module.scss";
 
@@ -36,7 +37,6 @@ export const ShopItem: FC<ShopItemProps> = ({
 
 	const handleItemClick = () => {
 		const newState = [
-			state[0],
 			{ id: v4(), path: "/", title: "Объявления" },
 			{ id: v4(), path, title },
 		];
@@ -47,29 +47,28 @@ export const ShopItem: FC<ShopItemProps> = ({
 	};
 
 	return (
-		<div className={styles.link} onClick={handleItemClick}>
-			<div className={styles[`item${size}`]}>
-				<img src={image} alt="" />
-				<div className={styles.info}>
-					<p className={styles.title}>{title}</p>
-					<p className={styles.price}>{price} ₽</p>
-					{size === ShopItemSize.standart ? (
-						<p className={styles.information}>{information}</p>
-					) : null}
-				</div>
-				<div className={styles[`buttonBlock${size}`]}>
-					<button
-						className={classNames(styles.button, styles.typeWrite)}
-					>
-						Написать
-					</button>
-					<button
-						disabled={!phoneCall}
-						className={classNames(styles.button, styles.typeCall)}
-					>
-						Позвонить
-					</button>
-				</div>
+		<div
+			className={cn(styles[`item${size}`], styles.link)}
+			onClick={handleItemClick}
+		>
+			<img src={image} alt="" />
+			<div className={styles.info}>
+				<p className={styles.title}>{title}</p>
+				<p className={styles.price}>{price} ₽</p>
+				{size === ShopItemSize.standart ? (
+					<p className={styles.information}>{information}</p>
+				) : null}
+			</div>
+			<div className={styles[`buttonBlock${size}`]}>
+				<button className={classNames(styles.button, styles.typeWrite)}>
+					Написать
+				</button>
+				<button
+					disabled={!phoneCall}
+					className={classNames(styles.button, styles.typeCall)}
+				>
+					Позвонить
+				</button>
 			</div>
 		</div>
 	);
