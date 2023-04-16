@@ -3,7 +3,7 @@ import AccountReviews from "@pages/AccountReviews";
 import { AnotherAccount, AccountAds } from "@pages/anotherAccount";
 import { CreateNewItem } from "@pages/CreateNewItem";
 import Error from "@pages/error";
-import { LoginPage } from "@pages/LoginPage";
+import Login from "@pages/Login/Login";
 import Market from "@pages/market";
 import { MyAccount, AccountMessages, AccountSettings } from "@pages/myAccount";
 import AccountFavorites from "@pages/myAccount/accountFavorites";
@@ -39,8 +39,9 @@ function App() {
 					<Route path="reviews" element={<AccountReviews />} />
 				</Route>
 				<Route path="*" element={<Error />} />
-				<Route path="/login" element={<LoginPage />} />
+				<Route path="/login" element={<Login />} />
 				<Route path="/registration" element={<Registration />} />
+				<Route path="/login" element={<Registration />} />
 				<Route
 					path="/create-new-item-page"
 					element={<CreateNewItem />}

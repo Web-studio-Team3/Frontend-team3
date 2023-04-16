@@ -1,38 +1,25 @@
-import { Form, Input, Button, DatePicker } from "antd";
-import RegistrationService from "./../../Services/Auth/Auth";
+import { Form, Button, DatePicker, Input, Upload } from "antd";
+import { UploadChangeParam } from "antd/lib/upload";
+import { UploadFile } from "antd/lib/upload/interface";
 import styles from "./Registration.module.scss";
+import RegistrationFinish from "./Utils/RegistrationFinish";
 
 export const Registration = () => {
 	const [form] = Form.useForm();
 
-	const onFinish = () => {
-		const email = form.getFieldValue("email");
-		const raw_password = form.getFieldValue("raw_password");
-		const full_name = form.getFieldValue("full_name");
-		const date = new Date(form.getFieldValue("date_of_birth"));
-
-		const date_of_birth =
-			date.getDate() +
-			"-" +
-			(date.getMonth() + 1) +
-			"-" +
-			date.getFullYear();
-
-		const data = {
-			email,
-			raw_password,
-			full_name,
-			date_of_birth,
-		};
-
-		RegistrationService.registration(data);
+	const updateFileFormValue = (e: UploadChangeParam<UploadFile<any>>) => {
+		return e && e.fileList;
 	};
 
 	return (
 		<div className={styles.page}>
 			<main className={styles.body}>
 				<h1>Регистрация</h1>
-				<Form layout="vertical" onFinish={onFinish} form={form}>
+				<Form
+					layout="vertical"
+					onFinish={() => RegistrationFinish({ form })}
+					form={form}
+				>
 					<Form.Item
 						name="email"
 						rules={[
@@ -41,12 +28,15 @@ export const Registration = () => {
 								message: "Поле не может быть пустым",
 							},
 						]}
-						label="email"
 					>
-						<Input placeholder={"Введите Ваш email"} allowClear />
+						<Input
+							className={styles.input}
+							autoComplete="off"
+							placeholder={"Введите логин"}
+							type="text"
+						/>
 					</Form.Item>
-				</Form>
-				<Form layout="vertical" onFinish={onFinish} form={form}>
+
 					<Form.Item
 						name="raw_password"
 						rules={[
@@ -55,16 +45,14 @@ export const Registration = () => {
 								message: "Поле не может быть пустым",
 							},
 						]}
-						label="Пароль"
 					>
 						<Input
+							className={styles.input}
+							autoComplete="off"
 							placeholder={"Придумайте пароль"}
 							type="password"
-							allowClear
 						/>
 					</Form.Item>
-				</Form>
-				<Form layout="vertical" onFinish={onFinish} form={form}>
 					<Form.Item
 						name="full_name"
 						rules={[
@@ -73,12 +61,12 @@ export const Registration = () => {
 								message: "Поле не может быть пустым",
 							},
 						]}
-						label="ФИО"
 					>
-						<Input placeholder={"Ваше имя?"} allowClear />
+						<Input
+							className={styles.input}
+							placeholder={"Ваше имя?"}
+						/>
 					</Form.Item>
-				</Form>
-				<Form layout="vertical" onFinish={onFinish} form={form}>
 					<Form.Item
 						name="date_of_birth"
 						rules={[
@@ -87,13 +75,34 @@ export const Registration = () => {
 								message: "Поле не может быть пустым",
 							},
 						]}
-						label="Дата рождения"
 					>
 						<DatePicker
-							style={{ width: "200px" }}
+							className={styles.input}
+							allowClear={false}
 							placeholder={"Ваш день рождения?"}
-							allowClear
 						/>
+					</Form.Item>
+					<Form.Item
+						name="picture"
+						rules={[
+							{
+								required: true,
+								message: "Загрузите фотографию",
+							},
+						]}
+						valuePropName="fileList"
+						getValueFromEvent={updateFileFormValue}
+						label="Фотография"
+						className={styles.upload}
+					>
+						<Upload
+							// onChange={base64Uploader}
+							maxCount={1}
+							multiple={false}
+							beforeUpload={() => false}
+						>
+							<Button>Загрузить фотографию</Button>
+						</Upload>
 					</Form.Item>
 					<Form.Item>
 						<Button
