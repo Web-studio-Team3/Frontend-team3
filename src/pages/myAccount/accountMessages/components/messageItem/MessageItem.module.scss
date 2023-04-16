@@ -10,6 +10,10 @@
 	grid-template-columns: 90px 1fr 32px;
 	align-items: center;
 	column-gap: 20px;
+	&:hover {
+		background: #202023;
+		transition: background 0.2s ease-out;
+	}
 }
 
 .image {
@@ -19,7 +23,8 @@
 	height: 103px;
 }
 
-.block {}
+.block {
+}
 
 .line {
 	display: flex;
@@ -61,4 +66,5 @@
 	}
 }
 
-.icon {}
+.icon {
+}
