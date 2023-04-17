@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { FavoriteIcon } from "@assets/icons/Icons";
+import { ArrowControlIcon, FavoriteIcon } from "@assets/icons/Icons";
 import ItemImage from "@assets/img/ad-image1.png";
 import Breadcrumbs from "@components/breadcrumbs/Breadcrumbs";
 import Header from "@components/header";
@@ -30,37 +30,74 @@ const MarketItemPage: FC = () => {
 									<img
 										src={ItemImage}
 										alt="Iphone 12"
-										className={styles.CurrentImage}
+										className={styles.currentImage}
+										width={378}
+										height={291}
 									/>
 									<div className={styles.imagePointers}>
-										<span className={styles.pointer} />
+										<span
+											className={cn(
+												styles.pointer,
+												styles.pointerActive
+											)}
+										/>
 										<span className={styles.pointer} />
 										<span className={styles.pointer} />
 									</div>
 									<div className={styles.imageThumbnails}>
-										<img
-											src={ItemImage}
-											alt="thumbnail"
-											className={styles.thumbnail}
-										/>
-										<img
-											src={ItemImage}
-											alt="thumbnail"
-											className={styles.thumbnail}
-										/>
-										<img
-											src={ItemImage}
-											alt="thumbnail"
-											className={styles.thumbnail}
-										/>
+										<button
+											className={styles.controlButton}
+										>
+											<ArrowControlIcon
+												className={cn(
+													styles.arrow,
+													styles.arrowLeft
+												)}
+											/>
+										</button>
+										<div className={styles.thumbnailsBlock}>
+											<img
+												src={ItemImage}
+												alt="thumbnail"
+												className={styles.thumbnail}
+												width={85}
+												height={66}
+											/>
+											<img
+												src={ItemImage}
+												alt="thumbnail"
+												className={styles.thumbnail}
+											/>
+											<img
+												src={ItemImage}
+												alt="thumbnail"
+												className={styles.thumbnail}
+											/>
+										</div>
+										<button
+											className={styles.controlButton}
+										>
+											<ArrowControlIcon
+												className={cn(
+													styles.arrow,
+													styles.arrowRight
+												)}
+											/>
+										</button>
 									</div>
 								</div>
 								<div className={styles.description}>
-									<p className={styles.heading}>Описание</p>
-									<p className={styles.text}></p>
+									<p className={styles.heading}>Описание:</p>
+									<p className={styles.text}>
+										Продам айфон 12. Использовался 7
+										месяцев, идеальное состояние, 512 гб
+										памяти, синий цвет
+									</p>
 								</div>
 								<div className={styles.features}>
-									<p className={styles.heading}></p>
+									<p className={styles.heading}>
+										Характеристики:
+									</p>
 									<p className={styles.text}>
 										<span className={styles.textKey}>
 											Состояние:
@@ -123,9 +160,27 @@ const MarketItemPage: FC = () => {
 									48.990p
 								</p>
 								<div className={styles.favorite}>
-									<FavoriteIcon />
-									<p className={styles.text}>В избранное</p>
-									<p className={styles.text}>
+									<div className={styles.favoriteBlock}>
+										<button
+											className={styles.favoriteButton}
+										>
+											<FavoriteIcon />
+										</button>
+										<p
+											className={cn(
+												styles.text,
+												styles.textSmall
+											)}
+										>
+											В избранное
+										</p>
+									</div>
+									<p
+										className={cn(
+											styles.text,
+											styles.textSmall
+										)}
+									>
 										<span className={styles.textKey}>
 											Размещено:
 										</span>{" "}
@@ -145,7 +200,11 @@ const MarketItemPage: FC = () => {
 										Позвонить
 									</button>
 								</div>
-								<UserCard type="another" />
+								<UserCard
+									type="another"
+									size="s"
+									userRating={4}
+								/>
 							</div>
 							<div className={styles.similarAdverts}>
 								<p
@@ -154,7 +213,7 @@ const MarketItemPage: FC = () => {
 										styles.headingLarge
 									)}
 								>
-									Похожие объявления
+									Похожие объявления:
 								</p>
 								<ShopItemList
 									itemList={MarketItems.slice(

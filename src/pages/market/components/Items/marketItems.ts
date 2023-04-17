@@ -1,10 +1,11 @@
-import img from "@assets/img/market.png";
+import img2 from "@assets/img/ad-image1.png";
+import img1 from "@assets/img/market.png";
 
 const MarketItems = [
 	{
 		id: 1,
-		image: img,
-		title: "Playstation 4 + The last of us и джойстик",
+		image: img1,
+		title: "Playstation 4",
 		price: 25999,
 		information:
 			"Игровая приставка в идеальном состоянии (покупал для прохождения Tlou 2). Полный комплект, любые проверки, уместный торг.",
@@ -12,7 +13,7 @@ const MarketItems = [
 	},
 	{
 		id: 2,
-		image: img,
+		image: img1,
 		title: "Фигурки Funko Pop",
 		price: 1900,
 		information:
@@ -21,16 +22,16 @@ const MarketItems = [
 	},
 	{
 		id: 3,
-		image: img,
-		title: "iPhone 11 128gb",
-		price: 5000,
+		image: img2,
+		title: "iPhone 12 512gb",
+		price: 48990,
 		information:
-			"Реально крутой тренинг Реально крутой трг тренинг Реально крутой трг тренинг Реально крутой трг",
+			"Продам айфон 12. Использовался 7 месяцев, идеальное состояние, 512 гб памяти, синий цвет",
 		phoneCall: false,
 	},
 	{
 		id: 4,
-		image: img,
+		image: img1,
 		title: "БИЗНЕС тренинг",
 		price: 28000,
 		information:
@@ -39,7 +40,7 @@ const MarketItems = [
 	},
 	{
 		id: 5,
-		image: img,
+		image: img1,
 		title: "БИЗНЕС тренинг",
 		price: 28000,
 		information:
@@ -48,7 +49,7 @@ const MarketItems = [
 	},
 	{
 		id: 6,
-		image: img,
+		image: img1,
 		title: "БИЗНЕС тренинг",
 		price: 28000,
 		information:

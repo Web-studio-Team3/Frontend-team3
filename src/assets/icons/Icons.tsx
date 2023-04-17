@@ -1,3 +1,5 @@
+import { FC } from "react";
+
 export const BagIcon = (): JSX.Element => {
 	return (
 		<svg
@@ -749,6 +751,26 @@ export const FavoriteIcon = (): JSX.Element => {
 					<rect width="36" height="36" fill="white" />
 				</clipPath>
 			</defs>
+		</svg>
+	);
+};
+
+export const ArrowControlIcon: FC<React.SVGAttributes<SVGAElement>> = ({
+	className,
+}): JSX.Element => {
+	return (
+		<svg
+			className={className}
+			width="19"
+			height="31"
+			viewBox="0 0 19 31"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				d="M18.3141 15.4971L0.592448 30.9771L0.0416686 0.671247L18.3141 15.4971Z"
+				fill="white"
+			/>
 		</svg>
 	);
 };

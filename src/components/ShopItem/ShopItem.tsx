@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { FavoriteIcon } from "@assets/icons/Icons";
 import { IBreadCrumbsLocationState } from "@components/breadcrumbs/Breadcrumbs";
 import classNames from "classnames";
 import cn from "classnames";
@@ -32,7 +33,7 @@ export const ShopItem: FC<ShopItemProps> = ({
 }) => {
 	const state = useLocation().state as IBreadCrumbsLocationState[];
 	console.log(state);
-	const path = useLocation().pathname + `advert/${id}`;
+	const path = `/advert/${id}`;
 	const navigate = useNavigate();
 
 	const handleItemClick = () => {
@@ -40,7 +41,6 @@ export const ShopItem: FC<ShopItemProps> = ({
 			{ id: v4(), path: "/", title: "Объявления" },
 			{ id: v4(), path, title },
 		];
-		console.log(newState);
 		navigate(path, {
 			state: newState,
 		});
@@ -52,12 +52,27 @@ export const ShopItem: FC<ShopItemProps> = ({
 			onClick={handleItemClick}
 		>
 			<img src={image} alt="" />
+			{size === ShopItemSize.short ? (
+				<div className={styles.imagePointers}>
+					<span
+						className={cn(styles.pointer, styles.pointerActive)}
+					/>
+					<span className={styles.pointer} />
+					<span className={styles.pointer} />
+				</div>
+			) : null}
 			<div className={styles.info}>
 				<p className={styles.title}>{title}</p>
 				<p className={styles.price}>{price} ₽</p>
+
 				{size === ShopItemSize.standart ? (
 					<p className={styles.information}>{information}</p>
-				) : null}
+				) : (
+					<p className={styles.date}>Сегодня, 15:40</p>
+				)}
+				<button className={styles.button}>
+					<FavoriteIcon />
+				</button>
 			</div>
 			<div className={styles[`buttonBlock${size}`]}>
 				<button className={classNames(styles.button, styles.typeWrite)}>
