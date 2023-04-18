@@ -55,8 +55,8 @@ const MessageList: FC = () => {
 			<>
 				{messages.map(({ id, ...props }) => {
 					return (
-						<Link to={`${id}`} className={styles.link}>
-							<MessageItem key={id} id={id} {...props} />
+						<Link to={`${id}`} className={styles.link} key={id}>
+							<MessageItem id={id} {...props} />
 						</Link>
 					);
 				})}

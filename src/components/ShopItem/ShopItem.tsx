@@ -31,8 +31,6 @@ export const ShopItem: FC<ShopItemProps> = ({
 	phoneCall,
 	size = ShopItemSize.standart,
 }) => {
-	const state = useLocation().state as IBreadCrumbsLocationState[];
-	console.log(state);
 	const path = `/advert/${id}`;
 	const navigate = useNavigate();
 

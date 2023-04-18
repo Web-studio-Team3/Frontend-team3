@@ -1,12 +1,4 @@
-import {
-	Form,
-	Button,
-	DatePicker,
-	InputNumber,
-	Input,
-	Checkbox,
-	Radio,
-} from "antd";
+import { Form, Button, Input, Radio } from "antd";
 import { Link } from "react-router-dom";
 import styles from "./Login.module.scss";
 import RegistrationFinish from "./Utils/LoginFinish";

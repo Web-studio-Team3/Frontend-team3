@@ -727,7 +727,7 @@ export const FavoriteIcon = (): JSX.Element => {
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<g clip-path="url(#clip0_473_710)">
+			<g clipPath="url(#clip0_473_710)">
 				<circle cx="18" cy="18" r="17.5" stroke="#727272" />
 				<path
 					fillRule="evenodd"
