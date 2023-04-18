@@ -113,7 +113,7 @@ const Header: FC = () => {
 				<ul className={styles.menu}>
 					<li className={styles.item}>
 						<Link
-							to="/#"
+							to="/create-new-item-page"
 							className={classNames(
 								styles.link,
 								styles.linkCreateAd
