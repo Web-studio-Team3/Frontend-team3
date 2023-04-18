@@ -1,3 +1,5 @@
+import { FC } from "react";
+
 export const BagIcon = (): JSX.Element => {
 	return (
 		<svg
@@ -711,6 +713,63 @@ export const UploadIcon = (): JSX.Element => {
 				strokeWidth="1.5"
 				strokeLinecap="round"
 				strokeLinejoin="round"
+			/>
+		</svg>
+	);
+};
+
+export const FavoriteIcon = (): JSX.Element => {
+	return (
+		<svg
+			width="36"
+			height="36"
+			viewBox="0 0 36 36"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<g clip-path="url(#clip0_473_710)">
+				<circle cx="18" cy="18" r="17.5" stroke="#727272" />
+				<path
+					fillRule="evenodd"
+					clipRule="evenodd"
+					d="M9.7995 19.3689C8.81941 16.2035 9.96574 12.2679 13.1782 11.1983C14.868 10.6342 16.9533 11.1048 18.138 12.7952C19.2551 11.0424 21.4007 10.638 23.0887 11.1983C26.3003 12.2679 27.453 16.2035 26.4738 19.3689C24.9484 24.3864 19.626 27 18.138 27C16.651 27 11.3761 24.445 9.7995 19.3689Z"
+					stroke="#7E5AF0"
+					strokeWidth="1.5"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+				/>
+				<path
+					d="M21.5508 14.7556C22.6533 14.8728 23.3429 15.7771 23.3018 17.0442"
+					stroke="#7E5AF0"
+					strokeWidth="1.5"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+				/>
+			</g>
+			<defs>
+				<clipPath id="clip0_473_710">
+					<rect width="36" height="36" fill="white" />
+				</clipPath>
+			</defs>
+		</svg>
+	);
+};
+
+export const ArrowControlIcon: FC<React.SVGAttributes<SVGAElement>> = ({
+	className,
+}): JSX.Element => {
+	return (
+		<svg
+			className={className}
+			width="19"
+			height="31"
+			viewBox="0 0 19 31"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				d="M18.3141 15.4971L0.592448 30.9771L0.0416686 0.671247L18.3141 15.4971Z"
+				fill="white"
 			/>
 		</svg>
 	);

@@ -12,6 +12,7 @@ const ShopItemList: FC<ShopItemListProps> = ({ itemList, itemsShort }) => {
 		<ul className={styles.list}>
 			{itemList.map((item) => (
 				<ShopItem
+					id={item.id}
 					image={item.image}
 					title={item.title}
 					price={item.price}
