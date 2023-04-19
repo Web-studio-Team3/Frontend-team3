@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
 	Form,
 	Button,
@@ -7,12 +8,18 @@ import {
 	Checkbox,
 	Radio,
 } from "antd";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import styles from "./Login.module.scss";
 import RegistrationFinish from "./Utils/LoginFinish";
 
 export const Login = () => {
 	const [form] = Form.useForm();
+	const [success, setSuccess] = useState(false);
+
+	if (localStorage.getItem("token") && localStorage.getItem("user_id"))
+		return <Navigate to={"/"} />;
+
+	if (success) return <Navigate to={"/"} />;
 
 	return (
 		<div className={styles.page}>
@@ -20,11 +27,11 @@ export const Login = () => {
 				<h1>Вход в Барахолку</h1>
 				<Form
 					layout="vertical"
-					onFinish={() => RegistrationFinish({ form })}
+					onFinish={() => RegistrationFinish({ form, setSuccess })}
 					form={form}
 				>
 					<p className={styles.prevText}>
-						<Link to={"/registration"}>Зарегестрироваться</Link> или
+						<Link to={"/registration"}>Зарегистрироваться</Link> или
 						Войти
 					</p>
 					<Form.Item
