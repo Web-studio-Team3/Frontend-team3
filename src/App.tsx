@@ -9,6 +9,7 @@ import Market from "@pages/market";
 import { MyAccount, AccountMessages, AccountSettings } from "@pages/myAccount";
 import AccountFavorites from "@pages/myAccount/accountFavorites";
 import Registration from "@pages/Registration/Registration";
+import AccountSingleChat from "@pages/myAccount/accountSingleChat";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -30,6 +31,18 @@ function App() {
 				>
 					<Route index element={<AccountSettings />} />
 					<Route path="messages" element={<AccountMessages />} />
+					<Route
+						path="messages/:id"
+						element={
+							<AccountSingleChat
+								user={{
+									first_name: "Егор",
+									last_name: "Сашев",
+									was_active_at: "4:20",
+								}}
+							/>
+						}
+					/>
 					<Route path="favorites" element={<AccountFavorites />} />
 					<Route path="reviews" element={<AccountReviews />} />
 				</Route>

@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 import MessageItem from "../messageItem";
 import { MessageItemProps } from "../messageItem/MessageItem.props";
 import MessagePlug from "../messagePlug";
@@ -53,7 +54,11 @@ const MessageList: FC = () => {
 		return (
 			<>
 				{messages.map(({ id, ...props }) => {
-					return <MessageItem key={id} id={id} {...props} />;
+					return (
+						<Link to={`${id}`} className={styles.link}>
+							<MessageItem key={id} id={id} {...props} />
+						</Link>
+					);
 				})}
 			</>
 		);
