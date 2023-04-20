@@ -173,6 +173,8 @@ const Header: FC = () => {
 									localStorage.clear();
 									// eslint-disable-next-line no-restricted-globals
 									location.reload();
+									// eslint-disable-next-line no-restricted-globals
+									location.href = "/";
 									setButtonHidden(true);
 								}}
 							>

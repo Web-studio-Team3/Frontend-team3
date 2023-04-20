@@ -6,6 +6,11 @@
 	background-size: cover;
 }
 
+.form {
+	width: 90%;
+	max-width: 450px;
+}
+
 .body {
 	display: flex;
 	justify-content: center;
@@ -66,7 +71,7 @@
 // }
 
 .input {
-	min-width: 340px;
+	// min-width: 340px;
 	background: #2d2d33;
 	padding: 10px 20px;
 	color: #ffffff;
@@ -126,7 +131,7 @@
 
 .button {
 	border-radius: 10px;
-	background-color: #7e5af0 !important;
+	background-color: #2ab67d !important;
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: 500;
@@ -171,4 +176,17 @@
 			color: #ffffff;
 		}
 	}
+}
+
+.button2 {
+	border-radius: 10px;
+	background-color: #7e5af0 !important;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+	text-align: center;
+	margin-top: -15px;
+	width: 100%;
 }

@@ -188,10 +188,20 @@ const MarketItemPage: FC = () => {
 									</p>
 								</div>
 								<div className={styles.buttonBlock}>
-									<button className={styles.button}>
+									<button
+										className={styles.button}
+										disabled={
+											localStorage.getItem("token") ===
+											null
+										}
+									>
 										Написать
 									</button>
 									<button
+										disabled={
+											localStorage.getItem("token") ===
+											null
+										}
 										className={cn(
 											styles.button,
 											styles.buttonPurple

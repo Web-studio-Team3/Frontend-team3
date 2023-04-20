@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { LogoutIcon, ShieldDoneIcon } from "@assets/icons/Icons";
+import { sss } from "@components/userCard/UserCard";
 import UserSettings from "@pages/myAccount/accountSettings/components/userSettings";
 import { notification } from "antd";
 import classNames from "classnames";

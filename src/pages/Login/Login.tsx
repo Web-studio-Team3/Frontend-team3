@@ -26,6 +26,7 @@ export const Login = () => {
 			<main className={styles.body}>
 				<h1>Вход в Барахолку</h1>
 				<Form
+					className={styles.form}
 					layout="vertical"
 					onFinish={() => RegistrationFinish({ form, setSuccess })}
 					form={form}
@@ -70,8 +71,10 @@ export const Login = () => {
 					</Form.Item>
 
 					<Form.Item name="raw_password" className={styles.radio}>
-						<Radio />
-						запомнить меня
+						<>
+							<Radio />
+							запомнить меня
+						</>
 					</Form.Item>
 
 					<Form.Item>
@@ -84,6 +87,7 @@ export const Login = () => {
 							Войти
 						</Button>
 					</Form.Item>
+					<Link to={"/"}>Продолжить без входа в аккаунт</Link>
 					{/* <p className={styles.prevText}>Или продолжить через</p> */}
 				</Form>
 			</main>

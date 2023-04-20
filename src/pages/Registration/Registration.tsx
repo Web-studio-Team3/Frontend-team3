@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Form, Button, DatePicker, Input, Upload } from "antd";
 import { UploadChangeParam } from "antd/lib/upload";
 import { UploadFile } from "antd/lib/upload/interface";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import styles from "./Registration.module.scss";
 import RegistrationFinish from "./Utils/RegistrationFinish";
 
@@ -24,6 +24,7 @@ export const Registration = () => {
 			<main className={styles.body}>
 				<h1>Регистрация</h1>
 				<Form
+					className={styles.form}
 					layout="vertical"
 					onFinish={() => RegistrationFinish({ form, setSuccess })}
 					form={form}
@@ -121,6 +122,18 @@ export const Registration = () => {
 							Зарегистрироваться
 						</Button>
 					</Form.Item>
+					<Button
+						className={styles.button2}
+						type="primary"
+						size="large"
+						onClick={() => {
+							// eslint-disable-next-line no-restricted-globals
+							location.href = "/login";
+						}}
+					>
+						Войти в аккаунт
+					</Button>
+					<Link to={"/"}>Продолжить без входа в аккаунт</Link>
 				</Form>
 			</main>
 		</div>

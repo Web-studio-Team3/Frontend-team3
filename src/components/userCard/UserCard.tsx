@@ -8,14 +8,17 @@ import { NavLink } from "react-router-dom";
 import styles from "./UserCard.module.scss";
 import { userCardProps } from "./UserCardProps";
 
-type sss = {
+export type sss = {
 	full_name: string;
+	email: string;
+	picture_id: string;
 };
 
 const UserCard: FC<userCardProps> = ({ type, size = "m", userRating }) => {
 	let data: any = sessionStorage.getItem("userData");
 	if (data) data = JSON.parse(data) as sss;
-	console.log(data.full_name);
+	console.log(data);
+
 	const currentRating = userRating || 0;
 	const rating = (
 		<div className={styles.rating}>
@@ -56,7 +59,7 @@ const UserCard: FC<userCardProps> = ({ type, size = "m", userRating }) => {
 			<div className={styles.textBlock}>
 				<p className={styles.name}>
 					{type === "my" ? (
-						"Жозефина Амарантовна"
+						data.full_name
 					) : (
 						<>
 							Шарик Борисович
