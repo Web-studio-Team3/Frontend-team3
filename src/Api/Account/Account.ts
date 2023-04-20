@@ -41,6 +41,24 @@ const AccountApi = {
 			});
 			console.log(response3);
 			sessionStorage.setItem("userData", JSON.stringify(response3.data));
+			//
+			let UserData: any = sessionStorage.getItem("userData");
+			if (UserData) UserData = JSON.parse(UserData);
+
+			const url4 = `${prefix}picture/{photo_id}`.replace(
+				"{photo_id}",
+				`${UserData.picture_id}`
+			);
+			const token = localStorage.getItem("token");
+			const response4 = await axios.get(url4, {
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: "Bearer " + token,
+				},
+			});
+			console.log(response4);
+			sessionStorage.setItem("photo", response4.data.picture_url);
+			//
 		} catch (error) {
 			notification.error({
 				type: "error",
@@ -82,14 +100,13 @@ const AccountApi = {
 			);
 			const token = localStorage.getItem("token");
 			const response4 = await axios.get(url4, {
-				responseType: "blob",
 				headers: {
 					"Content-Type": "application/json",
 					Authorization: "Bearer " + token,
 				},
 			});
 			console.log(response4);
-			sessionStorage.setItem("photo", response.data);
+			sessionStorage.setItem("photo", response4.data.picture_url);
 			//
 		} catch (error) {
 			await notification.error({

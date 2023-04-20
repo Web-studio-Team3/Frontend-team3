@@ -16,6 +16,7 @@ export type sss = {
 
 const UserCard: FC<userCardProps> = ({ type, size = "m", userRating }) => {
 	let data: any = sessionStorage.getItem("userData");
+	let photo: any = sessionStorage.getItem("photo");
 	if (data) data = JSON.parse(data) as sss;
 	console.log(data);
 
@@ -44,7 +45,7 @@ const UserCard: FC<userCardProps> = ({ type, size = "m", userRating }) => {
 		>
 			<div className={styles.photoBlock}>
 				<img
-					src={userPhoto}
+					src={`http://localhost:8000/${photo}`}
 					alt="user"
 					className={styles.photo}
 					width={169}
