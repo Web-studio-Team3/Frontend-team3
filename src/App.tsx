@@ -8,8 +8,8 @@ import Login from "@pages/Login/Login";
 import Market from "@pages/market";
 import { MyAccount, AccountMessages, AccountSettings } from "@pages/myAccount";
 import AccountFavorites from "@pages/myAccount/accountFavorites";
-import Registration from "@pages/Registration/Registration";
 import AccountSingleChat from "@pages/myAccount/accountSingleChat";
+import Registration from "@pages/Registration/Registration";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
