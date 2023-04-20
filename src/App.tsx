@@ -6,6 +6,7 @@ import { CreateNewItem } from "@pages/CreateNewItem";
 import Error from "@pages/error";
 import Login from "@pages/Login/Login";
 import Market from "@pages/market";
+import MarketItemPage from "@pages/marketItemPage/MarketItemPage";
 import { MyAccount, AccountMessages, AccountSettings } from "@pages/myAccount";
 import AccountFavorites from "@pages/myAccount/accountFavorites";
 import AccountSingleChat from "@pages/myAccount/accountSingleChat";
@@ -23,6 +24,7 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<Market />} />
+				<Route path="/advert/:id" element={<MarketItemPage />} />
 				<Route
 					path="/account/me/"
 					element={

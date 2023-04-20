@@ -1,52 +1,54 @@
 @import "@styles/variables.scss";
 
-.section {}
+.section {
+}
 
 .heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 18px;
 }
 
 .title {
-    align-items: center;
+	align-items: center;
 }
 
 .text {
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 39px;
-    color: $white;
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 39px;
+	color: $white;
 
-    &Subtitle {
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 29px;
-        color: $white;
-        margin-top: 15px;
-    }
+	&Subtitle {
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 29px;
+		color: $white;
+		margin-top: 15px;
+	}
 
-    &AdCount {
-        color: rgba(255, 255, 255, 0.45);
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 17px;
-    }
+	&AdCount {
+		color: rgba(255, 255, 255, 0.45);
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 17px;
+	}
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	border-top: 1px solid #72757e;
 }
 
 @import "@styles/variables";
 
 .active {
-    svg {
-        path {
-            fill: $green;
-        }
-    }
+	svg {
+		path {
+			fill: $green;
+		}
+	}
 }
