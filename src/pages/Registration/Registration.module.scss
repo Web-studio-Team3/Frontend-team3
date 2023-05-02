@@ -4,6 +4,7 @@
 	width: 100%;
 	background-image: url("./Icons/1.png");
 	background-size: cover;
+	padding: 20px 0;
 }
 
 .body {
@@ -64,7 +65,8 @@
 // }
 
 .input {
-	min-width: 340px;
+	// min-width: 340px;
+	width: 100%;
 	background: #2d2d33;
 	padding: 10px 20px;
 	color: #ffffff;
@@ -133,4 +135,22 @@
 	text-align: center;
 	margin-top: 20px;
 	width: 100%;
+}
+
+.button2 {
+	border-radius: 10px;
+	background-color: #2ab67d !important;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+	text-align: center;
+	margin-top: -15px;
+	width: 100%;
+}
+
+.form {
+	width: 90%;
+	max-width: 450px;
 }

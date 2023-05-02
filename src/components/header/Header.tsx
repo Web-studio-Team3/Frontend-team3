@@ -111,7 +111,10 @@ const Header: FC = () => {
 					</div>
 				</form>
 				<ul className={styles.menu}>
-					<li className={styles.item}>
+					<li
+						className={styles.item}
+						hidden={!localStorage.getItem("user_id")}
+					>
 						<Link
 							to="/create-new-item-page"
 							className={classNames(
@@ -122,7 +125,10 @@ const Header: FC = () => {
 							Разместить объявление
 						</Link>
 					</li>
-					<li className={styles.item}>
+					<li
+						className={styles.item}
+						hidden={!localStorage.getItem("user_id")}
+					>
 						<NavLink
 							to="/account/me/favorites"
 							className={({ isActive }) =>
@@ -138,7 +144,10 @@ const Header: FC = () => {
 							<p className={styles.linkText}>Избранное</p>
 						</NavLink>
 					</li>
-					<li className={styles.item}>
+					<li
+						className={styles.item}
+						hidden={!localStorage.getItem("user_id")}
+					>
 						<NavLink
 							to="/account/me"
 							className={({ isActive }) =>
@@ -154,14 +163,18 @@ const Header: FC = () => {
 							<p className={styles.linkText}>Профиль</p>
 						</NavLink>
 					</li>
-					{localStorage.getItem("Login") === "true" ? (
+					{localStorage.getItem("user_id") !== null ? (
 						<li>
 							<button
 								className={classNames(styles.exitButton, {
 									[styles.exitButtonHidden]: ButtonHidden,
 								})}
 								onClick={() => {
-									localStorage.removeItem("Login");
+									localStorage.clear();
+									// eslint-disable-next-line no-restricted-globals
+									location.reload();
+									// eslint-disable-next-line no-restricted-globals
+									location.href = "/";
 									setButtonHidden(true);
 								}}
 							>

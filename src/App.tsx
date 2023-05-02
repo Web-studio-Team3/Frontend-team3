@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import AccountLayout from "@pages/accountLayout";
 import AccountReviews from "@pages/AccountReviews";
 import { AnotherAccount, AccountAds } from "@pages/anotherAccount";
@@ -8,11 +9,17 @@ import Market from "@pages/market";
 import MarketItemPage from "@pages/marketItemPage/MarketItemPage";
 import { MyAccount, AccountMessages, AccountSettings } from "@pages/myAccount";
 import AccountFavorites from "@pages/myAccount/accountFavorites";
-import Registration from "@pages/Registration/Registration";
 import AccountSingleChat from "@pages/myAccount/accountSingleChat";
+import Registration from "@pages/Registration/Registration";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
+	useEffect(() => {
+		return () => {
+			console.log("i work");
+			localStorage.clear();
+		};
+	}, []);
 	return (
 		<BrowserRouter>
 			<Routes>

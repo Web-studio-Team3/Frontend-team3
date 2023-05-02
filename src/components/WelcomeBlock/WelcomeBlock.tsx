@@ -1,10 +1,15 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
 import styles from "./WelcomeBlock.module.scss";
 
 export const WelcomeBlock = () => {
 	const [hidden, setHidden] = useState(false);
+	useEffect(() => {
+		if (localStorage.getItem("token") && localStorage.getItem("user_id")) {
+			setHidden(true);
+		}
+	}, []);
 	return (
 		<div
 			className={classNames(styles.wrapper, { [styles.hidden]: hidden })}
@@ -16,7 +21,7 @@ export const WelcomeBlock = () => {
 						Политеха.
 					</p>
 					<p>
-						<Link to="/login">Зарегистрируйтесь</Link> или{" "}
+						<Link to="/registration">Зарегистрируйтесь</Link> или{" "}
 						<Link to="/login">Войдите</Link>, чтобы воспользоваться
 						всеми функциями.
 					</p>

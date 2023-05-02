@@ -1,11 +1,21 @@
 import { FC } from "react";
 import { LogoutIcon, ShieldDoneIcon } from "@assets/icons/Icons";
+import { sss } from "@components/userCard/UserCard";
 import UserSettings from "@pages/myAccount/accountSettings/components/userSettings";
+import { notification } from "antd";
 import classNames from "classnames";
 import styles from "./AccountSettings.module.scss";
 import UserData from "./components/userData";
 
 const AccountSettings: FC = () => {
+	const logout = () => {
+		localStorage.clear();
+		notification.info({
+			type: "info",
+			message: "Вы вышли из аккаунта",
+		});
+	};
+
 	return (
 		<div className={styles.section}>
 			<div className={styles.heading}>
@@ -13,7 +23,11 @@ const AccountSettings: FC = () => {
 					<p className={styles.text}>ПРОФИЛЬ</p>
 					<ShieldDoneIcon />
 				</div>
-				<button type="button" className={styles.logoutIcon}>
+				<button
+					type="button"
+					className={styles.logoutIcon}
+					onClick={logout}
+				>
 					<LogoutIcon />
 				</button>
 			</div>
