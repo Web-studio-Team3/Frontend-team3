@@ -5,7 +5,6 @@ import styles from "./UserData.module.scss";
 const UserData: FC = () => {
 	let data: any = sessionStorage.getItem("userData");
 	if (data) data = JSON.parse(data) as sss;
-	console.log(data);
 	return (
 		<div className={styles.block}>
 			<h2 className={styles.title}>Личные данные</h2>

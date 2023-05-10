@@ -18,7 +18,6 @@ const UserCard: FC<userCardProps> = ({ type, size = "m", userRating }) => {
 	let data: any = sessionStorage.getItem("userData");
 	let photo: any = sessionStorage.getItem("photo");
 	if (data) data = JSON.parse(data) as sss;
-	console.log(data);
 	const currentRating = userRating || 0;
 	const rating = (
 		<div className={styles.rating}>

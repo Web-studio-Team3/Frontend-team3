@@ -20,7 +20,6 @@ const LoginFinish = async (props: RegistrationFinishProps) => {
 	if (localStorage.getItem("token") && localStorage.getItem("user_id")) {
 		props.setSuccess(true);
 		const user_id = localStorage.getItem("user_id");
-		console.log(user_id);
 		if (user_id) Api.AccountApi.getUser({ id: user_id });
 	}
 };

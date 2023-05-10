@@ -39,7 +39,6 @@ const AccountApi = {
 					Authorization: "Bearer " + localStorage.getItem("token"),
 				},
 			});
-			console.log(response3);
 			sessionStorage.setItem("userData", JSON.stringify(response3.data));
 			//
 			let UserData: any = sessionStorage.getItem("userData");
@@ -56,7 +55,6 @@ const AccountApi = {
 					Authorization: "Bearer " + token,
 				},
 			});
-			console.log(response4);
 			sessionStorage.setItem("photo", response4.data.picture_url);
 			//
 		} catch (error) {
@@ -88,7 +86,6 @@ const AccountApi = {
 					Authorization: "Bearer " + localStorage.getItem("token"),
 				},
 			});
-			console.log(response3);
 			sessionStorage.setItem("userData", JSON.stringify(response3.data));
 			//
 			let UserData: any = sessionStorage.getItem("userData");
@@ -105,7 +102,6 @@ const AccountApi = {
 					Authorization: "Bearer " + token,
 				},
 			});
-			console.log(response4);
 			sessionStorage.setItem("photo", response4.data.picture_url);
 			//
 		} catch (error) {
@@ -154,7 +150,6 @@ const AccountApi = {
 					Authorization: "Bearer " + token,
 				},
 			});
-			console.log(response);
 			sessionStorage.setItem("photo", response.data);
 		} catch (error) {
 			await notification.error({
