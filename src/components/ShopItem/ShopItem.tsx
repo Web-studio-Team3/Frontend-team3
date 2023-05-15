@@ -1,9 +1,8 @@
 import { FC } from "react";
 import { FavoriteIcon } from "@assets/icons/Icons";
-import { IBreadCrumbsLocationState } from "@components/breadcrumbs/Breadcrumbs";
 import classNames from "classnames";
 import cn from "classnames";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { v4 } from "uuid";
 import styles from "./ShopItem.module.scss";
 
