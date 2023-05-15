@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { LogoutIcon, ShieldDoneIcon } from "@assets/icons/Icons";
-import UserSettings from "@pages/myAccount/accountSettings/components/userSettings";
 import classNames from "classnames";
 import styles from "./AccountSettings.module.scss";
 import UserData from "./components/userData";
+import UserSettings from "./components/userSettings";
 
 const AccountSettings: FC = () => {
 	return (

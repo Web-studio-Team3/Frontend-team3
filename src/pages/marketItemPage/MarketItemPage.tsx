@@ -9,14 +9,28 @@ import UserCard from "@components/userCard/UserCard";
 import Categories from "@pages/market/components/Categories";
 import { MarketItems } from "@pages/market/components/Items/marketItems";
 import cn from "classnames";
+import { Link, useNavigate } from "react-router-dom";
 import { BreadcrumbsContext, IBreadcrumbsContext } from "../../App";
 import styles from "./MarketItemPage.module.scss";
 
 const MarketItemPage: FC = () => {
 	const [currentCategory, replaceCategory] = useState("");
-	const { breadcrumbs } = useContext(
+	const user = {
+		name: "Шарик",
+		surname: "Борисович",
+	};
+	const path = `/account/id`;
+	const navigate = useNavigate();
+	const { setBreadcrumbs, breadcrumbs } = useContext(
 		BreadcrumbsContext
 	) as IBreadcrumbsContext;
+
+	const handleItemClick = () => {
+		setBreadcrumbs({
+			[path]: `${user.name} ${user.surname}`,
+		});
+		navigate(path);
+	};
 
 	return (
 		<>
@@ -205,11 +219,18 @@ const MarketItemPage: FC = () => {
 										Позвонить
 									</button>
 								</div>
-								<UserCard
-									type="another"
-									size="s"
-									userRating={4}
-								/>
+								<button
+									className={styles.cardLink}
+									onClick={handleItemClick}
+								>
+									<UserCard
+										user={user}
+										type="another"
+										size="s"
+										reviewsCount={1}
+										userRating={4}
+									/>
+								</button>
 							</div>
 							<div className={styles.similarAdverts}>
 								<p

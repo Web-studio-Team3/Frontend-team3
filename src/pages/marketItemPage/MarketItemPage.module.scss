@@ -171,6 +171,18 @@
 				}
 			}
 		}
+
+		.cardLink {
+			text-decoration: none;
+			background: none;
+			border: none;
+
+			& > div:hover {
+				background: #2d2d33;
+				transform: scale(1.03);
+				transition: all 0.1s ease-in;
+			}
+		}
 	}
 
 	.similarAdverts {

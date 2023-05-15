@@ -1,15 +1,18 @@
 import { createContext, useState } from "react";
-import AccountLayout from "@pages/accountLayout";
-import AccountReviews from "@pages/AccountReviews";
-import { AnotherAccount, AccountAds } from "@pages/anotherAccount";
+import {
+	Account,
+	AccountMessages,
+	AccountSettings,
+	AccountAds,
+	AccountReviews,
+	AccountLayout,
+} from "@pages/account";
+import AccountSingleChat from "@pages/account/accountSingleChat";
 import { CreateNewItem } from "@pages/CreateNewItem";
 import Error from "@pages/error";
 import Login from "@pages/Login/Login";
 import Market from "@pages/market";
 import MarketItemPage from "@pages/marketItemPage/MarketItemPage";
-import { MyAccount, AccountMessages, AccountSettings } from "@pages/myAccount";
-import AccountFavorites from "@pages/myAccount/accountFavorites";
-import AccountSingleChat from "@pages/myAccount/accountSingleChat";
 import Registration from "@pages/Registration/Registration";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -43,7 +46,7 @@ function App() {
 						element={
 							<AccountLayout
 								type="my"
-								component={<MyAccount />}
+								component={<Account type="my" />}
 							/>
 						}
 					>
@@ -63,20 +66,37 @@ function App() {
 						/>
 						<Route
 							path="favorites"
-							element={<AccountFavorites />}
+							element={
+								<AccountAds
+									type="favorite"
+									title="Избранные объявления"
+									subtitle="Здесь представленны все товары, которые тебе понравились"
+								/>
+							}
 						/>
 						<Route path="reviews" element={<AccountReviews />} />
+						<Route
+							path="my-ads"
+							element={
+								<AccountAds type="my" title="Мои объявления" />
+							}
+						/>
 					</Route>
 					<Route
 						path="/account/id/"
 						element={
 							<AccountLayout
 								type="another"
-								component={<AnotherAccount />}
+								component={<Account type="another" />}
 							/>
 						}
 					>
-						<Route index element={<AccountAds />} />
+						<Route
+							index
+							element={
+								<AccountAds type="my" title="Объявления" />
+							}
+						/>
 						<Route path="reviews" element={<AccountReviews />} />
 					</Route>
 					<Route path="*" element={<Error />} />

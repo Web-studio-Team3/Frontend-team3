@@ -6,13 +6,19 @@ import { Icon1, Icon2 } from "@pages/market/components/Items/icons";
 import { Controller } from "@pages/market/components/Items/Items";
 import { MarketItems } from "@pages/market/components/Items/marketItems";
 import classNames from "classnames";
-import styles from "./AccountFavorites.module.scss";
+import styles from "./AccountAds.module.scss";
 
-const AccountFavorites: FC = () => {
+export interface IAccountAds {
+	type: "favorite" | "my";
+	title: string;
+	subtitle?: string;
+}
+
+const AccountAds: FC<IAccountAds> = ({ type, title, subtitle }) => {
 	const [currenFilter, setFilter] = useState("Популярные");
 	const [filteredItems, setFilteredItems] = useState(MarketItems);
 
-	const [itemsShort, setItemsShort] = useState(ShopItemSize.standart);
+	const [itemsShort, setItemsShort] = useState(ShopItemSize.short);
 	const changeItemSize = () => {
 		itemsShort === ShopItemSize.standart
 			? setItemsShort(ShopItemSize.short)
@@ -36,19 +42,26 @@ const AccountFavorites: FC = () => {
 			<div className={styles.heading}>
 				<div className={styles.title}>
 					<p className={styles.text}>
-						ИЗБРАННЫЕ ОБЪЯВЛЕНИЯ&nbsp;
+						{title}&nbsp;
 						<span
 							className={classNames(
 								styles.text,
 								styles.textAdCount
 							)}
 						>
-							6
+							{filteredItems.length}
 						</span>
 					</p>
-					<p className={classNames(styles.text, styles.textSubtitle)}>
-						Здесь представленны все товары, которые тебе понравились
-					</p>
+					{subtitle && (
+						<p
+							className={classNames(
+								styles.text,
+								styles.textSubtitle
+							)}
+						>
+							{subtitle}
+						</p>
+					)}
 				</div>
 			</div>
 			<Controller>
@@ -91,4 +104,4 @@ const AccountFavorites: FC = () => {
 	);
 };
 
-export default AccountFavorites;
+export default AccountAds;

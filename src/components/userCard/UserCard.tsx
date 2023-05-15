@@ -8,21 +8,31 @@ import { NavLink } from "react-router-dom";
 import styles from "./UserCard.module.scss";
 import { userCardProps } from "./UserCardProps";
 
-const UserCard: FC<userCardProps> = ({ type, size = "m", userRating }) => {
+const UserCard: FC<userCardProps> = ({
+	user,
+	type,
+	reviewsCount,
+	size = "m",
+	userRating,
+}) => {
 	const currentRating = userRating || 0;
 	const rating = (
 		<div className={styles.rating}>
 			<RatingStars currentRating={currentRating} />
-			<NavLink
-				to="./reviews"
-				className={({ isActive }) =>
-					isActive
-						? classNames(styles.text, styles.textActive)
-						: styles.text
-				}
-			>
-				1 отзыв
-			</NavLink>
+			{size === "s" ? (
+				<p className={styles.text}>{reviewsCount} отзыв</p>
+			) : (
+				<NavLink
+					to="./reviews"
+					className={({ isActive }) =>
+						isActive
+							? classNames(styles.text, styles.textActive)
+							: styles.text
+					}
+				>
+					{reviewsCount} отзыв
+				</NavLink>
+			)}
 		</div>
 	);
 
@@ -49,10 +59,10 @@ const UserCard: FC<userCardProps> = ({ type, size = "m", userRating }) => {
 			<div className={styles.textBlock}>
 				<p className={styles.name}>
 					{type === "my" ? (
-						"Жозефина Амарантовна"
+						user.name + " " + user.surname
 					) : (
 						<>
-							Шарик Борисович
+							{user.name + " " + user.surname}
 							<ShieldDoneIcon />
 						</>
 					)}

@@ -20,6 +20,7 @@ const Breadcrumbs: FC<IBreadCrumbsProps> = ({ additionalBreadcrumbs }) => {
 		[ROUTES.MESSAGES]: "Сообщения",
 		[ROUTES.FAVORITES]: "Избранное",
 		[ROUTES.REVIEWS]: "Отзывы",
+		[ROUTES.MYADS]: "Мои объявления",
 	});
 	const pathSnippets = location.pathname.split("/").filter((i) => i);
 
@@ -46,7 +47,7 @@ const Breadcrumbs: FC<IBreadCrumbsProps> = ({ additionalBreadcrumbs }) => {
 				) {
 					extraBreadcrumbItems.push({
 						key: url,
-						title: <p>{breadcrumbNameMap[url]}</p>,
+						title: <span>{breadcrumbNameMap[url]}</span>,
 						className: cn(styles.link, styles.linkActive),
 					});
 				} else {
