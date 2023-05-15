@@ -1,3 +1,4 @@
+import { createContext, useState } from "react";
 import AccountLayout from "@pages/accountLayout";
 import AccountReviews from "@pages/AccountReviews";
 import { AnotherAccount, AccountAds } from "@pages/anotherAccount";
@@ -12,57 +13,83 @@ import AccountSingleChat from "@pages/myAccount/accountSingleChat";
 import Registration from "@pages/Registration/Registration";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+export interface IBreadcrumbsContext {
+	breadcrumbs: Record<string, string>;
+	setBreadcrumbs: React.Dispatch<
+		React.SetStateAction<Record<string, string>>
+	>;
+}
+
+export const BreadcrumbsContext = createContext<IBreadcrumbsContext | null>(
+	null
+);
+
 function App() {
+	const [breadcrumbs, setBreadcrumbs] = useState<Record<string, string>>({});
+
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path="/" element={<Market />} />
-				<Route path="/advert/:id" element={<MarketItemPage />} />
-				<Route
-					path="/account/me/"
-					element={
-						<AccountLayout type="my" component={<MyAccount />} />
-					}
-				>
-					<Route index element={<AccountSettings />} />
-					<Route path="messages" element={<AccountMessages />} />
+		<BreadcrumbsContext.Provider
+			value={{
+				breadcrumbs,
+				setBreadcrumbs,
+			}}
+		>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Market />} />
+					<Route path="/advert/:id" element={<MarketItemPage />} />
 					<Route
-						path="messages/:id"
+						path="/account/me/"
 						element={
-							<AccountSingleChat
-								user={{
-									first_name: "Егор",
-									last_name: "Сашев",
-									was_active_at: "4:20",
-								}}
+							<AccountLayout
+								type="my"
+								component={<MyAccount />}
 							/>
 						}
-					/>
-					<Route path="favorites" element={<AccountFavorites />} />
-					<Route path="reviews" element={<AccountReviews />} />
-				</Route>
-				<Route
-					path="/account/id/"
-					element={
-						<AccountLayout
-							type="another"
-							component={<AnotherAccount />}
+					>
+						<Route index element={<AccountSettings />} />
+						<Route path="messages" element={<AccountMessages />} />
+						<Route
+							path="messages/:id"
+							element={
+								<AccountSingleChat
+									user={{
+										first_name: "Егор",
+										last_name: "Сашев",
+										was_active_at: "4:20",
+									}}
+								/>
+							}
 						/>
-					}
-				>
-					<Route index element={<AccountAds />} />
-					<Route path="reviews" element={<AccountReviews />} />
-				</Route>
-				<Route path="*" element={<Error />} />
-				<Route path="/login" element={<Login />} />
-				<Route path="/registration" element={<Registration />} />
-				<Route path="/login" element={<Registration />} />
-				<Route
-					path="/create-new-item-page"
-					element={<CreateNewItem />}
-				/>
-			</Routes>
-		</BrowserRouter>
+						<Route
+							path="favorites"
+							element={<AccountFavorites />}
+						/>
+						<Route path="reviews" element={<AccountReviews />} />
+					</Route>
+					<Route
+						path="/account/id/"
+						element={
+							<AccountLayout
+								type="another"
+								component={<AnotherAccount />}
+							/>
+						}
+					>
+						<Route index element={<AccountAds />} />
+						<Route path="reviews" element={<AccountReviews />} />
+					</Route>
+					<Route path="*" element={<Error />} />
+					<Route path="/login" element={<Login />} />
+					<Route path="/registration" element={<Registration />} />
+					<Route path="/login" element={<Registration />} />
+					<Route
+						path="/create-new-item-page"
+						element={<CreateNewItem />}
+					/>
+				</Routes>
+			</BrowserRouter>
+		</BreadcrumbsContext.Provider>
 	);
 }
 

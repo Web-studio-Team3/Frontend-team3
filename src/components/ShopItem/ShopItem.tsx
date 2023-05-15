@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { FavoriteIcon } from "@assets/icons/Icons";
 import classNames from "classnames";
 import cn from "classnames";
 import { useNavigate } from "react-router-dom";
-import { v4 } from "uuid";
+import { BreadcrumbsContext, IBreadcrumbsContext } from "../../App";
 import styles from "./ShopItem.module.scss";
 
 export enum ShopItemSize {
@@ -32,15 +32,15 @@ export const ShopItem: FC<ShopItemProps> = ({
 }) => {
 	const path = `/advert/${id}`;
 	const navigate = useNavigate();
+	const { setBreadcrumbs } = useContext(
+		BreadcrumbsContext
+	) as IBreadcrumbsContext;
 
 	const handleItemClick = () => {
-		const newState = [
-			{ id: v4(), path: "/", title: "Объявления" },
-			{ id: v4(), path, title },
-		];
-		navigate(path, {
-			state: newState,
+		setBreadcrumbs({
+			[path]: title,
 		});
+		navigate(path);
 	};
 
 	return (

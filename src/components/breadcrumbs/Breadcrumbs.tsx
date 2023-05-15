@@ -21,9 +21,7 @@ const Breadcrumbs: FC<IBreadCrumbsProps> = ({ additionalBreadcrumbs }) => {
 		[ROUTES.FAVORITES]: "Избранное",
 		[ROUTES.REVIEWS]: "Отзывы",
 	});
-	const pathSnippets = location.pathname
-		.split("/")
-		.filter((i) => isNaN(+i) && i);
+	const pathSnippets = location.pathname.split("/").filter((i) => i);
 
 	useEffect(() => {
 		if (additionalBreadcrumbs) {
@@ -41,7 +39,11 @@ const Breadcrumbs: FC<IBreadCrumbsProps> = ({ additionalBreadcrumbs }) => {
 		pathSnippets.forEach((_, index) => {
 			const url = `/${pathSnippets.slice(0, index + 1).join("/")}`;
 			if (breadcrumbNameMap[url]) {
-				if (index === pathSnippets.length - 1) {
+				if (
+					index === pathSnippets.length - 1 ||
+					(index === pathSnippets.length - 2 &&
+						!isNaN(+pathSnippets[index + 1]))
+				) {
 					extraBreadcrumbItems.push({
 						key: url,
 						title: <p>{breadcrumbNameMap[url]}</p>,

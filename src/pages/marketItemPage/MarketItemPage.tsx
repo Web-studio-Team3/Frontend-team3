@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
 import { ArrowControlIcon, FavoriteIcon } from "@assets/icons/Icons";
 import ItemImage from "@assets/img/ad-image1.png";
 import Breadcrumbs from "@components/breadcrumbs/Breadcrumbs";
@@ -9,16 +9,21 @@ import UserCard from "@components/userCard/UserCard";
 import Categories from "@pages/market/components/Categories";
 import { MarketItems } from "@pages/market/components/Items/marketItems";
 import cn from "classnames";
+import { BreadcrumbsContext, IBreadcrumbsContext } from "../../App";
 import styles from "./MarketItemPage.module.scss";
 
 const MarketItemPage: FC = () => {
 	const [currentCategory, replaceCategory] = useState("");
+	const { breadcrumbs } = useContext(
+		BreadcrumbsContext
+	) as IBreadcrumbsContext;
+
 	return (
 		<>
 			<Header />
 			<main className={styles.layout}>
 				<div className={cn(styles.body, "container")}>
-					<Breadcrumbs />
+					<Breadcrumbs additionalBreadcrumbs={breadcrumbs} />
 					<div className={styles.wrapper}>
 						<Categories
 							currentCategory={currentCategory}
