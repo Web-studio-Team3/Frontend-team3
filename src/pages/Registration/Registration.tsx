@@ -1,23 +1,32 @@
+import { useState } from "react";
 import { Form, Button, DatePicker, Input, Upload } from "antd";
 import { UploadChangeParam } from "antd/lib/upload";
 import { UploadFile } from "antd/lib/upload/interface";
+import { Link, Navigate } from "react-router-dom";
 import styles from "./Registration.module.scss";
 import RegistrationFinish from "./Utils/RegistrationFinish";
 
 export const Registration = () => {
 	const [form] = Form.useForm();
+	const [success, setSuccess] = useState(false);
 
 	const updateFileFormValue = (e: UploadChangeParam<UploadFile<any>>) => {
 		return e && e.fileList;
 	};
+
+	if (localStorage.getItem("token") && localStorage.getItem("user_id"))
+		return <Navigate to={"/"} />;
+
+	if (success) return <Navigate to={"/"} />;
 
 	return (
 		<div className={styles.page}>
 			<main className={styles.body}>
 				<h1>Регистрация</h1>
 				<Form
+					className={styles.form}
 					layout="vertical"
-					onFinish={() => RegistrationFinish({ form })}
+					onFinish={() => RegistrationFinish({ form, setSuccess })}
 					form={form}
 				>
 					<Form.Item
@@ -96,7 +105,6 @@ export const Registration = () => {
 						className={styles.upload}
 					>
 						<Upload
-							// onChange={base64Uploader}
 							maxCount={1}
 							multiple={false}
 							beforeUpload={() => false}
@@ -111,9 +119,21 @@ export const Registration = () => {
 							size="large"
 							htmlType="submit"
 						>
-							Зарегестрироваться
+							Зарегистрироваться
 						</Button>
 					</Form.Item>
+					<Button
+						className={styles.button2}
+						type="primary"
+						size="large"
+						onClick={() => {
+							// eslint-disable-next-line no-restricted-globals
+							location.href = "/login";
+						}}
+					>
+						Войти в аккаунт
+					</Button>
+					<Link to={"/"}>Продолжить без входа в аккаунт</Link>
 				</Form>
 			</main>
 		</div>

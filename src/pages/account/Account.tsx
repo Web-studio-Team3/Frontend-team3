@@ -10,16 +10,11 @@ export interface IAccount {
 
 const Account: FC<IAccount> = ({ type }) => {
 	const userRating = 4;
-	const user = {
-		name: "Шарик",
-		surname: "Борисович",
-	};
 
 	return (
 		<>
 			<div className={styles.menu}>
 				<UserCard
-					user={user}
 					type={type}
 					userRating={type === "another" ? userRating : undefined}
 					reviewsCount={1}

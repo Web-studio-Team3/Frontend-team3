@@ -10,4 +10,7 @@ export declare namespace iApi {
 		email: string;
 		raw_password: string;
 	};
+	type GetUser = {
+		id: string;
+	};
 }

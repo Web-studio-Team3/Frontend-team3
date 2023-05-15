@@ -3,19 +3,15 @@ import { FormInstance } from "antd";
 
 type RegistrationFinishProps = {
 	form: FormInstance;
+	setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const RegistrationFinish = (props: RegistrationFinishProps) => {
+const RegistrationFinish = async (props: RegistrationFinishProps) => {
 	const { form } = props;
-	console.log("i here");
-	console.log(form);
 	const email = form.getFieldValue("email");
 	const raw_password = form.getFieldValue("raw_password");
 	const full_name = form.getFieldValue("full_name");
 	const picture = form.getFieldValue("picture")[0].originFileObj;
-	// picture = picture;
-	console.log(typeof picture);
-	console.log(picture);
 	const date = new Date(form.getFieldValue("date_of_birth"));
 
 	const date_of_birth =
@@ -29,7 +25,13 @@ const RegistrationFinish = (props: RegistrationFinishProps) => {
 		picture,
 	};
 
-	Api.AccountApi.registration(data);
+	await Api.AccountApi.registration(data);
+	if (localStorage.getItem("token") && localStorage.getItem("user_id")) {
+		props.setSuccess(true);
+		const user_id = localStorage.getItem("user_id");
+		console.log(user_id);
+		if (user_id) Api.AccountApi.getUser({ id: user_id });
+	}
 };
 
 export default RegistrationFinish;

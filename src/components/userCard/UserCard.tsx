@@ -8,13 +8,22 @@ import { NavLink } from "react-router-dom";
 import styles from "./UserCard.module.scss";
 import { userCardProps } from "./UserCardProps";
 
+export type sss = {
+	full_name: string;
+	email: string;
+	picture_id: string;
+};
+
 const UserCard: FC<userCardProps> = ({
-	user,
 	type,
 	reviewsCount,
 	size = "m",
 	userRating,
 }) => {
+	let data: any = sessionStorage.getItem("userData");
+	let photo: any = sessionStorage.getItem("photo");
+	if (data) data = JSON.parse(data) as sss;
+	console.log(data);
 	const currentRating = userRating || 0;
 	const rating = (
 		<div className={styles.rating}>
@@ -44,7 +53,7 @@ const UserCard: FC<userCardProps> = ({
 		>
 			<div className={styles.photoBlock}>
 				<img
-					src={userPhoto}
+					src={`http://localhost:8000/${photo}`}
 					alt="user"
 					className={styles.photo}
 					width={169}
@@ -59,10 +68,10 @@ const UserCard: FC<userCardProps> = ({
 			<div className={styles.textBlock}>
 				<p className={styles.name}>
 					{type === "my" ? (
-						user.name + " " + user.surname
+						data.full_name
 					) : (
 						<>
-							{user.name + " " + user.surname}
+							{data.full_name}
 							<ShieldDoneIcon />
 						</>
 					)}

@@ -72,11 +72,14 @@ export const ShopItem: FC<ShopItemProps> = ({
 				</button>
 			</div>
 			<div className={styles[`buttonBlock${size}`]}>
-				<button className={classNames(styles.button, styles.typeWrite)}>
+				<button
+					className={classNames(styles.button, styles.typeWrite)}
+					disabled={localStorage.getItem("token") === null}
+				>
 					Написать
 				</button>
 				<button
-					disabled={!phoneCall}
+					disabled={localStorage.getItem("token") === null}
 					className={classNames(styles.button, styles.typeCall)}
 				>
 					Позвонить

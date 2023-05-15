@@ -9,7 +9,7 @@ import UserCard from "@components/userCard/UserCard";
 import Categories from "@pages/market/components/Categories";
 import { MarketItems } from "@pages/market/components/Items/marketItems";
 import cn from "classnames";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BreadcrumbsContext, IBreadcrumbsContext } from "../../App";
 import styles from "./MarketItemPage.module.scss";
 
@@ -207,10 +207,20 @@ const MarketItemPage: FC = () => {
 									</p>
 								</div>
 								<div className={styles.buttonBlock}>
-									<button className={styles.button}>
+									<button
+										className={styles.button}
+										disabled={
+											localStorage.getItem("token") ===
+											null
+										}
+									>
 										Написать
 									</button>
 									<button
+										disabled={
+											localStorage.getItem("token") ===
+											null
+										}
 										className={cn(
 											styles.button,
 											styles.buttonPurple
@@ -224,7 +234,6 @@ const MarketItemPage: FC = () => {
 									onClick={handleItemClick}
 								>
 									<UserCard
-										user={user}
 										type="another"
 										size="s"
 										reviewsCount={1}

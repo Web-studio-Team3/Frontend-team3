@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import {
 	Account,
 	AccountMessages,
@@ -30,6 +30,12 @@ export const BreadcrumbsContext = createContext<IBreadcrumbsContext | null>(
 function App() {
 	const [breadcrumbs, setBreadcrumbs] = useState<Record<string, string>>({});
 
+	useEffect(() => {
+		return () => {
+			console.log("i work");
+			localStorage.clear();
+		};
+	}, []);
 	return (
 		<BreadcrumbsContext.Provider
 			value={{
