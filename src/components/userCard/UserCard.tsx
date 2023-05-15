@@ -14,7 +14,12 @@ export type sss = {
 	picture_id: string;
 };
 
-const UserCard: FC<userCardProps> = ({ type, size = "m", userRating }) => {
+const UserCard: FC<userCardProps> = ({
+	type,
+	reviewsCount,
+	size = "m",
+	userRating,
+}) => {
 	let data: any = sessionStorage.getItem("userData");
 	let photo: any = sessionStorage.getItem("photo");
 	if (data) data = JSON.parse(data) as sss;
@@ -23,16 +28,20 @@ const UserCard: FC<userCardProps> = ({ type, size = "m", userRating }) => {
 	const rating = (
 		<div className={styles.rating}>
 			<RatingStars currentRating={currentRating} />
-			<NavLink
-				to="./reviews"
-				className={({ isActive }) =>
-					isActive
-						? classNames(styles.text, styles.textActive)
-						: styles.text
-				}
-			>
-				1 отзыв
-			</NavLink>
+			{size === "s" ? (
+				<p className={styles.text}>{reviewsCount} отзыв</p>
+			) : (
+				<NavLink
+					to="./reviews"
+					className={({ isActive }) =>
+						isActive
+							? classNames(styles.text, styles.textActive)
+							: styles.text
+					}
+				>
+					{reviewsCount} отзыв
+				</NavLink>
+			)}
 		</div>
 	);
 
@@ -62,7 +71,7 @@ const UserCard: FC<userCardProps> = ({ type, size = "m", userRating }) => {
 						data.full_name
 					) : (
 						<>
-							Шарик Борисович
+							{data.full_name}
 							<ShieldDoneIcon />
 						</>
 					)}

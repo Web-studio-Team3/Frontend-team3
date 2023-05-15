@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import {
 	ProfileIcon,
 	LogoIcon,
@@ -6,75 +6,12 @@ import {
 	SearchIcon,
 	CategoryIcon,
 } from "@assets/icons/Icons";
-import { IBreadCrumbsLocationState } from "@components/breadcrumbs/Breadcrumbs";
 import classNames from "classnames";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { v4 } from "uuid";
+import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.scss";
 
 const Header: FC = () => {
 	const [ButtonHidden, setButtonHidden] = useState(false);
-	const navigate = useNavigate();
-	const path = useLocation().pathname;
-	let state = useLocation().state as IBreadCrumbsLocationState[];
-	const splittedPath = path.split("/");
-	const currentLocation = isNaN(Number(splittedPath[splittedPath.length - 1]))
-		? splittedPath[splittedPath.length - 1]
-		: splittedPath[splittedPath.length - 2];
-
-	const initialBreadCrumbs = [
-		{
-			id: v4(),
-			path: "/",
-			title: "Главная",
-		},
-		{
-			id: v4(),
-			path: "/account/me",
-			title: "Профиль",
-		},
-	];
-
-	useEffect(() => {
-		switch (currentLocation) {
-			case "reviews":
-				state = [
-					...initialBreadCrumbs,
-					{ id: v4(), path, title: "Отзывы" },
-				];
-				break;
-			case "favorites":
-				state = [
-					...initialBreadCrumbs,
-					{ id: v4(), path, title: "Избранное" },
-				];
-				break;
-			case "my-ads":
-				state = [
-					...initialBreadCrumbs,
-					{ id: v4(), path, title: "Мои объявления" },
-				];
-				break;
-			case "messages":
-				state = [
-					...initialBreadCrumbs,
-					{ id: v4(), path, title: "Сообщения" },
-				];
-				break;
-			case "help":
-				state = [
-					...initialBreadCrumbs,
-					{ id: v4(), path, title: "Помощь" },
-				];
-				break;
-			case "advert":
-				break;
-			default:
-				state = initialBreadCrumbs;
-				break;
-		}
-		if (state) navigate(path, { state });
-	}, [path, state === null]);
 
 	return (
 		<header className="container">

@@ -7,19 +7,22 @@ import {
 	SettingIcon,
 	HelpIcon,
 } from "@assets/icons/Icons";
-import { IBreadCrumbsLocationState } from "@components/breadcrumbs/Breadcrumbs";
 import classNames from "classnames";
 import { NavLink, useLocation } from "react-router-dom";
 import styles from "./ProfileMenu.module.scss";
 
 const ProfileMenu: FC = () => {
 	const refsList = useRef<Array<HTMLUListElement | null>>([]);
-	const state = useLocation().state as IBreadCrumbsLocationState[];
-	const currentLocation = state ? state[state.length - 1].title : "";
+	const location = useLocation();
+	const currentLocation = location.pathname
+		.split("/")
+		.filter((i) => isNaN(+i) && i)
+		.at(-1);
 
 	useEffect(() => {
 		focusOnList();
-	}, [state]);
+		// eslint-disable-next-line
+	}, [location]);
 
 	const focusOnList = (): void => {
 		refsList.current.forEach((item) => {
@@ -28,10 +31,10 @@ const ProfileMenu: FC = () => {
 			}
 		});
 		if (
-			currentLocation === "Мои объявления" ||
-			currentLocation === "Отзывы" ||
-			currentLocation === "Избранное" ||
-			currentLocation === "Сообщения"
+			currentLocation === "my-ads" ||
+			currentLocation === "reviews" ||
+			currentLocation === "favorites" ||
+			currentLocation === "messages"
 		) {
 			refsList.current[0]?.classList.add(styles.listActive);
 		} else {
