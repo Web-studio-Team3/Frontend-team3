@@ -13,7 +13,7 @@ export const Header = () => {
 			<div className={styles.titleBlock}>
 				<h1>Страница создания нового товара</h1>
 			</div>
-			<div></div>
+			<div className={styles.fakeBlock}></div>
 		</header>
 	);
 };

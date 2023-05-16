@@ -1,12 +1,13 @@
 import { FC } from "react";
 import { PlusIcon, ShieldDoneIcon } from "@assets/icons/Icons";
-import userPhoto from "@assets/img/user-photo.png";
 import RatingStars from "@components/ratingStars";
 import classNames from "classnames";
 import cn from "classnames";
 import { NavLink } from "react-router-dom";
 import styles from "./UserCard.module.scss";
 import { userCardProps } from "./UserCardProps";
+import { useSelector } from "react-redux";
+import { RootState } from "src/Store/store";
 
 export type sss = {
 	full_name: string;
@@ -20,10 +21,12 @@ const UserCard: FC<userCardProps> = ({
 	size = "m",
 	userRating,
 }) => {
-	let data: any = sessionStorage.getItem("userData");
-	let photo: any = sessionStorage.getItem("photo");
-	if (data) data = JSON.parse(data) as sss;
-	console.log(data);
+	const user_photo = useSelector(
+		(state: RootState) => state.User.user_picture
+	);
+	const user_name = useSelector(
+		(state: RootState) => state.User.user?.full_name
+	);
 	const currentRating = userRating || 0;
 	const rating = (
 		<div className={styles.rating}>
@@ -53,7 +56,7 @@ const UserCard: FC<userCardProps> = ({
 		>
 			<div className={styles.photoBlock}>
 				<img
-					src={`http://localhost:8000/${photo}`}
+					src={`http://localhost:8000/${user_photo}/`}
 					alt="user"
 					className={styles.photo}
 					width={169}
@@ -68,10 +71,10 @@ const UserCard: FC<userCardProps> = ({
 			<div className={styles.textBlock}>
 				<p className={styles.name}>
 					{type === "my" ? (
-						data.full_name
+						user_name
 					) : (
 						<>
-							{data.full_name}
+							{user_name}
 							<ShieldDoneIcon />
 						</>
 					)}

@@ -1,8 +1,9 @@
 import { FC } from "react";
+import Header from "@components/header/Header";
 import { CreateNewItemProps } from ".";
-import styles from "./CreateNewItem.module.sass";
+import styles from "./CreateNewItem.module.scss";
 import { Content } from "./Modules/Content";
-import { Header } from "./Modules/Header";
+// import { Header } from "./Modules/Header";
 
 export const CreateNewItem: FC<CreateNewItemProps> = (props) => {
 	return (

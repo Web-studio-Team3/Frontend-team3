@@ -2,7 +2,7 @@ import { FC, useContext } from "react";
 import { FavoriteIcon } from "@assets/icons/Icons";
 import classNames from "classnames";
 import cn from "classnames";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { BreadcrumbsContext, IBreadcrumbsContext } from "../../App";
 import styles from "./ShopItem.module.scss";
 
@@ -30,6 +30,7 @@ export const ShopItem: FC<ShopItemProps> = ({
 	phoneCall,
 	size = ShopItemSize.standart,
 }) => {
+	const state = useLocation().state;
 	const path = `/advert/${id}`;
 	const navigate = useNavigate();
 	const { setBreadcrumbs } = useContext(

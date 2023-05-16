@@ -1,3 +1,4 @@
+import ItemApi from "@api/Item/Item";
 import { createContext, useEffect, useState } from "react";
 import {
 	Account,
@@ -14,7 +15,10 @@ import Login from "@pages/Login/Login";
 import Market from "@pages/market";
 import MarketItemPage from "@pages/marketItemPage/MarketItemPage";
 import Registration from "@pages/Registration/Registration";
+import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Actions } from "./Store/actions";
+import { RootState } from "./Store/store";
 
 export interface IBreadcrumbsContext {
 	breadcrumbs: Record<string, string>;
@@ -36,6 +40,9 @@ function App() {
 			localStorage.clear();
 		};
 	}, []);
+
+	const authData = useSelector((state: RootState) => state.Auth);
+	console.log(authData);
 	return (
 		<BreadcrumbsContext.Provider
 			value={{

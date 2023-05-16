@@ -10,12 +10,7 @@ export declare namespace iApi {
 		email: string;
 		raw_password: string;
 	};
-	type oLogin = {
-		token: string;
-		user_id: string;
-	};
 	type GetUser = {
 		id: string;
-		token: string;
 	};
 }

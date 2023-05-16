@@ -5,8 +5,11 @@ import { UploadFile } from "antd/lib/upload/interface";
 import { Link, Navigate } from "react-router-dom";
 import styles from "./Registration.module.scss";
 import RegistrationFinish from "./Utils/RegistrationFinish";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "src/Store/store";
 
 export const Registration = () => {
+	const dispatch = useDispatch();
 	const [form] = Form.useForm();
 	const [success, setSuccess] = useState(false);
 
@@ -14,8 +17,8 @@ export const Registration = () => {
 		return e && e.fileList;
 	};
 
-	if (localStorage.getItem("token") && localStorage.getItem("user_id"))
-		return <Navigate to={"/"} />;
+	const token = useSelector((state: RootState) => state.Auth.token);
+	if (token) return <Navigate to={"/"} />;
 
 	if (success) return <Navigate to={"/"} />;
 
@@ -26,7 +29,9 @@ export const Registration = () => {
 				<Form
 					className={styles.form}
 					layout="vertical"
-					onFinish={() => RegistrationFinish({ form, setSuccess })}
+					onFinish={() =>
+						RegistrationFinish({ form, setSuccess, dispatch })
+					}
 					form={form}
 				>
 					<Form.Item
@@ -126,12 +131,12 @@ export const Registration = () => {
 						className={styles.button2}
 						type="primary"
 						size="large"
-						onClick={() => {
-							// eslint-disable-next-line no-restricted-globals
-							location.href = "/login";
-						}}
+						// onClick={() => {
+						// 	// eslint-disable-next-line no-restricted-globals
+						// 	location.href = "/login";
+						// }}
 					>
-						Войти в аккаунт
+						<Link to="/login">Войти в аккаунт</Link>
 					</Button>
 					<Link to={"/"}>Продолжить без входа в аккаунт</Link>
 				</Form>

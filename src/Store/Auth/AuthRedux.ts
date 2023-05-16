@@ -1,35 +1,42 @@
+import { iApi } from "@api/Account/types";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface AuthState {
-	value: number;
+	token: string | null;
+	user_id: string | null;
+}
+
+declare namespace i {
+	type setData = {
+		jwt_token: string;
+		user_id: string;
+	};
 }
 
 const initialState: AuthState = {
-	value: 0,
+	token: null,
+	user_id: null,
 };
 
 export const authSlice = createSlice({
 	name: "auth",
 	initialState,
 	reducers: {
-		increment: (state) => {
-			// Redux Toolkit allows us to write "mutating" logic in reducers. It
-			// doesn't actually mutate the state because it uses the Immer library,
-			// which detects changes to a "draft state" and produces a brand new
-			// immutable state based off those changes
-			state.value += 1;
+		setData: (state, action: PayloadAction<i.setData>) => {
+			state.token = action.payload.jwt_token;
+			state.user_id = action.payload.user_id;
 		},
-		decrement: (state) => {
-			state.value -= 1;
+		eraseData: (state) => {
+			state.token = null;
+			state.user_id = null;
 		},
-		incrementByAmount: (state, action: PayloadAction<number>) => {
-			state.value += action.payload;
-		},
+		authorization: (state, action: PayloadAction<iApi.Login>) => {},
+		registration: (state, action: PayloadAction<iApi.Registration>) => {},
 	},
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = authSlice.actions;
+export const Actions = authSlice.actions;
 
 export default authSlice.reducer;

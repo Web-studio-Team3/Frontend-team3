@@ -1,13 +1,24 @@
-import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "./Auth/AuthRedux";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import createSagas from "redux-saga";
+import rootSaga from "../Saga/rootSaga";
+import rootReducer from "./rootReducer";
+
+const sagaMiddleware = createSagas();
+const middleware = [
+	...getDefaultMiddleware({
+		thunk: false,
+		serializableCheck: false,
+		immutableCheck: true,
+	}),
+	sagaMiddleware,
+];
 
 export const store = configureStore({
-	reducer: {
-		auth: authReducer,
-	},
+	reducer: rootReducer,
+	middleware,
 });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
+sagaMiddleware.run(rootSaga);
+
 export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;

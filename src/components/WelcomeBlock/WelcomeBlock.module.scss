@@ -7,9 +7,11 @@
 
 .hidden {
 	display: none;
+	opacity: 0;
 }
 
 .content {
+	transition: 1.5s;
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;

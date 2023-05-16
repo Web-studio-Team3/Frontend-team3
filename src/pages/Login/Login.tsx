@@ -1,25 +1,16 @@
 import { useState } from "react";
-import {
-	Form,
-	Button,
-	DatePicker,
-	InputNumber,
-	Input,
-	Checkbox,
-	Radio,
-} from "antd";
+import { Form, Button, Input, Radio } from "antd";
 import { Link, Navigate } from "react-router-dom";
 import styles from "./Login.module.scss";
 import RegistrationFinish from "./Utils/LoginFinish";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "src/Store/store";
 
 export const Login = () => {
 	const [form] = Form.useForm();
-	const [success, setSuccess] = useState(false);
-
-	if (localStorage.getItem("token") && localStorage.getItem("user_id"))
-		return <Navigate to={"/"} />;
-
-	if (success) return <Navigate to={"/"} />;
+	const dispatch = useDispatch();
+	const token = useSelector((state: RootState) => state.Auth.token);
+	if (token) return <Navigate to={"/"} />;
 
 	return (
 		<div className={styles.page}>
@@ -28,7 +19,7 @@ export const Login = () => {
 				<Form
 					className={styles.form}
 					layout="vertical"
-					onFinish={() => RegistrationFinish({ form, setSuccess })}
+					onFinish={() => RegistrationFinish({ form, dispatch })}
 					form={form}
 				>
 					<p className={styles.prevText}>
@@ -49,7 +40,6 @@ export const Login = () => {
 							autoComplete="off"
 							placeholder={"Введите логин"}
 							type="text"
-							// allowClear
 						/>
 					</Form.Item>
 

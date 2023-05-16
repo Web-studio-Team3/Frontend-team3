@@ -2,14 +2,17 @@ import { FC, useEffect, useState } from "react";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
 import styles from "./WelcomeBlock.module.scss";
+import { useSelector } from "react-redux";
+import { RootState } from "src/Store/store";
 
 export const WelcomeBlock = () => {
-	const [hidden, setHidden] = useState(false);
+	const [hidden, setHidden] = useState(true);
+	const token = useSelector((state: RootState) => state.Auth.token);
 	useEffect(() => {
-		if (localStorage.getItem("token") && localStorage.getItem("user_id")) {
-			setHidden(true);
+		if (!token) {
+			setHidden(false);
 		}
-	}, []);
+	}, [token]);
 	return (
 		<div
 			className={classNames(styles.wrapper, { [styles.hidden]: hidden })}

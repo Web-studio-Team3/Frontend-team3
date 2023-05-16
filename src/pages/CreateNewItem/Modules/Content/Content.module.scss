@@ -1,7 +1,29 @@
 .wrapper {
-    // min-height: calc(100vh - 91px);
-    padding: 20px 0 0 0;
-    margin: 0 auto;
-    height: 100%;
-    width: 500px;
+	display: flex;
+	gap: 24px;
+	justify-content: center;
+	flex-grow: 1;
+	flex-direction: column;
+	padding: 20px 0 0 0;
+	margin: 0 auto;
+	height: 100%;
+	// width: 500px;
+	width: 90%;
+	max-width: 600px;
+	// align-items: center;
+}
+
+.title {
+	color: #ffffff;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 39px;
+}
+
+.categoriesBlock {
+	border-radius: 23px;
+	background-color: #2d2d33;
+	padding: 24px 20px 20px 24px;
 }
