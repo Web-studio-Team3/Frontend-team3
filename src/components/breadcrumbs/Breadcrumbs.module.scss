@@ -1,10 +1,33 @@
 @import "@styles/variables.scss";
 
 .wrapper {
-    color: $white;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    margin-bottom: 40px;
-    height: 19px;
+	margin-bottom: 40px;
+	height: 19px;
+
+	:global(.ant-breadcrumb-separator) {
+		color: $white;
+		margin-inline: 4px;
+	}
+
+	.link {
+		color: $white;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 19px;
+		text-decoration: none;
+		cursor: pointer;
+
+		&Active {
+			color: $green;
+			cursor: default;
+		}
+
+		&:hover {
+			color: rgb(175, 174, 174);
+		}
+
+		&:hover.linkActive {
+			color: $green;
+		}
+	}
 }

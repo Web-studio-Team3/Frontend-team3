@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ReviewListItem } from "@pages/AccountReviews/AccountReviews";
+import { ReviewListItem } from "../../AccountReviews";
 import ReviewCard from "../reviewCard";
 import styles from "./ReviewList.module.scss";
 

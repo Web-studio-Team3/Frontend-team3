@@ -15,28 +15,36 @@ export type sss = {
 	picture_id: string;
 };
 
-const UserCard: FC<userCardProps> = ({ type, size = "m", userRating }) => {
+const UserCard: FC<userCardProps> = ({
+	type,
+	reviewsCount,
+	size = "m",
+	userRating,
+}) => {
 	const user_photo = useSelector(
 		(state: RootState) => state.User.user_picture
 	);
 	const user_name = useSelector(
 		(state: RootState) => state.User.user?.full_name
 	);
-
 	const currentRating = userRating || 0;
 	const rating = (
 		<div className={styles.rating}>
 			<RatingStars currentRating={currentRating} />
-			<NavLink
-				to="./reviews"
-				className={({ isActive }) =>
-					isActive
-						? classNames(styles.text, styles.textActive)
-						: styles.text
-				}
-			>
-				1 отзыв
-			</NavLink>
+			{size === "s" ? (
+				<p className={styles.text}>{reviewsCount} отзыв</p>
+			) : (
+				<NavLink
+					to="./reviews"
+					className={({ isActive }) =>
+						isActive
+							? classNames(styles.text, styles.textActive)
+							: styles.text
+					}
+				>
+					{reviewsCount} отзыв
+				</NavLink>
+			)}
 		</div>
 	);
 
@@ -66,7 +74,7 @@ const UserCard: FC<userCardProps> = ({ type, size = "m", userRating }) => {
 						user_name
 					) : (
 						<>
-							Шарик Борисович
+							{user_name}
 							<ShieldDoneIcon />
 						</>
 					)}

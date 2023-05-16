@@ -6,15 +6,14 @@ import {
 	SearchIcon,
 	CategoryIcon,
 } from "@assets/icons/Icons";
-import { IBreadCrumbsLocationState } from "@components/breadcrumbs/Breadcrumbs";
 import classNames from "classnames";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { v4 } from "uuid";
 import styles from "./Header.module.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
 import { Actions } from "./../../Store/actions";
 import { useDispatch } from "react-redux";
+import { v4 } from "uuid";
 
 const Header: FC = () => {
 	const user = useSelector((state: RootState) => state.User.user);
@@ -22,7 +21,7 @@ const Header: FC = () => {
 	const [ButtonHidden, setButtonHidden] = useState(false);
 	const navigate = useNavigate();
 	const path = useLocation().pathname;
-	let state = useLocation().state as IBreadCrumbsLocationState[];
+	let state = useLocation().state;
 	const splittedPath = path.split("/");
 	console.log(user);
 	const currentLocation = isNaN(Number(splittedPath[splittedPath.length - 1]))
