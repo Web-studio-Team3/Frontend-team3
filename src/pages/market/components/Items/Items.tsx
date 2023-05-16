@@ -6,6 +6,8 @@ import styled from "styled-components";
 import { Icon1, Icon2 } from "./icons";
 import styles from "./Items.module.scss";
 import { MarketItems } from "./marketItems";
+import { useSelector } from "react-redux";
+import { RootState } from "src/Store/store";
 
 type ItemsProps = {
 	ItemsNumber: number;
@@ -58,6 +60,8 @@ export const Controller = styled.div`
 
 const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 	const [currenFilter, setFilter] = useState("Популярные");
+	const items = useSelector((state: RootState) => state.Items.items);
+	console.log("created ", items);
 
 	const [itemsShort, setItemsShort] = useState(ShopItemSize.standart);
 	const changeItemSize = () => {
@@ -110,6 +114,18 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 				</div>
 			</Controller>
 			<ItemsBlock>
+				{items.map((item) => (
+					<ShopItem
+						id={item.id}
+						key={item.id}
+						// image={item.image}
+						title={item.title}
+						price={item.cost}
+						information={item.description}
+						// phoneCall={item.phoneCall}
+						size={itemsShort}
+					/>
+				))}
 				{filteredItems.map((item) => (
 					<ShopItem
 						id={item.id}

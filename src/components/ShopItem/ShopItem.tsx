@@ -5,6 +5,9 @@ import cn from "classnames";
 import { useLocation, useNavigate } from "react-router-dom";
 import { BreadcrumbsContext, IBreadcrumbsContext } from "../../App";
 import styles from "./ShopItem.module.scss";
+import { Tooltip } from "antd";
+import { useSelector } from "react-redux";
+import { RootState } from "src/Store/store";
 
 export enum ShopItemSize {
 	short = "Short",
@@ -12,12 +15,12 @@ export enum ShopItemSize {
 }
 
 export type ShopItemProps = {
-	id: number | string;
-	image: string;
+	id?: number | string;
+	image?: string;
 	title: string;
-	price: number;
-	information: string;
-	phoneCall: boolean;
+	price?: number | string;
+	information?: string;
+	phoneCall?: boolean;
 	size?: ShopItemSize;
 };
 
@@ -30,6 +33,7 @@ export const ShopItem: FC<ShopItemProps> = ({
 	phoneCall,
 	size = ShopItemSize.standart,
 }) => {
+	const token = useSelector((state: RootState) => state.Auth.token);
 	const state = useLocation().state;
 	const path = `/advert/${id}`;
 	const navigate = useNavigate();
@@ -72,20 +76,28 @@ export const ShopItem: FC<ShopItemProps> = ({
 					<FavoriteIcon />
 				</button>
 			</div>
-			<div className={styles[`buttonBlock${size}`]}>
-				<button
-					className={classNames(styles.button, styles.typeWrite)}
-					disabled={localStorage.getItem("token") === null}
-				>
-					Написать
-				</button>
-				<button
-					disabled={localStorage.getItem("token") === null}
-					className={classNames(styles.button, styles.typeCall)}
-				>
-					Позвонить
-				</button>
-			</div>
+			<Tooltip
+				title={
+					token
+						? ""
+						: "Чтобы взаимодействовать с продавцом, Вам необходимо зарегистрироваться"
+				}
+			>
+				<div className={styles[`buttonBlock${size}`]}>
+					<button
+						className={classNames(styles.button, styles.typeWrite)}
+						disabled={token === null}
+					>
+						Написать
+					</button>
+					<button
+						disabled={token === null}
+						className={classNames(styles.button, styles.typeCall)}
+					>
+						Позвонить
+					</button>
+				</div>
+			</Tooltip>
 		</div>
 	);
 };

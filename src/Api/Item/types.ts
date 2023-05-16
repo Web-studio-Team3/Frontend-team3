@@ -1,16 +1,12 @@
 export declare namespace iApi {
-	type Registration = {
-		email: string;
-		raw_password: string;
-		full_name: string;
-		date_of_birth: string;
+	type CreateNewItem = {
+		category_id: string;
+		title: string;
+		description: string;
+		condition: string;
+		address: string;
+		cost: string;
+		item_status: string;
 		picture: Blob;
-	};
-	type Login = {
-		email: string;
-		raw_password: string;
-	};
-	type GetUser = {
-		id: string;
 	};
 }

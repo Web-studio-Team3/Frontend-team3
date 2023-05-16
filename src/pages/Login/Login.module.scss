@@ -4,6 +4,11 @@
 	width: 100%;
 	background-image: url("./Icons/1.png");
 	background-size: cover;
+	opacity: 0;
+	transition: 1s;
+}
+.visible {
+	opacity: 1;
 }
 
 .form {
