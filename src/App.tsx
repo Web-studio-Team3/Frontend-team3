@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import ItemApi from "@api/Item/Item";
 import AccountLayout from "@pages/accountLayout";
 import AccountReviews from "@pages/AccountReviews";
 import { AnotherAccount, AccountAds } from "@pages/anotherAccount";
@@ -11,7 +12,10 @@ import { MyAccount, AccountMessages, AccountSettings } from "@pages/myAccount";
 import AccountFavorites from "@pages/myAccount/accountFavorites";
 import AccountSingleChat from "@pages/myAccount/accountSingleChat";
 import Registration from "@pages/Registration/Registration";
+import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Actions } from "./Store/actions";
+import { RootState } from "./Store/store";
 
 function App() {
 	useEffect(() => {
@@ -20,6 +24,9 @@ function App() {
 			localStorage.clear();
 		};
 	}, []);
+
+	const authData = useSelector((state: RootState) => state.Auth);
+	console.log(authData);
 	return (
 		<BrowserRouter>
 			<Routes>

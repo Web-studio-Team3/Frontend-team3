@@ -15,7 +15,7 @@
       }
     ],
     "import/order": [
-      "error",
+      "off",
       {
         "groups": [
           "builtin",

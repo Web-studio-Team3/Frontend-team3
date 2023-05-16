@@ -2,9 +2,10 @@ import { FC } from "react";
 import { PlusIcon } from "@assets/icons/Icons";
 import { sss } from "@components/userCard/UserCard";
 import styles from "./UserData.module.scss";
+import { useSelector } from "react-redux";
+import { RootState } from "src/Store/store";
 const UserData: FC = () => {
-	let data: any = sessionStorage.getItem("userData");
-	if (data) data = JSON.parse(data) as sss;
+	const user = useSelector((state: RootState) => state.User.user);
 	return (
 		<div className={styles.block}>
 			<h2 className={styles.title}>Личные данные</h2>
@@ -14,7 +15,7 @@ const UserData: FC = () => {
 			<ul className={styles.list}>
 				<li className={styles.item}>
 					<p className={styles.text}>Профиль</p>
-					<p className={styles.text}>{data.full_name}</p>
+					<p className={styles.text}>{user?.full_name}</p>
 				</li>
 				<li className={styles.item}>
 					<p className={styles.text}>Телефон</p>
@@ -26,7 +27,7 @@ const UserData: FC = () => {
 				</li>
 				<li className={styles.item}>
 					<p className={styles.text}>E-mail</p>
-					<p className={styles.text}>{data.email}</p>
+					<p className={styles.text}>{user?.email}</p>
 				</li>
 			</ul>
 		</div>

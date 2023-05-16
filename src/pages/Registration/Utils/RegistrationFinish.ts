@@ -1,13 +1,17 @@
 import Api from "@api/index";
+import { AnyAction } from "@reduxjs/toolkit";
 import { FormInstance } from "antd";
+import { Dispatch } from "react";
+import { Actions } from "./../../../Store/actions";
 
 type RegistrationFinishProps = {
 	form: FormInstance;
 	setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
+	dispatch: Dispatch<AnyAction>;
 };
 
-const RegistrationFinish = async (props: RegistrationFinishProps) => {
-	const { form } = props;
+const RegistrationFinish = (props: RegistrationFinishProps) => {
+	const { form, dispatch } = props;
 	const email = form.getFieldValue("email");
 	const raw_password = form.getFieldValue("raw_password");
 	const full_name = form.getFieldValue("full_name");
@@ -24,13 +28,8 @@ const RegistrationFinish = async (props: RegistrationFinishProps) => {
 		date_of_birth,
 		picture,
 	};
-
-	await Api.AccountApi.registration(data);
-	if (localStorage.getItem("token") && localStorage.getItem("user_id")) {
-		props.setSuccess(true);
-		const user_id = localStorage.getItem("user_id");
-		if (user_id) Api.AccountApi.getUser({ id: user_id });
-	}
+	console.log("w");
+	dispatch(Actions.Auth.registration(data));
 };
 
 export default RegistrationFinish;

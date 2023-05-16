@@ -7,10 +7,10 @@ const prefix = "http://localhost:8000/api/";
 const ItemApi = {
 	async getAllItems() {
 		try {
-			const url = '/items'
+			const url = `${prefix}items`;
 			const response = await axios.get(url);
-			console.log(response)
-		}
+			console.log(response);
+		} catch (e) {}
 	},
 	// async registration(data: iApi.Registration) {
 	// 	const url = `${prefix}users/sign_up`;
