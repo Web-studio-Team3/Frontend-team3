@@ -12,37 +12,7 @@ const GetItems = function* () {
 	try {
 		const items: ResponseGenerator = yield call(ItemApi.getAllItems);
 		yield put(Actions.Items.setItems(items.data));
-		console.log(items.data);
-		// if (registration.status === 422) throw new Error();
-		// const login: ResponseGenerator = yield call(AccountApi.login, {
-		// 	email: action.payload.email,
-		// 	raw_password: action.payload.raw_password,
-		// });
-		// yield put(Actions.Auth.setData(login.data));
-		// const user_id: string = yield select(
-		// 	(state: RootState) => state.Auth.user_id
-		// );
-		// const token: string = yield select(
-		// 	(state: RootState) => state.Auth.token
-		// );
-		// if (!user_id || !token) throw new Error();
-		// const user: ResponseGenerator = yield call(AccountApi.getUser, {
-		// 	id: user_id,
-		// 	token: token,
-		// });
-		// yield put(Actions.User.setUser(user.data));
-		// const user_picture_id: string = yield select(
-		// 	(state: RootState) => state.User.user?.picture_id
-		// );
-		// if (!user_picture_id) throw new Error();
-		// const user_photo: ResponseGenerator = yield call(AccountApi.getPhoto, {
-		// 	id: user_picture_id,
-		// 	token: token,
-		// });
-		// yield put(Actions.User.setUserPicture(user_photo.data.picture_url));
-	} catch (e) {
-		console.log("error");
-	}
+	} catch (e) {}
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export

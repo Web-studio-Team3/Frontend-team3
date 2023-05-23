@@ -7,6 +7,7 @@ import { RootState } from "src/Store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { UploadChangeParam, UploadFile } from "antd/es/upload";
 import CreateTaskFinish from "./Utils/CreateTaskFinish";
+import { Navigate } from "react-router-dom";
 
 export const Content = () => {
 	const dispatch = useDispatch();
@@ -19,6 +20,8 @@ export const Content = () => {
 
 	const token = useSelector((state: RootState) => state.Auth.token);
 	const [category, setCategory] = useState<string | null>(null);
+
+	if (success) return <Navigate to="/" />;
 	return (
 		<div className={styles.page}>
 			<main className={styles.body}>
@@ -26,9 +29,10 @@ export const Content = () => {
 				<Form
 					className={styles.form}
 					layout="vertical"
-					onFinish={() =>
-						CreateTaskFinish({ form, setSuccess, dispatch })
-					}
+					onFinish={() => {
+						CreateTaskFinish({ form, setSuccess, dispatch });
+						setSuccess(true);
+					}}
 					form={form}
 				>
 					<span className={styles.inputTitle}>

@@ -9,4 +9,7 @@ export declare namespace iApi {
 		item_status: string;
 		picture: Blob;
 	};
+	type getItemPhoto = {
+		id: string;
+	};
 }

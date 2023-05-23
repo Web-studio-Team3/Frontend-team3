@@ -29,7 +29,6 @@ const CreateTaskFinish = (props: RegistrationFinishProps) => {
 		item_status: "1",
 		picture,
 	};
-	console.log("w");
 	dispatch(Actions.Items.createNewItem(data));
 };
 

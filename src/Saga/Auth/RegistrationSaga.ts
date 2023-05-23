@@ -6,6 +6,7 @@ import { iApi } from "@api/Account/types";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "src/Store/store";
 import { ResponseGenerator } from "src/Types/types";
+import { notification } from "antd";
 
 const Registration = function* (action: PayloadAction<iApi.Registration>) {
 	try {
@@ -13,7 +14,6 @@ const Registration = function* (action: PayloadAction<iApi.Registration>) {
 			AccountApi.registration,
 			action.payload
 		);
-		console.log(registration);
 		if (registration.status === 422) throw new Error();
 		const login: ResponseGenerator = yield call(AccountApi.login, {
 			email: action.payload.email,
@@ -41,8 +41,13 @@ const Registration = function* (action: PayloadAction<iApi.Registration>) {
 			token: token,
 		});
 		yield put(Actions.User.setUserPicture(user_photo.data.picture_url));
+		notification.success({
+			message: "Вы успешно зарегистрировались",
+		});
 	} catch (e) {
-		console.log("error");
+		notification.error({
+			message: "Во время регистрации произошла ошибка",
+		});
 	}
 };
 

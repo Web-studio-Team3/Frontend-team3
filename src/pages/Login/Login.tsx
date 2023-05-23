@@ -15,7 +15,9 @@ export const Login = () => {
 	const [form] = Form.useForm();
 	const dispatch = useDispatch();
 	const token = useSelector((state: RootState) => state.Auth.token);
+	const [saveLogin, setSaveLogin] = useState(false);
 	if (token) return <Navigate to={"/"} />;
+	const save_login_recovery = localStorage.getItem("saveLogin");
 
 	return (
 		<div
@@ -28,7 +30,9 @@ export const Login = () => {
 				<Form
 					className={styles.form}
 					layout="vertical"
-					onFinish={() => RegistrationFinish({ form, dispatch })}
+					onFinish={() =>
+						RegistrationFinish({ form, dispatch, saveLogin })
+					}
 					form={form}
 				>
 					<p className={styles.prevText}>
@@ -36,6 +40,11 @@ export const Login = () => {
 						Войти
 					</p>
 					<Form.Item
+						initialValue={
+							save_login_recovery !== null
+								? save_login_recovery
+								: ""
+						}
 						name="email"
 						rules={[
 							{
@@ -69,10 +78,14 @@ export const Login = () => {
 						/>
 					</Form.Item>
 
-					<Form.Item name="raw_password" className={styles.radio}>
+					<Form.Item name="save_login" className={styles.radio}>
 						<>
-							<Radio />
-							запомнить меня
+							<Radio
+								onClick={() => {
+									setSaveLogin((prev) => !prev);
+								}}
+							/>
+							запомнить логин
 						</>
 					</Form.Item>
 

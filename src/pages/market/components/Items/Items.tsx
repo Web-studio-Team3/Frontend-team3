@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FilterItem from "@components/FilterItem";
 import { ShopItem, ShopItemSize } from "@components/ShopItem";
 import classNames from "classnames";
 import styled from "styled-components";
 import { Icon1, Icon2 } from "./icons";
 import styles from "./Items.module.scss";
-import { MarketItems } from "./marketItems";
+// import { MarketItems } from "./marketItems";
 import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
+import { Actions } from "./../../../../Store/actions";
+import { useDispatch } from "react-redux";
 
 type ItemsProps = {
 	ItemsNumber: number;
@@ -59,9 +61,9 @@ export const Controller = styled.div`
 `;
 
 const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
+	const dispatch = useDispatch();
 	const [currenFilter, setFilter] = useState("Популярные");
 	const items = useSelector((state: RootState) => state.Items.items);
-	console.log("created ", items);
 
 	const [itemsShort, setItemsShort] = useState(ShopItemSize.standart);
 	const changeItemSize = () => {
@@ -69,14 +71,21 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 			? setItemsShort(ShopItemSize.short)
 			: setItemsShort(ShopItemSize.standart);
 	};
+
+	useEffect(() => {
+		dispatch(Actions.Items.getItems());
+	}, []);
+
+	if (!items) return null;
+	const FilteredItems = [...items];
 	const filteredItems =
 		currenFilter === "По убыванию"
-			? MarketItems.sort((a, b) => b.price - a.price)
+			? FilteredItems.sort((a, b) => Number(b.cost) - Number(a.cost))
 			: currenFilter === "По возрастанию"
-			? MarketItems.sort((a, b) => a.price - b.price)
+			? FilteredItems.sort((a, b) => Number(a.cost) - Number(b.cost))
 			: currenFilter === "Популярные"
-			? MarketItems
-			: MarketItems;
+			? FilteredItems
+			: FilteredItems;
 
 	return (
 		<Content>
@@ -114,30 +123,18 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 				</div>
 			</Controller>
 			<ItemsBlock>
-				{items.map((item) => (
-					<ShopItem
-						id={item.id}
-						key={item.id}
-						// image={item.image}
-						title={item.title}
-						price={item.cost}
-						information={item.description}
-						// phoneCall={item.phoneCall}
-						size={itemsShort}
-					/>
-				))}
-				{filteredItems.map((item) => (
-					<ShopItem
-						id={item.id}
-						key={item.id}
-						image={item.image}
-						title={item.title}
-						price={item.price}
-						information={item.information}
-						phoneCall={item.phoneCall}
-						size={itemsShort}
-					/>
-				))}
+				{filteredItems.map((item) => {
+					return (
+						<ShopItem
+							id={item.id}
+							key={item.id}
+							title={item.title}
+							price={item.cost}
+							information={item.description}
+							size={itemsShort}
+						/>
+					);
+				})}
 			</ItemsBlock>
 		</Content>
 	);

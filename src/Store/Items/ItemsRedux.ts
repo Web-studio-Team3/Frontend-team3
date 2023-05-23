@@ -23,16 +23,21 @@ export declare namespace i {
 		item_status: string;
 		id: string;
 	};
+	type setSelectedItem = {
+		id: number;
+	};
 }
 
 export interface AuthState {
 	items: i.item[];
 	getItemsStatus: "loading" | "success" | "error" | null;
+	selectedItem: number | null;
 }
 
 const initialState: AuthState = {
 	items: [],
 	getItemsStatus: null,
+	selectedItem: null,
 };
 
 export const itemsSlice = createSlice({
@@ -49,6 +54,9 @@ export const itemsSlice = createSlice({
 		},
 		setItems: (state, action: PayloadAction<i.item[]>) => {
 			state.items = action.payload;
+		},
+		setSelectedItem: (state, action: PayloadAction<i.setSelectedItem>) => {
+			state.selectedItem = action.payload.id;
 		},
 	},
 });

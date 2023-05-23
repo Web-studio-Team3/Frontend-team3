@@ -6,7 +6,7 @@ const prefix = "http://localhost:8000/api/";
 
 const ItemApi = {
 	async getAllItems() {
-		const url = `${prefix}items`;
+		const url = `http://localhost:8000/api/items`;
 		return await axios.get(url);
 	},
 	async createNewItem(data: iApi.CreateNewItem) {
@@ -22,6 +22,10 @@ const ItemApi = {
 		formData.set("title", data.title);
 
 		return await axios.post(url, formData);
+	},
+	async getItemProtoID(data: iApi.getItemPhoto) {
+		const url = `http://localhost:8000/api/picture_item_relations/item/${data.id}`;
+		return await axios.get(url);
 	},
 };
 

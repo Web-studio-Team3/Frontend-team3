@@ -28,7 +28,6 @@ const RegistrationFinish = (props: RegistrationFinishProps) => {
 		date_of_birth,
 		picture,
 	};
-	console.log("w");
 	dispatch(Actions.Auth.registration(data));
 };
 

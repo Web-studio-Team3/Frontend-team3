@@ -23,7 +23,6 @@ const Header: FC = () => {
 	const path = useLocation().pathname;
 	let state = useLocation().state;
 	const splittedPath = path.split("/");
-	console.log(user);
 	const currentLocation = isNaN(Number(splittedPath[splittedPath.length - 1]))
 		? splittedPath[splittedPath.length - 1]
 		: splittedPath[splittedPath.length - 2];
