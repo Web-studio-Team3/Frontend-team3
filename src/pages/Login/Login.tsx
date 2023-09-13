@@ -1,25 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form, Button, Input, Radio } from "antd";
 import { Link, Navigate } from "react-router-dom";
 import styles from "./Login.module.scss";
 import RegistrationFinish from "./Utils/LoginFinish";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
+import classNames from "classnames";
 
 export const Login = () => {
+	const [visible, setVisible] = useState(false);
+	useEffect(() => {
+		setVisible(true);
+	}, []);
 	const [form] = Form.useForm();
 	const dispatch = useDispatch();
 	const token = useSelector((state: RootState) => state.Auth.token);
+	const [saveLogin, setSaveLogin] = useState(false);
 	if (token) return <Navigate to={"/"} />;
+	const save_login_recovery = localStorage.getItem("saveLogin");
 
 	return (
-		<div className={styles.page}>
+		<div
+			className={classNames(styles.page, {
+				[styles.visible]: visible,
+			})}
+		>
 			<main className={styles.body}>
 				<h1>Вход в Барахолку</h1>
 				<Form
 					className={styles.form}
 					layout="vertical"
-					onFinish={() => RegistrationFinish({ form, dispatch })}
+					onFinish={() =>
+						RegistrationFinish({ form, dispatch, saveLogin })
+					}
 					form={form}
 				>
 					<p className={styles.prevText}>
@@ -27,6 +40,11 @@ export const Login = () => {
 						Войти
 					</p>
 					<Form.Item
+						initialValue={
+							save_login_recovery !== null
+								? save_login_recovery
+								: ""
+						}
 						name="email"
 						rules={[
 							{
@@ -60,10 +78,14 @@ export const Login = () => {
 						/>
 					</Form.Item>
 
-					<Form.Item name="raw_password" className={styles.radio}>
+					<Form.Item name="save_login" className={styles.radio}>
 						<>
-							<Radio />
-							запомнить меня
+							<Radio
+								onClick={() => {
+									setSaveLogin((prev) => !prev);
+								}}
+							/>
+							запомнить логин
 						</>
 					</Form.Item>
 

@@ -12,8 +12,12 @@ import cn from "classnames";
 import { useNavigate } from "react-router-dom";
 import { BreadcrumbsContext, IBreadcrumbsContext } from "../../App";
 import styles from "./MarketItemPage.module.scss";
+import { useSelector } from "react-redux";
+import { RootState } from "src/Store/store";
+import { Tooltip } from "antd";
 
 const MarketItemPage: FC = () => {
+	const token = useSelector((state: RootState) => state.Auth.token);
 	const [currentCategory, replaceCategory] = useState("");
 	const user = {
 		name: "Шарик",
@@ -206,29 +210,31 @@ const MarketItemPage: FC = () => {
 										вчера в 18:32
 									</p>
 								</div>
-								<div className={styles.buttonBlock}>
-									<button
-										className={styles.button}
-										disabled={
-											localStorage.getItem("token") ===
-											null
-										}
-									>
-										Написать
-									</button>
-									<button
-										disabled={
-											localStorage.getItem("token") ===
-											null
-										}
-										className={cn(
-											styles.button,
-											styles.buttonPurple
-										)}
-									>
-										Позвонить
-									</button>
-								</div>
+								<Tooltip
+									title={
+										token
+											? ""
+											: "Чтобы взаимодействовать с продавцом, Вам необходимо зарегистрироваться"
+									}
+								>
+									<div className={styles.buttonBlock}>
+										<button
+											className={styles.button}
+											disabled={token === null}
+										>
+											Написать
+										</button>
+										<button
+											disabled={token === null}
+											className={cn(
+												styles.button,
+												styles.buttonPurple
+											)}
+										>
+											Позвонить
+										</button>
+									</div>
+								</Tooltip>
 								<button
 									className={styles.cardLink}
 									onClick={handleItemClick}

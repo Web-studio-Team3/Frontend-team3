@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form, Button, DatePicker, Input, Upload } from "antd";
 import { UploadChangeParam } from "antd/lib/upload";
 import { UploadFile } from "antd/lib/upload/interface";
@@ -7,8 +7,13 @@ import styles from "./Registration.module.scss";
 import RegistrationFinish from "./Utils/RegistrationFinish";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
+import classNames from "classnames";
 
 export const Registration = () => {
+	const [visible, setVisible] = useState(false);
+	useEffect(() => {
+		setVisible(true);
+	}, []);
 	const dispatch = useDispatch();
 	const [form] = Form.useForm();
 	const [success, setSuccess] = useState(false);
@@ -23,7 +28,11 @@ export const Registration = () => {
 	if (success) return <Navigate to={"/"} />;
 
 	return (
-		<div className={styles.page}>
+		<div
+			className={classNames(styles.page, {
+				[styles.visible]: visible,
+			})}
+		>
 			<main className={styles.body}>
 				<h1>Регистрация</h1>
 				<Form

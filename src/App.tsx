@@ -33,16 +33,14 @@ export const BreadcrumbsContext = createContext<IBreadcrumbsContext | null>(
 
 function App() {
 	const [breadcrumbs, setBreadcrumbs] = useState<Record<string, string>>({});
-
+	const dispatch = useDispatch();
 	useEffect(() => {
 		return () => {
-			console.log("i work");
-			localStorage.clear();
+			dispatch(Actions.Items.getItems());
 		};
 	}, []);
 
 	const authData = useSelector((state: RootState) => state.Auth);
-	console.log(authData);
 	return (
 		<BreadcrumbsContext.Provider
 			value={{

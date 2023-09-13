@@ -6,9 +6,13 @@ import classNames from "classnames";
 import Categories from "./components/Categories";
 import Items from "./components/Items";
 import styles from "./Market.module.scss";
+import { useSelector } from "react-redux";
+import { RootState } from "src/Store/store";
 
 const Market = () => {
 	const [currentCategory, replaceCategory] = useState("");
+	const items = useSelector((state: RootState) => state.Items.items);
+	const count = items ? items.length : 0;
 	return (
 		<>
 			<Header />
@@ -21,7 +25,7 @@ const Market = () => {
 						/>
 						<div className={styles.mainContent}>
 							<WelcomeBlock />
-							<Items ItemsNumber={3091} />
+							<Items ItemsNumber={count} />
 						</div>
 					</div>
 				</div>
