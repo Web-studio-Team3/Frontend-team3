@@ -122,9 +122,13 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 					</button>
 				</div>
 			</Controller>
-			<ItemsBlock>
-				{filteredItems.map((item) => {
-					return (
+			{filteredItems.length === 0 ? (
+				<p className={styles.text}>
+					Не найдено ни одного объявления...
+				</p>
+			) : (
+				<ItemsBlock>
+					{filteredItems.map((item) => (
 						<ShopItem
 							id={item.id}
 							key={item.id}
@@ -133,9 +137,9 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 							information={item.description}
 							size={itemsShort}
 						/>
-					);
-				})}
-			</ItemsBlock>
+					))}
+				</ItemsBlock>
+			)}
 		</Content>
 	);
 };
