@@ -1,6 +1,5 @@
-import { FC, useContext, useEffect, useState } from "react";
+import { FC, useContext, useState } from "react";
 import { FavoriteIcon } from "@assets/icons/Icons";
-import classNames from "classnames";
 import cn from "classnames";
 import { useLocation, useNavigate } from "react-router-dom";
 import { BreadcrumbsContext, IBreadcrumbsContext } from "../../App";
@@ -8,10 +7,8 @@ import styles from "./ShopItem.module.scss";
 import { Tooltip } from "antd";
 import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
-import ItemApi from "@api/Item/Item";
-import AccountApi from "@api/Account/Account";
 import axios from "axios";
-import photo from "./ad-image2.png";
+import Button from "@components/Button";
 
 export enum ShopItemSize {
 	short = "Short",
@@ -72,7 +69,10 @@ export const ShopItem: FC<ShopItemProps> = ({
 			className={cn(styles[`item${size}`], styles.link)}
 			onClick={handleItemClick}
 		>
-			<img src={`http://217.28.220.136:8000/${url}/`} alt="mock items" />
+			<img
+				src={url ? `http://217.28.220.136:8000/${url}/` : image}
+				alt="mock items"
+			/>
 			{size === ShopItemSize.short ? (
 				<div className={styles.imagePointers}>
 					<span
@@ -91,9 +91,11 @@ export const ShopItem: FC<ShopItemProps> = ({
 				) : (
 					<p className={styles.date}>Сегодня, 15:40</p>
 				)}
-				<button className={styles.button}>
-					<FavoriteIcon />
-				</button>
+				<div className={styles.button}>
+					<Button onClick={() => {}} variant="ghost" size="xs">
+						<FavoriteIcon />
+					</Button>
+				</div>
 			</div>
 			<Tooltip
 				title={
@@ -103,18 +105,21 @@ export const ShopItem: FC<ShopItemProps> = ({
 				}
 			>
 				<div className={styles[`buttonBlock${size}`]}>
-					<button
-						className={classNames(styles.button, styles.typeWrite)}
+					<Button
+						onClick={() => {}}
+						variant="green"
+						size="sm"
 						disabled={token === null}
 					>
 						Написать
-					</button>
-					<button
+					</Button>
+					<Button
+						onClick={() => {}}
+						size="sm"
 						disabled={token === null}
-						className={classNames(styles.button, styles.typeCall)}
 					>
 						Позвонить
-					</button>
+					</Button>
 				</div>
 			</Tooltip>
 		</div>
