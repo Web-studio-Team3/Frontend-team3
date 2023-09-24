@@ -1,0 +1,69 @@
+@import "@styles/variables.scss";
+
+.button {
+	text-decoration: none;
+	box-sizing: border-box;
+	border-radius: 11px;
+	font-family: "Ubuntu", serif;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21px;
+	color: $white;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 18px;
+	border: none;
+
+	&:hover {
+		opacity: 0.7;
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: initial;
+
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+
+	&.purple {
+		background: $blue;
+	}
+
+	&.green {
+		background: $light-green;
+	}
+
+	&.ghost {
+		background: none;
+	}
+
+	&.xs {
+		padding: unset;
+	}
+
+	&.sm {
+		padding-top: 7px;
+		padding-bottom: 7px;
+		border-radius: 13px;
+		font-size: 20px;
+		line-height: 24px;
+	}
+
+	&.md {
+		padding-top: 12px;
+		padding-bottom: 12px;
+	}
+
+	&.lg {
+		padding-top: 18px;
+		padding-bottom: 18px;
+	}
+
+	&.fluid {
+		width: 100%;
+	}
+}

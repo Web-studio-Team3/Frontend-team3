@@ -5,7 +5,7 @@
 		"import/no-anonymous-default-export": "off",
 		// "no-console": "error",
 		"prettier/prettier": [
-			"error",
+			1,
 			{
 				"endOfLine": "auto"
 			}

@@ -7,6 +7,7 @@ import { Controller } from "@pages/market/components/Items/Items";
 import { MarketItems } from "@pages/market/components/Items/marketItems";
 import classNames from "classnames";
 import styles from "./AccountAds.module.scss";
+import Button from "@components/Button";
 
 export interface IAccountAds {
 	type: "favorite" | "my";
@@ -83,15 +84,23 @@ const AccountAds: FC<IAccountAds> = ({ type, title, subtitle }) => {
 					/>
 				</div>
 				<div>
-					<button>{Icon1}</button>
-					<button
+					<Button onClick={() => {}} variant="ghost" size="xs">
+						{Icon1}
+					</Button>
+					<Button
 						onClick={() => changeItemSize()}
-						className={classNames({
-							[styles.active]: itemsShort === ShopItemSize.short,
-						})}
+						variant="ghost"
+						size="xs"
 					>
-						{Icon2}
-					</button>
+						<div
+							className={classNames({
+								[styles.active]:
+									itemsShort === ShopItemSize.short,
+							})}
+						>
+							{Icon2}
+						</div>
+					</Button>
 				</div>
 			</Controller>
 			<div className={styles.content}>

@@ -5,15 +5,18 @@ import {
 	HeartIcon,
 	SearchIcon,
 	CategoryIcon,
+	LeaveIcon,
+	SingInIcon,
 } from "@assets/icons/Icons";
 import classNames from "classnames";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import styles from "./Header.module.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
-import { Actions } from "./../../Store/actions";
+import { Actions } from "../../Store/actions";
 import { useDispatch } from "react-redux";
 import { v4 } from "uuid";
+import Button from "@components/Button";
 
 const Header: FC = () => {
 	const user = useSelector((state: RootState) => state.User.user);
@@ -81,6 +84,13 @@ const Header: FC = () => {
 		if (state) navigate(path, { state });
 	}, [path, state === null]);
 
+	const handleLogout = () => {
+		dispatch(Actions.User.eraseUser());
+		dispatch(Actions.Auth.eraseData());
+		setButtonHidden(true);
+		navigate("/");
+	};
+
 	return (
 		<header className="container">
 			<div className={styles.section}>
@@ -104,118 +114,85 @@ const Header: FC = () => {
 							className={styles.input}
 							placeholder="Поиск по объялениям"
 						/>
-						<button
-							type="button"
+						<div
 							className={classNames(
 								styles.button,
 								styles.buttonSearch
 							)}
 						>
-							<SearchIcon />
-						</button>
+							<Button
+								onClick={() => {}}
+								variant="ghost"
+								fluid
+								size="xs"
+								style={{ height: "44px" }}
+							>
+								<SearchIcon />
+							</Button>
+						</div>
 					</div>
 				</form>
 				<ul className={styles.menu}>
-					<li className={styles.item} hidden={!user}>
-						<Link
-							to="/create-new-item-page"
-							className={classNames(
-								styles.link,
-								styles.linkCreateAd
-							)}
-						>
-							Разместить объявление
-						</Link>
-					</li>
-					<li className={styles.item} hidden={!user}>
-						<NavLink
-							to="/account/me/favorites"
-							className={({ isActive }) =>
-								isActive
-									? classNames(
-											styles.linkIcon,
-											styles.linkIconActive
-									  )
-									: styles.linkIcon
-							}
-						>
-							<HeartIcon />
-							<p className={styles.linkText}>Избранное</p>
-						</NavLink>
-					</li>
-					<li className={styles.item} hidden={!user}>
-						<NavLink
-							to="/account/me"
-							className={({ isActive }) =>
-								isActive
-									? classNames(
-											styles.linkIcon,
-											styles.linkIconActive
-									  )
-									: styles.linkIcon
-							}
-						>
-							<ProfileIcon />
-							<p className={styles.linkText}>Профиль</p>
-						</NavLink>
-					</li>
-					{user !== null ? (
-						<li>
-							<Link to="/">
-								<button
-									className={classNames(styles.exitButton, {
-										[styles.exitButtonHidden]: ButtonHidden,
-									})}
-									onClick={() => {
-										dispatch(Actions.User.eraseUser());
-										dispatch(Actions.Auth.eraseData());
-										// eslint-disable-next-line no-restricted-globals
-										// location.reload();
-										// eslint-disable-next-line no-restricted-globals
-										// location.href = "/";
-										setButtonHidden(true);
-									}}
+					{user && (
+						<>
+							<li className={styles.item}>
+								<Button isLink to="/create-new-item-page">
+									Разместить объявление
+								</Button>
+							</li>
+							<li className={styles.item}>
+								<NavLink
+									to="/account/me/favorites"
+									className={({ isActive }) =>
+										isActive
+											? classNames(
+													styles.linkIcon,
+													styles.linkIconActive
+											  )
+											: styles.linkIcon
+									}
 								>
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										width="48"
-										height="48"
-										fill="#ff3467"
-									>
-										<path fill="none" d="M0 0h48v48H0z" />
-										<path d="M20.17 31.17 23 34l10-10-10-10-2.83 2.83L25.34 22H6v4h19.34l-5.17 5.17zM38 6H10c-2.21 0-4 1.79-4 4v8h4v-8h28v28H10v-8H6v8c0 2.21 1.79 4 4 4h28c2.21 0 4-1.79 4-4V10c0-2.21-1.79-4-4-4z" />
-									</svg>
-								</button>
-							</Link>
-						</li>
-					) : (
-						<></>
+									<HeartIcon />
+									<p className={styles.linkText}>Избранное</p>
+								</NavLink>
+							</li>
+							<li className={styles.item}>
+								<NavLink
+									to="/account/me"
+									className={({ isActive }) =>
+										isActive
+											? classNames(
+													styles.linkIcon,
+													styles.linkIconActive
+											  )
+											: styles.linkIcon
+									}
+								>
+									<ProfileIcon />
+									<p className={styles.linkText}>Профиль</p>
+								</NavLink>
+							</li>
+							<li>
+								<Button
+									onClick={handleLogout}
+									variant="ghost"
+									size="xs"
+								>
+									<LeaveIcon />
+								</Button>
+							</li>
+						</>
 					)}
 					{user === null ? (
 						<li>
-							<Link to="/login">
-								<button
-									className={classNames(styles.exitButton)}
-									onClick={() => {
-										// dispatch(Actions.User.eraseUser());
-										// eslint-disable-next-line no-restricted-globals
-										// location.reload();
-										// eslint-disable-next-line no-restricted-globals
-										// location.href = "/";
-										// setButtonHidden(true);
-									}}
-								>
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										width="48"
-										height="48"
-										fill="white"
-									>
-										<path fill="none" d="M0 0h48v48H0z" />
-										<path d="M20.17 31.17 23 34l10-10-10-10-2.83 2.83L25.34 22H6v4h19.34l-5.17 5.17zM38 6H10c-2.21 0-4 1.79-4 4v8h4v-8h28v28H10v-8H6v8c0 2.21 1.79 4 4 4h28c2.21 0 4-1.79 4-4V10c0-2.21-1.79-4-4-4z" />
-									</svg>
-								</button>
-							</Link>
+							<Button
+								isLink
+								to="/login"
+								variant="ghost"
+								size="xs"
+							>
+								<SingInIcon />
+							</Button>
 						</li>
 					) : (
 						<></>

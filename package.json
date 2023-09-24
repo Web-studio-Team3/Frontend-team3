@@ -30,7 +30,8 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
-    "lint:fix": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix"
+    "lint:fix": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix",
+    "prettier": "prettier --write src"
   },
   "eslintConfig": {
     "extends": [

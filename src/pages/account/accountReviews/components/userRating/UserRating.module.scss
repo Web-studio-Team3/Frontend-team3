@@ -1,23 +1,24 @@
 @import "@styles/variables.scss";
 
-.block {}
+.block {
+}
 
 .line {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 5px;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	margin-bottom: 5px;
 }
 
 .text {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    color: $white;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: $white;
 
-    &Rating {
-        font-weight: 700;
-        font-size: 23px;
-        line-height: 28px;
-    }
+	&Rating {
+		font-weight: 700;
+		font-size: 23px;
+		line-height: 28px;
+	}
 }

@@ -550,14 +550,18 @@ export const NewMessageIcon = (): JSX.Element => {
 	);
 };
 
-export const SearchIcon = (): JSX.Element => {
+export const SearchIcon = ({
+	width = 21,
+	height = 20,
+	stroke = "#FFFFFE",
+}): JSX.Element => {
 	return (
 		<svg
-			width="19"
-			height="18"
-			viewBox="0 0 19 18"
+			width={width}
+			height={height}
+			viewBox="0 0 19 19"
 			fill="none"
-			stroke="#FFFFFE"
+			stroke={stroke}
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<path
@@ -771,6 +775,34 @@ export const ArrowControlIcon: FC<React.SVGAttributes<SVGAElement>> = ({
 				d="M18.3141 15.4971L0.592448 30.9771L0.0416686 0.671247L18.3141 15.4971Z"
 				fill="white"
 			/>
+		</svg>
+	);
+};
+
+export const LeaveIcon = ({ width = 48, height = 48, fill = "#ff3467" }) => {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width={width}
+			height={height}
+			fill={fill}
+		>
+			<path fill="none" d="M0 0h48v48H0z" />
+			<path d="M20.17 31.17 23 34l10-10-10-10-2.83 2.83L25.34 22H6v4h19.34l-5.17 5.17zM38 6H10c-2.21 0-4 1.79-4 4v8h4v-8h28v28H10v-8H6v8c0 2.21 1.79 4 4 4h28c2.21 0 4-1.79 4-4V10c0-2.21-1.79-4-4-4z" />
+		</svg>
+	);
+};
+
+export const SingInIcon = ({ width = 48, height = 48, fill = "white" }) => {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width={width}
+			height={height}
+			fill={fill}
+		>
+			<path fill="none" d="M0 0h48v48H0z" />
+			<path d="M20.17 31.17 23 34l10-10-10-10-2.83 2.83L25.34 22H6v4h19.34l-5.17 5.17zM38 6H10c-2.21 0-4 1.79-4 4v8h4v-8h28v28H10v-8H6v8c0 2.21 1.79 4 4 4h28c2.21 0 4-1.79 4-4V10c0-2.21-1.79-4-4-4z" />
 		</svg>
 	);
 };
