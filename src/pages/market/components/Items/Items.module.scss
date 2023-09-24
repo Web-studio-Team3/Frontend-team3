@@ -1,8 +1,16 @@
-@import "@styles/variables";
+@import "@styles/variables.scss";
 .active {
 	svg {
 		path {
 			fill: $green;
 		}
 	}
+}
+
+.text {
+	font-weight: 450;
+	font-size: 18px;
+	color: $white;
+	margin: 110px 150px 20px;
+	word-spacing: 3px;
 }
