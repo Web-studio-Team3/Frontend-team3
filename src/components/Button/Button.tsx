@@ -59,8 +59,8 @@ const Button: FC<TButtonProps> = ({
 						onClick={handleClick}
 						type={type}
 						className={className}
-						{...other}
 						disabled={disabled}
+						{...other}
 					>
 						{children}
 					</button>

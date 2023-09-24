@@ -100,7 +100,6 @@ const AccountAds: FC<IAccountAds> = ({ type, title, subtitle }) => {
 						>
 							{Icon2}
 						</div>
-						{Icon1}
 					</Button>
 				</div>
 			</Controller>
