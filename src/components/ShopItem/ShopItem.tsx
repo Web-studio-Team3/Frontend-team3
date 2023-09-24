@@ -50,10 +50,10 @@ export const ShopItem: FC<ShopItemProps> = ({
 	) as IBreadcrumbsContext;
 	const getPhoto = async () => {
 		const data = await axios.get(
-			`http://localhost:8000/api/picture_item_relations/item/${id}`
+			`http://217.28.220.136:8000/api/picture_item_relations/item/${id}`
 		);
 		const url = await axios.get(
-			`http://localhost:8000/api/pictures/${data.data[0].picture_id}`
+			`http://217.28.220.136:8000/api/pictures/${data.data[0].picture_id}`
 		);
 		setLoading(false);
 		setUrl(url.data.picture_url);
@@ -72,7 +72,7 @@ export const ShopItem: FC<ShopItemProps> = ({
 			className={cn(styles[`item${size}`], styles.link)}
 			onClick={handleItemClick}
 		>
-			<img src={`http://localhost:8000/${url}/`} alt="mock items" />
+			<img src={`http://217.28.220.136:8000/${url}/`} alt="mock items" />
 			{size === ShopItemSize.short ? (
 				<div className={styles.imagePointers}>
 					<span
