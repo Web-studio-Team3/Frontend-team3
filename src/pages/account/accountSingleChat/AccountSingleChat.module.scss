@@ -3,6 +3,7 @@
 		cursor: pointer;
 		background: none;
 		border: none;
+		display: inline-flex;
 		& svg {
 			width: 37px;
 			height: 37px;
@@ -20,7 +21,8 @@
 
 		.userInfo {
 			margin-top: 19px;
-			display: flex;
+			display: inline-flex;
+			padding-left: 40px;
 			gap: 21px;
 			.image {
 				height: 122px;

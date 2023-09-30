@@ -3,14 +3,16 @@ import React from "react";
 import cn from "classnames";
 import { Message } from "../..";
 import styles from "./MessageList.module.scss";
+import UserImage from "@assets/img/user2.png";
 
 type MessageListProps = {
 	messages: Message[];
 };
-
 const MessageList: FC<MessageListProps> = ({ messages }) => {
 	const [currentDate, setCurrentDate] = useState<string>("");
-
+	//const user_photo = useSelector(
+	//		(state: RootState) => state.User.user_picture
+	//);
 	return (
 		<div className={styles.container}>
 			<p className={styles.date}>{currentDate}</p>
@@ -21,13 +23,31 @@ const MessageList: FC<MessageListProps> = ({ messages }) => {
 					}
 					return (
 						<li className={styles.item} key={i}>
-							<p
-								className={cn(styles.message, {
-									[styles.fromUs]: message.from_us,
+							<div
+								className={cn(styles.messageBlock, {
+									[styles.messageBlockFromUs]:
+										message.from_us,
 								})}
 							>
-								{message.text}
-							</p>
+								<img
+									//src={`http://217.28.220.136:8000/${user_photo}/`}
+									src={UserImage}
+									alt="user"
+									className={cn(styles.img, {
+										[styles.imgFromUs]: message.from_us,
+									})}
+									width={169}
+									height={169}
+								/>
+
+								<p
+									className={cn(styles.message, {
+										[styles.fromUs]: message.from_us,
+									})}
+								>
+									{message.text}
+								</p>
+							</div>
 							<p
 								className={cn(styles.sentAt, {
 									[styles.sentAtRight]: message.from_us,
