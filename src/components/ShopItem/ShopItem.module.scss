@@ -1,142 +1,173 @@
 @import "@styles/variables.scss";
 
 .itemStandart {
-	padding: 16px 32px 32px 16px;
-	display: flex;
-	gap: 30px;
-	background-color: $grey;
-	color: $white;
-	border-radius: 30px;
-	width: 100%;
-	img {
-		border-radius: 15px;
-		flex: none;
-		width: 240px;
-		height: 180px;
-	}
+  padding: 16px 62px 32px 16px;
+  display: flex;
+  gap: 30px;
+  background-color: $grey;
+  color: $white;
+  border-radius: 30px;
+  width: 100%;
+
+  img {
+    border-radius: 15px;
+    flex: none;
+    width: 240px;
+    height: 180px;
+  }
 }
 
 .itemShort {
-	padding: 0px 0px 13px 0;
-	gap: 17px;
-	width: 30%;
-	min-width: 200px;
-	background-color: $grey;
-	color: $white;
-	border-radius: 23px;
-	box-sizing: border-box;
-	.imagePointers {
-		width: 100%;
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		column-gap: 2px;
-		margin: 3px auto 11px;
-		padding: 0 8px;
-		.pointer {
-			background: #999999;
-			border-radius: 43px;
-			cursor: pointer;
-			height: 3px;
-			&Active {
-				background: #ffffff;
-			}
-		}
-	}
+  padding: 0px 0px 13px 0;
+  gap: 17px;
+  width: 30%;
+  min-width: 100px;
+  background-color: $grey;
+  color: $white;
+  border-radius: 23px;
+  box-sizing: border-box;
 
-	img {
-		flex: none;
-		margin: 0 auto;
-		width: 100%;
-		height: 174px;
-		border-top-left-radius: 23px;
-		border-top-right-radius: 23px;
-		border-bottom-right-radius: 0;
-		border-bottom-left-radius: 0;
-	}
+  .button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    left: 160%;
+    top: 0;
+  }
+
+  .imagePointers {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2px;
+    margin: 3px auto 11px;
+    padding: 0 8px;
+
+    .pointer {
+      background: #999999;
+      border-radius: 43px;
+      cursor: pointer;
+      height: 3px;
+
+      &Active {
+        background: #ffffff;
+      }
+    }
+  }
+
+  img {
+    flex: none;
+    margin: 0 auto;
+    width: 100%;
+    height: 174px;
+    border-top-left-radius: 23px;
+    border-top-right-radius: 23px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
 
 .info {
-	width: 100%;
-	padding-top: 10px;
-	gap: 5px;
-	display: flex;
-	flex-direction: column;
-	padding: 0px 8px;
-	position: relative;
+  width: 50%;
+  padding-top: 10px;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 8px;
+  position: relative;
 
-	.button {
-		background: none;
-		border: none;
-		cursor: pointer;
-		position: absolute;
-		right: 6px;
-		top: 0;
-	}
+  .title {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 21px;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 
-	.title {
-		font-weight: 700;
-		font-size: 17px;
-		line-height: 21px;
-	}
+  .button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 100%;
+    top: 0;
+  }
 
-	.date {
-		font-weight: 400;
-		font-size: 12px;
-		line-height: 15px;
-		color: rgba(255, 255, 254, 0.65);
-	}
+  .date {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(255, 255, 254, 0.65);
+  }
 
-	.price {
-		font-weight: 500;
-		font-size: 16px;
-		line-height: 19px;
-	}
+  .price {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+  }
 
-	.information {
-		font-size: 14px;
-		line-height: 17px;
-		opacity: 0.85;
-	}
+  .information {
+    font-size: 14px;
+    line-height: 17px;
+    opacity: 0.85;
+    -webkit-line-clamp: 6;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 .buttonBlockStandart {
-	display: flex;
-	flex-direction: column;
-	padding: 16px 0 0 20px;
-	gap: 14px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0 0 20px;
+  gap: 14px;
 
-	.button {
-		cursor: pointer;
-		border: none;
-		border-radius: 13px;
-		padding: 7px 18px;
-		font-size: 20px;
-		line-height: 24px;
-		color: $white;
+  .button {
+    cursor: pointer;
+    border: none;
+    border-radius: 13px;
+    padding: 7px 18px;
+    font-size: 20px;
+    line-height: 24px;
+    color: $white;
 
-		&:disabled {
-			opacity: 0.25;
-		}
-	}
+    &:disabled {
+      opacity: 0.25;
+    }
 
-	.typeWrite {
-		background-color: #59c598;
-	}
+  }
 
-	.typeCall {
-		background-color: #7f5af0;
-	}
+  .typeWrite {
+    background-color: #59c598;
+
+    &:hover {
+      background-color: #428569;
+    }
+  }
+
+  .typeCall {
+    background-color: #7f5af0;
+
+    &:hover {
+      background-color: #573fa1;
+    }
+  }
+
 }
 
 .buttonBlockShort {
-	display: none;
+  display: none;
 }
 
 .link {
-	text-decoration: none;
-	cursor: pointer;
-	&:hover {
-		background: #202023;
-		transition: background 0.2s ease-out;
-	}
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background: #202023;
+    transition: background 0.2s ease-out;
+  }
 }

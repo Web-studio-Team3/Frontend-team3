@@ -170,9 +170,14 @@
 					opacity: 0.5;
 					cursor: not-allowed;
 				}
-
+				&:hover {
+					background-color: #428569;
+				}
 				&Purple {
 					background: #7f5af0;
+					&:hover {
+						background-color: #573fa1;
+					}
 				}
 			}
 		}
