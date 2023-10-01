@@ -4,7 +4,7 @@ import { ShopItemSize } from "@components/ShopItem";
 import ShopItemList from "@components/ShopItemList";
 import { Icon1, Icon2 } from "@pages/market/components/Items/icons";
 import { Controller } from "@pages/market/components/Items/Items";
-import { MarketItems } from "@pages/market/components/Items/marketItems";
+import { marketItemsMock } from "../../../mocks/marketItemsMock";
 import classNames from "classnames";
 import styles from "./AccountAds.module.scss";
 import Button from "@components/Button";
@@ -17,7 +17,7 @@ export interface IAccountAds {
 
 const AccountAds: FC<IAccountAds> = ({ type, title, subtitle }) => {
 	const [currenFilter, setFilter] = useState("Популярные");
-	const [filteredItems, setFilteredItems] = useState(MarketItems);
+	const [filteredItems, setFilteredItems] = useState(marketItemsMock);
 
 	const [itemsShort, setItemsShort] = useState(ShopItemSize.short);
 	const changeItemSize = () => {

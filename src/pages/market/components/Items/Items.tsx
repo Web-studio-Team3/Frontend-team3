@@ -5,7 +5,7 @@ import classNames from "classnames";
 import styled from "styled-components";
 import { Icon1, Icon2 } from "./icons";
 import styles from "./Items.module.scss";
-// import { MarketItems } from "./marketItems";
+// import { MarketItemsMock } from "./marketItems";
 import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
 import { Actions } from "./../../../../Store/actions";
@@ -110,7 +110,9 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 						updateCurrentFilter={setFilter}
 					/>
 				</div>
-				<div style={{ justifyContent: "space-between", width: "100%" }}></div>
+				<div
+					style={{ justifyContent: "space-between", width: "100%" }}
+				></div>
 				<div>
 					<button>{Icon1}</button>
 					<button

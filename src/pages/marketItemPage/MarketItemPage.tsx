@@ -7,7 +7,7 @@ import { ShopItemSize } from "@components/ShopItem";
 import ShopItemList from "@components/ShopItemList";
 import UserCard from "@components/userCard/UserCard";
 import Categories from "@pages/market/components/Categories";
-import { MarketItems } from "@pages/market/components/Items/marketItems";
+import { marketItemsMock } from "../../mocks/marketItemsMock";
 import cn from "classnames";
 import { useNavigate } from "react-router-dom";
 import { BreadcrumbsContext, IBreadcrumbsContext } from "../../App";
@@ -257,8 +257,8 @@ const MarketItemPage: FC = () => {
 									Похожие объявления:
 								</p>
 								<ShopItemList
-									itemList={MarketItems.slice(
-										MarketItems.length / 2
+									itemList={marketItemsMock.slice(
+										marketItemsMock.length / 2
 									)}
 									itemsShort={ShopItemSize.short}
 								/>
