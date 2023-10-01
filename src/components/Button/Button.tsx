@@ -2,14 +2,13 @@ import styles from "./Button.module.scss";
 import { ComponentProps, FC, ReactNode, SyntheticEvent } from "react";
 import { Link } from "react-router-dom";
 import cc from "classnames";
+import { TSizing } from "@utils/commonTypes";
 
 type TButtonVariant = "purple" | "green" | "ghost";
 
-type TButtonSize = "xs" | "sm" | "md" | "lg";
-
 type TButtonProps = ComponentProps<"button"> & {
 	variant?: TButtonVariant;
-	size?: TButtonSize;
+	size?: TSizing;
 	fluid?: boolean;
 	onClick?: VoidFunction;
 	children: ReactNode;

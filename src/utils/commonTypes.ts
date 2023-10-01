@@ -6,3 +6,7 @@ export interface ResponseGenerator {
 	status?: number;
 	statusText?: string;
 }
+
+export type TSizing = "xs" | "sm" | "md" | "lg";
+
+export type TCustomVoidFunction<T> = (value: T) => void;

@@ -5,10 +5,9 @@ import classNames from "classnames";
 import styled from "styled-components";
 import { Icon1, Icon2 } from "./icons";
 import styles from "./Items.module.scss";
-// import { MarketItemsMock } from "./marketItems";
 import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
-import { Actions } from "./../../../../Store/actions";
+import { Actions } from "../../../../Store/actions";
 import { useDispatch } from "react-redux";
 
 type ItemsProps = {
@@ -20,7 +19,6 @@ const Content = styled.div`
 	width: 100%;
 	flex-direction: column;
 	gap: 10px;
-	width: 100%;
 	h1 {
 		color: white;
 		font-weight: 700;
