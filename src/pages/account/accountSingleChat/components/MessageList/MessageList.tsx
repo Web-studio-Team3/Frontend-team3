@@ -4,15 +4,17 @@ import cn from "classnames";
 import { Message } from "../..";
 import styles from "./MessageList.module.scss";
 import UserImage from "@assets/img/user2.png";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../../../Store/store";
 
 type MessageListProps = {
 	messages: Message[];
 };
 const MessageList: FC<MessageListProps> = ({ messages }) => {
 	const [currentDate, setCurrentDate] = useState<string>("");
-	//const user_photo = useSelector(
-	//		(state: RootState) => state.User.user_picture
-	//);
+	const user_photo = useSelector(
+		(state: RootState) => state.User.user_picture
+	);
 	return (
 		<div className={styles.container}>
 			<p className={styles.date}>{currentDate}</p>
@@ -30,12 +32,13 @@ const MessageList: FC<MessageListProps> = ({ messages }) => {
 								})}
 							>
 								<img
-									//src={`http://217.28.220.136:8000/${user_photo}/`}
-									src={UserImage}
+									src={
+										message.from_us
+											? `http://217.28.220.136:8000/${user_photo}/`
+											: UserImage
+									}
 									alt="user"
-									className={cn(styles.img, {
-										[styles.imgFromUs]: message.from_us,
-									})}
+									className={styles.img}
 									width={169}
 									height={169}
 								/>

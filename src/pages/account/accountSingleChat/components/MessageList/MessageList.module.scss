@@ -23,11 +23,7 @@
 			display: inline;
 			margin-right: 9px;
 			margin-left: 9px;
-			&.imgFromUs {
-				content:url(https://i.redd.it/q0ukoq7c39501.jpg);
-			}
 		}
-
 
 		.item {
 			display: inline-grid;
@@ -36,7 +32,6 @@
 				&.messageBlockFromUs {
 					flex-direction: row-reverse;
 				}
-
 			}
 			.message {
 				display: flex;
@@ -47,10 +42,8 @@
 				font-weight: 300;
 				font-size: 16px;
 				line-height: 19px;
-
 				color: #fffffe;
-				padding: 10px 20px;
-
+				padding: 15px 20px;
 				&.fromUs {
 					justify-self: right;
 					background: #7E5AF0B2;
