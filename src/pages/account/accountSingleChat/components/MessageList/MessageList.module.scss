@@ -13,12 +13,28 @@
 
 	.list {
 		margin-top: 154px;
-		display: flex;
+		display: grid;
 		flex-direction: column;
 		gap: 15px;
+		.img {
+			border-radius: 50%;
+			width: 50px;
+			height: 50px;
+			display: inline;
+			margin-right: 9px;
+			margin-left: 9px;
+		}
+
 		.item {
-			display: grid;
+			display: inline-grid;
+			.messageBlock {
+				display: flex;
+				&.messageBlockFromUs {
+					flex-direction: row-reverse;
+				}
+			}
 			.message {
+				display: flex;
 				justify-self: left;
 				width: 50%;
 				background: #2D2D33;
@@ -26,10 +42,8 @@
 				font-weight: 300;
 				font-size: 16px;
 				line-height: 19px;
-
 				color: #fffffe;
-				padding: 10px 20px;
-
+				padding: 15px 20px;
 				&.fromUs {
 					justify-self: right;
 					background: #7E5AF0B2;

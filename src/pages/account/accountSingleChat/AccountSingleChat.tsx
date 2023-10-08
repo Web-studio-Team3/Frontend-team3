@@ -59,13 +59,6 @@ const AccountSingleChat: FC<AccountSingleChatProps> = ({ user }) => {
 				</Link>
 
 				<div className={styles.userInfo}>
-					<img
-						src={UserImage}
-						alt="user"
-						className={styles.image}
-						height={122}
-						width={142}
-					/>
 					<div className={styles.textBlock}>
 						<p className={cn(styles.text, styles.username)}>
 							{user.first_name} {user.last_name}

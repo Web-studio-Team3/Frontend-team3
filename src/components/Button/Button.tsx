@@ -1,10 +1,5 @@
 import styles from "./Button.module.scss";
-import {
-	ComponentProps,
-	FC,
-	ReactNode,
-	SyntheticEvent,
-} from "react";
+import { ComponentProps, FC, ReactNode, SyntheticEvent } from "react";
 import { Link } from "react-router-dom";
 import cc from "classnames";
 
