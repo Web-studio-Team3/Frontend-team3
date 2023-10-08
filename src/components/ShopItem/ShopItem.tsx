@@ -1,14 +1,17 @@
 import { FC, useContext, useState } from "react";
 import { FavoriteIcon } from "@assets/icons/Icons";
 import cn from "classnames";
-import { useLocation, useNavigate } from "react-router-dom";
-import { BreadcrumbsContext, IBreadcrumbsContext } from "../../App";
+import { useNavigate } from "react-router-dom";
 import styles from "./ShopItem.module.scss";
 import { Tooltip } from "antd";
 import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
 import axios from "axios";
 import Button from "@components/Button";
+import {
+	BreadcrumbsContext,
+	IBreadcrumbsContext,
+} from "@pages/Layouts/MainLayout/MainLayout";
 
 export enum ShopItemSize {
 	short = "Short",
@@ -39,7 +42,6 @@ export const ShopItem: FC<ShopItemProps> = ({
 	const [url, setUrl] = useState("");
 	const [loading, setLoading] = useState(true);
 	const currentItem = items.filter((item) => item.id === id);
-	const state = useLocation().state;
 	const path = `/advert/${id}`;
 	const navigate = useNavigate();
 	const { setBreadcrumbs } = useContext(

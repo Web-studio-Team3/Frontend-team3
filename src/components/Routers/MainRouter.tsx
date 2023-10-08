@@ -17,7 +17,7 @@ import Registration from "@pages/Registration";
 import { CreateNewItem } from "@pages/CreateNewItem";
 import routes from "../../constants/routes";
 
-const Router: FC = () => {
+const MainRouter: FC = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
@@ -100,4 +100,4 @@ const Router: FC = () => {
 	);
 };
 
-export default Router;
+export default MainRouter;

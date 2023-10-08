@@ -10,11 +10,14 @@ import Categories from "@pages/market/components/Categories";
 import { marketItemsMock } from "../../mocks/marketItemsMock";
 import cn from "classnames";
 import { useNavigate } from "react-router-dom";
-import { BreadcrumbsContext, IBreadcrumbsContext } from "../../App";
 import styles from "./MarketItemPage.module.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
 import { Tooltip } from "antd";
+import {
+	BreadcrumbsContext,
+	IBreadcrumbsContext,
+} from "@pages/Layouts/MainLayout/MainLayout";
 
 const MarketItemPage: FC = () => {
 	const token = useSelector((state: RootState) => state.Auth.token);

@@ -1,42 +1,26 @@
-import {
-	createContext,
-	Dispatch,
-	SetStateAction,
-	useEffect,
-	useState,
-} from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Actions } from "./Store/actions";
-import Router from "@components/Router";
-
-export interface IBreadcrumbsContext {
-	breadcrumbs: Record<string, string>;
-	setBreadcrumbs: Dispatch<SetStateAction<Record<string, string>>>;
-}
-
-export const BreadcrumbsContext = createContext<IBreadcrumbsContext | null>(
-	null
-);
+import MainLayout from "@pages/Layouts/MainLayout";
+import MobileLayout from "@pages/Layouts/MobileLayout";
 
 function App() {
-	const [breadcrumbs, setBreadcrumbs] = useState<Record<string, string>>({});
 	const dispatch = useDispatch();
+	const [view, setView] = useState<"mobile" | "main">("main");
+
 	useEffect(() => {
+		const listener = () => {
+			window.innerWidth < 800 ? setView("mobile") : setView("main");
+		};
+		window.addEventListener("resize", listener);
+
 		return () => {
 			dispatch(Actions.Items.getItems());
+			window.removeEventListener("resize", listener);
 		};
 	}, []);
 
-	return (
-		<BreadcrumbsContext.Provider
-			value={{
-				breadcrumbs,
-				setBreadcrumbs,
-			}}
-		>
-			<Router />
-		</BreadcrumbsContext.Provider>
-	);
+	return <>{view === "main" ? <MainLayout /> : <MobileLayout />}</>;
 }
 
 export default App;

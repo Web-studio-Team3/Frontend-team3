@@ -1,15 +1,22 @@
 import { FC } from "react";
 import { LogoutIcon, ShieldDoneIcon } from "@assets/icons/Icons";
-import { sss } from "@components/userCard/UserCard";
 import { notification } from "antd";
 import classNames from "classnames";
 import styles from "./AccountSettings.module.scss";
 import UserData from "./components/userData";
 import UserSettings from "./components/userSettings";
+import { Actions } from "../../../Store/actions";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const AccountSettings: FC = () => {
+	const dispatch = useDispatch();
+
+	const navigate = useNavigate();
 	const logout = () => {
-		localStorage.clear();
+		dispatch(Actions.User.eraseUser());
+		dispatch(Actions.Auth.eraseData());
+		navigate("/");
 		notification.info({
 			type: "info",
 			message: "Вы вышли из аккаунта",
