@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="818d5e7e-af0b-4d3e-9545-32864d6876b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ShopItem/ShopItem.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShopItem/ShopItem.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ShopItem/ShopItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShopItem/ShopItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/breadcrumbs/Breadcrumbs.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/breadcrumbs/Breadcrumbs.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/marketItemPage/MarketItemPage.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/marketItemPage/MarketItemPage.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login/Login.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/Login.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Registration/Registration.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration/Registration.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Registration/Registration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration/Registration.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/variables.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +57,9 @@
       <workItem from="1695575653130" duration="16789000" />
       <workItem from="1696162821689" duration="10554000" />
       <workItem from="1696176480770" duration="400000" />
-      <workItem from="1696176969468" duration="332000" />
+      <workItem from="1696176969468" duration="2168000" />
+      <workItem from="1696441366220" duration="643000" />
+      <workItem from="1696445424893" duration="46145000" />
     </task>
     <servers />
   </component>

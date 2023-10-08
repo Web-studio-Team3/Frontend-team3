@@ -147,7 +147,7 @@ export const Registration = () => {
 					>
 						<Link to="/login">Войти в аккаунт</Link>
 					</Button>
-					<Link to={"/"}>Продолжить без входа в аккаунт</Link>
+					<Link to={"/"} className={styles.link}>Продолжить без входа в аккаунт</Link>
 				</Form>
 			</main>
 		</div>
