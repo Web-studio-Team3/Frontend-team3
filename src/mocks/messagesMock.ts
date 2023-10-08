@@ -1,0 +1,43 @@
+export const messagesMock = [
+	{
+		id: "1",
+		name: "Петров Петр",
+		location: "Общежитие 4",
+		adName: "Бюст Ленина",
+		price: 2300,
+		message: "У меня только сталина остался...",
+		isRead: false,
+	},
+	{
+		id: "2",
+		name: "Петров Петр",
+		adName: "Бюст Ленина",
+		price: 2300,
+		message: "У меня только сталина остался...",
+		isRead: true,
+	},
+	{
+		id: "3",
+		name: "Петров Петр",
+		adName: "Бюст Ленина",
+		price: 2300,
+		message: "У меня только сталина остался...",
+		isRead: true,
+	},
+	{
+		id: "4",
+		name: "Петров Петр",
+		adName: "Бюст Ленина",
+		price: 2300,
+		message: "У меня только сталина остался...",
+		isRead: true,
+	},
+	{
+		id: "5",
+		name: "Петров Петр",
+		adName: "Бюст Ленина",
+		price: 2300,
+		message: "У меня только сталина остался...",
+		isRead: true,
+	},
+];

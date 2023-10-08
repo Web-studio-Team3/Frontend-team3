@@ -1,7 +1,7 @@
 import img2 from "@assets/img/ad-image1.png";
 import img1 from "@assets/img/market.png";
 
-const MarketItems = [
+const marketItemsMock = [
 	{
 		id: 1,
 		image: img1,
@@ -58,4 +58,4 @@ const MarketItems = [
 	},
 ];
 
-export { MarketItems };
+export { marketItemsMock };

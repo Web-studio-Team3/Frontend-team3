@@ -3,7 +3,6 @@ import {
 	ProfileIcon,
 	LogoIcon,
 	HeartIcon,
-	SearchIcon,
 	CategoryIcon,
 	LeaveIcon,
 	SingInIcon,
@@ -17,11 +16,13 @@ import { Actions } from "../../Store/actions";
 import { useDispatch } from "react-redux";
 import { v4 } from "uuid";
 import Button from "@components/Button";
+import Input from "@components/Input";
 
 const Header: FC = () => {
 	const user = useSelector((state: RootState) => state.User.user);
 	const dispatch = useDispatch();
 	const [ButtonHidden, setButtonHidden] = useState(false);
+	const [searchValue, setSearchValue] = useState<string>("");
 	const navigate = useNavigate();
 	const path = useLocation().pathname;
 	let state = useLocation().state;
@@ -91,6 +92,14 @@ const Header: FC = () => {
 		navigate("/");
 	};
 
+	const handleInputChange = (value: string) => {
+		setSearchValue(value);
+	};
+
+	const onSearch = (value: string) => {
+		console.log(value);
+	};
+
 	return (
 		<header className="container">
 			<div className={styles.section}>
@@ -109,27 +118,14 @@ const Header: FC = () => {
 						<p className={styles.buttonText}>Категории</p>
 					</button>
 					<div className={styles.search}>
-						<input
-							type="text"
-							className={styles.input}
+						<Input
+							type="search"
+							fluid
+							value={searchValue}
 							placeholder="Поиск по объялениям"
+							onChange={handleInputChange}
+							onSubmit={onSearch}
 						/>
-						<div
-							className={classNames(
-								styles.button,
-								styles.buttonSearch
-							)}
-						>
-							<Button
-								onClick={() => {}}
-								variant="ghost"
-								fluid
-								size="xs"
-								style={{ height: "44px" }}
-							>
-								<SearchIcon />
-							</Button>
-						</div>
 					</div>
 				</form>
 				<ul className={styles.menu}>

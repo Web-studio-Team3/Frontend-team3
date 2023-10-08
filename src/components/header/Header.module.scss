@@ -40,7 +40,7 @@
 
 	&CreateAd {
 		box-sizing: border-box;
-		background: $blue;
+		background: $violet;
 		border-radius: 11px;
 		font-family: "Ubuntu", serif;
 		font-weight: 400;
@@ -92,20 +92,6 @@
 	&Category {
 		background: none;
 		border: none;
-	}
-
-	&Search {
-		background: none;
-		border-radius: 0 8px 8px 0;
-		box-sizing: border-box;
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		background-color: $grey;
-		width: 53px;
-		height: 46px;
-		border: 1px solid $grey-light;
-		border-left: none;
 	}
 }
 
