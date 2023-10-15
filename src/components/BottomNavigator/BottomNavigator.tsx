@@ -32,7 +32,7 @@ const BottomNavigator: FC = () => {
 								)
 							}
 						>
-							<HomeIcon />
+							<HomeIcon width={28} height={28} />
 							<p className={styles.linkText}>Главная</p>
 						</NavLink>
 					</li>
@@ -46,7 +46,7 @@ const BottomNavigator: FC = () => {
 								})
 							}
 						>
-							<HeartIcon />
+							<HeartIcon width={28} height={28} />
 							<p className={styles.linkText}>Избранное</p>
 						</NavLink>
 					</li>
@@ -71,7 +71,7 @@ const BottomNavigator: FC = () => {
 								})
 							}
 						>
-							<ChatIcon />
+							<ChatIcon width={28} height={28} />
 							<p className={styles.linkText}>Сообщения</p>
 						</NavLink>
 					</li>
@@ -84,7 +84,7 @@ const BottomNavigator: FC = () => {
 								})
 							}
 						>
-							<ProfileIcon />
+							<ProfileIcon height={28} />
 							<p className={styles.linkText}>Профиль</p>
 						</NavLink>
 					</li>

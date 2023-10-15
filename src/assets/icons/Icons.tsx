@@ -116,11 +116,11 @@ export const CalendarIcon = (): JSX.Element => {
 	);
 };
 
-export const ChatIcon = (): JSX.Element => {
+export const ChatIcon = ({ width = 28, height = 28 }): JSX.Element => {
 	return (
 		<svg
-			width="27"
-			height="27"
+			width={width}
+			height={height}
 			viewBox="0 0 27 27"
 			fill="none"
 			stroke="#D7D7D7"
@@ -156,11 +156,11 @@ export const ChatIcon = (): JSX.Element => {
 	);
 };
 
-export const HeartIcon = (): JSX.Element => {
+export const HeartIcon = ({ width = 27, height = 24 }): JSX.Element => {
 	return (
 		<svg
-			width="27"
-			height="24"
+			width={width}
+			height={height}
 			viewBox="0 0 27 24"
 			stroke="#D7D7D7"
 			fill="none"
@@ -415,11 +415,11 @@ export const NotificationIcon = (): JSX.Element => {
 	);
 };
 
-export const ProfileIcon = (): JSX.Element => {
+export const ProfileIcon = ({ width = 24, height = 32 }): JSX.Element => {
 	return (
 		<svg
-			width="24"
-			height="32"
+			width={width}
+			height={height}
 			viewBox="0 0 24 32"
 			fill="none"
 			stroke="#FFFFFE"

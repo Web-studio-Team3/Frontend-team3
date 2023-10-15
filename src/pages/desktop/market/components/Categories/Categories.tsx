@@ -25,7 +25,7 @@ const CategoriesBlock = styled.div`
 	gap: 12px;
 
 	h5 {
-		font-family: "Ubuntu",serif;
+		font-family: "Ubuntu", serif;
 		font-size: 21px;
 		color: white;
 		font-weight: bold;

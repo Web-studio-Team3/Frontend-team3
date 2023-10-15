@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Form, Input, Upload } from "antd";
 import styles from "./Content.module.scss";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { UploadChangeParam, UploadFile } from "antd/es/upload";
 import CreateTaskFinish from "./Utils/CreateTaskFinish";
 import { Navigate } from "react-router-dom";
