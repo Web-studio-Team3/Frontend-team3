@@ -2,9 +2,12 @@ import { FC, useContext } from "react";
 import Breadcrumbs from "@components/breadcrumbs";
 import Header from "@components/header";
 import classNames from "classnames";
-import { BreadcrumbsContext, IBreadcrumbsContext } from "../../../App";
 import styles from "./AccountLayout.module.scss";
 import { AccountLayoutProps } from "./AccountLayoutProps";
+import {
+	BreadcrumbsContext,
+	IBreadcrumbsContext,
+} from "@pages/Layouts/MainLayout/MainLayout";
 
 const AccountLayout: FC<AccountLayoutProps> = ({ type, component }) => {
 	const { breadcrumbs } = useContext(

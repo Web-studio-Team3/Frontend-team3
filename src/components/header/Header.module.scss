@@ -62,6 +62,18 @@
 			width: auto;
 			vertical-align: middle;
 		}
+
+		&.disabled {
+			opacity: 0.5;
+			cursor: initial;
+
+			&:hover {
+				opacity: 0.5;
+				& svg {
+					stroke: #d7d7d7;
+				}
+			}
+		}
 	}
 
 	&Icon:hover {

@@ -4,24 +4,18 @@ import {
 	LogoIcon,
 	HeartIcon,
 	CategoryIcon,
-	LeaveIcon,
-	SingInIcon,
 } from "@assets/icons/Icons";
 import classNames from "classnames";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import styles from "./Header.module.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
-import { Actions } from "../../Store/actions";
-import { useDispatch } from "react-redux";
 import { v4 } from "uuid";
 import Button from "@components/Button";
 import Input from "@components/Input";
 
 const Header: FC = () => {
 	const user = useSelector((state: RootState) => state.User.user);
-	const dispatch = useDispatch();
-	const [ButtonHidden, setButtonHidden] = useState(false);
 	const [searchValue, setSearchValue] = useState<string>("");
 	const navigate = useNavigate();
 	const path = useLocation().pathname;
@@ -85,13 +79,6 @@ const Header: FC = () => {
 		if (state) navigate(path, { state });
 	}, [path, state === null]);
 
-	const handleLogout = () => {
-		dispatch(Actions.User.eraseUser());
-		dispatch(Actions.Auth.eraseData());
-		setButtonHidden(true);
-		navigate("/");
-	};
-
 	const handleInputChange = (value: string) => {
 		setSearchValue(value);
 	};
@@ -129,70 +116,49 @@ const Header: FC = () => {
 					</div>
 				</form>
 				<ul className={styles.menu}>
-					{user && (
-						<>
-							<li className={styles.item}>
-								<Button isLink to="/create-new-item-page">
-									Разместить объявление
-								</Button>
-							</li>
-							<li className={styles.item}>
-								<NavLink
-									to="/account/me/favorites"
-									className={({ isActive }) =>
-										isActive
-											? classNames(
-													styles.linkIcon,
-													styles.linkIconActive
-											  )
-											: styles.linkIcon
-									}
-								>
-									<HeartIcon />
-									<p className={styles.linkText}>Избранное</p>
-								</NavLink>
-							</li>
-							<li className={styles.item}>
-								<NavLink
-									to="/account/me"
-									className={({ isActive }) =>
-										isActive
-											? classNames(
-													styles.linkIcon,
-													styles.linkIconActive
-											  )
-											: styles.linkIcon
-									}
-								>
-									<ProfileIcon />
-									<p className={styles.linkText}>Профиль</p>
-								</NavLink>
-							</li>
-							<li>
-								<Button
-									onClick={handleLogout}
-									variant="ghost"
-									size="xs"
-								>
-									<LeaveIcon />
-								</Button>
-							</li>
-						</>
-					)}
-					{user === null ? (
-						<li>
+					<>
+						<li className={styles.item}>
 							<Button
 								isLink
-								to="/login"
-								variant="ghost"
-								size="xs"
+								disabled={!user}
+								to="/create-new-item-page"
 							>
-								<SingInIcon />
+								Разместить объявление
 							</Button>
 						</li>
-					) : (
-						<></>
-					)}
+						<li className={styles.item}>
+							<NavLink
+								to={user ? "/account/me/favorites" : ""}
+								className={({ isActive }) =>
+									classNames(styles.linkIcon, {
+										[styles.linkIconActive]: isActive,
+										[styles.disabled]: !user,
+									})
+								}
+							>
+								<HeartIcon />
+								<p className={styles.linkText}>Избранное</p>
+							</NavLink>
+						</li>
+						<li className={styles.item}>
+							<NavLink
+								to={user ? "/account/me" : "/login"}
+								className={({ isActive }) =>
+									isActive
+										? classNames(
+												styles.linkIcon,
+												styles.linkIconActive
+										  )
+										: styles.linkIcon
+								}
+							>
+								<ProfileIcon />
+								<p className={styles.linkText}>
+									{user ? "Профиль" : "Войти"}
+								</p>
+							</NavLink>
+						</li>
+					</>
 				</ul>
 			</div>
 		</header>
