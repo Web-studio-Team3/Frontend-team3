@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Market from "@pages/market";
-import MarketItemPage from "@pages/marketItemPage";
+import Market from "@pages/desktop/market";
+import MarketItemPage from "@pages/desktop/marketItemPage";
 import {
 	Account,
 	AccountAds,
@@ -9,13 +9,13 @@ import {
 	AccountMessages,
 	AccountReviews,
 	AccountSettings,
-} from "@pages/account";
-import AccountSingleChat from "@pages/account/accountSingleChat";
+} from "@pages/desktop/account";
+import AccountSingleChat from "@pages/desktop/account/accountSingleChat";
 import Error from "@pages/error";
-import Login from "@pages/Login";
-import Registration from "@pages/Registration";
-import { CreateNewItem } from "@pages/CreateNewItem";
-import routes from "../../constants/routes";
+import Login from "@pages/common/Login";
+import Registration from "@pages/common/Registration";
+import { CreateNewItem } from "@pages/desktop/CreateNewItem";
+import { desktopRoutes } from "../../constants/routes";
 
 const MainRouter: FC = () => {
 	return (
@@ -23,11 +23,11 @@ const MainRouter: FC = () => {
 			<Routes>
 				<Route path="/" element={<Market />} />
 				<Route
-					path={routes.SINGLE_ADVERT}
+					path={desktopRoutes.SINGLE_ADVERT}
 					element={<MarketItemPage />}
 				/>
 				<Route
-					path={routes.PROFILE}
+					path={desktopRoutes.PROFILE}
 					element={
 						<AccountLayout
 							type="my"
@@ -37,11 +37,11 @@ const MainRouter: FC = () => {
 				>
 					<Route index element={<AccountSettings />} />
 					<Route
-						path={routes.MESSAGES}
+						path={desktopRoutes.MESSAGES}
 						element={<AccountMessages />}
 					/>
 					<Route
-						path={routes.SINGLE_MESSAGE}
+						path={desktopRoutes.SINGLE_MESSAGE}
 						element={
 							<AccountSingleChat
 								user={{
@@ -53,7 +53,7 @@ const MainRouter: FC = () => {
 						}
 					/>
 					<Route
-						path={routes.FAVORITES}
+						path={desktopRoutes.FAVORITES}
 						element={
 							<AccountAds
 								type="favorite"
@@ -62,16 +62,19 @@ const MainRouter: FC = () => {
 							/>
 						}
 					/>
-					<Route path={routes.REVIEWS} element={<AccountReviews />} />
 					<Route
-						path={routes.MY_ADS}
+						path={desktopRoutes.REVIEWS}
+						element={<AccountReviews />}
+					/>
+					<Route
+						path={desktopRoutes.MY_ADS}
 						element={
 							<AccountAds type="my" title="Мои объявления" />
 						}
 					/>
 				</Route>
 				<Route
-					path={routes.OTHER_USER_ACCOUNT}
+					path={desktopRoutes.OTHER_USER_ACCOUNT}
 					element={
 						<AccountLayout
 							type="another"
@@ -84,15 +87,18 @@ const MainRouter: FC = () => {
 						element={<AccountAds type="my" title="Объявления" />}
 					/>
 					<Route
-						path={routes.OTHER_USER_REVIEWS}
+						path={desktopRoutes.OTHER_USER_REVIEWS}
 						element={<AccountReviews />}
 					/>
 				</Route>
 				<Route path="*" element={<Error />} />
-				<Route path={routes.LOGIN} element={<Login />} />
-				<Route path={routes.REGISTRATION} element={<Registration />} />
+				<Route path={desktopRoutes.LOGIN} element={<Login />} />
 				<Route
-					path={routes.CREATE_NEW_ITEM}
+					path={desktopRoutes.REGISTRATION}
+					element={<Registration />}
+				/>
+				<Route
+					path={desktopRoutes.CREATE_NEW_ITEM}
 					element={<CreateNewItem />}
 				/>
 			</Routes>

@@ -11,7 +11,7 @@ import Button from "@components/Button";
 import {
 	BreadcrumbsContext,
 	IBreadcrumbsContext,
-} from "@pages/Layouts/MainLayout/MainLayout";
+} from "@pages/layouts/MainLayout";
 
 export enum ShopItemSize {
 	short = "Short",

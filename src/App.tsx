@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Actions } from "./Store/actions";
-import MainLayout from "@pages/Layouts/MainLayout";
-import MobileLayout from "@pages/Layouts/MobileLayout";
+import MainLayout from "@pages/layouts/MainLayout";
+import MobileRouter from "@components/Routers/MobileRouter";
 
 function App() {
 	const dispatch = useDispatch();
 	const [view, setView] = useState<"mobile" | "main">("main");
 
 	useEffect(() => {
+		if (window.innerWidth < 800) setView("mobile");
 		const listener = () => {
 			window.innerWidth < 800 ? setView("mobile") : setView("main");
 		};
@@ -20,7 +21,7 @@ function App() {
 		};
 	}, []);
 
-	return <>{view === "main" ? <MainLayout /> : <MobileLayout />}</>;
+	return <>{view === "main" ? <MainLayout /> : <MobileRouter />}</>;
 }
 
 export default App;

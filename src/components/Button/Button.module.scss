@@ -56,6 +56,9 @@
 	&.md {
 		padding-top: 12px;
 		padding-bottom: 12px;
+		&.rounded {
+			padding: 14px;
+		}
 	}
 
 	&.lg {
@@ -65,5 +68,9 @@
 
 	&.fluid {
 		width: 100%;
+	}
+
+	&.rounded {
+		border-radius: 50%;
 	}
 }
