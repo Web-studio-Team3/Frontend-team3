@@ -10,6 +10,7 @@ type TButtonProps = ComponentProps<"button"> & {
 	variant?: TButtonVariant;
 	size?: TSizing;
 	fluid?: boolean;
+	rounded?: boolean;
 	onClick?: VoidFunction;
 	children: ReactNode;
 	isVisible?: boolean;
@@ -21,6 +22,7 @@ const Button: FC<TButtonProps> = ({
 	variant = "purple",
 	size = "md",
 	fluid,
+	rounded,
 	onClick,
 	children,
 	isVisible = true,
@@ -32,6 +34,7 @@ const Button: FC<TButtonProps> = ({
 }) => {
 	const className = cc(styles.button, styles[variant], styles[size], {
 		[styles.fluid]: fluid,
+		[styles.rounded]: rounded,
 	});
 
 	const handleClick = (e: SyntheticEvent<HTMLButtonElement>) => {
