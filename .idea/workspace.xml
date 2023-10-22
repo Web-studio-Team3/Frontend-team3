@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="818d5e7e-af0b-4d3e-9545-32864d6876b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/photoCarousel/PhotoCarousel.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/photoCarousel/PhotoCarousel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/Login.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/Login.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Registration/Registration.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration/Registration.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Registration/Registration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration/Registration.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShopItem/ShopItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShopItem/ShopItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/market/components/Items/Items.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/market/components/Items/Items.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/marketItemPage/MarketItemPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/marketItemPage/MarketItemPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

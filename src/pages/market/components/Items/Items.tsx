@@ -76,7 +76,7 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 		dispatch(Actions.Items.getItems());
 	}, []);
 
-	if (!items) return null;
+	if (!items.length) return null;
 	const FilteredItems = [...items];
 	const filteredItems =
 		currenFilter === "По убыванию"

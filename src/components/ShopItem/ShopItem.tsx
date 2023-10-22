@@ -41,7 +41,7 @@ export const ShopItem: FC<ShopItemProps> = ({
 	const items = useSelector((state: RootState) => state.Items.items);
 	const [url, setUrl] = useState("");
 	const [loading, setLoading] = useState(true);
-	const currentItem = items.filter((item) => item.id === id);
+	// const currentItem = items.filter((item) => item.id === id);
 	const state = useLocation().state;
 	const path = `/advert/${id}`;
 	const navigate = useNavigate();
@@ -91,7 +91,7 @@ export const ShopItem: FC<ShopItemProps> = ({
 				) : (
 					<p className={styles.date}>Сегодня, 15:40</p>
 				)}
-				<button  className={styles.button}>
+				<button className={styles.button}>
 					<FavoriteIcon />
 				</button>
 			</div>
