@@ -38,10 +38,8 @@ export const ShopItem: FC<ShopItemProps> = ({
 	size = ShopItemSize.standart,
 }) => {
 	const token = useSelector((state: RootState) => state.Auth.token);
-	const items = useSelector((state: RootState) => state.Items.items);
 	const [url, setUrl] = useState("");
 	const [loading, setLoading] = useState(true);
-	const currentItem = items.filter((item) => item.id === id);
 	const path = `/advert/${id}`;
 	const navigate = useNavigate();
 	const { setBreadcrumbs } = useContext(
