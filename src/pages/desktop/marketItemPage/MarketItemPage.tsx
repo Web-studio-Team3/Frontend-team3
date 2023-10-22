@@ -3,6 +3,7 @@ import { ArrowControlIcon, FavoriteIcon } from "@assets/icons/Icons";
 import ItemImage from "@assets/img/ad-image1.png";
 import Breadcrumbs from "@components/breadcrumbs/Breadcrumbs";
 import Header from "@components/header";
+import Footer from "@components/footer";
 import { ShopItemSize } from "@components/ShopItem";
 import ShopItemList from "@components/ShopItemList";
 import UserCard from "@components/userCard/UserCard";
@@ -270,6 +271,7 @@ const MarketItemPage: FC = () => {
 					</div>
 				</div>
 			</main>
+			<Footer />
 		</>
 	);
 };

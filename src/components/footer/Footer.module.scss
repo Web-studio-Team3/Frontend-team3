@@ -1,0 +1,38 @@
+.flexbox {
+  display: flex;
+  font-family: "Inter", serif;
+  color: white;
+  margin-bottom: 30px;
+
+  &Text1 {
+    font-size: 32px;
+  }
+  &Text2 {
+    width: 270px;
+    font-size: 16px;
+  }
+  &Text3 {
+    width: 264px;
+    font-size: 16px;
+  }
+}
+
+.box {
+  display: flex;
+  background:none;
+  border: none;
+  margin: 0 20px 0 0;
+  align-items:center;
+}
+
+.second {
+  margin: 10px 10px 10px 10px;
+}
+
+.wrapper {
+  padding-top: 30px;
+  padding-bottom: 49px;
+  padding-left: 100px;
+
+  border-top: solid #72757E 1px;
+}

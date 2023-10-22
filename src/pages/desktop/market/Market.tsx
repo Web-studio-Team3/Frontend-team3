@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import Header from "@components/header";
+import Footer from "@components/footer";
 import { WelcomeBlock } from "@components/WelcomeBlock";
 import classNames from "classnames";
 import Categories from "./components/Categories";
@@ -30,6 +31,7 @@ const Market = () => {
 					</div>
 				</div>
 			</main>
+			<Footer />
 		</>
 	);
 };

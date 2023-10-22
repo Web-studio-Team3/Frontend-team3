@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { PlusIcon, ShieldDoneIcon } from "@assets/icons/Icons";
+import { EditHomeIcon, PlusIcon, ShieldDoneIcon } from "@assets/icons/Icons";
 import RatingStars from "@components/ratingStars";
 import classNames from "classnames";
 import cn from "classnames";
@@ -8,6 +8,7 @@ import styles from "./UserCard.module.scss";
 import { userCardProps } from "./UserCardProps";
 import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
+import UserRating from "@pages/desktop/account/accountReviews/components/userRating";
 
 export type sss = {
 	full_name: string;
@@ -63,12 +64,23 @@ const UserCard: FC<userCardProps> = ({
 					height={169}
 				/>
 				{type === "my" ? (
-					<button type="button" className={styles.icon}>
-						<PlusIcon />
-					</button>
+					<div className={styles.iconBlock}>
+						<button type="button" className={styles.icon}>
+							<PlusIcon />
+						</button>
+					</div>
 				) : null}
 			</div>
 			<div className={styles.textBlock}>
+				<div className={styles.ratingBlock}>
+					<RatingStars currentRating={5}></RatingStars>
+					<div className={styles.reviewBlock}>
+						{" "}
+						<p className={styles.ratingTextNum}>4.67</p>
+						<p className={styles.ratingText}>1 отзыв</p>
+					</div>
+				</div>
+
 				<p className={styles.name}>
 					{type === "my" ? (
 						user_name
@@ -79,8 +91,11 @@ const UserCard: FC<userCardProps> = ({
 						</>
 					)}
 				</p>
-				<p className={styles.text}>Общежитие 4</p>
-				{type === "another" ? rating : null}
+				<div className={styles.homeBlock}>
+					<EditHomeIcon></EditHomeIcon>
+					<p className={styles.homeText}>Общежитие №4</p>
+					{type === "another" ? rating : null}
+				</div>
 			</div>
 		</div>
 	);

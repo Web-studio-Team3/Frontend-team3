@@ -1,6 +1,7 @@
 import { FC, useContext } from "react";
 import Breadcrumbs from "@components/breadcrumbs";
 import Header from "@components/header";
+import Footer from "@components/footer";
 import classNames from "classnames";
 import styles from "./AccountLayout.module.scss";
 import { AccountLayoutProps } from "./AccountLayoutProps";
@@ -23,6 +24,7 @@ const AccountLayout: FC<AccountLayoutProps> = ({ type, component }) => {
 					<div className={styles.content}>{component}</div>
 				</div>
 			</main>
+			<Footer />
 		</>
 	);
 };
