@@ -1,17 +1,26 @@
 /* eslint-disable prettier/prettier */
-import React from "react";
+import React, {useRef} from "react";
 import styles from './PhotoCarousel.module.scss'
-import { Carousel } from "antd";
+import { Carousel, Button } from "antd";
 import ItemImage1 from "@assets/img/ad-image1.png";
 import ItemImage2 from "@assets/img/ad-image2.png";
 import ItemImage3 from "@assets/img/ad-image3.png";
 import ItemImage4 from "@assets/img/market.png";
+import {CaretLeftOutlined, CaretRightOutlined} from '@ant-design/icons';
 
 type PhotoCarouselProps = {
     images?:  string[]
 };
 
 const PhotoCarousel = (props:PhotoCarouselProps) => {
+
+    const prevArrow = <Button icon={<CaretLeftOutlined  style={{color: 'white', fontSize: '25px'}}/>}/>;
+    const nextArrow = <Button icon={<CaretRightOutlined style={{color: 'white', fontSize: '25px'}}/>}/>;
+
+    const carouselRef = useRef(null);
+    const onChange = (current: number) => {
+        console.log('Current slide:', current);
+    };
 
     const imagesDefault = [
         ItemImage1,
@@ -35,7 +44,10 @@ const PhotoCarousel = (props:PhotoCarouselProps) => {
         );
 
     return (
-        <Carousel
+        <Carousel ref={carouselRef} afterChange={onChange} dots={false}
+            arrows
+            prevArrow={prevArrow}
+            nextArrow={nextArrow}
             slidesToShow={3}
             swipeToSlide
             infinite={false}

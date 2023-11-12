@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="818d5e7e-af0b-4d3e-9545-32864d6876b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/photoCarousel/PhotoCarousel.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/photoCarousel/PhotoCarousel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ShopItem/ShopItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShopItem/ShopItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/market/components/Items/Items.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/market/components/Items/Items.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/marketItemPage/MarketItemPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/marketItemPage/MarketItemPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/photoCarousel/PhotoCarousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/photoCarousel/PhotoCarousel.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +29,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/firef/WebstormProjects/haha&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -63,6 +56,10 @@
       <workItem from="1696176969468" duration="2168000" />
       <workItem from="1696441366220" duration="643000" />
       <workItem from="1696445424893" duration="46145000" />
+      <workItem from="1698063060817" duration="41000" />
+      <workItem from="1698077175072" duration="3974000" />
+      <workItem from="1698167382645" duration="566000" />
+      <workItem from="1699124222220" duration="5233000" />
     </task>
     <servers />
   </component>
