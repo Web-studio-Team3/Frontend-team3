@@ -9,7 +9,7 @@ import {
 	ProfileIcon,
 } from "@assets/icons/Icons";
 import { NavLink } from "react-router-dom";
-import { mobileRoutes } from "../../constants/routes";
+import { mobileRoutes } from "../../../constants/routes";
 import Button from "@components/Button";
 import cc from "classnames";
 
