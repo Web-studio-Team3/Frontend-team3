@@ -99,7 +99,6 @@ export const Login = () => {
 							Войти
 						</Button>
 					</Form.Item>
-					<Link to={"/"}>Продолжить без входа в аккаунт</Link>
 					{/* <p className={styles.prevText}>Или продолжить через</p> */}
 				</Form>
 			</main>

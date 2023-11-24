@@ -1,13 +1,24 @@
 import { FC } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { mobileRoutes } from "../../constants/routes";
-import MobileLayout from "@pages/layouts/MobileLayout";
+import WithBottomNavigator from "@components/WithBottomNavigator";
+import Error from "@pages/error";
+import Login from "@pages/common/Login";
+import Registration from "@pages/common/Registration";
+import AuthRoute from "@components/Routers/AuthRoute";
 
 const MobileRouter: FC = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<MobileLayout />}>
+				<Route
+					path="/"
+					element={
+						<AuthRoute>
+							<WithBottomNavigator />
+						</AuthRoute>
+					}
+				>
 					<Route
 						index
 						element={<p style={{ color: "white" }}>main</p>}
@@ -41,6 +52,12 @@ const MobileRouter: FC = () => {
 						}
 					/>
 				</Route>
+				<Route path="*" element={<Error />} />
+				<Route path={mobileRoutes.LOGIN} element={<Login />} />
+				<Route
+					path={mobileRoutes.REGISTRATION}
+					element={<Registration />}
+				/>
 			</Routes>
 		</BrowserRouter>
 	);

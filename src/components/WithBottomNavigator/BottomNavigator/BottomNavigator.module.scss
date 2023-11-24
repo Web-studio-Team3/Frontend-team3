@@ -18,7 +18,7 @@
 	display: flex;
 	gap: 8px;
 	justify-content: space-between;
-	width: 350px;
+	max-width: 350px;
 	margin: 0 auto;
 	position: relative;
 }
@@ -42,12 +42,24 @@
 		display: flex;
 		flex-direction: column;
 
-		&Active svg {
-			stroke: $green;
-		}
+		&Active {
+			& .linkText {
+				color: $green;
+			}
 
-		&ActiveFill svg {
-			fill: $green;
+			& svg {
+				stroke: $green;
+			}
+
+			&Fill {
+				& svg {
+					fill: $green;
+				}
+
+				& .linkText {
+					color: $green;
+				}
+			}
 		}
 
 		& svg {

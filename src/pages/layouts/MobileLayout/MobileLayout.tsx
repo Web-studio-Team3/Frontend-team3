@@ -1,12 +1,11 @@
 import { FC } from "react";
-import { Outlet } from "react-router-dom";
-import BottomNavigator from "@components/BottomNavigator";
+import MobileRouter from "@components/Routers/MobileRouter";
 
+// пока просто возвращается роутер, но в будущем может обрасти дополнительной логиков
 const MobileLayout: FC = () => {
 	return (
 		<>
-			<Outlet />
-			<BottomNavigator />
+			<MobileRouter />
 		</>
 	);
 };

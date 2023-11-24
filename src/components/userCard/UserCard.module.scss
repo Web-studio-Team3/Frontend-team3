@@ -40,7 +40,7 @@
 
 .photoBlock {
 	position: relative;
-	margin: 0px auto 10px;
+	margin: 0 auto 10px;
 	width: 169px;
 }
 
@@ -67,13 +67,13 @@
 .iconBlock {
 	display: flex;
 	align-items: center;
-justify-content: center;
+	justify-content: center;
 	position: absolute;
 	left: 120px;
 	bottom: 10px;
 	width: 34px;
 	height: 34px;
-	background: #2D2D33;
+	background: #2d2d33;
 	border-radius: 100px;
 }
 
@@ -123,7 +123,7 @@ justify-content: center;
 	justify-content: center;
 	align-items: center;
 	padding: 8px 12px 8px;
-	border: 1px solid #5D616F80;
+	border: 1px solid #5d616f80;
 	border-radius: 10px;
 }
 
@@ -149,7 +149,6 @@ justify-content: center;
 		line-height: 17px;
 		font-weight: 400;
 	}
-
 }
 
 .rating {

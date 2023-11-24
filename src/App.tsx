@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Actions } from "./Store/actions";
 import MainLayout from "@pages/layouts/MainLayout";
-import MobileRouter from "@components/Routers/MobileRouter";
+import MobileLayout from "@pages/layouts/MobileLayout";
 
 function App() {
 	const dispatch = useDispatch();
@@ -21,7 +21,7 @@ function App() {
 		};
 	}, []);
 
-	return <>{view === "main" ? <MainLayout /> : <MobileRouter />}</>;
+	return <>{view === "main" ? <MainLayout /> : <MobileLayout />}</>;
 }
 
 export default App;
