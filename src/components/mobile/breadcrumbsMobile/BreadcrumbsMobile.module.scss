@@ -1,0 +1,36 @@
+.wrapper {
+	height: 50px;
+	background-color: #2D2D33;
+	padding: 14px 23px 14px 23px;
+	color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	margin-bottom: 32px;
+
+	.link {
+		font-size: 18px;
+		color: #FFFFFF;
+		text-decoration: none;
+
+		&.linkActive {
+			font-family: 'Inter', sans-serif; // Set font to Inter
+			font-size: 18px; // Set font size
+		}
+
+		span {
+			// New styles for the span containing text
+			margin-left: 8px; // Add margin between text and arrow
+
+		}
+
+		.arrow {
+			color: #FFFFFF;
+			margin-right: 11px;
+		}
+	}
+
+	.breadcrumb-separator {
+		color: #FFFFFF;
+		margin: 0 8px;
+	}
+}

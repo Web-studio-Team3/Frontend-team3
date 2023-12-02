@@ -16,10 +16,10 @@ export const desktopRoutes = {
 
 export const mobileRoutes = {
 	PROFILE: "/account/me",
-	MESSAGES: "/messages",
-	SINGLE_MESSAGE: "messages/:id",
+	MESSAGES: "account/me/messages",
+	SINGLE_MESSAGE: "account/me/messages/:id",
 	FAVORITES: "/favorites",
-	REVIEWS: "/reviews",
+	REVIEWS: "account/me/reviews",
 	MY_ADS: "/my-ads",
 	SINGLE_ADVERT: "/advert/:id",
 	//todo change after adding other user accounts

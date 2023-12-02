@@ -65,6 +65,7 @@ const BottomNavigator: FC = () => {
 					<li>
 						<NavLink
 							to={mobileRoutes.MESSAGES}
+							end
 							className={({ isActive }) =>
 								classNames(styles.linkIcon, {
 									[styles.linkIconActive]: isActive,
@@ -78,6 +79,7 @@ const BottomNavigator: FC = () => {
 					<li className={styles.item}>
 						<NavLink
 							to={mobileRoutes.PROFILE}
+							end
 							className={({ isActive }) =>
 								classNames(styles.linkIcon, {
 									[styles.linkIconActive]: isActive,
