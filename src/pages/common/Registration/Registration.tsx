@@ -136,18 +136,9 @@ export const Registration = () => {
 							Зарегистрироваться
 						</Button>
 					</Form.Item>
-					<Button
-						className={styles.button2}
-						type="primary"
-						size="large"
-						// onClick={() => {
-						// 	// eslint-disable-next-line no-restricted-globals
-						// 	location.href = "/login";
-						// }}
-					>
-						<Link to="/login">Войти в аккаунт</Link>
-					</Button>
-					<Link to={"/"}>Продолжить без входа в аккаунт</Link>
+					<Link className={styles.link_text} to={"/login"}>
+						Венуться на страницу входа
+					</Link>
 				</Form>
 			</main>
 		</div>
