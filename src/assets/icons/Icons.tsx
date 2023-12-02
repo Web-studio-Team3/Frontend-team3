@@ -917,11 +917,11 @@ export const UploadIcon = (): JSX.Element => {
 	);
 };
 
-export const FavoriteIcon = (): JSX.Element => {
+export const FavoriteIcon = ({ width = 36, height = 36 }): JSX.Element => {
 	return (
 		<svg
-			width="36"
-			height="36"
+			width={width}
+			height={height}
 			viewBox="0 0 36 36"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"

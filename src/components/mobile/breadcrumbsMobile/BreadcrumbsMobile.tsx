@@ -1,4 +1,4 @@
-// BreadcrumbsMobile.tsx
+// BurgerMenuMobile.tsx
 
 import React, { FC, useEffect, useState } from "react";
 import { Breadcrumb } from "antd";
@@ -6,9 +6,16 @@ import { BreadcrumbItemType } from "antd/es/breadcrumb/Breadcrumb";
 import cn from "classnames";
 import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { desktopRoutes } from "../../../constants/routes";
+import { desktopRoutes, mobileRoutes } from "../../../constants/routes";
 import styles from "./BreadcrumbsMobile.module.scss";
-import { BackArrowIcon, BackArrowIconMobile } from "@assets/icons/Icons";
+import {
+	BackArrowIcon,
+	BackArrowIconMobile,
+	MenuIcon,
+	SearchIcon,
+} from "@assets/icons/Icons";
+import BurgerMenu from "@components/mobile/burgerMenu";
+import * as path from "path";
 
 interface IBreadCrumbsProps {
 	additionalBreadcrumbs?: Record<string, string>;
@@ -21,11 +28,18 @@ const BreadcrumbsMobile: FC<IBreadCrumbsProps> = ({
 	const [breadcrumbNameMap, setBreadcrumbNameMap] = useState<
 		Record<string, string>
 	>({
-		[desktopRoutes.PROFILE]: "Профиль",
-		[desktopRoutes.MESSAGES]: "Сообщения",
-		[desktopRoutes.FAVORITES]: "Избранное",
-		[desktopRoutes.REVIEWS]: "Отзывы",
-		[desktopRoutes.MY_ADS]: "Мои объявления",
+		[mobileRoutes.PROFILE]: "Профиль",
+		[mobileRoutes.MESSAGES]: "Сообщения",
+		[mobileRoutes.FAVORITES]: "Избранное",
+		[mobileRoutes.REVIEWS]: "Отзывы",
+		[mobileRoutes.MY_ADS]: "Мои объявления",
+		[mobileRoutes.SETTINGS]: "Настройки",
+		[mobileRoutes.SETTINGS_MESSAGES]: "Управление сообщениями",
+		[mobileRoutes.SETTINGS_PHONE]: "Мой номер",
+		[mobileRoutes.SETTINGS_ADDRESS]: "Мой адрес",
+		[mobileRoutes.SETTINGS_NOTIFICATIONS]: "Уведомления",
+		[mobileRoutes.SETTINGS_CALLS]: "Управление звонками",
+		[mobileRoutes.SETTINGS_EMAIL]: "Мой email",
 	});
 
 	const pathSnippets = location.pathname.split("/").filter((i) => i);
@@ -85,11 +99,13 @@ const BreadcrumbsMobile: FC<IBreadCrumbsProps> = ({
 
 	const lastPathSnippet = pathSnippets[pathSnippets.length - 1];
 
+	const lastPath = pathSnippets.slice(0, -1).join("/");
+
 	if (lastPathSnippet) {
 		breadcrumbItems.push({
 			key: `/last-page`,
 			title: (
-				<NavLink className={styles.link} to={`/${lastPathSnippet}`}>
+				<NavLink className={styles.link} to={`/${lastPath}`}>
 					<BackArrowIconMobile />
 					{breadcrumbNameMap[`/${lastPathSnippet}`]}
 				</NavLink>
@@ -110,9 +126,30 @@ const BreadcrumbsMobile: FC<IBreadCrumbsProps> = ({
 	} as BreadcrumbItemType);
 
 	return (
-		<nav className={styles.wrapper}>
-			<Breadcrumb items={breadcrumbItems} separator="" />
-		</nav>
+		<div>
+			<nav className={styles.wrapper}>
+				<Breadcrumb items={breadcrumbItems} separator="" />
+				<div>
+					{location.pathname.endsWith("me/messages") ||
+					location.pathname.endsWith("settings") ? (
+						<div className={styles.menu}>
+							<SearchIcon></SearchIcon>
+							<BurgerMenu></BurgerMenu>
+						</div>
+					) : (
+						""
+					)}
+					{location.pathname.endsWith("me") ||
+					location.pathname.endsWith("settings/messages") ? (
+						<div className={styles.menu}>
+							<BurgerMenu></BurgerMenu>
+						</div>
+					) : (
+						""
+					)}
+				</div>
+			</nav>
+		</div>
 	);
 };
 

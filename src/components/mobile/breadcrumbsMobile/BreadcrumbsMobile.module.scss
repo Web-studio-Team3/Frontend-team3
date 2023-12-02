@@ -5,7 +5,7 @@
 	color: #FFFFFF;
 	display: flex;
 	align-items: center;
-	margin-bottom: 32px;
+	justify-content: space-between;
 
 	.link {
 		font-size: 18px;
@@ -15,6 +15,7 @@
 		&.linkActive {
 			font-family: 'Inter', sans-serif; // Set font to Inter
 			font-size: 18px; // Set font size
+			font-weight: 500;
 		}
 
 		span {
@@ -32,5 +33,17 @@
 	.breadcrumb-separator {
 		color: #FFFFFF;
 		margin: 0 8px;
+	}
+
+	.menu {
+		margin-left: auto;
+		align-items: center;
+		display: flex;
+		gap: 10px;
+		& svg {
+			width: 14px;
+			height: 16px;
+			cursor: pointer;
+		}
 	}
 }

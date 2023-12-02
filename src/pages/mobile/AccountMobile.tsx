@@ -17,14 +17,19 @@ const AccountMobile: FC<IAccount> = ({ type }) => {
 	return (
 		<>
 			<BreadcrumbsMobile></BreadcrumbsMobile>
-			<UserCardMobile type={"my"} reviewsCount={1}></UserCardMobile>
-			<NavigationList></NavigationList>
-			<AccountAdsMobile></AccountAdsMobile>
-			<div>
-				<NavLink to="/support" className={styles.navLink}>
-					Написать в поддержку
-					<QuestionIcon />
-				</NavLink>
+			<div className={styles.body}>
+				<UserCardMobile type={"my"} reviewsCount={1}></UserCardMobile>
+				<NavigationList></NavigationList>
+				<AccountAdsMobile
+					type="my"
+					title="Мои объявления"
+				></AccountAdsMobile>
+				<div>
+					<NavLink to="/support" className={styles.navLink}>
+						Написать в поддержку
+						<QuestionIcon />
+					</NavLink>
+				</div>
 			</div>
 		</>
 	);
