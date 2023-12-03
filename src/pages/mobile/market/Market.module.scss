@@ -1,0 +1,22 @@
+@import "@styles/variables";
+
+.header_wrapper {
+	width: 100%;
+	background-color: $grey;
+}
+.header {
+	max-width: 500px;
+	padding: 9px 20px;
+	display: flex;
+	gap: 8px;
+}
+
+.search_input_container {
+	flex-grow: 1;
+}
+
+.search_icon {
+	position: absolute;
+	left: 8px;
+	top: 10px;
+}

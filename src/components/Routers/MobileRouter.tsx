@@ -6,6 +6,7 @@ import Error from "@pages/error";
 import Login from "@pages/common/Login";
 import Registration from "@pages/common/Registration";
 import AuthRoute from "@components/Routers/AuthRoute";
+import Market from "@pages/mobile/market";
 
 const MobileRouter: FC = () => {
 	return (
@@ -19,10 +20,7 @@ const MobileRouter: FC = () => {
 						</AuthRoute>
 					}
 				>
-					<Route
-						index
-						element={<p style={{ color: "white" }}>main</p>}
-					/>
+					<Route index element={<Market />} />
 					<Route
 						path={mobileRoutes.PROFILE}
 						element={<p style={{ color: "white" }}>profile</p>}
