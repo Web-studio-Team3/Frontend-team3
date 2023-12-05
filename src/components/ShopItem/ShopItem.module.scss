@@ -17,7 +17,7 @@
 }
 
 .itemShort {
-	padding: 0px 0px 13px 0;
+	padding: 0 0 13px;
 	gap: 17px;
 	width: 30%;
 	min-width: 200px;
@@ -25,23 +25,6 @@
 	color: $white;
 	border-radius: 23px;
 	box-sizing: border-box;
-	.imagePointers {
-		width: 100%;
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		column-gap: 2px;
-		margin: 3px auto 11px;
-		padding: 0 8px;
-		.pointer {
-			background: #999999;
-			border-radius: 43px;
-			cursor: pointer;
-			height: 3px;
-			&Active {
-				background: #ffffff;
-			}
-		}
-	}
 
 	img {
 		flex: none;
@@ -53,15 +36,44 @@
 		border-bottom-right-radius: 0;
 		border-bottom-left-radius: 0;
 	}
+
+	&Xs {
+		padding: 0 0 16px;
+		min-width: 171px;
+		background-color: $grey;
+		color: $white;
+		border-radius: 16px;
+
+		img {
+			width: 100%;
+			height: 112px;
+			border-top-left-radius: 16px;
+			border-top-right-radius: 16px;
+		}
+
+		.title {
+			font-size: 12px;
+			line-height: 15px;
+		}
+
+		.date {
+			font-weight: 300;
+			font-size: 10px;
+			line-height: 12px;
+		}
+
+		.price {
+			font-weight: 700;
+		}
+	}
 }
 
 .info {
 	width: 100%;
-	padding-top: 10px;
 	gap: 5px;
 	display: flex;
 	flex-direction: column;
-	padding: 0px 8px;
+	padding: 0 8px;
 	position: relative;
 
 	.button {
@@ -72,34 +84,33 @@
 		right: 6px;
 		top: 0;
 	}
-
-	.title {
-		font-weight: 700;
-		font-size: 17px;
-		line-height: 21px;
-	}
-
-	.date {
-		font-weight: 400;
-		font-size: 12px;
-		line-height: 15px;
-		color: rgba(255, 255, 254, 0.65);
-	}
-
-	.price {
-		font-weight: 500;
-		font-size: 16px;
-		line-height: 19px;
-	}
-
-	.information {
-		font-size: 14px;
-		line-height: 17px;
-		opacity: 0.85;
-	}
+}
+.title {
+	font-weight: 700;
+	font-size: 17px;
+	line-height: 21px;
 }
 
-.buttonBlockStandart {
+.date {
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 15px;
+	color: rgba(255, 255, 254, 0.65);
+}
+
+.price {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 19px;
+}
+
+.information {
+	font-size: 14px;
+	line-height: 17px;
+	opacity: 0.85;
+}
+
+.buttonBlock {
 	display: flex;
 	flex-direction: column;
 	padding: 16px 0 0 20px;
@@ -128,15 +139,29 @@
 	}
 }
 
-.buttonBlockShort {
-	display: none;
-}
-
 .link {
 	text-decoration: none;
 	cursor: pointer;
 	&:hover {
 		background: #202023;
 		transition: background 0.2s ease-out;
+	}
+}
+
+.imagePointers {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 2px;
+	margin: 3px auto 11px;
+	padding: 0 8px;
+	.pointer {
+		background: #999999;
+		border-radius: 43px;
+		cursor: pointer;
+		height: 3px;
+		&Active {
+			background: #ffffff;
+		}
 	}
 }
