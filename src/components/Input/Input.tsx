@@ -10,11 +10,12 @@ type TInputType = "text" | "password" | "number" | "search";
 interface IInput
 	extends Omit<
 		HTMLProps<HTMLInputElement>,
-		"onChange" | "onBlur" | "onFocus" | "onSubmit"
+		"onChange" | "onBlur" | "onFocus" | "onSubmit" | "className"
 	> {
 	value: string;
 	type?: TInputType;
 	sizing?: TSizing;
+	extraRounded?: boolean;
 	fluid?: boolean;
 	label?: string;
 	isError?: boolean;
@@ -31,11 +32,13 @@ interface IInput
 	onSubmit?: TCustomVoidFunction<string>;
 	renderInputIcon?: () => ReactNode;
 	onIconClick?: TCustomVoidFunction<string>;
+	inputContainerProps?: HTMLProps<HTMLDivElement>;
 }
 
 const Input: FC<IInput> = ({
 	type = "text",
-	sizing = "medium",
+	sizing = "md",
+	extraRounded = false,
 	label,
 	fluid = false,
 	isError,
@@ -99,6 +102,7 @@ const Input: FC<IInput> = ({
 					[styles.warning]: isWarning,
 					[styles.fluid]: fluid,
 					[styles.search]: isSearch,
+					[styles.extra_rounded]: extraRounded,
 				})}
 				placeholder={placeholder || ""}
 				ref={inputRef}
