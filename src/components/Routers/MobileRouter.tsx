@@ -6,6 +6,7 @@ import Error from "@pages/error";
 import Login from "@pages/common/Login";
 import Registration from "@pages/common/Registration";
 import Market from "@pages/mobile/market";
+import AuthRoute from "@components/Routers/AuthRoute";
 
 const MobileRouter: FC = () => {
 	return (
@@ -14,9 +15,9 @@ const MobileRouter: FC = () => {
 				<Route
 					path="/"
 					element={
-						// <AuthRoute>
-						<WithBottomNavigator />
-						// </AuthRoute>
+						<AuthRoute>
+							<WithBottomNavigator />
+						</AuthRoute>
 					}
 				>
 					<Route index element={<Market />} />
