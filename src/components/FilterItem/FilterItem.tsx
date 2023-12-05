@@ -6,23 +6,25 @@ import { FC } from "react";
 type FilterItemProps = {
 	currentFilter: string;
 	title: string;
+	value?: string;
 	updateCurrentFilter: (string: string) => void;
 };
 
 const FilterItem: FC<FilterItemProps> = ({
 	currentFilter,
 	title,
+	value,
 	updateCurrentFilter,
 }) => {
 	return (
 		<Button
-			onClick={() => updateCurrentFilter(title)}
+			onClick={() => updateCurrentFilter(value || title)}
 			variant="ghost"
 			size="xs"
 		>
 			<p
 				className={classNames(styles.filter, {
-					[styles.active]: currentFilter === title,
+					[styles.active]: currentFilter === value,
 				})}
 			>
 				{title}

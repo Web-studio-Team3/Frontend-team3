@@ -820,11 +820,15 @@ export const CategoryIcon = ({
 	);
 };
 
-export const BackArrowIcon = (): JSX.Element => {
+export const BackArrowIcon = ({
+	width = 39,
+	height = 39,
+	noBorder = false,
+}): JSX.Element => {
 	return (
 		<svg
-			width="39"
-			height="39"
+			width={width}
+			height={height}
 			viewBox="0 0 39 39"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
@@ -842,14 +846,16 @@ export const BackArrowIcon = (): JSX.Element => {
 				strokeLinecap="round"
 				strokeLinejoin="round"
 			/>
-			<path
-				fillRule="evenodd"
-				clipRule="evenodd"
-				d="M19.5 1C5.626 1 1 5.626 1 19.5C1 33.374 5.626 38 19.5 38C33.374 38 38 33.374 38 19.5C38 5.626 33.374 1 19.5 1Z"
-				strokeWidth="1.5"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
+			{!noBorder && (
+				<path
+					fillRule="evenodd"
+					clipRule="evenodd"
+					d="M19.5 1C5.626 1 1 5.626 1 19.5C1 33.374 5.626 38 19.5 38C33.374 38 38 33.374 38 19.5C38 5.626 33.374 1 19.5 1Z"
+					strokeWidth="1.5"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+				/>
+			)}
 		</svg>
 	);
 };

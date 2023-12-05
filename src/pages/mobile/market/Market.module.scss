@@ -1,4 +1,5 @@
 @import "@styles/variables";
+@import "@styles/mixins";
 
 .header_wrapper {
 	width: 100%;
@@ -22,19 +23,6 @@
 	top: 10px;
 }
 
-.items_list {
-	max-width: 353px;
-	margin: 32px auto 80px;
-	flex-wrap: wrap;
-	gap: 8px;
-	display: flex;
-	justify-content: space-around;
-
-	.shop_item {
-		flex-basis: 48%;
-	}
-}
-
 .main {
 	max-width: 390px;
 	padding: 0 20px;
@@ -54,8 +42,5 @@
 
 .filters_container {
 	margin-top: 32px;
-	display: flex;
-	gap: 11px;
-	padding-bottom: 8px;
-	border-bottom: 1px solid #5d616f;
+	@include filters_container;
 }
