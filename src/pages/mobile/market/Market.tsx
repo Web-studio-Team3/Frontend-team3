@@ -8,14 +8,14 @@ import {
 } from "@assets/icons/Icons";
 import Button from "@components/Button";
 import FilterItem from "@components/FilterItem";
-import { EFilters } from "@pages/mobile/market/types";
+import { EMarketFilter } from "@pages/mobile/market/types";
 import { useDispatch } from "react-redux";
-import { ShopItem, ShopItemSize } from "@components/ShopItem";
 import { sortItems } from "@utils/commonHelpers";
 import { Actions } from "../../../Store/actions";
 import { marketItemsMock } from "../../../mocks/marketItemsMock";
 import { categories } from "@pages/desktop/market/helpers";
 import CategoryCard from "@pages/mobile/market/components/CategoryCard";
+import MobileMarketItemsList from "@components/MobileMarketItemsList";
 
 const Market: FC = () => {
 	const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const Market: FC = () => {
 	const items = marketItemsMock as any;
 
 	const [searchValue, setSearchValue] = useState("");
-	const [currentFilter, setCurrentFilter] = useState(EFilters.All);
+	const [currentFilter, setCurrentFilter] = useState(EMarketFilter.All);
 
 	const filteredItems = useMemo(() => {
 		return sortItems(items, currentFilter);
@@ -42,7 +42,7 @@ const Market: FC = () => {
 	};
 
 	const updateCurrentFilter = (value: string) => {
-		setCurrentFilter(value as EFilters);
+		setCurrentFilter(value as EMarketFilter);
 	};
 
 	return (
@@ -78,42 +78,24 @@ const Market: FC = () => {
 				<div className={styles.filters_container}>
 					<FilterItem
 						title="Все"
+						value={EMarketFilter.All}
 						currentFilter={currentFilter}
 						updateCurrentFilter={updateCurrentFilter}
 					/>
 					<FilterItem
 						title="Цена min"
+						value={EMarketFilter.PRICE_MIN}
 						currentFilter={currentFilter}
 						updateCurrentFilter={updateCurrentFilter}
 					/>
 					<FilterItem
 						title="Цена max"
+						value={EMarketFilter.PRICE_MAX}
 						currentFilter={currentFilter}
 						updateCurrentFilter={updateCurrentFilter}
 					/>
 				</div>
-				{filteredItems.length === 0 ? (
-					<p className={styles.text}>
-						Не найдено ни одного объявления...
-					</p>
-				) : (
-					<ul className={styles.items_list}>
-						{filteredItems.map((item) => (
-							<li className={styles.shop_item}>
-								<ShopItem
-									id={item.id}
-									key={item.id}
-									//@ts-ignore
-									image={item.image}
-									title={item.title}
-									price={item.cost}
-									information={item.description}
-									size={ShopItemSize.shortXs}
-								/>
-							</li>
-						))}
-					</ul>
-				)}
+				<MobileMarketItemsList items={filteredItems} />
 			</main>
 		</>
 	);

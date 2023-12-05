@@ -7,6 +7,7 @@ import Login from "@pages/common/Login";
 import Registration from "@pages/common/Registration";
 import Market from "@pages/mobile/market";
 import AuthRoute from "@components/Routers/AuthRoute";
+import Favorites from "@pages/mobile/Favorites";
 
 const MobileRouter: FC = () => {
 	return (
@@ -35,7 +36,7 @@ const MobileRouter: FC = () => {
 					/>
 					<Route
 						path={mobileRoutes.FAVORITES}
-						element={<p style={{ color: "white" }}>favorite ads</p>}
+						element={<Favorites />}
 					/>
 					<Route
 						path={mobileRoutes.MESSAGES}
