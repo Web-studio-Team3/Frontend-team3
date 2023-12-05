@@ -39,7 +39,7 @@
 
 	&Xs {
 		padding: 0 0 16px;
-		min-width: 171px;
+		min-width: unset;
 		background-color: $grey;
 		color: $white;
 		border-radius: 16px;
@@ -82,7 +82,7 @@
 		cursor: pointer;
 		position: absolute;
 		right: 6px;
-		top: 0;
+		bottom: 0;
 	}
 }
 .title {

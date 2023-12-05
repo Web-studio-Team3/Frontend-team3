@@ -28,9 +28,10 @@
 	flex-wrap: wrap;
 	gap: 8px;
 	display: flex;
+	justify-content: space-around;
 
 	.shop_item {
-		flex-basis: 171px;
+		flex-basis: 48%;
 	}
 }
 
