@@ -11,11 +11,15 @@ export declare namespace iApi {
 		raw_password: string;
 	};
 	type oLogin = {
-		token: string;
+		jwt_token: string;
 		user_id: string;
 	};
 	type GetUser = {
 		id: string;
 		token: string;
+	};
+	type igetUser = {
+		user_id: string;
+		jwt_token: string;
 	};
 }

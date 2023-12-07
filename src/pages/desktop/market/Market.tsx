@@ -13,7 +13,7 @@ import { RootState } from "../../../Store/store";
 const Market = () => {
 	const [currentCategory, replaceCategory] = useState("");
 	const items = useSelector((state: RootState) => state.Items.items);
-	const count = items ? items.length : 0;
+	const count = items ? items.total : 0;
 	return (
 		<>
 			<Header />
