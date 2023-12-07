@@ -1,0 +1,84 @@
+
+.userCard {
+	background-color: #2d2d33;
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	width: 100%;
+
+	align-items: center;
+	margin: 0 auto 32px;
+	padding: 29px 73px;
+
+	.mobilePhotoBlock {
+		margin-left: auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.mobilePhoto {
+		width: 85px;
+		height: 85px;
+		border-radius: 100%;
+		margin-bottom: 14px;
+	}
+
+	.name {
+		color: #2CB57F;
+		font-family: "Inter", sans-serif;
+		font-size: 18px;
+		line-height: 22px;
+		margin-bottom: 16px;
+		font-weight: 700;
+	}
+}
+
+.blocksWrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.ratingBlock {
+	width: 54px;
+	height: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-top: 16px;
+	align-items: center;
+}
+
+.subscriberBlock {
+	width: 54px;
+	height: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-top: 16px;
+	align-items: center;
+
+}
+.block {
+	display: flex;
+	gap: 9px;
+
+}
+.text {
+	color: white;
+	font-family: "Inter", sans-serif;
+	font-weight: 500;
+	font-size: 10px;
+	line-height: 12px;
+}
+.main {
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 19px;
+}
+.secondary {
+	color: #5D616F;
+}

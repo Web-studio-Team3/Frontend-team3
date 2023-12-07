@@ -1,0 +1,147 @@
+@import "@styles/variables.scss";
+
+.itemStandart {
+	padding: 16px 32px 32px 16px;
+	display: flex;
+	gap: 30px;
+	background-color: $grey;
+	color: $white;
+	border-radius: 30px;
+	width: 100%;
+	img {
+		border-radius: 15px;
+		flex: none;
+		width: 111px;
+		height: 71px;
+	}
+}
+
+.itemShort {
+	padding: 0 0 13px 0;
+	min-width: 111px;
+	background-color: #2D2D33;
+	color: $white;
+	border-radius: 16px;
+	height: 164px;
+	.imagePointers {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		column-gap: 2px;
+		margin: 3px auto 11px;
+		padding: 0 8px;
+		.pointer {
+			background: #999999;
+			border-radius: 43px;
+			cursor: pointer;
+			height: 3px;
+			&Active {
+				background: #ffffff;
+			}
+		}
+	}
+
+	img {
+		flex: none;
+		margin: 0 auto;
+		width: 100%;
+		height: 71px;
+		border-top-left-radius: 16px;
+		border-top-right-radius: 16px;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+}
+
+.info {
+	width: 100%;
+	padding-top: 10px;
+	gap: 6px;
+	display: flex;
+	flex-direction: column;
+	padding: 0px 8px;
+	position: relative;
+
+
+	.button {
+		background: none;
+		border: white;
+		cursor: pointer;
+		position: absolute;
+		right: 8px;
+		top: 0;
+	}
+
+	.buttonWrapper{
+		display: flex;
+	}
+
+	.title {
+		font-weight: 700;
+		font-size: 10px;
+		line-height: 12px;
+		width: 75px;
+	}
+
+	.date {
+		font-weight: 400;
+		font-size: 10px;
+		line-height: 12px;
+		color: rgba(255, 255, 254, 0.65);
+		margin-top: auto;
+	}
+
+	.price {
+		font-weight: 500;
+		font-size: 10px;
+		line-height: 12px;
+	}
+
+	.information {
+		font-size: 10px;
+		line-height: 12px;
+		opacity: 0.85;
+	}
+}
+
+.buttonBlockStandart {
+	display: flex;
+	flex-direction: column;
+	padding: 16px 0 0 20px;
+	gap: 14px;
+
+	.button {
+		cursor: pointer;
+		border: none;
+		border-radius: 13px;
+		padding: 7px 18px;
+		font-size: 20px;
+		line-height: 24px;
+		color: $white;
+
+		&:disabled {
+			opacity: 0.25;
+		}
+	}
+
+	.typeWrite {
+		background-color: #59c598;
+	}
+
+	.typeCall {
+		background-color: #7f5af0;
+	}
+}
+
+.buttonBlockShort {
+	display: none;
+}
+
+.link {
+	text-decoration: none;
+	cursor: pointer;
+	&:hover {
+		background: #202023;
+		transition: background 0.2s ease-out;
+	}
+}

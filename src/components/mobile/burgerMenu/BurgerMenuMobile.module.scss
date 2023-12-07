@@ -1,0 +1,41 @@
+/* BurgerMenu.css */
+
+.burgerMenu {
+	position: relative;
+}
+
+
+
+.bar1 {
+	width: 30px;
+	height: 3px;
+	background-color: #333;
+	transition: 0.4s;
+}
+
+.open .bar1 {
+	transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menuContent {
+	position: absolute;
+	top: 30px;
+	right: 0;
+	background: grey;
+	border: 1px solid #ccc;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	width: 150px;
+	z-index: 1; /* Set a higher z-index for the menu content */
+}
+
+.menuItem {
+text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	cursor: pointer;
+	z-index: 2; /* Set a higher z-index for the menu item */
+}
