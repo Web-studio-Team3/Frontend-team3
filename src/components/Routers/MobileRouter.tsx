@@ -9,11 +9,13 @@ import { AccountMobile } from "@pages/mobile";
 import AccountMessagesMobile from "@pages/mobile/accountMessagesMobile";
 import AccountReviewsMobile from "@pages/mobile/accountReviewsMobile";
 import AccountSingleChatMobile from "@pages/mobile/accountSingleChatMobile";
-import AuthRoute from "@components/Routers/AuthRoute";
 import BurgerMenu from "@components/mobile/burgerMenu";
 import AccountSettingsMobile from "@pages/mobile/accountSettingsMobile";
 import SettingsMessagesMobile from "@pages/mobile/accountSettingsMobile/settingsMessagesMobile";
 import SettingsNotificationsMobile from "@pages/mobile/accountSettingsMobile/settingsNotificationsMobile";
+import Market from "@pages/mobile/market";
+import AuthRoute from "@components/Routers/AuthRoute";
+import Favorites from "@pages/mobile/Favorites";
 
 const MobileRouter: FC = () => {
 	return (
@@ -83,10 +85,7 @@ const MobileRouter: FC = () => {
 						</AuthRoute>
 					}
 				>
-					<Route
-						index
-						element={<p style={{ color: "white" }}>main</p>}
-					/>
+					<Route index element={<Market />} />
 					<Route
 						path={mobileRoutes.PROFILE}
 						element={<AccountMobile type="my" />}
@@ -101,7 +100,7 @@ const MobileRouter: FC = () => {
 					/>
 					<Route
 						path={mobileRoutes.FAVORITES}
-						element={<p style={{ color: "white" }}>favorite ads</p>}
+						element={<Favorites />}
 					/>
 					<Route
 						path={mobileRoutes.MESSAGES}

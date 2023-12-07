@@ -1,0 +1,46 @@
+@import "@styles/variables";
+@import "@styles/mixins";
+
+.header_wrapper {
+	width: 100%;
+	background-color: $grey;
+}
+.header {
+	max-width: 390px;
+	margin: 0 auto;
+	padding: 9px 20px;
+	display: flex;
+	gap: 8px;
+}
+
+.search_input_container {
+	flex-grow: 1;
+}
+
+.search_icon {
+	position: absolute;
+	left: 8px;
+	top: 10px;
+}
+
+.main {
+	max-width: 390px;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+.categories_container {
+	display: flex;
+	gap: 6px;
+	margin-top: 32px;
+	overflow-x: auto;
+}
+
+.categories_item {
+	flex-basis: 65px;
+}
+
+.filters_container {
+	margin-top: 32px;
+	@include filters_container;
+}
