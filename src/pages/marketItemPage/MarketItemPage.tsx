@@ -59,57 +59,6 @@ const MarketItemPage: FC = () => {
 										height={291}
 
 									/>
-									{/*<div className={styles.imagePointers}>*/}
-									{/*	<span*/}
-									{/*		className={cn(*/}
-									{/*			styles.pointer,*/}
-									{/*			styles.pointerActive*/}
-									{/*		)}*/}
-									{/*	/>*/}
-									{/*	<span className={styles.pointer} />*/}
-									{/*	<span className={styles.pointer} />*/}
-									{/*</div>*/}
-									{/*<div className={styles.imageThumbnails}>*/}
-									{/*	<button*/}
-									{/*		className={styles.controlButton}*/}
-									{/*	>*/}
-									{/*		<ArrowControlIcon*/}
-									{/*			className={cn(*/}
-									{/*				styles.arrow,*/}
-									{/*				styles.arrowLeft*/}
-									{/*			)}*/}
-									{/*		/>*/}
-									{/*	</button>*/}
-									{/*	<div className={styles.thumbnailsBlock}>*/}
-									{/*		<img*/}
-									{/*			src={ItemImage}*/}
-									{/*			alt="thumbnail"*/}
-									{/*			className={styles.thumbnail}*/}
-									{/*			width={85}*/}
-									{/*			height={66}*/}
-									{/*		/>*/}
-									{/*		<img*/}
-									{/*			src={ItemImage}*/}
-									{/*			alt="thumbnail"*/}
-									{/*			className={styles.thumbnail}*/}
-									{/*		/>*/}
-									{/*		<img*/}
-									{/*			src={ItemImage}*/}
-									{/*			alt="thumbnail"*/}
-									{/*			className={styles.thumbnail}*/}
-									{/*		/>*/}
-									{/*	</div>*/}
-									{/*	<button*/}
-									{/*		className={styles.controlButton}*/}
-									{/*	>*/}
-									{/*		<ArrowControlIcon*/}
-									{/*			className={cn(*/}
-									{/*				styles.arrow,*/}
-									{/*				styles.arrowRight*/}
-									{/*			)}*/}
-									{/*		/>*/}
-									{/*	</button>*/}
-									{/*</div>*/}
 									<PhotoCarousel/>
 								</div>
 								<div className={styles.description}>
