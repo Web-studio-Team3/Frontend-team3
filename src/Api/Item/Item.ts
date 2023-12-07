@@ -14,10 +14,14 @@ const ItemApi = {
 		formData.set("cost", data.cost);
 		formData.set("description", data.description);
 		formData.set("item_status", data.item_status);
-		formData.set("picture", data.picture);
+		formData.set("pictures", data.picture);
 		formData.set("title", data.title);
-
-		return await Request.post(url, formData);
+		const token = sessionStorage.getItem("jwt_token");
+		return await Request.post(url, formData, {
+			headers: {
+				Authorization: "Bearer " + token,
+			},
+		});
 	},
 	async getItemProtoID(data: iApi.getItemPhoto) {
 		return await Request.get(`picture_item_relations/item/${data.id}`);

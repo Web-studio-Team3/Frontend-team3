@@ -74,8 +74,11 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 		dispatch(Actions.Items.getItems());
 	}, []);
 
-	if (!items.length) return null;
-	const FilteredItems = [...items];
+	// console.log(items);
+	// console.log(!items.total);
+
+	if (!items) return null;
+	const FilteredItems = [...items.items];
 	const filteredItems =
 		currenFilter === "По убыванию"
 			? FilteredItems.sort((a, b) => Number(b.cost) - Number(a.cost))
