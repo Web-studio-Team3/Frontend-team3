@@ -5,7 +5,7 @@ import { ShopItemMobile } from "@components/mobile/ShopItemMobile";
 
 interface ShopItemListProps {
 	itemList: ShopItemProps[];
-	itemsShort: ShopItemSize;
+	itemsShort: ShopItemSize | undefined;
 }
 
 const ShopItemListMobile: FC<ShopItemListProps> = ({
@@ -22,7 +22,7 @@ const ShopItemListMobile: FC<ShopItemListProps> = ({
 					price={item.price}
 					information={item.information}
 					phoneCall={item.phoneCall}
-					size={itemsShort}
+					size={itemsShort && undefined}
 				/>
 			))}
 		</ul>
