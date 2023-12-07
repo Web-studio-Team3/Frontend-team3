@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import FilterItem from "@components/FilterItem";
 import { ShopItem, ShopItemSize } from "@components/ShopItem";
 import classNames from "classnames";
@@ -9,6 +9,10 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../../../Store/store";
 import { Actions } from "../../../../../Store/actions";
 import { useDispatch } from "react-redux";
+import {
+	BreadcrumbsContext,
+	IBreadcrumbsContext,
+} from "@pages/layouts/MainLayout";
 
 type ItemsProps = {
 	ItemsNumber: number;
@@ -33,7 +37,7 @@ const Content = styled.div`
 	}
 `;
 
-const ItemsBlock = styled.div`
+export const ItemsBlock = styled.div`
 	padding: 30px 0;
 	gap: 30px;
 	flex-direction: row;
@@ -64,6 +68,10 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 	const items = useSelector((state: RootState) => state.Items.items);
 
 	const [itemsShort, setItemsShort] = useState(ShopItemSize.standart);
+
+	const { setBreadcrumbs } = useContext(
+		BreadcrumbsContext
+	) as IBreadcrumbsContext;
 	const changeItemSize = () => {
 		itemsShort === ShopItemSize.standart
 			? setItemsShort(ShopItemSize.short)
@@ -74,11 +82,13 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 		dispatch(Actions.Items.getItems());
 	}, []);
 
-	// console.log(items);
-	// console.log(!items.total);
-
 	if (!items) return null;
 	const FilteredItems = [...items.items];
+	const handleShopItemClick = (id: string, title: string) => {
+		setBreadcrumbs({
+			[`/advert/${id}`]: title,
+		});
+	};
 	const filteredItems =
 		currenFilter === "По убыванию"
 			? FilteredItems.sort((a, b) => Number(b.cost) - Number(a.cost))
@@ -140,6 +150,9 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 							price={item.cost}
 							information={item.description}
 							size={itemsShort}
+							onClick={() =>
+								handleShopItemClick(item.id, item.title)
+							}
 						/>
 					))}
 				</ItemsBlock>

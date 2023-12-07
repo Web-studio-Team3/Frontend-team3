@@ -1,4 +1,4 @@
-import { FC, useContext, useState } from "react";
+import { FC, useState } from "react";
 import { FavoriteIcon } from "@assets/icons/Icons";
 import cn from "classnames";
 import { useNavigate } from "react-router-dom";
@@ -8,13 +8,10 @@ import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
 import axios from "axios";
 import Button from "@components/Button";
-import {
-	BreadcrumbsContext,
-	IBreadcrumbsContext,
-} from "@pages/layouts/MainLayout";
 
 export enum ShopItemSize {
 	short = "Short",
+	shortXs = "ShortXs",
 	standart = "Standart",
 }
 
@@ -26,6 +23,7 @@ export type ShopItemProps = {
 	information?: string;
 	phoneCall?: boolean;
 	size?: ShopItemSize;
+	onClick?: VoidFunction;
 };
 
 export const ShopItem: FC<ShopItemProps> = ({
@@ -36,15 +34,16 @@ export const ShopItem: FC<ShopItemProps> = ({
 	information,
 	phoneCall,
 	size = ShopItemSize.standart,
+	onClick,
 }) => {
 	const token = useSelector((state: RootState) => state.Auth.token);
 	const [url, setUrl] = useState("");
 	const [loading, setLoading] = useState(true);
 	const path = `/advert/${id}`;
 	const navigate = useNavigate();
-	const { setBreadcrumbs } = useContext(
-		BreadcrumbsContext
-	) as IBreadcrumbsContext;
+
+	const isShortVariant =
+		size === ShopItemSize.short || size === ShopItemSize.shortXs;
 	const getPhoto = async () => {
 		const data = await axios.get(
 			`http://217.28.220.136:8000/api/picture_item_relations/item/${id}`
@@ -57,9 +56,9 @@ export const ShopItem: FC<ShopItemProps> = ({
 	};
 
 	const handleItemClick = () => {
-		setBreadcrumbs({
-			[path]: title,
-		});
+		if (onClick) {
+			onClick();
+		}
 		navigate(path);
 	};
 
@@ -73,7 +72,7 @@ export const ShopItem: FC<ShopItemProps> = ({
 				src={url ? `http://217.28.220.136:8000/${url}/` : image}
 				alt="mock items"
 			/>
-			{size === ShopItemSize.short ? (
+			{isShortVariant ? (
 				<div className={styles.imagePointers}>
 					<span
 						className={cn(styles.pointer, styles.pointerActive)}
@@ -104,23 +103,25 @@ export const ShopItem: FC<ShopItemProps> = ({
 						: "Чтобы взаимодействовать с продавцом, Вам необходимо зарегистрироваться"
 				}
 			>
-				<div className={styles[`buttonBlock${size}`]}>
-					<Button
-						onClick={() => {}}
-						variant="green"
-						size="sm"
-						disabled={token === null}
-					>
-						Написать
-					</Button>
-					<Button
-						onClick={() => {}}
-						size="sm"
-						disabled={token === null}
-					>
-						Позвонить
-					</Button>
-				</div>
+				{!isShortVariant && (
+					<div className={styles.buttonBlock}>
+						<Button
+							onClick={() => {}}
+							variant="green"
+							size="sm"
+							disabled={token === null}
+						>
+							Написать
+						</Button>
+						<Button
+							onClick={() => {}}
+							size="sm"
+							disabled={token === null}
+						>
+							Позвонить
+						</Button>
+					</div>
+				)}
 			</Tooltip>
 		</div>
 	);

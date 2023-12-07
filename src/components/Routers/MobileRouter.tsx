@@ -5,7 +5,9 @@ import WithBottomNavigator from "@components/WithBottomNavigator";
 import Error from "@pages/error";
 import Login from "@pages/common/Login";
 import Registration from "@pages/common/Registration";
+import Market from "@pages/mobile/market";
 import AuthRoute from "@components/Routers/AuthRoute";
+import Favorites from "@pages/mobile/Favorites";
 
 const MobileRouter: FC = () => {
 	return (
@@ -19,10 +21,7 @@ const MobileRouter: FC = () => {
 						</AuthRoute>
 					}
 				>
-					<Route
-						index
-						element={<p style={{ color: "white" }}>main</p>}
-					/>
+					<Route index element={<Market />} />
 					<Route
 						path={mobileRoutes.PROFILE}
 						element={<p style={{ color: "white" }}>profile</p>}
@@ -37,7 +36,7 @@ const MobileRouter: FC = () => {
 					/>
 					<Route
 						path={mobileRoutes.FAVORITES}
-						element={<p style={{ color: "white" }}>favorite ads</p>}
+						element={<Favorites />}
 					/>
 					<Route
 						path={mobileRoutes.MESSAGES}

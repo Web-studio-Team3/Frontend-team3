@@ -1,0 +1,13 @@
+@import "@styles/variables";
+@import "@styles/mixins";
+
+.container {
+	max-width: 390px;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+.filters_container {
+	margin: 32px 0;
+	@include filters_container;
+}

@@ -1,9 +1,12 @@
 @import "@styles/variables.scss";
 
+.container {
+	position: relative;
+}
+
 .input {
 	width: 150px;
 	position: relative;
-	height: 46px;
 	border: 1px solid $grey-light;
 	border-radius: 6px;
 	background: none;
@@ -22,15 +25,21 @@
 	&.xs {
 	}
 
-	&.s {
+	&.sm {
+		font-size: 10px;
+		padding: 10px 12px 10px 30px;
 	}
 
 	&.md {
 		font-size: 14px;
-		padding: 9px 12px 9px 12px;
+		padding: 13px 12px;
 	}
 
 	&.lg {
+	}
+
+	&.extra_rounded {
+		border-radius: 14px;
 	}
 
 	&.search {
