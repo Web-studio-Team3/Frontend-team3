@@ -1,0 +1,102 @@
+.container {
+	.button {
+		cursor: pointer;
+		background: none;
+		border: none;
+		display: inline-flex;
+		& svg {
+			width: 37px;
+			height: 37px;
+		}
+	}
+	.header {
+		padding-left: 23px;
+
+		background: #2D2D33;
+		display: flex;
+		align-items: center;
+
+		& svg {
+			width: 14px;
+			height: 16px;
+			cursor: pointer;
+		}
+
+		.userInfo {
+			margin-bottom: 11px;
+			display: inline-flex;
+			margin-left: 8px;
+			.textBlock {
+				padding: 11px 0 0 0;
+				.text {
+					font-weight: 300;
+					font-size: 10px;
+					line-height: 12px;
+					color: #9d9d9e;
+
+					&.username {
+						font-weight: 500;
+						font-size: 14px;
+						line-height: 17px;
+
+						color: #fffffe;
+						margin-bottom: 4px;
+					}
+				}
+			}
+		}
+	}
+
+	.body {
+		.inputBlock {
+			position: fixed;
+			bottom: 16px;
+			width: 100%;
+			margin-top: auto;
+			display: flex;
+			align-items: center;
+			background: #2d2d33;
+			border-radius: 16px;
+			padding: 0 20px;
+
+			& svg {
+				width: 22px;
+				height: 22px;
+			}
+
+			.input {
+				background-color: transparent;
+				border: none;
+				flex-grow: 2;
+				font-weight: 300;
+				font-size: 14px;
+				line-height: 17px;
+				padding: 15px;
+
+				color: #fffffe;
+
+				&::placeholder {
+					font-weight: lighter;
+					font-size: 14px;
+					line-height: 17px;
+					font-family: 'Inter', 'sans-serif';
+
+					color: #fffffe;
+				}
+			}
+		}
+	}
+}
+.footer {
+	width: 100%;
+	height: auto;
+	background-color: red;
+	margin-top: auto;
+}
+.menu {
+	margin-left: auto;
+	align-items: center;
+	display: flex;
+	margin-right: 24px;
+	gap: 10px;
+}

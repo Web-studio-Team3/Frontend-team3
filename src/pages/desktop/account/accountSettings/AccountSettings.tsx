@@ -16,6 +16,7 @@ const AccountSettings: FC = () => {
 	const logout = () => {
 		dispatch(Actions.User.eraseUser());
 		dispatch(Actions.Auth.eraseData());
+		sessionStorage.clear();
 		navigate("/");
 		notification.info({
 			type: "info",

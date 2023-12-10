@@ -1,0 +1,59 @@
+/* ToggleButton.module.scss */
+
+.toggleButton {
+	position: relative;
+	display: inline-block;
+	width: 29px;
+	height: 12px;
+
+	input {
+		display: none;
+
+		&:checked + .slider {
+			background-color: red;
+		}
+
+		&:checked + .slider:before {
+			background-color: #7E5AF0; /* Change dot color when slider is checked */
+			left: 100%; /* Move dot to the right when checked */
+		}
+	}
+
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #5D616F; /* Darker color for the slider */
+		transition: 0.4s;
+		border-radius: 34px;
+		width: 29px; /* Updated width */
+		height: 12px; /* Updated height */
+
+		&:before {
+			position: absolute;
+			content: '';
+			height: 16px; /* Updated height */
+			width: 17px; /* Updated width */
+			left: 0; /* Adjusted left position */
+			top: 50%; /* Centered vertically */
+			transform: translateY(-50%);
+			background-color: #5D616F; /* Initial color of the dot */
+			transition: 0.4s;
+			border-radius: 50%;
+		}
+	}
+}
+
+.checked {
+	input:checked + .slider {
+		background-color: #6B48FF;
+	}
+
+	input:checked + .slider:before {
+		left: 50%; /* Move dot back to the left when checked */
+	}
+}
+

@@ -40,7 +40,6 @@ const MarketItemPage: FC = () => {
 		});
 		navigate(path);
 	};
-
 	return (
 		<>
 			<Header />

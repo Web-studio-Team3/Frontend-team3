@@ -1,0 +1,12 @@
+.list {
+	gap: 8px;
+	flex-direction: row;
+	overflow-x: scroll;
+	display: flex;
+}
+
+/* Example styling for the scrollbar track */
+::-webkit-scrollbar {
+	width: 10px; /* Set the width of the scrollbar */
+}
+

@@ -1,0 +1,10 @@
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+	overflow-y: auto;
+}
+
+.link {
+	text-decoration: none;
+}
