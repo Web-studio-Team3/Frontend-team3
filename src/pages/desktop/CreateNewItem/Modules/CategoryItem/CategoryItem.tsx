@@ -11,9 +11,9 @@ type Subcategory = {
 
 type CategoryItemProps = {
 	text: string;
-	subcategories: Subcategory[];
+	subcategories?: Subcategory[];
 	currentCategory: string;
-	isOpen: boolean;
+	isOpen?: boolean;
 	onClick: ReactEventHandler;
 };
 
@@ -24,6 +24,8 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
 	isOpen,
 	onClick,
 }) => {
+	const Subcategories = subcategories ? subcategories : [];
+	console.log(isOpen);
 	const active = currentCategory === text ? true : false;
 	return (
 		<p onClick={onClick} className={classNames(styles.p)}>
@@ -36,7 +38,7 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
 			</span>
 			{isOpen && (
 				<ul>
-					{subcategories.map((subcategory) => (
+					{Subcategories.map((subcategory) => (
 						<li
 							key={subcategory.name}
 							className={classNames({
