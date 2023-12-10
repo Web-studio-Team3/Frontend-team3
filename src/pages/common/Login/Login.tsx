@@ -9,22 +9,22 @@ import classNames from "classnames";
 
 export const Login = () => {
 	const [visible, setVisible] = useState(false);
+
 	useEffect(() => {
 		setVisible(true);
 	}, []);
+
 	const [form] = Form.useForm();
 	const dispatch = useDispatch();
 	const token = useSelector((state: RootState) => state.Auth.token);
 	const [saveLogin, setSaveLogin] = useState(false);
+
 	if (token) return <Navigate to={"/"} />;
-	const save_login_recovery = localStorage.getItem("saveLogin");
+
+	const saveLoginRecovery = localStorage.getItem("saveLogin");
 
 	return (
-		<div
-			className={classNames(styles.page, {
-				[styles.visible]: visible,
-			})}
-		>
+		<div className={classNames(styles.page, { [styles.visible]: visible })}>
 			<main className={styles.body}>
 				<h1>Вход в Барахолку</h1>
 				<Form
@@ -41,9 +41,7 @@ export const Login = () => {
 					</p>
 					<Form.Item
 						initialValue={
-							save_login_recovery !== null
-								? save_login_recovery
-								: ""
+							saveLoginRecovery !== null ? saveLoginRecovery : ""
 						}
 						name="email"
 						rules={[
@@ -99,6 +97,9 @@ export const Login = () => {
 							Войти
 						</Button>
 					</Form.Item>
+					<Link className={styles.link} to={"/"}>
+						Продолжить без входа в аккаунт
+					</Link>
 					{/* <p className={styles.prevText}>Или продолжить через</p> */}
 				</Form>
 			</main>

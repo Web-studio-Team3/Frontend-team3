@@ -20,6 +20,10 @@
 		&Active {
 			color: $green;
 			cursor: default;
+			-webkit-line-clamp: 1;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
 		}
 
 		&:hover {
@@ -28,6 +32,7 @@
 
 		&:hover.linkActive {
 			color: $green;
+
 		}
 	}
 }
