@@ -110,7 +110,9 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 						updateCurrentFilter={setFilter}
 					/>
 				</div>
-				<div style={{ justifyContent: "space-between", width: "100%" }}></div>
+				<div
+					style={{ justifyContent: "space-between", width: "100%" }}
+				></div>
 				<div>
 					<button>{Icon1}</button>
 					<button

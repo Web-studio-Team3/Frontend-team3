@@ -57,9 +57,8 @@ const MarketItemPage: FC = () => {
 										className={styles.currentImage}
 										width={378}
 										height={291}
-
 									/>
-									<PhotoCarousel/>
+									<PhotoCarousel />
 								</div>
 								<div className={styles.description}>
 									<p className={styles.heading}>Описание:</p>

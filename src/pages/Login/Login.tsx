@@ -30,14 +30,19 @@ export const Login = () => {
 				<Form
 					className={styles.form}
 					layout="vertical"
-					onFinish={() => RegistrationFinish({ form, dispatch, saveLogin })}
+					onFinish={() =>
+						RegistrationFinish({ form, dispatch, saveLogin })
+					}
 					form={form}
 				>
 					<p className={styles.prevText}>
-						<Link to={"/registration"}>Зарегистрироваться</Link> или Войти
+						<Link to={"/registration"}>Зарегистрироваться</Link> или
+						Войти
 					</p>
 					<Form.Item
-						initialValue={saveLoginRecovery !== null ? saveLoginRecovery : ""}
+						initialValue={
+							saveLoginRecovery !== null ? saveLoginRecovery : ""
+						}
 						name="email"
 						rules={[
 							{
