@@ -1,20 +1,17 @@
-import { FC, useContext, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { FavoriteIcon } from "@assets/icons/Icons";
-import classNames from "classnames";
 import cn from "classnames";
-import { useLocation, useNavigate } from "react-router-dom";
-import { BreadcrumbsContext, IBreadcrumbsContext } from "../../App";
+import { useNavigate } from "react-router-dom";
 import styles from "./ShopItem.module.scss";
 import { Tooltip } from "antd";
 import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
-import ItemApi from "@api/Item/Item";
-import AccountApi from "@api/Account/Account";
 import axios from "axios";
-import photo from "./ad-image2.png";
+import Button from "@components/Button";
 
 export enum ShopItemSize {
 	short = "Short",
+	shortXs = "ShortXs",
 	standart = "Standart",
 }
 
@@ -26,6 +23,7 @@ export type ShopItemProps = {
 	information?: string;
 	phoneCall?: boolean;
 	size?: ShopItemSize;
+	onClick?: VoidFunction;
 };
 
 export const ShopItem: FC<ShopItemProps> = ({
@@ -36,18 +34,16 @@ export const ShopItem: FC<ShopItemProps> = ({
 	information,
 	phoneCall,
 	size = ShopItemSize.standart,
+	onClick,
 }) => {
 	const token = useSelector((state: RootState) => state.Auth.token);
-	const items = useSelector((state: RootState) => state.Items.items);
 	const [url, setUrl] = useState("");
 	const [loading, setLoading] = useState(true);
-	// const currentItem = items.filter((item) => item.id === id);
-	const state = useLocation().state;
 	const path = `/advert/${id}`;
 	const navigate = useNavigate();
-	const { setBreadcrumbs } = useContext(
-		BreadcrumbsContext
-	) as IBreadcrumbsContext;
+
+	const isShortVariant =
+		size === ShopItemSize.short || size === ShopItemSize.shortXs;
 	const getPhoto = async () => {
 		const data = await axios.get(
 			`http://217.28.220.136:8000/api/picture_item_relations/item/${id}`
@@ -60,9 +56,9 @@ export const ShopItem: FC<ShopItemProps> = ({
 	};
 
 	const handleItemClick = () => {
-		setBreadcrumbs({
-			[path]: title,
-		});
+		if (onClick) {
+			onClick();
+		}
 		navigate(path);
 	};
 
@@ -72,8 +68,11 @@ export const ShopItem: FC<ShopItemProps> = ({
 			className={cn(styles[`item${size}`], styles.link)}
 			onClick={handleItemClick}
 		>
-			<img src={`http://217.28.220.136:8000/${url}/`} alt="mock items" />
-			{size === ShopItemSize.short ? (
+			<img
+				src={url ? `http://217.28.220.136:8000/${url}/` : image}
+				alt="mock items"
+			/>
+			{isShortVariant ? (
 				<div className={styles.imagePointers}>
 					<span
 						className={cn(styles.pointer, styles.pointerActive)}
@@ -91,9 +90,11 @@ export const ShopItem: FC<ShopItemProps> = ({
 				) : (
 					<p className={styles.date}>Сегодня, 15:40</p>
 				)}
-				<button className={styles.button}>
-					<FavoriteIcon />
-				</button>
+				<div className={styles.button}>
+					<Button onClick={() => {}} variant="ghost" size="xs">
+						<FavoriteIcon />
+					</Button>
+				</div>
 			</div>
 			<Tooltip
 				title={
@@ -102,20 +103,25 @@ export const ShopItem: FC<ShopItemProps> = ({
 						: "Чтобы взаимодействовать с продавцом, Вам необходимо зарегистрироваться"
 				}
 			>
-				<div className={styles[`buttonBlock${size}`]}>
-					<button
-						className={classNames(styles.button, styles.typeWrite)}
-						disabled={token === null}
-					>
-						Написать
-					</button>
-					<button
-						disabled={token === null}
-						className={classNames(styles.button, styles.typeCall)}
-					>
-						Позвонить
-					</button>
-				</div>
+				{!isShortVariant && (
+					<div className={styles.buttonBlock}>
+						<Button
+							onClick={() => {}}
+							variant="green"
+							size="sm"
+							disabled={token === null}
+						>
+							Написать
+						</Button>
+						<Button
+							onClick={() => {}}
+							size="sm"
+							disabled={token === null}
+						>
+							Позвонить
+						</Button>
+					</div>
+				)}
 			</Tooltip>
 		</div>
 	);

@@ -1,11 +1,8 @@
-import React from "react";
-import { call, put, select, takeEvery } from "redux-saga/effects";
-import { Actions } from "./../../Store/actions";
-import AccountApi from "@api/Account/Account";
+import { call, takeEvery } from "redux-saga/effects";
+import { Actions } from "../../Store/actions";
 import { iApi } from "@api/Item/types";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "src/Store/store";
-import { ResponseGenerator } from "src/Types/types";
+import { ResponseGenerator } from "@utils/commonTypes";
 import ItemApi from "@api/Item/Item";
 import { notification } from "antd";
 

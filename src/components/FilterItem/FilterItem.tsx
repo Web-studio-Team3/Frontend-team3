@@ -1,26 +1,35 @@
 import classNames from "classnames";
 import styles from "./FilterItem.module.scss";
+import Button from "@components/Button";
+import { FC } from "react";
 
 type FilterItemProps = {
 	currentFilter: string;
 	title: string;
+	value?: string;
 	updateCurrentFilter: (string: string) => void;
 };
 
-const FilterItem: React.FC<FilterItemProps> = ({
+const FilterItem: FC<FilterItemProps> = ({
 	currentFilter,
 	title,
+	value,
 	updateCurrentFilter,
 }) => {
 	return (
-		<button
-			className={classNames(styles.filter, {
-				[styles.active]: currentFilter === title,
-			})}
-			onClick={() => updateCurrentFilter(title)}
+		<Button
+			onClick={() => updateCurrentFilter(value || title)}
+			variant="ghost"
+			size="xs"
 		>
-			{title}
-		</button>
+			<p
+				className={classNames(styles.filter, {
+					[styles.active]: currentFilter === value,
+				})}
+			>
+				{title}
+			</p>
+		</Button>
 	);
 };
 

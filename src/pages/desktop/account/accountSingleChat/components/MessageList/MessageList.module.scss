@@ -1,0 +1,65 @@
+.container {
+	position: relative;
+	.date {
+		top: -84px;
+		font-weight: 300;
+		font-size: 16px;
+		line-height: 19px;
+		color: #9d9d9e;
+		position: absolute;
+		width: 100%;
+		text-align: center;
+	}
+
+	.list {
+		margin-top: 154px;
+		display: grid;
+		flex-direction: column;
+		gap: 15px;
+		.img {
+			border-radius: 50%;
+			width: 50px;
+			height: 50px;
+			display: inline;
+			margin-right: 9px;
+			margin-left: 9px;
+		}
+
+		.item {
+			display: inline-grid;
+			.messageBlock {
+				display: flex;
+				&.messageBlockFromUs {
+					flex-direction: row-reverse;
+				}
+			}
+			.message {
+				display: flex;
+				justify-self: left;
+				width: 50%;
+				background: #2d2d33;
+				border-radius: 30px;
+				font-weight: 300;
+				font-size: 16px;
+				line-height: 19px;
+				color: #fffffe;
+				padding: 15px 20px;
+				&.fromUs {
+					justify-self: right;
+					background: #7e5af0b2;
+				}
+			}
+
+			.sentAt {
+				font-weight: 300;
+				font-size: 12px;
+				line-height: 15px;
+				margin: 8px 20px 0;
+				color: #9d9d9e;
+				&Right {
+					text-align: right;
+				}
+			}
+		}
+	}
+}

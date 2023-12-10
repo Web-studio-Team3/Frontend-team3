@@ -7,7 +7,7 @@
 	justify-content: space-between;
 	align-items: center;
 	position: relative;
-	padding: 12px 0px;
+	padding: 12px 0;
 }
 
 .logo svg {
@@ -16,7 +16,7 @@
 }
 
 .menu {
-	flex-grow: 1s;
+	//flex-grow: 1s;
 	display: flex;
 	gap: 15px;
 	align-items: center;
@@ -40,9 +40,9 @@
 
 	&CreateAd {
 		box-sizing: border-box;
-		background: $blue;
+		background: $violet;
 		border-radius: 11px;
-		font-family: "Ubuntu";
+		font-family: "Ubuntu", serif;
 		font-weight: 400;
 		font-size: 18px;
 		line-height: 21px;
@@ -61,6 +61,18 @@
 			height: 30px;
 			width: auto;
 			vertical-align: middle;
+		}
+
+		&.disabled {
+			opacity: 0.5;
+			cursor: initial;
+
+			&:hover {
+				opacity: 0.5;
+				& svg {
+					stroke: #d7d7d7;
+				}
+			}
 		}
 	}
 
@@ -92,27 +104,6 @@
 	&Category {
 		background: none;
 		border: none;
-	}
-
-	&Search {
-		background: none;
-		border-radius: 0px 8px 8px 0px;
-		box-sizing: border-box;
-		position: absolute;
-		right: 0px;
-		bottom: 0;
-		background-color: $grey;
-		padding-left: 12px;
-		padding-right: 12px;
-		height: 46px;
-		border: 1px solid $grey-light;
-		border-left: none;
-
-		& svg {
-			vertical-align: middle;
-			width: 22px;
-			height: 21px;
-		}
 	}
 }
 
