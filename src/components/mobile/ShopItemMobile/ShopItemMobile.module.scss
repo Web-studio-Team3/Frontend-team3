@@ -19,7 +19,7 @@
 .itemShort {
 	padding: 0 0 13px 0;
 	min-width: 111px;
-	background-color: #2D2D33;
+	// background-color: #2D2D33;
 	color: $white;
 	border-radius: 16px;
 	height: 164px;
@@ -62,7 +62,6 @@
 	padding: 0px 8px;
 	position: relative;
 
-
 	.button {
 		background: none;
 		border: white;
@@ -72,7 +71,7 @@
 		top: 0;
 	}
 
-	.buttonWrapper{
+	.buttonWrapper {
 		display: flex;
 	}
 
