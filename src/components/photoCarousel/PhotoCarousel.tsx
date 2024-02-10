@@ -1,23 +1,20 @@
-/* eslint-disable prettier/prettier */
-import React, {useRef} from "react";
-import styles from './PhotoCarousel.module.scss'
+import React, { useRef } from "react";
+import styles from './PhotoCarousel.module.scss';
 import { Carousel, Button } from "antd";
+import { CaretLeftOutlined, CaretRightOutlined } from '@ant-design/icons';
+
 import ItemImage1 from "@assets/img/ad-image1.png";
 import ItemImage2 from "@assets/img/ad-image2.png";
 import ItemImage3 from "@assets/img/ad-image3.png";
 import ItemImage4 from "@assets/img/market.png";
-import {CaretLeftOutlined, CaretRightOutlined} from '@ant-design/icons';
 
 type PhotoCarouselProps = {
-    images?:  string[]
+    images?: string[];
 };
 
-const PhotoCarousel = (props:PhotoCarouselProps) => {
-
-    const prevArrow = <Button icon={<CaretLeftOutlined  style={{color: 'white', fontSize: '25px'}}/>}/>;
-    const nextArrow = <Button icon={<CaretRightOutlined style={{color: 'white', fontSize: '25px'}}/>}/>;
-
+const PhotoCarousel = ({ images }: PhotoCarouselProps) => {
     const carouselRef = useRef(null);
+
     const onChange = (current: number) => {
         console.log('Current slide:', current);
     };
@@ -27,32 +24,46 @@ const PhotoCarousel = (props:PhotoCarouselProps) => {
         ItemImage2,
         ItemImage3,
         ItemImage4
-
     ];
-    const images = props.images ?props.images: imagesDefault
 
-    if (images.length <= 1)
+    const imagesToDisplay = images ? images : imagesDefault;
+
+    if (imagesToDisplay.length <= 1) {
         return (
             <div className={styles.singleProtoWrapper}>
                 <img
-                    src={images[0]}
+                    src={imagesToDisplay[0]}
                     alt="thumbnail"
                     width={114}
                     height={66}
-                    className={styles.singleProto}/>
+                    className={styles.singleProto}
+                />
             </div>
         );
+    }
+
+    const prevArrow = (
+        <Button icon={<CaretLeftOutlined style={{ color: 'white', fontSize: '25px' }} />} />
+    );
+
+    const nextArrow = (
+        <Button icon={<CaretRightOutlined style={{ color: 'white', fontSize: '25px' }} />} />
+    );
 
     return (
-        <Carousel ref={carouselRef} afterChange={onChange} dots={false}
+        <Carousel
+            ref={carouselRef}
+            afterChange={onChange}
+            dots={false}
             arrows
             prevArrow={prevArrow}
             nextArrow={nextArrow}
             slidesToShow={3}
             swipeToSlide
             infinite={false}
-            className={styles.photoCarousel}>
-            {images.map((image, index) => (
+            className={styles.photoCarousel}
+        >
+            {imagesToDisplay.map((image, index) => (
                 <img
                     key={index}
                     src={image}

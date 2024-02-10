@@ -1,202 +1,212 @@
 @import "@styles/variables.scss";
 
 .layout {
-	width: 100%;
-	border-top: 1px solid $grey-light;
-	padding-top: 108px;
-	padding-bottom: 100px;
+  width: 100%;
+  border-top: 1px solid $grey-light;
+  padding-top: 108px;
+  padding-bottom: 100px;
 }
 
 .body {
 }
 
 .wrapper {
-	width: 100%;
-	align-items: flex-start;
-	display: flex;
-	gap: 92px;
+  width: 100%;
+  align-items: flex-start;
+  display: flex;
+  gap: 92px;
 
-	& > div {
-		margin-top: 0px;
-	}
+  & > div {
+    margin-top: 0px;
+  }
 }
 
 .content {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	column-gap: 63px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 63px;
 
-	.itemInfo {
-		.photoBlock {
-			.currentImage {
-				width: 100%;
-				height: 291px;
-				margin-bottom: 12px;
-			}
+  .itemInfo {
+    .photoBlock {
+      .currentImage {
+        width: 100%;
+        height: 291px;
+        margin-bottom: 12px;
+      }
 
-			.imagePointers {
-				max-width: 301px;
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				column-gap: 2px;
-				margin: 0px auto;
-				margin-bottom: 12px;
-				.pointer {
-					background: #999999;
-					border-radius: 43px;
-					cursor: pointer;
-					height: 3px;
-					&Active {
-						background: #ffffff;
-					}
-				}
-			}
+      .imagePointers {
+        max-width: 301px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2px;
+        margin: 0px auto;
+        margin-bottom: 12px;
 
-			.imageThumbnails {
-				max-width: 378px;
-				margin: 0px auto;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				.thumbnailsBlock {
-					display: grid;
-					grid-template-columns: repeat(3, 1fr);
-					max-width: 293px;
-					column-gap: 19px;
-					.thumbnail {
-						width: 85px;
-						height: 66px;
-					}
-				}
+        .pointer {
+          background: #999999;
+          border-radius: 43px;
+          cursor: pointer;
+          height: 3px;
 
-				.controlButton {
-					background: none;
-					border: none;
-					cursor: pointer;
-					.arrow {
-						width: 15px;
-						height: 24px;
-						&Right {
-						}
+          &Active {
+            background: #ffffff;
+          }
+        }
+      }
 
-						&Left {
-							rotate: 180deg;
-						}
-					}
-				}
-			}
-		}
+      .imageThumbnails {
+        max-width: 378px;
+        margin: 0px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-		.locationBlock {
-			margin-bottom: 72px;
-		}
-	}
+        .thumbnailsBlock {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          max-width: 293px;
+          column-gap: 19px;
 
-	.heading {
-		// font-family: "Inter";
-		font-weight: 700;
-		font-size: 20px;
-		line-height: 24px;
-		color: #ffffff;
-		margin: 30px 0 15px;
+          .thumbnail {
+            width: 85px;
+            height: 66px;
+          }
+        }
 
-		&Large {
-			font-size: 36px;
-			line-height: 44px;
-			margin: 0px;
-		}
-	}
+        .controlButton {
+          background: none;
+          border: none;
+          cursor: pointer;
 
-	.text {
-		font-style: normal;
-		font-weight: 400;
-		font-size: 22px;
-		line-height: 27px;
+          .arrow {
+            width: 15px;
+            height: 24px;
 
-		color: #ffffff;
+            &Right {
+            }
 
-		&Small {
-			font-size: 16px;
-			line-height: 19px;
-		}
+            &Left {
+              rotate: 180deg;
+            }
+          }
+        }
+      }
+    }
 
-		&Key {
-			color: #72757e;
-		}
+    .locationBlock {
+      margin-bottom: 72px;
+    }
+  }
 
-		&Price {
-			font-size: 30px;
-			line-height: 36px;
+  .heading {
+    // font-family: "Inter";
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #ffffff;
+    margin: 30px 0 15px;
 
-			color: #2cb67d;
-			margin: 25px 0;
-			font-weight: 700;
-		}
-	}
+    &Large {
+      font-size: 36px;
+      line-height: 44px;
+      margin: 0px;
+    }
+  }
 
-	.additionalInfo {
-		.favorite {
-			.favoriteBlock {
-				display: flex;
-				gap: 14px;
-				align-items: center;
-				margin-bottom: 30px;
+  .text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
 
-				.favoriteButton {
-					background: none;
-					border: none;
-					cursor: pointer;
-				}
-			}
-		}
+    color: #ffffff;
 
-		.buttonBlock {
-			margin-top: 30px;
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 21px;
-			margin-bottom: 50px;
+    &Small {
+      font-size: 16px;
+      line-height: 19px;
+    }
 
-			.button {
-				height: 48px;
-				color: white;
-				font-weight: 400;
-				font-size: 20px;
-				background: #2cb67d;
-				border-radius: 15px;
-				border: none;
-				cursor: pointer;
-				&:disabled {
-					opacity: 0.5;
-					cursor: not-allowed;
-				}
-				&:hover {
-					background-color: #428569;
-				}
-				&Purple {
-					background: #7f5af0;
-					&:hover {
-						background-color: #573fa1;
-					}
-				}
-			}
-		}
+    &Key {
+      color: #72757e;
+    }
 
-		.cardLink {
-			text-decoration: none;
-			background: none;
-			border: none;
+    &Price {
+      font-size: 30px;
+      line-height: 36px;
 
-			& > div:hover {
-				background: #2d2d33;
-				transform: scale(1.03);
-				transition: all 0.1s ease-in;
-			}
-		}
-	}
+      color: #2cb67d;
+      margin: 25px 0;
+      font-weight: 700;
+    }
+  }
 
-	.similarAdverts {
-		grid-column: 1 / -1;
-		grid-row: span 2;
-	}
+  .additionalInfo {
+    .favorite {
+      .favoriteBlock {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        margin-bottom: 30px;
+
+        .favoriteButton {
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .buttonBlock {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 21px;
+      margin-bottom: 50px;
+
+      .button {
+        height: 48px;
+        color: white;
+        font-weight: 400;
+        font-size: 20px;
+        background: #2cb67d;
+        border-radius: 15px;
+        border: none;
+        cursor: pointer;
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+
+        &:hover {
+          background-color: #428569;
+        }
+
+        &Purple {
+          background: #7f5af0;
+
+          &:hover {
+            background-color: #573fa1;
+          }
+        }
+      }
+    }
+
+    .cardLink {
+      text-decoration: none;
+      background: none;
+      border: none;
+
+      & > div:hover {
+        background: #2d2d33;
+        transform: scale(1.03);
+        transition: all 0.1s ease-in;
+      }
+    }
+  }
+
+  .similarAdverts {
+    grid-column: 1 / -1;
+    grid-row: span 2;
+  }
 }
