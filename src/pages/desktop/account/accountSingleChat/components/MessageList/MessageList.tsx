@@ -6,6 +6,7 @@ import styles from "./MessageList.module.scss";
 import UserImage from "@assets/img/user2.png";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../../../Store/store";
+import { getBaseUrl } from "@utils/commonHelpers";
 
 type MessageListProps = {
 	messages: Message[];
@@ -34,7 +35,7 @@ const MessageList: FC<MessageListProps> = ({ messages }) => {
 								<img
 									src={
 										message.from_us
-											? `http://217.28.220.136:8000/${user_photo}/`
+											? `${getBaseUrl()}${user_photo}/`
 											: UserImage
 									}
 									alt="user"
