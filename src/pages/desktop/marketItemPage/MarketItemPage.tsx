@@ -1,6 +1,5 @@
-import { FC, RefObject, useContext, useEffect, useRef, useState } from "react";
-import { ArrowControlIcon, FavoriteIcon } from "@assets/icons/Icons";
-// import ItemImage from "@assets/img/ad-image1.png";
+import { FC, useContext, useEffect, useRef, useState } from "react";
+import { FavoriteIcon } from "@assets/icons/Icons";
 import Breadcrumbs from "@components/breadcrumbs/Breadcrumbs";
 import Header from "@components/header";
 import Footer from "@components/footer";
@@ -16,7 +15,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../Store/store";
 import { Modal, Tooltip, Input } from "antd";
 import PhotoCarousel from "@components/photoCarousel/PhotoCarousel";
-// import Input from "antd";
 import Request from "@api/Request";
 import {
 	BreadcrumbsContext,
@@ -24,6 +22,7 @@ import {
 } from "@pages/layouts/MainLayout/MainLayout";
 import axios from "axios";
 import Button from "@components/Button";
+import { getApiUrl, getBaseUrl } from "@utils/commonHelpers";
 
 const MarketItemPage: FC = () => {
 	const [visible, setVisible] = useState(false);
@@ -49,10 +48,10 @@ const MarketItemPage: FC = () => {
 	);
 	const getPhoto = async () => {
 		const data = await axios.get(
-			`http://217.28.220.136:8000/api/picture_item_relations/item/${params.id}`
+			`${getApiUrl()}picture_item_relations/item/${params.id}`
 		);
 		const url = await axios.get(
-			`http://217.28.220.136:8000/api/pictures/${data.data[0].picture_id}`
+			`${getApiUrl()}pictures/${data.data[0].picture_id}`
 		);
 		setUrl(url.data.picture_url);
 	};
@@ -100,7 +99,7 @@ const MarketItemPage: FC = () => {
 								</button> */}
 								<div className={styles.photoBlock}>
 									<img
-										src={`http://217.28.220.136:8000/${url}/`}
+										src={`${getBaseUrl()}${url}/`}
 										alt="Iphone 12"
 										className={styles.currentImage}
 										width={378}
@@ -108,10 +107,10 @@ const MarketItemPage: FC = () => {
 									/>
 									<PhotoCarousel
 										images={[
-											`http://217.28.220.136:8000/${url}/`,
-											`http://217.28.220.136:8000/${url}/`,
-											`http://217.28.220.136:8000/${url}/`,
-											`http://217.28.220.136:8000/${url}/`,
+											`${getBaseUrl()}${url}/`,
+											`${getBaseUrl()}${url}/`,
+											`${getBaseUrl()}${url}/`,
+											`${getBaseUrl()}${url}/`,
 										]}
 									/>
 								</div>

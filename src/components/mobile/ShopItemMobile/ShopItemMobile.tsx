@@ -1,4 +1,4 @@
-import { FC, useContext, useState } from "react";
+import { FC, useState } from "react";
 import { FavoriteIcon } from "@assets/icons/Icons";
 import cn from "classnames";
 import { useNavigate } from "react-router-dom";
@@ -6,12 +6,8 @@ import styles from "./ShopItemMobile.module.scss";
 import { Tooltip } from "antd";
 import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
-import axios from "axios";
 import Button from "@components/Button";
-import {
-	BreadcrumbsContext,
-	IBreadcrumbsContext,
-} from "@pages/layouts/MainLayout";
+import { getBaseUrl } from "@utils/commonHelpers";
 
 export enum ShopItemSize {
 	short = "Short",
@@ -46,7 +42,7 @@ export const ShopItemMobile: FC<ShopItemProps> = ({
 	return (
 		<div className={cn(styles[`item${size}`], styles.link)}>
 			<img
-				src={url ? `http://217.28.220.136:8000/${url}/` : image}
+				src={url ? `${getBaseUrl()}${url}/` : image}
 				alt="mock items"
 			/>
 			{size === ShopItemSize.short ? (

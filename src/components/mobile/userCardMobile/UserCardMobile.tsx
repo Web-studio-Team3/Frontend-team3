@@ -1,32 +1,13 @@
 import { FC } from "react";
-import {
-	CollapseArrowIcon,
-	EditHomeIcon,
-	PlusIcon,
-	ShieldDoneIcon,
-} from "@assets/icons/Icons";
+import { CollapseArrowIcon } from "@assets/icons/Icons";
 import RatingStars from "@components/ratingStars";
-import classNames from "classnames";
-import cn from "classnames";
-import { NavLink } from "react-router-dom";
 import styles from "./UserCardMobile.module.scss";
 import { userCardProps } from "../../userCard/UserCardProps";
 import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
-import UserRating from "@pages/desktop/account/accountReviews/components/userRating";
+import { getBaseUrl } from "@utils/commonHelpers";
 
-export type sss = {
-	full_name: string;
-	email: string;
-	picture_id: string;
-};
-
-const UserCardMobile: FC<userCardProps> = ({
-	type,
-	reviewsCount,
-	size = "m",
-	userRating,
-}) => {
+const UserCardMobile: FC<userCardProps> = ({ reviewsCount, userRating }) => {
 	const user_photo = useSelector(
 		(state: RootState) => state.User.user_picture
 	);
@@ -47,7 +28,7 @@ const UserCardMobile: FC<userCardProps> = ({
 			<div className={styles.mobileRow}>
 				<div className={styles.mobilePhotoBlock}>
 					<img
-						src={`http://217.28.220.136:8000/${user_photo}/`}
+						src={`${getBaseUrl()}${user_photo}/`}
 						alt="user"
 						className={styles.mobilePhoto}
 						width={60}

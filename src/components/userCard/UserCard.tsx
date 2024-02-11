@@ -8,7 +8,7 @@ import styles from "./UserCard.module.scss";
 import { userCardProps } from "./UserCardProps";
 import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
-import UserRating from "@pages/desktop/account/accountReviews/components/userRating";
+import { getBaseUrl } from "@utils/commonHelpers";
 
 export type sss = {
 	full_name: string;
@@ -57,7 +57,7 @@ const UserCard: FC<userCardProps> = ({
 		>
 			<div className={styles.photoBlock}>
 				<img
-					src={`http://217.28.220.136:8000/${user_photo}/`}
+					src={`${getBaseUrl()}${user_photo}/`}
 					alt="user"
 					className={styles.photo}
 					width={169}
