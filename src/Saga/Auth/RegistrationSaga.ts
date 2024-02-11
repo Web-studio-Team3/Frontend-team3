@@ -6,17 +6,21 @@ import { PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "src/Store/store";
 import { ResponseGenerator } from "@utils/commonTypes";
 import { notification } from "antd";
+import { hashPassword } from "@utils/commonHelpers";
 
 const Registration = function* (action: PayloadAction<iApi.Registration>) {
 	try {
 		const registration: ResponseGenerator = yield call(
 			AccountApi.registration,
-			action.payload
+			{
+				...action.payload,
+				raw_password: hashPassword(action.payload.raw_password),
+			}
 		);
 		if (registration.status === 422) throw new Error();
 		const login: ResponseGenerator = yield call(AccountApi.login, {
 			email: action.payload.email,
-			raw_password: action.payload.raw_password,
+			raw_password: hashPassword(action.payload.raw_password),
 		});
 		yield put(Actions.Auth.setData(login.data));
 		const user_id: string = yield select(

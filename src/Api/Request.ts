@@ -1,7 +1,8 @@
 import axios, { AxiosRequestConfig } from "axios";
 
 const localAxios = axios.create({
-	baseURL: "http://217.28.220.136:8000/api/",
+	// baseURL: "http://217.28.220.136:8000/api/",
+	baseURL: "http://127.0.0.1:8000/api/",
 });
 
 export default {

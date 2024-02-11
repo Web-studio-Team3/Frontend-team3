@@ -7,14 +7,15 @@ import { RootState } from "src/Store/store";
 import { ResponseGenerator } from "@utils/commonTypes";
 import { AxiosResponse } from "axios";
 import { notification } from "antd";
+import { hashPassword } from "@utils/commonHelpers";
 
 const Authorization = function* (action: PayloadAction<iApi.Login>) {
 	try {
 		yield put(Actions.User.userLoading(true));
-		const login: AxiosResponse<iApi.oLogin> = yield call(
-			AccountApi.login,
-			action.payload
-		);
+		const login: AxiosResponse<iApi.oLogin> = yield call(AccountApi.login, {
+			...action.payload,
+			raw_password: hashPassword(action.payload.raw_password),
+		});
 		yield put(Actions.Auth.setData(login.data));
 		const user_id: string = yield select(
 			(state: RootState) => state.Auth.user_id

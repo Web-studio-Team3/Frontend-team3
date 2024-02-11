@@ -1,5 +1,6 @@
 import { i } from "../Store/Items/ItemsRedux";
 import { EMarketFilter } from "@pages/mobile/market/types";
+import md5 from "md5";
 
 export const sortItems = (items: i.item[], currentFilter: EMarketFilter) => {
 	if (currentFilter === EMarketFilter.PRICE_MAX) {
@@ -9,4 +10,9 @@ export const sortItems = (items: i.item[], currentFilter: EMarketFilter) => {
 	}
 
 	return items;
+};
+
+export const hashPassword = (password: string) => {
+	const salt = process.env.REACT_APP_PASS_SALT;
+	return md5(salt + password);
 };
