@@ -9,7 +9,10 @@ import MobileMarketItemsList from "@components/MobileMarketItemsList";
 const Favorites: FC = () => {
 	const [currentFilter, setCurrentFilter] = useState(EFavoritesFilter.All);
 
-	const items = marketItemsMock as any;
+	const items = marketItemsMock.map((item) => ({
+		...item,
+		isFavorite: true,
+	})) as any;
 
 	const updateCurrentFilter = (value: string) => {
 		setCurrentFilter(value as EFavoritesFilter);

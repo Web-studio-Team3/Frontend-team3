@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { FavoriteIcon } from "@assets/icons/Icons";
+import { FavoriteActiveIcon, FavoriteInactiveIcon } from "@assets/icons/Icons";
 import cn from "classnames";
 import { useNavigate } from "react-router-dom";
 import styles from "./ShopItem.module.scss";
@@ -24,6 +24,7 @@ export type ShopItemProps = {
 	phoneCall?: boolean;
 	size?: ShopItemSize;
 	onClick?: VoidFunction;
+	isFavorite?: boolean;
 };
 
 export const ShopItem: FC<ShopItemProps> = ({
@@ -35,6 +36,7 @@ export const ShopItem: FC<ShopItemProps> = ({
 	phoneCall,
 	size = ShopItemSize.standart,
 	onClick,
+	isFavorite,
 }) => {
 	const token = useSelector((state: RootState) => state.Auth.token);
 	const [url, setUrl] = useState("");
@@ -92,7 +94,11 @@ export const ShopItem: FC<ShopItemProps> = ({
 				)}
 				<div className={styles.button}>
 					<Button onClick={() => {}} variant="ghost" size="xs">
-						<FavoriteIcon />
+						{isFavorite ? (
+							<FavoriteActiveIcon width={36} height={36} />
+						) : (
+							<FavoriteInactiveIcon />
+						)}
 					</Button>
 				</div>
 			</div>

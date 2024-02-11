@@ -23,6 +23,8 @@ const MobileMarketItemsList: FC<IMobileMarketItemsListProps> = ({ items }) => {
 								key={item.id}
 								//@ts-ignore
 								image={item.image}
+								//@ts-ignore
+								isFavorite={item.isFavorite}
 								title={item.title}
 								price={item.cost}
 								information={item.description}

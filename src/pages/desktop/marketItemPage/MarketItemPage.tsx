@@ -1,5 +1,5 @@
 import { FC, useContext, useState } from "react";
-import { ArrowControlIcon, FavoriteIcon } from "@assets/icons/Icons";
+import { ArrowControlIcon, FavoriteInactiveIcon } from "@assets/icons/Icons";
 import ItemImage from "@assets/img/ad-image1.png";
 import Breadcrumbs from "@components/breadcrumbs/Breadcrumbs";
 import Header from "@components/header";
@@ -191,7 +191,7 @@ const MarketItemPage: FC = () => {
 										<button
 											className={styles.favoriteButton}
 										>
-											<FavoriteIcon />
+											<FavoriteInactiveIcon />
 										</button>
 										<p
 											className={cn(
