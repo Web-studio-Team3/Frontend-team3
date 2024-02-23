@@ -1,15 +1,12 @@
-import { FC } from "react";
 import {
-	BackArrowIcon,
 	BackArrowIconMobile,
-	HelpIcon,
 	MenuIcon,
 	SearchIcon,
-	SendIcon,
-	SettingIcon,
 	UploadIcon,
 } from "@assets/icons/Icons";
+import Input from "@ui-kit/Input";
 import cn from "classnames";
+import { FC } from "react";
 import { Link } from "react-router-dom";
 import styles from "./AccountSingleChatMobile.module.scss";
 import MessageListMobile from "./components/MessageList";
@@ -87,11 +84,7 @@ const AccountSingleChatMobile: FC<AccountSingleChatProps> = ({ user }) => {
 					<button className={styles.button}>
 						<UploadIcon />
 					</button>
-					<input
-						type="text"
-						className={styles.input}
-						placeholder="Сообщение"
-					/>
+					<Input type="text" placeholder="Сообщение" value={""} />
 					<button className={styles.button}>
 						<BackArrowIconMobile />
 					</button>

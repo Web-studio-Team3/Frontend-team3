@@ -1,29 +1,29 @@
-import { FC, RefObject, useContext, useEffect, useRef, useState } from "react";
-import { ArrowControlIcon, FavoriteIcon } from "@assets/icons/Icons";
+import { FavoriteIcon } from "@assets/icons/Icons";
+import { FC, useContext, useEffect, useRef, useState } from "react";
 // import ItemImage from "@assets/img/ad-image1.png";
-import Breadcrumbs from "@components/breadcrumbs/Breadcrumbs";
-import Header from "@components/header";
-import Footer from "@components/footer";
+import Request from "@api/Request";
+import Button from "@components/Button";
 import { ShopItemSize } from "@components/ShopItem";
 import ShopItemList from "@components/ShopItemList";
+import Breadcrumbs from "@components/breadcrumbs/Breadcrumbs";
+import Footer from "@components/footer";
+import Header from "@components/header";
+import PhotoCarousel from "@components/photoCarousel/PhotoCarousel";
 import UserCard from "@components/userCard/UserCard";
 import Categories from "@pages/desktop/market/components/Categories";
-import { marketItemsMock } from "../../../mocks/marketItemsMock";
-import cn from "classnames";
-import { useNavigate, useParams } from "react-router-dom";
-import styles from "./MarketItemPage.module.scss";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../Store/store";
-import { Modal, Tooltip, Input } from "antd";
-import PhotoCarousel from "@components/photoCarousel/PhotoCarousel";
-// import Input from "antd";
-import Request from "@api/Request";
 import {
 	BreadcrumbsContext,
 	IBreadcrumbsContext,
 } from "@pages/layouts/MainLayout/MainLayout";
+import Input from "@ui-kit/Input";
+import { Modal, Tooltip } from "antd";
 import axios from "axios";
-import Button from "@components/Button";
+import cn from "classnames";
+import { useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { RootState } from "../../../Store/store";
+import { marketItemsMock } from "../../../mocks/marketItemsMock";
+import styles from "./MarketItemPage.module.scss";
 
 const MarketItemPage: FC = () => {
 	const [visible, setVisible] = useState(false);
@@ -287,21 +287,24 @@ const MarketItemPage: FC = () => {
 					<Input
 						defaultValue={CurrenItem[0].title}
 						ref={changeTitle}
-					></Input>
+						value={""}
+					/>
 				</div>
 				<div className={styles.modalChangeElement}>
 					<span>Цена:</span>
 					<Input
 						defaultValue={CurrenItem[0].cost}
 						ref={changeCost}
-					></Input>
+						value={""}
+					/>
 				</div>
 				<div className={styles.modalChangeElement}>
 					<span>Описание:</span>
 					<Input
 						defaultValue={CurrenItem[0].description}
 						ref={changeDesc}
-					></Input>
+						value={""}
+					/>
 				</div>
 				<Button
 					onClick={async () => {

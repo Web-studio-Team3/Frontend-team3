@@ -1,6 +1,7 @@
-import { FC } from "react";
 import { BackArrowIcon, SendIcon, UploadIcon } from "@assets/icons/Icons";
+import Input from "@ui-kit/Input";
 import cn from "classnames";
+import { FC } from "react";
 import { Link } from "react-router-dom";
 import styles from "./AccountSingleChat.module.scss";
 import MessageList from "./components/MessageList";
@@ -74,10 +75,10 @@ const AccountSingleChat: FC<AccountSingleChatProps> = ({ user }) => {
 					<button className={styles.button}>
 						<UploadIcon />
 					</button>
-					<input
+					<Input
 						type="text"
-						className={styles.input}
 						placeholder="Напишите сообщение"
+						value={""}
 					/>
 					<button className={styles.button}>
 						<SendIcon />

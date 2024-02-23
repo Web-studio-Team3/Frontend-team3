@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
-import { Form, Button, DatePicker, Input, Upload } from "antd";
+import Input from "@ui-kit/Input";
+import { Button, DatePicker, Form, Upload } from "antd";
 import { UploadChangeParam } from "antd/lib/upload";
 import { UploadFile } from "antd/lib/upload/interface";
+import classNames from "classnames";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
+import { RootState } from "../../../Store/store";
 import styles from "./Registration.module.scss";
 import RegistrationFinish from "./Utils/RegistrationFinish";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../Store/store";
-import classNames from "classnames";
 
 export const Registration = () => {
 	const [visible, setVisible] = useState(false);
@@ -53,10 +54,10 @@ export const Registration = () => {
 						]}
 					>
 						<Input
-							className={styles.input}
 							autoComplete="off"
 							placeholder={"Введите логин"}
 							type="text"
+							value={""}
 						/>
 					</Form.Item>
 
@@ -70,10 +71,10 @@ export const Registration = () => {
 						]}
 					>
 						<Input
-							className={styles.input}
 							autoComplete="off"
 							placeholder={"Придумайте пароль"}
 							type="password"
+							value={""}
 						/>
 					</Form.Item>
 					<Form.Item
@@ -85,10 +86,7 @@ export const Registration = () => {
 							},
 						]}
 					>
-						<Input
-							className={styles.input}
-							placeholder={"Ваше имя?"}
-						/>
+						<Input placeholder={"Ваше имя?"} value={""} />
 					</Form.Item>
 					<Form.Item
 						name="date_of_birth"

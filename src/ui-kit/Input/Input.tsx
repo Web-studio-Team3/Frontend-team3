@@ -1,11 +1,19 @@
-import styles from "./Input.module.scss";
-import { ChangeEvent, FC, HTMLProps, ReactNode, Ref, useState } from "react";
+import { SearchIcon } from "@assets/icons/Icons";
+import Button from "@components/Button";
 import { TCustomVoidFunction, TSizing } from "@utils/commonTypes";
 import cc from "classnames";
-import Button from "@components/Button";
-import { SearchIcon } from "@assets/icons/Icons";
+import {
+	ChangeEvent,
+	FC,
+	HTMLProps,
+	ReactNode,
+	Ref,
+	useRef,
+	useState,
+} from "react";
+import styles from "./Input.module.scss";
 
-type TInputType = "text" | "password" | "number" | "search";
+type TInputType = "text" | "password" | "number" | "search" | "textarea";
 
 interface IInput
 	extends Omit<
@@ -59,8 +67,10 @@ const Input: FC<IInput> = ({
 	...other
 }) => {
 	const [isInvalidValue, setIsInvalidValue] = useState<boolean>(false);
+	const inputElementRef = useRef<HTMLInputElement>(null);
 
 	const isSearch = type === "search";
+	const isTextarea = type === "textarea";
 	const handleChange = ({
 		target: { value },
 	}: ChangeEvent<HTMLInputElement>): void => {
@@ -89,29 +99,30 @@ const Input: FC<IInput> = ({
 		if (onSubmit) onSubmit(value);
 	};
 
+	const defaultParams = {
+		type: type,
+		className: cc(styles.input, styles[sizing], {
+			[styles.fail]: isError || isInvalidValue,
+			[styles.success]: isSuccess,
+			[styles.warning]: isWarning,
+			[styles.fluid]: fluid,
+			[styles.search]: isSearch,
+			[styles.extra_rounded]: extraRounded,
+		}),
+		placeholder: placeholder || "",
+		ref: inputElementRef,
+		value: value,
+		onChange: handleChange,
+		onFocus: handleFocus,
+		onBlur: handleBlur,
+	};
+
 	return (
 		<div className={styles.container}>
 			<p className={styles.label} hidden={!label}>
 				{label}
 			</p>
-			<input
-				type={type}
-				className={cc(styles.input, styles[sizing], {
-					[styles.fail]: isError || isInvalidValue,
-					[styles.success]: isSuccess,
-					[styles.warning]: isWarning,
-					[styles.fluid]: fluid,
-					[styles.search]: isSearch,
-					[styles.extra_rounded]: extraRounded,
-				})}
-				placeholder={placeholder || ""}
-				ref={inputRef}
-				value={value}
-				onChange={handleChange}
-				onFocus={handleFocus}
-				onBlur={handleBlur}
-				{...other}
-			/>
+			<input {...defaultParams} {...other} />
 			<p className={styles.errorText} hidden={!isError}>
 				{errorText}
 			</p>

@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { Button, Form, Input, Upload } from "antd";
-import styles from "./Content.module.scss";
-import { useDispatch } from "react-redux";
 import { UploadChangeParam, UploadFile } from "antd/es/upload";
-import CreateTaskFinish from "./Utils/CreateTaskFinish";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
+import styles from "./Content.module.scss";
+import CreateTaskFinish from "./Utils/CreateTaskFinish";
 
 export const Content = () => {
 	const dispatch = useDispatch();

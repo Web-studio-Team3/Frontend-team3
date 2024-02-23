@@ -4,11 +4,13 @@
 		background: none;
 		border: none;
 		display: inline-flex;
+
 		& svg {
 			width: 37px;
 			height: 37px;
 		}
 	}
+
 	.header {
 		padding-bottom: 24px;
 		border-bottom: 1px solid #72757e;
@@ -24,6 +26,7 @@
 			display: inline-flex;
 			padding-left: 40px;
 			gap: 21px;
+
 			.image {
 				height: 122px;
 				width: 142px;
@@ -32,6 +35,7 @@
 
 			.textBlock {
 				padding: 15px 0;
+
 				.text {
 					font-weight: 300;
 					font-size: 16px;
@@ -62,31 +66,10 @@
 				width: 37px;
 				height: 37px;
 			}
-
-			.input {
-				background: #2d2d33;
-				border: 1px solid #ffffff;
-				border-radius: 30px;
-				flex-grow: 2;
-				box-sizing: border-box;
-				font-weight: 300;
-				font-size: 16px;
-				line-height: 19px;
-				padding: 15px;
-
-				color: #fffffe;
-
-				&::placeholder {
-					font-weight: 300;
-					font-size: 16px;
-					line-height: 19px;
-
-					color: #5f5f61;
-				}
-			}
 		}
 	}
 }
+
 .footer {
 	width: 100%;
 	height: auto;

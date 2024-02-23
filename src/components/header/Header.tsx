@@ -1,18 +1,18 @@
-import { FC, useEffect, useState } from "react";
 import {
-	ProfileIcon,
-	LogoIcon,
-	HeartIcon,
 	CategoryIcon,
+	HeartIcon,
+	LogoIcon,
+	ProfileIcon,
 } from "@assets/icons/Icons";
+import Button from "@components/Button";
+import Input from "@ui-kit/Input";
 import classNames from "classnames";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import styles from "./Header.module.scss";
+import { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { RootState } from "src/Store/store";
 import { v4 } from "uuid";
-import Button from "@components/Button";
-import Input from "@components/Input";
+import styles from "./Header.module.scss";
 
 const Header: FC = () => {
 	const user = useSelector((state: RootState) => state.User.user);
@@ -146,9 +146,9 @@ const Header: FC = () => {
 								className={({ isActive }) =>
 									isActive
 										? classNames(
-												styles.linkIcon,
-												styles.linkIconActive
-										  )
+											styles.linkIcon,
+											styles.linkIconActive
+										)
 										: styles.linkIcon
 								}
 							>
