@@ -1,5 +1,5 @@
 import ItemApi from "@api/Item/Item";
-import { createContext, useEffect, useState } from "react";
+import {createContext, useEffect, useLayoutEffect, useState} from "react";
 import {
 	Account,
 	AccountMessages,
@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Actions } from "./Store/actions";
 import { RootState } from "./Store/store";
+import styles from './App.module.scss'
 
 export interface IBreadcrumbsContext {
 	breadcrumbs: Record<string, string>;
@@ -34,13 +35,28 @@ export const BreadcrumbsContext = createContext<IBreadcrumbsContext | null>(
 function App() {
 	const [breadcrumbs, setBreadcrumbs] = useState<Record<string, string>>({});
 	const dispatch = useDispatch();
+	const [pageLoading,setPageLoading] = useState(true);
+	useLayoutEffect(() => {
+		window.addEventListener('load', () => {
+			setTimeout(() => {
+				setPageLoading(false);
+			}, 2000);
+		});
+	});
+
 	useEffect(() => {
 		return () => {
 			dispatch(Actions.Items.getItems());
 		};
 	}, []);
 
+
 	const authData = useSelector((state: RootState) => state.Auth);
+
+	if(pageLoading) return <div className={styles.preloader}>
+		<div className={styles.loader}>
+		</div>
+	</div>
 	return (
 		<BreadcrumbsContext.Provider
 			value={{
