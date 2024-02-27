@@ -1,4 +1,4 @@
-@import "@styles/variables.scss";
+@import "@styles/variables";
 
 .button {
 	text-decoration: none;
@@ -30,7 +30,7 @@
 	}
 
 	&.purple {
-		background: $violet;
+		background: $secondary;
 	}
 
 	&.green {

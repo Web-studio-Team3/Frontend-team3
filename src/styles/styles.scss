@@ -17,7 +17,7 @@
    сейчас только для Firefox */
 * {
 	scrollbar-width: thin;
-	scrollbar-color: $grey;
+	scrollbar-color: $card;
 }
 
 /* для Chrome/Edge/Safari */
@@ -30,7 +30,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-	background-color: $grey;
+	background-color: $card;
 	border-radius: 20px;
 }
 
@@ -107,7 +107,7 @@ main {
 
 body {
 	line-height: 1;
-	background-color: #16161a;
+	background-color: $background;
 	font-family: "Inter";
 }
 

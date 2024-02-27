@@ -1,4 +1,4 @@
-@import "@styles/variables.scss";
+@import "@styles/variables";
 
 .container {
 	position: relative;
@@ -51,7 +51,7 @@
 	}
 
 	&.fail {
-		border-color: $danger;
+		border-color: $error;
 	}
 
 	&.success {
@@ -63,7 +63,7 @@
 	}
 
 	&:focus {
-		border-color: $violet;
+		border-color: $secondary;
 		&::placeholder {
 			opacity: 0.3;
 		}
@@ -71,7 +71,7 @@
 }
 
 .errorText {
-	color: $danger;
+	color: $error;
 }
 
 .button {
@@ -84,7 +84,7 @@
 		position: absolute;
 		right: 2px;
 		bottom: 2px;
-		background-color: $grey;
+		background-color: $card;
 		width: 53px;
 		height: 42px;
 		border: none;
