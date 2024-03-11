@@ -1,5 +1,6 @@
 import { FC, PropsWithChildren, useCallback, useEffect, useState } from "react";
 import { trustedAddresses } from "../../constants/trustedAddresses";
+import { TransitionWindow } from "./TransitionWindow";
 
 const PreventTransition: FC<PropsWithChildren> = ({ children }) => {
 	const [blocked, setBlocked] = useState(false);
@@ -36,12 +37,11 @@ const PreventTransition: FC<PropsWithChildren> = ({ children }) => {
 
 	return (
 		<>
-			{blocked && (
-				<p style={{ color: "white" }}>
-					Вы хотите перейти по ссылке: {link}
-				</p>
+			{blocked ? (
+				<TransitionWindow link={link} setBlocked={setBlocked} />
+			) : (
+				children
 			)}
-			{children}
 		</>
 	);
 };
