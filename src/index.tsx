@@ -5,6 +5,7 @@ import App from "./App";
 import "./styles/styles.scss";
 import { store } from "./Store/store";
 import CheckAuth from "./Containers/CheckAuth/CheckAuth";
+import PreventTransition from "./Containers/PreventTransition/PreventTransition";
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
@@ -14,7 +15,9 @@ root.render(
 	<Provider store={store}>
 		<React.StrictMode>
 			<CheckAuth>
-				<App />
+				<PreventTransition>
+					<App />
+				</PreventTransition>
 			</CheckAuth>
 		</React.StrictMode>
 	</Provider>
