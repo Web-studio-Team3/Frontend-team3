@@ -128,7 +128,7 @@
 			font-size: 30px;
 			line-height: 36px;
 
-			color: #2cb67d;
+			color: $primary;
 			margin: 25px 0;
 			font-weight: 700;
 		}
@@ -162,7 +162,7 @@
 				color: white;
 				font-weight: 400;
 				font-size: 20px;
-				background: #2cb67d;
+				background: $primary;
 				border-radius: 15px;
 				border: none;
 				cursor: pointer;
@@ -188,7 +188,7 @@
 			border: none;
 
 			& > div:hover {
-				background: #2d2d33;
+				background: $card;
 				transform: scale(1.03);
 				transition: all 0.1s ease-in;
 			}
@@ -202,7 +202,7 @@
 }
 
 .modal {
-	background: #2d2d33;
+	background: $card;
 	* {
 		color: #fefefe !important;
 	}
@@ -263,7 +263,7 @@
 	margin-bottom: 16px;
 	gap: 16px;
 	input {
-		background-color: #2d2d33 !important;
+		background-color: $card !important;
 		width: 100%;
 	}
 }

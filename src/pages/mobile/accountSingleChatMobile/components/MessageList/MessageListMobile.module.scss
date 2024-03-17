@@ -1,3 +1,5 @@
+@import "@styles/variables";
+
 .container {
 	position: relative;
 	.date {
@@ -37,7 +39,7 @@
 				display: flex;
 				justify-self: left;
 				width: 50%;
-				background: #2d2d33;
+				background: $card;
 				border-radius: 16px;
 				font-weight: 300;
 				font-size: 14px;

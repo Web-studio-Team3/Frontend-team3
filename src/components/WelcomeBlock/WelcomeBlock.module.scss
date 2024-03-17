@@ -1,6 +1,8 @@
+@import "@styles/variables";
+
 .wrapper {
 	width: 100%;
-	background: #2d2d33;
+	background: $card;
 	border-radius: 16px;
 	padding: 21px 12px 21px 28px;
 }
@@ -26,8 +28,8 @@
 		line-height: 133.9%;
 	}
 	a {
-		color: #2cb67d;
-		border-bottom: 2px solid #2cb67d;
+		color: $primary;
+		border-bottom: 2px solid $primary;
 		text-decoration: none;
 	}
 }

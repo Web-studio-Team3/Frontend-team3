@@ -1,3 +1,5 @@
+@import "@styles/variables";
+
 .container {
 	.button {
 		cursor: pointer;
@@ -64,7 +66,7 @@
 			}
 
 			.input {
-				background: #2d2d33;
+				background: $card;
 				border: 1px solid #ffffff;
 				border-radius: 30px;
 				flex-grow: 2;
