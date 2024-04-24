@@ -1,0 +1,84 @@
+@import "@styles/variables";
+
+.page {
+	width: 100%;
+	min-height: 100vh;
+	background-image: url("../../pages/common/Registration/Icons/1.png");
+	background-size: cover;
+	//padding: 20px 0;
+	transition: 1s;
+	display: grid;
+	place-items: center;
+	overflow-y: hidden;
+}
+
+.body {
+	position: relative;
+	width: 889px;
+	height: 293px;
+	padding: 29px 27px 21px 60px;
+	display: flex;
+	flex-direction: column;
+	gap: 22px;
+
+	background: #2d2d33;
+	border-radius: 35px;
+}
+
+.text {
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 125%;
+	color: #fffffe;
+}
+
+.switch {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.logo {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 40px;
+	line-height: 46px;
+	text-align: center;
+
+	background: linear-gradient(
+		270deg,
+		#2db67e 9.52%,
+		#58cdd6 53.39%,
+		#7e5af0 94.12%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	color: transparent;
+}
+
+.alert {
+	background: #f0cf5a;
+	border-radius: 14px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 4px 15px 4px 6px;
+}
+
+.close {
+	position: absolute;
+	right: 30px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 125%;
+	color: #fffffe;
+}

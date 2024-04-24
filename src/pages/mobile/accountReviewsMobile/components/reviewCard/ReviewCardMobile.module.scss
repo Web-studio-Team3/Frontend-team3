@@ -3,7 +3,7 @@
 .block {
 	padding: 15px 20px;
 	box-sizing: border-box;
-	background: #2D2D33;
+	background: $card;
 	border-radius: 16px;
 	list-style-type: none;
 	width: 100%;
@@ -20,7 +20,6 @@
 .userInfo {
 	display: flex;
 	gap: 8px;
-
 }
 
 .image {
@@ -39,7 +38,7 @@
 	color: $white;
 	&Ad {
 		margin-top: 8px;
-		color: #7E5AF0;
+		color: #7e5af0;
 		font-weight: 700;
 		font-size: 12px;
 		line-height: 14px;
@@ -52,7 +51,7 @@
 	}
 
 	&Date {
-		color: #5D616F;
+		color: #5d616f;
 		font-size: 10px;
 		line-height: 12px;
 	}

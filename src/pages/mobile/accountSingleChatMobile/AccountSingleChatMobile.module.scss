@@ -1,3 +1,5 @@
+@import "@styles/variables";
+
 .container {
 	.button {
 		cursor: pointer;
@@ -14,7 +16,7 @@
 	.header {
 		padding-left: 23px;
 
-		background: #2D2D33;
+		background: $card;
 		display: flex;
 		align-items: center;
 
@@ -59,13 +61,34 @@
 			margin-top: auto;
 			display: flex;
 			align-items: center;
-			background: #2d2d33;
+			background: $card;
 			border-radius: 16px;
 			padding: 0 20px;
 
 			& svg {
 				width: 22px;
 				height: 22px;
+			}
+
+			.input {
+				background-color: transparent;
+				border: none;
+				flex-grow: 2;
+				font-weight: 300;
+				font-size: 14px;
+				line-height: 17px;
+				padding: 15px;
+
+				color: #fffffe;
+
+				&::placeholder {
+					font-weight: lighter;
+					font-size: 14px;
+					line-height: 17px;
+					font-family: "Inter", "sans-serif";
+
+					color: #fffffe;
+				}
 			}
 		}
 	}
