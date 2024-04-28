@@ -6,11 +6,13 @@
 		background: none;
 		border: none;
 		display: inline-flex;
+
 		& svg {
 			width: 37px;
 			height: 37px;
 		}
 	}
+
 	.header {
 		padding-bottom: 24px;
 		border-bottom: 1px solid #72757e;
@@ -26,6 +28,7 @@
 			display: inline-flex;
 			padding-left: 40px;
 			gap: 21px;
+
 			.image {
 				height: 122px;
 				width: 142px;
@@ -34,6 +37,7 @@
 
 			.textBlock {
 				padding: 15px 0;
+
 				.text {
 					font-weight: 300;
 					font-size: 16px;
@@ -89,6 +93,7 @@
 		}
 	}
 }
+
 .footer {
 	width: 100%;
 	height: auto;

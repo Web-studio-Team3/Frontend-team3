@@ -1,6 +1,3 @@
-import { FC, useEffect, useMemo, useState } from "react";
-import styles from "./Market.module.scss";
-import Input from "@components/Input";
 import {
 	CategoriesMobileIcon,
 	FiltersIcon,
@@ -8,14 +5,17 @@ import {
 } from "@assets/icons/Icons";
 import Button from "@components/Button";
 import FilterItem from "@components/FilterItem";
-import { EMarketFilter } from "@pages/mobile/market/types";
-import { useDispatch } from "react-redux";
-import { sortItems } from "@utils/commonHelpers";
-import { Actions } from "../../../Store/actions";
-import { marketItemsMock } from "../../../mocks/marketItemsMock";
+import MobileMarketItemsList from "@components/MobileMarketItemsList";
 import { categories } from "@pages/desktop/market/helpers";
 import CategoryCard from "@pages/mobile/market/components/CategoryCard";
-import MobileMarketItemsList from "@components/MobileMarketItemsList";
+import { EMarketFilter } from "@pages/mobile/market/types";
+import Input from "@ui-kit/Input";
+import { sortItems } from "@utils/commonHelpers";
+import { FC, useEffect, useMemo, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Actions } from "../../../Store/actions";
+import { marketItemsMock } from "../../../mocks/marketItemsMock";
+import styles from "./Market.module.scss";
 
 const Market: FC = () => {
 	const dispatch = useDispatch();
@@ -59,10 +59,10 @@ const Market: FC = () => {
 							renderInputIcon={renderInputSearchIcon}
 						/>
 					</div>
-					<Button onClick={() => {}} variant="ghost" size="xs">
+					<Button onClick={() => { }} variant="ghost" size="xs">
 						<FiltersIcon />
 					</Button>
-					<Button onClick={() => {}} variant="ghost" size="xs">
+					<Button onClick={() => { }} variant="ghost" size="xs">
 						<CategoriesMobileIcon />
 					</Button>
 				</header>

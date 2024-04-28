@@ -7,8 +7,7 @@
 	padding-bottom: 100px;
 }
 
-.body {
-}
+.body {}
 
 .wrapper {
 	width: 100%;
@@ -16,7 +15,7 @@
 	display: flex;
 	gap: 92px;
 
-	& > div {
+	&>div {
 		margin-top: 0;
 	}
 }
@@ -41,11 +40,13 @@
 				column-gap: 2px;
 				margin: 0 auto;
 				margin-bottom: 12px;
+
 				.pointer {
 					background: #999999;
 					border-radius: 43px;
 					cursor: pointer;
 					height: 3px;
+
 					&Active {
 						background: #ffffff;
 					}
@@ -58,11 +59,13 @@
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
+
 				.thumbnailsBlock {
 					display: grid;
 					grid-template-columns: repeat(3, 1fr);
 					max-width: 293px;
 					column-gap: 19px;
+
 					.thumbnail {
 						width: 85px;
 						height: 66px;
@@ -73,11 +76,12 @@
 					background: none;
 					border: none;
 					cursor: pointer;
+
 					.arrow {
 						width: 15px;
 						height: 24px;
-						&Right {
-						}
+
+						&Right {}
 
 						&Left {
 							rotate: 180deg;
@@ -166,15 +170,19 @@
 				border-radius: 15px;
 				border: none;
 				cursor: pointer;
+
 				&:disabled {
 					opacity: 0.5;
 					cursor: not-allowed;
 				}
+
 				&:hover {
 					background-color: #428569;
 				}
+
 				&Purple {
 					background: #7f5af0;
+
 					&:hover {
 						background-color: #573fa1;
 					}
@@ -187,7 +195,7 @@
 			background: none;
 			border: none;
 
-			& > div:hover {
+			&>div:hover {
 				background: $card;
 				transform: scale(1.03);
 				transition: all 0.1s ease-in;
@@ -203,25 +211,31 @@
 
 .modal {
 	background: $card;
+
 	* {
 		color: #fefefe !important;
 	}
+
 	border-radius: 16px;
 	padding-bottom: 0;
+
 	.submit {
 		padding-top: 24px;
 		margin-bottom: 0;
 	}
+
 	:global {
 		.ant-modal-content {
 			background: transparent;
 			box-shadow: none;
 			// color: var(--text-primary);
 		}
+
 		.ant-modal-header {
 			background: transparent;
 			border: 0;
 			padding: 24px 24px 8px 24px;
+
 			.ant-modal-title {
 				// color: var(--text-primary);
 				font-style: normal;
@@ -230,17 +244,22 @@
 				line-height: 32px;
 			}
 		}
+
 		.ant-modal-body {
 			padding-top: 0;
 		}
+
 		.ant-modal-close {
 			// color: var(--text-primary);
 			margin: 8px 2px 0 0;
 		}
+
 		.ant-form-item-label {
-			> label {
+			>label {
+
 				// color: var(--text-secondary);
 				&.ant-form-item-required {
+
 					// color: var(--text-primary);
 					&:not(.ant-form-item-required-mark-optional) {
 						&::before {
@@ -262,6 +281,7 @@
 	align-items: center;
 	margin-bottom: 16px;
 	gap: 16px;
+
 	input {
 		background-color: $card !important;
 		width: 100%;
