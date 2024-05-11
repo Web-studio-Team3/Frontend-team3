@@ -82,7 +82,7 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 		dispatch(Actions.Items.getItems());
 	}, []);
 
-	if (!items) return null;
+	if (!items || !items.items) return null;
 	const FilteredItems = [...items.items];
 	const handleShopItemClick = (id: string, title: string) => {
 		setBreadcrumbs({
