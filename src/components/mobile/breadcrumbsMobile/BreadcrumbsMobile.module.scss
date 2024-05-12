@@ -1,0 +1,50 @@
+@import "@styles/variables";
+
+.wrapper {
+	height: 50px;
+	background-color: $card;
+	padding: 14px 23px 14px 23px;
+	color: #ffffff;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	.link {
+		font-size: 18px;
+		color: #ffffff;
+		text-decoration: none;
+
+		&.linkActive {
+			font-family: "Inter", sans-serif; // Set font to Inter
+			font-size: 18px; // Set font size
+			font-weight: 500;
+		}
+
+		span {
+			// New styles for the span containing text
+			margin-left: 8px; // Add margin between text and arrow
+		}
+
+		.arrow {
+			color: #ffffff;
+			margin-right: 11px;
+		}
+	}
+
+	.breadcrumb-separator {
+		color: #ffffff;
+		margin: 0 8px;
+	}
+
+	.menu {
+		margin-left: auto;
+		align-items: center;
+		display: flex;
+		gap: 10px;
+		& svg {
+			width: 14px;
+			height: 16px;
+			cursor: pointer;
+		}
+	}
+}

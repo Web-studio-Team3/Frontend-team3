@@ -1,0 +1,18 @@
+@import "@styles/variables";
+
+.items_list {
+	max-width: 353px;
+	margin: 32px auto 80px;
+	flex-wrap: wrap;
+	gap: 8px;
+	display: flex;
+	justify-content: space-around;
+
+	.shop_item {
+		flex-basis: 48%;
+	}
+}
+
+.text {
+	color: $white;
+}

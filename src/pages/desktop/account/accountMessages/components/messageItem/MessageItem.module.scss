@@ -1,0 +1,70 @@
+@import "@styles/variables";
+
+.section {
+	background: $card;
+	border-radius: 30px;
+
+	margin-right: 10px;
+	padding: 26px;
+	display: grid;
+	grid-template-columns: 90px 1fr 32px;
+	align-items: center;
+	column-gap: 20px;
+	&:hover {
+		background: #202023;
+		transition: background 0.2s ease-out;
+	}
+}
+
+.image {
+	border-radius: 30px;
+	object-fit: cover;
+	width: 90px;
+	height: 103px;
+}
+
+.block {
+}
+
+.line {
+	display: flex;
+	max-width: 250px;
+	justify-content: space-between;
+	margin-bottom: 10px;
+
+	&:nth-last-child(-n + 2) {
+		margin-bottom: 25px;
+	}
+}
+
+.text {
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 19px;
+	color: rgba(255, 255, 254, 0.8);
+
+	&Name {
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 22px;
+	}
+
+	&Location {
+		color: $grey-light;
+	}
+
+	&AdName {
+		color: $white;
+	}
+
+	&Price {
+		font-weight: 300;
+		font-size: 16px;
+		line-height: 19px;
+
+		color: $green;
+	}
+}
+
+.icon {
+}

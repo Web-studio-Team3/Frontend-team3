@@ -1,4 +1,4 @@
-@import "@styles/variables.scss";
+@import "@styles/variables";
 
 .section {
 	display: flex;
@@ -14,8 +14,8 @@
 	padding: 30px 32px;
 
 	&Active {
-		background-color: $grey;
-		border: 1px solid $grey;
+		background-color: $card;
+		border: 1px solid $card;
 	}
 }
 
@@ -23,9 +23,8 @@
 	margin-bottom: 15px;
 	cursor: pointer;
 
-
 	&:nth-last-child(-n + 1) {
-		margin-bottom: 0px;
+		margin-bottom: 0;
 	}
 }
 
@@ -55,7 +54,7 @@
 }
 
 .text {
-	font-family: "Inter";
+	font-family: "Inter", serif;
 	font-weight: 300;
 	font-size: 16px;
 	line-height: 19px;

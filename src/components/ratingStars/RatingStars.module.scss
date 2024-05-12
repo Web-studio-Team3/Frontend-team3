@@ -1,4 +1,4 @@
-@import "@styles/variables.scss";
+@import "@styles/variables";
 
 .rating {
 	display: flex;
@@ -22,6 +22,6 @@
 	}
 
 	&Filled svg {
-		fill: #D7D7D7;
+		fill: #d7d7d7;
 	}
 }

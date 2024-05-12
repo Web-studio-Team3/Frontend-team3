@@ -1,0 +1,73 @@
+@import "@styles/variables";
+
+$white: #ffffff;
+$background-color: $card;
+$border-radius: 16px;
+$width: 390px;
+
+$user-font-size: 14px;
+$rating-stars-color: $white;
+$text-color: $white;
+$user-image-size: 60px;
+
+.userCard {
+	background-color: $background-color;
+	border-radius: $border-radius;
+	width: $width;
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: center; // Center the block horizontally
+	margin: 0 auto; // Center the block within its parent container
+	margin-bottom: 32px;
+
+	@media (max-width: 800px) {
+		width: 100%;
+	}
+
+	&Mobile {
+		.mobileRow {
+			display: flex;
+			align-items: center;
+			justify-content: space-between; // Center the content horizontally
+			width: 100%;
+		}
+
+		.mobilePhotoBlock {
+			margin-right: 30px;
+			margin-left: auto;
+		}
+
+		.mobilePhoto {
+			width: $user-image-size;
+			height: $user-image-size;
+			border-radius: 100%;
+		}
+
+		.name {
+			color: $text-color;
+			font-family: "Inter", sans-serif;
+			font-size: $user-font-size;
+			margin-bottom: 10px;
+		}
+
+		.rating {
+			display: flex;
+			align-items: center;
+			margin-top: 10px;
+
+			.text {
+				color: $text-color;
+				font-family: "Inter", sans-serif;
+				font-size: $user-font-size;
+				margin-left: 20px;
+			}
+		}
+
+		.collapseArrowIconBlock {
+			display: flex;
+			margin-left: auto;
+			margin-right: 27px;
+		}
+	}
+}

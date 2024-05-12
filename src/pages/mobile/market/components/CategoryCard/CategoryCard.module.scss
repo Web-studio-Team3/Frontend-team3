@@ -1,0 +1,28 @@
+@import "@styles/variables";
+
+.link {
+	text-decoration: none;
+	color: $white;
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+.card_body {
+	border-radius: 16px;
+	background-color: $card;
+	padding: 12px;
+
+	svg {
+		width: 40px;
+		height: 40px;
+	}
+}
+
+.text {
+	margin-top: 6px;
+	font-size: 10px;
+	font-weight: 300;
+	line-height: normal;
+	text-align: center;
+}

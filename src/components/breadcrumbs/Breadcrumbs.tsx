@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import ROUTES from "@configs/routes";
+import { desktopRoutes } from "../../constants/routes";
 import { Breadcrumb } from "antd";
 import { BreadcrumbItemType } from "antd/es/breadcrumb/Breadcrumb";
 import cn from "classnames";
@@ -16,11 +16,11 @@ const Breadcrumbs: FC<IBreadCrumbsProps> = ({ additionalBreadcrumbs }) => {
 	const [breadcrumbNameMap, setBreadcrumbNameMap] = useState<
 		Record<string, string>
 	>({
-		[ROUTES.PROFILE]: "Профиль",
-		[ROUTES.MESSAGES]: "Сообщения",
-		[ROUTES.FAVORITES]: "Избранное",
-		[ROUTES.REVIEWS]: "Отзывы",
-		[ROUTES.MYADS]: "Мои объявления",
+		[desktopRoutes.PROFILE]: "Профиль",
+		[desktopRoutes.MESSAGES]: "Сообщения",
+		[desktopRoutes.FAVORITES]: "Избранное",
+		[desktopRoutes.REVIEWS]: "Отзывы",
+		[desktopRoutes.MY_ADS]: "Мои объявления",
 	});
 	const pathSnippets = location.pathname.split("/").filter((i) => i);
 

@@ -1,16 +1,17 @@
-import React from "react";
 import { call, put, select, takeEvery } from "redux-saga/effects";
-import { Actions } from "./../../Store/actions";
+import { Actions } from "../../Store/actions";
 import AccountApi from "@api/Account/Account";
 import { iApi } from "@api/Account/types";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "src/Store/store";
-import { ResponseGenerator } from "src/Types/types";
+import { ResponseGenerator } from "@utils/commonTypes";
+import { AxiosResponse } from "axios";
 import { notification } from "antd";
 
 const Authorization = function* (action: PayloadAction<iApi.Login>) {
 	try {
-		const login: ResponseGenerator = yield call(
+		yield put(Actions.User.userLoading(true));
+		const login: AxiosResponse<iApi.oLogin> = yield call(
 			AccountApi.login,
 			action.payload
 		);
@@ -36,6 +37,9 @@ const Authorization = function* (action: PayloadAction<iApi.Login>) {
 			token: token,
 		});
 		yield put(Actions.User.setUserPicture(user_photo.data.picture_url));
+		yield sessionStorage.setItem("jwt_token", login.data.jwt_token);
+		yield sessionStorage.setItem("user_id", login.data.user_id);
+		yield put(Actions.User.userLoading(false));
 		notification.success({
 			message: "Вы успешно вошли в аккаунт",
 		});
@@ -43,6 +47,7 @@ const Authorization = function* (action: PayloadAction<iApi.Login>) {
 		notification.error({
 			message: "Неверный логин или пароль",
 		});
+		yield put(Actions.User.userLoading(false));
 	}
 };
 

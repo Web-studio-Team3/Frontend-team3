@@ -1,0 +1,31 @@
+@import "@styles/variables";
+.p {
+	font-family: "Ubuntu", serif;
+	font-size: 16px;
+	cursor: pointer;
+	color: white;
+
+	&:hover {
+		color: $green;
+		svg path {
+			stroke: $green;
+		}
+	}
+	span {
+		padding-left: 10px;
+	}
+}
+.active {
+	color: $green;
+	path {
+		stroke: $green;
+	}
+}
+.svgActive {
+	transform: rotate(90deg);
+	transition: 0.5s;
+	color: $green;
+	path {
+		stroke: $green;
+	}
+}

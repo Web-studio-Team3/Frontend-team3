@@ -1,0 +1,19 @@
+@import "@styles/variables";
+
+.body {
+	margin-top: 32px;
+}
+.navLink {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 46px;
+	padding: 0 16px;
+	background-color: $card;
+	color: white;
+	text-decoration: none;
+	font-family: "Inter", sans-serif;
+	font-size: 14px;
+	font-weight: lighter;
+	border-radius: 16px;
+}

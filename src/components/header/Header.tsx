@@ -1,24 +1,22 @@
-import { FC, useEffect, useState } from "react";
 import {
-	ProfileIcon,
-	LogoIcon,
-	HeartIcon,
-	SearchIcon,
 	CategoryIcon,
+	HeartIcon,
+	LogoIcon,
+	ProfileIcon,
 } from "@assets/icons/Icons";
+import Button from "@components/Button";
+import Input from "@ui-kit/Input";
 import classNames from "classnames";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import styles from "./Header.module.scss";
+import { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { RootState } from "src/Store/store";
-import { Actions } from "./../../Store/actions";
-import { useDispatch } from "react-redux";
 import { v4 } from "uuid";
+import styles from "./Header.module.scss";
 
 const Header: FC = () => {
 	const user = useSelector((state: RootState) => state.User.user);
-	const dispatch = useDispatch();
-	const [ButtonHidden, setButtonHidden] = useState(false);
+	const [searchValue, setSearchValue] = useState<string>("");
 	const navigate = useNavigate();
 	const path = useLocation().pathname;
 	let state = useLocation().state;
@@ -81,6 +79,14 @@ const Header: FC = () => {
 		if (state) navigate(path, { state });
 	}, [path, state === null]);
 
+	const handleInputChange = (value: string) => {
+		setSearchValue(value);
+	};
+
+	const onSearch = (value: string) => {
+		console.log(value);
+	};
+
 	return (
 		<header className="container">
 			<div className={styles.section}>
@@ -99,127 +105,60 @@ const Header: FC = () => {
 						<p className={styles.buttonText}>Категории</p>
 					</button>
 					<div className={styles.search}>
-						<input
-							type="text"
-							className={styles.input}
+						<Input
+							type="search"
+							fluid
+							value={searchValue}
 							placeholder="Поиск по объялениям"
+							onChange={handleInputChange}
+							onSubmit={onSearch}
 						/>
-						<button
-							type="button"
-							className={classNames(
-								styles.button,
-								styles.buttonSearch
-							)}
-						>
-							<SearchIcon />
-						</button>
 					</div>
 				</form>
 				<ul className={styles.menu}>
-					<li className={styles.item} hidden={!user}>
-						<Link
-							to="/create-new-item-page"
-							className={classNames(
-								styles.link,
-								styles.linkCreateAd
-							)}
-						>
-							Разместить объявление
-						</Link>
-					</li>
-					<li className={styles.item} hidden={!user}>
-						<NavLink
-							to="/account/me/favorites"
-							className={({ isActive }) =>
-								isActive
-									? classNames(
+					<>
+						<li className={styles.item}>
+							<Button
+								isLink
+								disabled={!user}
+								to="/create-new-item-page"
+							>
+								Разместить объявление
+							</Button>
+						</li>
+						<li className={styles.item}>
+							<NavLink
+								to={user ? "/account/me/favorites" : ""}
+								className={({ isActive }) =>
+									classNames(styles.linkIcon, {
+										[styles.linkIconActive]: isActive,
+										[styles.disabled]: !user,
+									})
+								}
+							>
+								<HeartIcon />
+								<p className={styles.linkText}>Избранное</p>
+							</NavLink>
+						</li>
+						<li className={styles.item}>
+							<NavLink
+								to={user ? "/account/me" : "/login"}
+								className={({ isActive }) =>
+									isActive
+										? classNames(
 											styles.linkIcon,
 											styles.linkIconActive
-									  )
-									: styles.linkIcon
-							}
-						>
-							<HeartIcon />
-							<p className={styles.linkText}>Избранное</p>
-						</NavLink>
-					</li>
-					<li className={styles.item} hidden={!user}>
-						<NavLink
-							to="/account/me"
-							className={({ isActive }) =>
-								isActive
-									? classNames(
-											styles.linkIcon,
-											styles.linkIconActive
-									  )
-									: styles.linkIcon
-							}
-						>
-							<ProfileIcon />
-							<p className={styles.linkText}>Профиль</p>
-						</NavLink>
-					</li>
-					{user !== null ? (
-						<li>
-							<Link to="/">
-								<button
-									className={classNames(styles.exitButton, {
-										[styles.exitButtonHidden]: ButtonHidden,
-									})}
-									onClick={() => {
-										dispatch(Actions.User.eraseUser());
-										dispatch(Actions.Auth.eraseData());
-										// eslint-disable-next-line no-restricted-globals
-										// location.reload();
-										// eslint-disable-next-line no-restricted-globals
-										// location.href = "/";
-										setButtonHidden(true);
-									}}
-								>
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										width="48"
-										height="48"
-										fill="#ff3467"
-									>
-										<path fill="none" d="M0 0h48v48H0z" />
-										<path d="M20.17 31.17 23 34l10-10-10-10-2.83 2.83L25.34 22H6v4h19.34l-5.17 5.17zM38 6H10c-2.21 0-4 1.79-4 4v8h4v-8h28v28H10v-8H6v8c0 2.21 1.79 4 4 4h28c2.21 0 4-1.79 4-4V10c0-2.21-1.79-4-4-4z" />
-									</svg>
-								</button>
-							</Link>
+										)
+										: styles.linkIcon
+								}
+							>
+								<ProfileIcon />
+								<p className={styles.linkText}>
+									{user ? "Профиль" : "Войти"}
+								</p>
+							</NavLink>
 						</li>
-					) : (
-						<></>
-					)}
-					{user === null ? (
-						<li>
-							<Link to="/login">
-								<button
-									className={classNames(styles.exitButton)}
-									onClick={() => {
-										// dispatch(Actions.User.eraseUser());
-										// eslint-disable-next-line no-restricted-globals
-										// location.reload();
-										// eslint-disable-next-line no-restricted-globals
-										// location.href = "/";
-										// setButtonHidden(true);
-									}}
-								>
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										width="48"
-										height="48"
-										fill="white"
-									>
-										<path fill="none" d="M0 0h48v48H0z" />
-										<path d="M20.17 31.17 23 34l10-10-10-10-2.83 2.83L25.34 22H6v4h19.34l-5.17 5.17zM38 6H10c-2.21 0-4 1.79-4 4v8h4v-8h28v28H10v-8H6v8c0 2.21 1.79 4 4 4h28c2.21 0 4-1.79 4-4V10c0-2.21-1.79-4-4-4z" />
-									</svg>
-								</button>
-							</Link>
-						</li>
-					) : (
-						<></>
-					)}
+					</>
 				</ul>
 			</div>
 		</header>

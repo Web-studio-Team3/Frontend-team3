@@ -1,0 +1,154 @@
+@import "@styles/variables";
+
+.page {
+	width: 100%;
+	// background-image: url("./Icons/1.png");
+	background-size: cover;
+	padding: 20px 0;
+}
+
+.body {
+	display: flex;
+	// justify-content: center;
+	padding: 20px 0;
+	gap: 20px;
+	align-items: center;
+	flex-direction: column;
+	min-height: 100vh;
+	color: white;
+	h1 {
+		font-family: "Inter", serif;
+		font-style: normal;
+		font-weight: 800;
+		font-size: 40px;
+		line-height: 48px;
+		color: #ffffff;
+	}
+	:global {
+		:where(.css-dev-only-do-not-override-1vtf12y).ant-form-vertical
+			.ant-form-item-label
+			> label,
+		:where(
+				.css-dev-only-do-not-override-1vtf12y
+			).ant-col-24.ant-form-item-label
+			> label,
+		:where(
+				.css-dev-only-do-not-override-1vtf12y
+			).ant-col-xl-24.ant-form-item-label
+			> label {
+			color: white;
+		}
+		.ant-form {
+			background-color: $card;
+			padding: 40px 50px;
+			border-radius: 30px;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+	}
+}
+
+.title {
+	font-size: 26px;
+	color: $green;
+	font-weight: bold;
+}
+
+// .input {
+// 	border: 3px solid $green;
+// 	border-radius: 15px;
+// 	font-size: 18px;
+// 	padding: 5px 10px;
+// 	// outline: none;
+// 	// color: white;
+// 	// background-color: $bg-dark;
+// 	&:focus {
+// 		background-color: $card;
+// 		transition: 1s;
+// 	}
+// }
+
+.input {
+	// min-width: 340px;
+	width: 100%;
+	background: $card;
+	padding: 10px 20px;
+	color: #ffffff;
+	border: 1px solid #72757e;
+	border-radius: 16px;
+	&::-moz-placeholder,
+	.input::-webkit-input-placeholder,
+	input::-moz-placeholder {
+		color: #7f7f81;
+	}
+	&::-webkit-input-placeholder {
+		color: #7f7f81;
+	}
+	& {
+		outline: none;
+	}
+	// &:-webkit-autofill {
+	// 	-webkit-box-shadow: inset 0 0 0 50px $card !important; /* Цвет фона */
+	// 	-webkit-text-fill-color: #999 !important; /* цвет текста */
+	// 	color: #999 !important; /* цвет текста */
+	// }
+	:global {
+		.ant-picker-input > input::placeholder {
+			color: #7f7f81;
+		}
+		.ant-picker-input > input {
+			color: #ffffff;
+		}
+		input::-webkit-input-placeholder,
+		input::-moz-placeholder {
+			color: #7f7f81;
+		}
+		.ant-picker-suffix {
+			color: #72757e;
+		}
+	}
+}
+
+.loginButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	border-radius: 15px;
+	background-color: inherit;
+	cursor: pointer;
+	font-size: 20px;
+	min-width: 150px;
+	color: $green;
+	border: 2px solid $card;
+	&:hover {
+		border: 2px solid $green;
+		color: $green;
+		transition: 0.5s;
+	}
+}
+
+.button {
+	border-radius: 10px;
+	background-color: #7e5af0 !important;
+	font-family: "Inter", serif;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+	text-align: center;
+	margin-top: 20px;
+	width: 100%;
+}
+
+.form {
+	width: 90%;
+	max-width: 800px;
+}
+
+.inputTitle {
+	font-weight: 600;
+	font-size: large;
+	color: white;
+}

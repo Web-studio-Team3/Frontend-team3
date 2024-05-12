@@ -1,0 +1,104 @@
+@import "@styles/variables";
+
+.nav {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: $card;
+	padding: 8px 20px;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+}
+
+.icons_block {
+	display: flex;
+	gap: 13px;
+}
+
+.list {
+	display: flex;
+	gap: 8px;
+	justify-content: space-between;
+	max-width: 350px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.link {
+	display: inline-block;
+	text-decoration: none;
+
+	&Text {
+		font-weight: 300;
+		font-size: 11px;
+		line-height: 13px;
+		color: $white;
+		text-decoration: none;
+		margin-top: 4px;
+	}
+
+	&Icon {
+		text-decoration: none;
+		justify-content: center;
+		display: flex;
+		flex-direction: column;
+
+		&Active {
+			& .linkText {
+				color: $green;
+			}
+
+			& svg {
+				stroke: $green;
+			}
+
+			&Fill {
+				& svg {
+					fill: $green;
+				}
+
+				& .linkText {
+					color: $green;
+				}
+			}
+		}
+
+		& svg {
+			width: auto;
+			vertical-align: middle;
+		}
+
+		&.disabled {
+			opacity: 0.5;
+			cursor: initial;
+
+			&:hover {
+				opacity: 0.5;
+				& svg {
+					stroke: #d7d7d7;
+				}
+			}
+		}
+	}
+
+	&Icon:hover {
+		& svg {
+			stroke: $green;
+		}
+	}
+
+	&IconFill:hover {
+		& svg {
+			fill: $green;
+			stroke: none;
+		}
+	}
+}
+
+.plus_button {
+	position: absolute;
+	left: 50%;
+	top: -18px;
+	transform: translateX(-50%);
+}

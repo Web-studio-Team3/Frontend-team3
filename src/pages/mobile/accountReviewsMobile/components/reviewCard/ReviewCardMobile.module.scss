@@ -1,0 +1,63 @@
+@import "@styles/variables";
+
+.block {
+	padding: 15px 20px;
+	box-sizing: border-box;
+	background: $card;
+	border-radius: 16px;
+	list-style-type: none;
+	width: 100%;
+}
+
+.line {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	vertical-align: text-bottom;
+	margin-bottom: 8px;
+}
+
+.userInfo {
+	display: flex;
+	gap: 8px;
+}
+
+.image {
+	width: 52px;
+	height: 52px;
+	border-radius: 100%;
+}
+
+.textBlock {
+}
+
+.text {
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14px;
+	color: $white;
+	&Ad {
+		margin-top: 8px;
+		color: #7e5af0;
+		font-weight: 700;
+		font-size: 12px;
+		line-height: 14px;
+	}
+
+	&Name {
+		font-size: 14px;
+		line-height: 17px;
+		font-weight: 500;
+	}
+
+	&Date {
+		color: #5d616f;
+		font-size: 10px;
+		line-height: 12px;
+	}
+}
+
+.nameLine {
+	display: flex;
+	justify-content: space-between;
+}
