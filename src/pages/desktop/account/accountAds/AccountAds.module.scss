@@ -17,7 +17,7 @@
 .text {
 	font-weight: 700;
 	font-size: 32px;
-	line-height: 39px;
+	line-height: 43px;
 	color: $white;
 
 	&Subtitle {
@@ -26,13 +26,6 @@
 		line-height: 29px;
 		color: $white;
 		margin-top: 15px;
-	}
-
-	&AdCount {
-		color: rgba(255, 255, 255, 0.45);
-		font-weight: 500;
-		font-size: 18px;
-		line-height: 17px;
 	}
 }
 

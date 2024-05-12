@@ -9,6 +9,7 @@ import Items from "./components/Items";
 import styles from "./Market.module.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../Store/store";
+import AccountAds from "@pages/desktop/account/accountAds";
 
 const Market = () => {
 	const [currentCategory, replaceCategory] = useState("");
@@ -24,10 +25,7 @@ const Market = () => {
 							currentCategory={currentCategory}
 							actionCategory={replaceCategory}
 						/>
-						<div className={styles.mainContent}>
-							<WelcomeBlock />
-							<Items ItemsNumber={count} />
-						</div>
+						<AccountAds type={"my"} title={"Все объявления"}></AccountAds>
 					</div>
 				</div>
 			</main>
