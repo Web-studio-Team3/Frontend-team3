@@ -20,6 +20,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Actions } from "./Store/actions";
 import { RootState } from "./Store/store";
 import styles from './App.module.scss'
+import CategoryPage from "@pages/placingAdd/CategoryPage";
+import FillingForm from "@pages/placingAdd/FillingForm"
+
 
 export interface IBreadcrumbsContext {
 	breadcrumbs: Record<string, string>;
@@ -83,6 +86,9 @@ function App() {
 					<Route path="/login" element={<Login />} />
 					<Route path="/registration" element={<Registration />} />
 					<Route path="/create-new-item-page" element={<CreateNewItem />} />
+					<Route path="/filling" element={<FillingForm />} />
+					<Route path="/categories" element={<CategoryPage currentCategory="" actionCategory={() => {}} />} />
+
 				</Routes>
 			</BrowserRouter>
 		</BreadcrumbsContext.Provider>

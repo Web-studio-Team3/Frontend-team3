@@ -5,9 +5,10 @@
     cursor: pointer;
     color: white;
 
-    &:hover {
+    &:hover > span {
         color: $green;
-        svg path {
+
+        & > svg path  {
             stroke: $green;
         }
     }
@@ -35,4 +36,12 @@
 .subcategory{
     margin-top: 10px;
     padding-left: 20px;
+        &:hover > span {
+            color: $green;
+
+            & > svg path  {
+                stroke: $green;
+            }
+        }
+
 }
