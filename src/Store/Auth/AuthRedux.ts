@@ -5,6 +5,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 export interface AuthState {
 	token: string | null;
 	user_id: string | null;
+	getUserState: "loading" | "error" | "success" | null;
 }
 
 declare namespace i {
@@ -17,6 +18,7 @@ declare namespace i {
 const initialState: AuthState = {
 	token: null,
 	user_id: null,
+	getUserState: null,
 };
 
 export const authSlice = createSlice({
@@ -33,6 +35,13 @@ export const authSlice = createSlice({
 		},
 		authorization: (state, action: PayloadAction<iApi.Login>) => {},
 		registration: (state, action: PayloadAction<iApi.Registration>) => {},
+		getUser: (state, action: PayloadAction<iApi.igetUser>) => {},
+		getUserState: (
+			state,
+			action: PayloadAction<"loading" | "error" | "success" | null>
+		) => {
+			state.getUserState = action.payload;
+		},
 	},
 });
 

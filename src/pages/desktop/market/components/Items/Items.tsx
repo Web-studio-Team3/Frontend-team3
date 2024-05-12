@@ -82,14 +82,13 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 		dispatch(Actions.Items.getItems());
 	}, []);
 
+	if (!items || !items.items) return null;
+	const FilteredItems = [...items.items];
 	const handleShopItemClick = (id: string, title: string) => {
 		setBreadcrumbs({
 			[`/advert/${id}`]: title,
 		});
 	};
-
-	if (!items.length) return null;
-	const FilteredItems = [...items];
 	const filteredItems =
 		currenFilter === "По убыванию"
 			? FilteredItems.sort((a, b) => Number(b.cost) - Number(a.cost))

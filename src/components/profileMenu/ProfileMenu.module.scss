@@ -1,4 +1,4 @@
-@import "@styles/variables.scss";
+@import "@styles/variables";
 
 .section {
 	display: flex;
@@ -14,8 +14,8 @@
 	padding: 30px 32px;
 
 	&Active {
-		background-color: $grey;
-		border: 1px solid $grey;
+		background-color: $card;
+		border: 1px solid $card;
 	}
 }
 

@@ -1,4 +1,4 @@
-@import "@styles/variables.scss";
+@import "@styles/variables";
 
 .block {
 	box-sizing: border-box;
@@ -73,7 +73,7 @@
 	bottom: 10px;
 	width: 34px;
 	height: 34px;
-	background: #2d2d33;
+	background: $card;
 	border-radius: 100px;
 }
 
@@ -125,6 +125,7 @@
 	padding: 8px 12px 8px;
 	border: 1px solid #5d616f80;
 	border-radius: 10px;
+	flex-wrap: wrap;
 }
 
 .homeText {

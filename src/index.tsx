@@ -4,6 +4,8 @@ import { Provider } from "react-redux";
 import App from "./App";
 import "./styles/styles.scss";
 import { store } from "./Store/store";
+import CheckAuth from "./Containers/CheckAuth/CheckAuth";
+import PreventTransition from "./Containers/PreventTransition/PreventTransition";
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
@@ -12,7 +14,11 @@ const root = ReactDOM.createRoot(
 root.render(
 	<Provider store={store}>
 		<React.StrictMode>
-			<App />
+			<CheckAuth>
+				<PreventTransition>
+					<App />
+				</PreventTransition>
+			</CheckAuth>
 		</React.StrictMode>
 	</Provider>
 );

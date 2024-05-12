@@ -3,7 +3,7 @@ import { iApi } from "./types";
 
 const AccountApi = {
 	async getUser(data: iApi.GetUser) {
-		const url = `users/${data.id}`;
+		const url = `users/info/${data.id}`;
 
 		return Request.get(url, null, {
 			headers: {

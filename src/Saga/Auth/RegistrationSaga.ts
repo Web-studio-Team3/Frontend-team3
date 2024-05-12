@@ -18,6 +18,7 @@ const Registration = function* (action: PayloadAction<iApi.Registration>) {
 			email: action.payload.email,
 			raw_password: action.payload.raw_password,
 		});
+
 		yield put(Actions.Auth.setData(login.data));
 		const user_id: string = yield select(
 			(state: RootState) => state.Auth.user_id
@@ -25,6 +26,9 @@ const Registration = function* (action: PayloadAction<iApi.Registration>) {
 		const token: string = yield select(
 			(state: RootState) => state.Auth.token
 		);
+		
+		localStorage.setItem('token', token);
+
 		if (!user_id || !token) throw new Error();
 		const user: ResponseGenerator = yield call(AccountApi.getUser, {
 			id: user_id,
@@ -44,6 +48,7 @@ const Registration = function* (action: PayloadAction<iApi.Registration>) {
 			message: "Вы успешно зарегистрировались",
 		});
 	} catch (e) {
+		console.log(e)
 		notification.error({
 			message: "Во время регистрации произошла ошибка",
 		});

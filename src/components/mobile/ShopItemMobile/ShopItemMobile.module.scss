@@ -1,10 +1,10 @@
-@import "@styles/variables.scss";
+@import "@styles/variables";
 
 .itemStandart {
 	padding: 16px 32px 32px 16px;
 	display: flex;
 	gap: 30px;
-	background-color: $grey;
+	background-color: $card;
 	color: $white;
 	border-radius: 30px;
 	width: 100%;
@@ -19,7 +19,7 @@
 .itemShort {
 	padding: 0 0 13px 0;
 	min-width: 111px;
-	background-color: #2D2D33;
+	// background-color: $card;
 	color: $white;
 	border-radius: 16px;
 	height: 164px;
@@ -62,7 +62,6 @@
 	padding: 0px 8px;
 	position: relative;
 
-
 	.button {
 		background: none;
 		border: white;
@@ -72,7 +71,7 @@
 		top: 0;
 	}
 
-	.buttonWrapper{
+	.buttonWrapper {
 		display: flex;
 	}
 

@@ -1,30 +1,31 @@
+import Input from "@ui-kit/Input";
+import { Button, Form, Radio } from "antd";
+import classNames from "classnames";
 import { useEffect, useState } from "react";
-import { Form, Button, Input, Radio } from "antd";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
+import { RootState } from "../../../Store/store";
 import styles from "./Login.module.scss";
 import RegistrationFinish from "./Utils/LoginFinish";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../Store/store";
-import classNames from "classnames";
 
 export const Login = () => {
 	const [visible, setVisible] = useState(false);
+
 	useEffect(() => {
 		setVisible(true);
 	}, []);
+
 	const [form] = Form.useForm();
 	const dispatch = useDispatch();
 	const token = useSelector((state: RootState) => state.Auth.token);
 	const [saveLogin, setSaveLogin] = useState(false);
+
 	if (token) return <Navigate to={"/"} />;
-	const save_login_recovery = localStorage.getItem("saveLogin");
+
+	const saveLoginRecovery = localStorage.getItem("saveLogin");
 
 	return (
-		<div
-			className={classNames(styles.page, {
-				[styles.visible]: visible,
-			})}
-		>
+		<div className={classNames(styles.page, { [styles.visible]: visible })}>
 			<main className={styles.body}>
 				<h1>Вход в Барахолку</h1>
 				<Form
@@ -41,9 +42,7 @@ export const Login = () => {
 					</p>
 					<Form.Item
 						initialValue={
-							save_login_recovery !== null
-								? save_login_recovery
-								: ""
+							saveLoginRecovery !== null ? saveLoginRecovery : ""
 						}
 						name="email"
 						rules={[
@@ -54,10 +53,10 @@ export const Login = () => {
 						]}
 					>
 						<Input
-							className={styles.input}
 							autoComplete="off"
 							placeholder={"Введите логин"}
 							type="text"
+							value={""}
 						/>
 					</Form.Item>
 
@@ -71,10 +70,10 @@ export const Login = () => {
 						]}
 					>
 						<Input
-							className={styles.input}
 							autoComplete="off"
 							placeholder={"Придумайте пароль"}
 							type="password"
+							value={""}
 						/>
 					</Form.Item>
 
@@ -99,6 +98,9 @@ export const Login = () => {
 							Войти
 						</Button>
 					</Form.Item>
+					<Link className={styles.link} to={"/"}>
+						Продолжить без входа в аккаунт
+					</Link>
 					{/* <p className={styles.prevText}>Или продолжить через</p> */}
 				</Form>
 			</main>

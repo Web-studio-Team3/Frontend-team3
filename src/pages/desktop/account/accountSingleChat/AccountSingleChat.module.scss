@@ -1,14 +1,18 @@
+@import "@styles/variables";
+
 .container {
 	.button {
 		cursor: pointer;
 		background: none;
 		border: none;
 		display: inline-flex;
+
 		& svg {
 			width: 37px;
 			height: 37px;
 		}
 	}
+
 	.header {
 		padding-bottom: 24px;
 		border-bottom: 1px solid #72757e;
@@ -24,6 +28,7 @@
 			display: inline-flex;
 			padding-left: 40px;
 			gap: 21px;
+
 			.image {
 				height: 122px;
 				width: 142px;
@@ -32,6 +37,7 @@
 
 			.textBlock {
 				padding: 15px 0;
+
 				.text {
 					font-weight: 300;
 					font-size: 16px;
@@ -64,7 +70,7 @@
 			}
 
 			.input {
-				background: #2d2d33;
+				background: $card;
 				border: 1px solid #ffffff;
 				border-radius: 30px;
 				flex-grow: 2;
@@ -87,6 +93,7 @@
 		}
 	}
 }
+
 .footer {
 	width: 100%;
 	height: auto;

@@ -81,10 +81,10 @@ export const ShopItem: FC<ShopItemProps> = ({
 					<span className={styles.pointer} />
 				</div>
 			) : null}
+
 			<div className={styles.info}>
 				<p className={styles.title}>{title}</p>
 				<p className={styles.price}>{price} ₽</p>
-
 				{size === ShopItemSize.standart ? (
 					<p className={styles.information}>{information}</p>
 				) : (

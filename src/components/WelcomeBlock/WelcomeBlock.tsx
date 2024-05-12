@@ -15,7 +15,9 @@ export const WelcomeBlock = () => {
 	}, [token]);
 	return (
 		<div
-			className={classNames(styles.wrapper, { [styles.hidden]: hidden })}
+			className={classNames(styles.wrapper, {
+				[styles.hidden]: hidden || token,
+			})}
 		>
 			<div className={styles.content}>
 				<div>
