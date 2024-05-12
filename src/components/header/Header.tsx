@@ -98,6 +98,7 @@ const Header: FC = () => {
 						<CategoryIcon />
 						<p className={styles.buttonText}>Категории</p>
 					</button>
+
 					<div className={styles.search}>
 						<input
 							type="text"
@@ -118,7 +119,7 @@ const Header: FC = () => {
 				<ul className={styles.menu}>
 					<li className={styles.item} hidden={!user}>
 						<Link
-							to="/create-new-item-page"
+							to="/filling"
 							className={classNames(
 								styles.link,
 								styles.linkCreateAd

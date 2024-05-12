@@ -1,7 +1,6 @@
 @import "@styles/variables.scss";
 
 .body {
-
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -10,9 +9,8 @@
   min-height: 100vh;
   color: white;
 
-
   h1 {
-    font-family: "Inter", sans-serif;;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 800;
     font-size: 40px;
@@ -42,6 +40,7 @@
     }
   }
 }
+
 .input-container {
   display: flex;
   align-items: center;
@@ -52,30 +51,36 @@
   border: 1px solid #38383B;
   padding: 0 5px;
 }
-.inputStyle{
+
+.inputStyle {
   background: red;
   color: white;
-  &>span>input{
+
+  & > span > input {
     background: #2d2d33 !important;
     border-right: none;
     color: white;
 
   }
-  .ant-input-wrapper .ant-input{
+
+  .ant-input-wrapper .ant-input {
     background: green;
   }
 }
-.ant-input-group-addon{
+
+.ant-input-group-addon {
   //border-color: black;
 }
-.inputStyle2{
-  &>span>input{
+
+.inputStyle2 {
+  & > span > input {
     color: white;
     background: rgba(44, 182, 125, 0.25) !important;
     border: 1px none #ffffff;
 
   }
-  .ant-input-wrapper .ant-input{
+
+  .ant-input-wrapper .ant-input {
     background: #ffffff;
   }
 }
@@ -94,6 +99,7 @@
   color: white;
   font-size: 14px;
 }
+
 .cascader {
   margin-left: 10px;
   background-color: #2D2D33;
@@ -170,18 +176,13 @@
   border-radius: 23px;
 
 }
-//.checkbox-label .label {
-//  color: #ff0000;
-//  display: flex;
-//  margin-left: 5px;
-//  align-items: center;
-//}
+
 label {
   text-align: left;
   width: 100%;
   color: #2D2D33;
-
 }
+
 .checkboxContainer {
   display: flex;
   align-items: center;
@@ -191,14 +192,14 @@ label {
   background: #2D2D33;
   width: 17px;
   height: 17px;
-  margin-top:10px;
-  //border:2px;
-  border-radius:4px;
+  margin-top: 10px;
+  border-radius: 4px;
   border: 2px rgba(215, 215, 215, 0.07) solid;
   outline: none;
   cursor: pointer;
   position: relative;
 }
+
 .checkbox:checked::before {
   content: '\2713';
   font-size: 16px;
@@ -208,9 +209,6 @@ label {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-
-
 
 .breadcrumb-separator {
   color: white;
@@ -246,6 +244,7 @@ label {
 .green-placeholder::placeholder {
   color: green;
 }
+
 .ant-cascader-menu {
   background-color: #2D2D33; /* Цвет фона */
   color: white; /* Цвет текста */
@@ -258,14 +257,3 @@ label {
 .ant-cascader-menu-item-active {
   background-color: #38383B; /* Цвет выделенного элемента */
 }
-//.ant-upload-text {
-//  width: 249px;
-//  height: 25px;
-//  textAlign: 'center';
-//  color: rgba(255, 255, 255, 0.80);
-//  font-size: 10px;
-//  font-family: Inter;
-//  fontWeight: 400;
-//  lineHeight: 13px;
-//  wordWrap: 'break-word'
-//}

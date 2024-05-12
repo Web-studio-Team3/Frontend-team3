@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="818d5e7e-af0b-4d3e-9545-32864d6876b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/img/home-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/placingAdd/CategoryPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/placingAdd/FillingForm.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/placingAdd/FillingForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/market/components/Categories/Categories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/market/components/Categories/Categories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/market/components/CategoryItem/CategoryItem.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/market/components/CategoryItem/CategoryItem.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/placingAdd/CategoryPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/placingAdd/CategoryPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/placingAdd/FillingForm.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/placingAdd/FillingForm.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/placingAdd/FillingForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/placingAdd/FillingForm.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +89,8 @@
       <workItem from="1715444802221" duration="19386000" />
       <workItem from="1715466990650" duration="4045000" />
       <workItem from="1715471093816" duration="12168000" />
+      <workItem from="1715546697584" duration="2209000" />
+      <workItem from="1715551487573" duration="637000" />
     </task>
     <servers />
   </component>
