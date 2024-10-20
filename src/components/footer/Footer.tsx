@@ -25,7 +25,7 @@ const Footer: FC = () => {
 					</a>
 
 					<a
-						href={"https://t.me/mospolymarket"}
+						// href={"https://t.me/mospolymarket"}
 						className={styles.box}
 					>
 						{" "}
@@ -39,7 +39,7 @@ const Footer: FC = () => {
 				</div>
 				<div className={styles.flexbox}>
 					<a
-						href={"https://t.me/mospolymarket"}
+						// href={"https://t.me/mospolymarket"}
 						className={styles.box}
 					>
 						{" "}
