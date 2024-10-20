@@ -82,12 +82,13 @@
 	padding: 10px 20px;
 	color: #ffffff;
 	border: 1px solid #72757e;
-	border-radius: 16px;
+	border-radius: 20px;
 
 	&::-moz-placeholder,
 	.input::-webkit-input-placeholder,
 	input::-moz-placeholder {
 		color: #7f7f81;
+
 	}
 
 	&::-webkit-input-placeholder {
@@ -96,6 +97,7 @@
 
 	& {
 		outline: none;
+
 	}
 
 	// &:-webkit-autofill {
@@ -106,6 +108,7 @@
 	:global {
 		.ant-picker-input>input::placeholder {
 			color: #7f7f81;
+
 		}
 
 		.ant-picker-input>input {
@@ -115,6 +118,7 @@
 		input::-webkit-input-placeholder,
 		input::-moz-placeholder {
 			color: #7f7f81;
+
 		}
 
 		.ant-picker-suffix {

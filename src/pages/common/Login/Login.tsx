@@ -53,6 +53,7 @@ export const Login = () => {
 						]}
 					>
 						<Input
+							style = {{width: "100%", borderRadius: 15}}
 							autoComplete="off"
 							placeholder={"Введите логин"}
 							type="text"
@@ -70,6 +71,7 @@ export const Login = () => {
 						]}
 					>
 						<Input
+							style = {{width: "100%", borderRadius: 15}}
 							autoComplete="off"
 							placeholder={"Придумайте пароль"}
 							type="password"

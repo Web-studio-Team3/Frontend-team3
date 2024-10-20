@@ -53,7 +53,7 @@ export const Registration = () => {
 							},
 						]}
 					>
-						<Input
+						<Input style = {{width: "100%", borderRadius: 15}}
 							autoComplete="off"
 							placeholder={"Введите логин"}
 							type="text"
@@ -70,7 +70,7 @@ export const Registration = () => {
 							},
 						]}
 					>
-						<Input
+						<Input style = {{width: "100%", borderRadius: 15}}
 							autoComplete="off"
 							placeholder={"Придумайте пароль"}
 							type="password"
@@ -86,7 +86,9 @@ export const Registration = () => {
 							},
 						]}
 					>
-						<Input placeholder={"Ваше имя?"} value={""} />
+						<Input
+							style= {{width: "100%", borderRadius: 15}}
+							placeholder={"Ваше имя?"} value={""} />
 					</Form.Item>
 					<Form.Item
 						name="date_of_birth"
