@@ -101,6 +101,7 @@ export const Registration = () => {
 							className={styles.input}
 							allowClear={false}
 							placeholder={"Ваш день рождения?"}
+							format="DD.MM.YYYY"
 						/>
 					</Form.Item>
 					<Form.Item
@@ -117,6 +118,7 @@ export const Registration = () => {
 						className={styles.upload}
 					>
 						<Upload
+							className={styles.upload__name}
 							maxCount={1}
 							multiple={false}
 							beforeUpload={() => false}
