@@ -8,7 +8,6 @@ interface ShopItemListProps {
 }
 
 const ShopItemList: FC<ShopItemListProps> = ({ itemList, itemsShort }) => {
-	console.log(itemList);
 	return (
 		<ul className={styles.list}>
 			{itemList.map((item) => (

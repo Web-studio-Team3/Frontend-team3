@@ -47,6 +47,7 @@ const MarketItemPage: FC = () => {
 	const CurrenItem = useSelector((state: RootState) =>
 		state.Items.items?.items.filter((item) => item.id === params.id)
 	);
+	console.log(CurrenItem)
 	const getPhoto = async () => {
 		const data = await axios.get(
 			`http://217.28.220.136:8000/api/picture_item_relations/item/${params.id}`

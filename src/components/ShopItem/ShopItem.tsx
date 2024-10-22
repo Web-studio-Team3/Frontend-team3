@@ -46,12 +46,13 @@ export const ShopItem: FC<ShopItemProps> = ({
 		size === ShopItemSize.short || size === ShopItemSize.shortXs;
 	const getPhoto = async () => {
 		const data = await axios.get(
-			`http://217.28.220.136:8000/api/picture_item_relations/item/${id}`
+			`http://miheev.su:8000/api/picture_item_relations/item/${id}`
 		);
 		const url = await axios.get(
-			`http://217.28.220.136:8000/api/pictures/${data.data[0].picture_id}`
+			`http://miheev.su:8000/api/pictures/${data.data[0].picture_id}`
 		);
 		setLoading(false);
+
 		setUrl(url.data.picture_url);
 	};
 
@@ -69,7 +70,7 @@ export const ShopItem: FC<ShopItemProps> = ({
 			onClick={handleItemClick}
 		>
 			<img
-				src={url ? `http://217.28.220.136:8000/${url}/` : image}
+				src={url ? `http://miheev.su:8000/${url}/` : image}
 				alt="mock items"
 			/>
 			{isShortVariant ? (
