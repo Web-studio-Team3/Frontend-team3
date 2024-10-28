@@ -1,5 +1,5 @@
 import Input from "@ui-kit/Input";
-import { Button, DatePicker, Form, Upload } from "antd";
+import { Button, ConfigProvider, DatePicker, Form, Upload } from "antd";
 import { UploadChangeParam } from "antd/lib/upload";
 import { UploadFile } from "antd/lib/upload/interface";
 import classNames from "classnames";
@@ -117,14 +117,24 @@ export const Registration = () => {
 						label="Фотография"
 						className={styles.upload}
 					>
-						<Upload
-							className={styles.upload__name}
-							maxCount={1}
-							multiple={false}
-							beforeUpload={() => false}
+						<ConfigProvider
+							theme={{
+								components: {
+									Upload: {
+										colorText: "#fff",
+										colorTextDescription: "#fff",
+									},
+								},
+							}}
 						>
-							<Button>Загрузить фотографию</Button>
-						</Upload>
+							<Upload
+								maxCount={1}
+								multiple={false}
+								beforeUpload={() => false}
+							>
+								<Button>Загрузить фотографию</Button>
+							</Upload>
+						</ConfigProvider>
 					</Form.Item>
 					<Form.Item>
 						<Button
