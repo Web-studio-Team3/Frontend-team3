@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 
 const localAxios = axios.create({
-	baseURL: " http://miheev.su:8010/api/",
+	baseURL: " http://miheev.su:8000/api/",
 });
 
 export default {
