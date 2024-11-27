@@ -58,7 +58,7 @@ export const itemsSlice = createSlice({
 			state.getItemsStatus = action.payload;
 		},
 		setItems: (state, action: PayloadAction<items>) => {
-			state.items = action.payload; // Теперь это правильно
+			state.items = action.payload; 
 		},
 		setSelectedItem: (state, action: PayloadAction<i.setSelectedItem>) => {
 			state.selectedItem = action.payload.id;
