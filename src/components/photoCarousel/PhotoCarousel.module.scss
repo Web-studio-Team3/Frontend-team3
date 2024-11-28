@@ -1,0 +1,28 @@
+.photoCarousel {
+  max-width: 378px;
+  width: 378px;
+  margin: 0 auto;
+
+  :global {
+    .slick-list .slick-track .slick-slide {
+      border-radius: 8px;
+    }
+
+    .slick-list .slick-track {
+      display: flex;
+      gap: 8px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.singleProto {
+  width: 114px;
+  height: 66px;
+}
+
+.singleProtoWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
