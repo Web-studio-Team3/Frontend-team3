@@ -1,8 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useMemo } from "react";
 import styles from './PhotoCarousel.module.scss';
 import { Carousel, Button } from "antd";
 import { CaretLeftOutlined, CaretRightOutlined } from '@ant-design/icons';
-
 import ItemImage1 from "@assets/img/ad-image1.png";
 import ItemImage2 from "@assets/img/ad-image2.png";
 import ItemImage3 from "@assets/img/ad-image3.png";
@@ -12,9 +11,8 @@ type PhotoCarouselProps = {
     images?: string[];
 };
 
-const PhotoCarousel = ({ images }: PhotoCarouselProps) => {
+const PhotoCarousel = React.memo(({ images }: PhotoCarouselProps) => {
     const carouselRef = useRef(null);
-
     const onChange = (current: number) => {
         console.log('Current slide:', current);
     };
@@ -26,7 +24,7 @@ const PhotoCarousel = ({ images }: PhotoCarouselProps) => {
         ItemImage4
     ];
 
-    const imagesToDisplay = images ? images : imagesDefault;
+    const imagesToDisplay = useMemo(() => images ? images : imagesDefault, [images]);
 
     if (imagesToDisplay.length <= 1) {
         return (
@@ -45,7 +43,6 @@ const PhotoCarousel = ({ images }: PhotoCarouselProps) => {
     const prevArrow = (
         <Button icon={<CaretLeftOutlined style={{ color: 'white', fontSize: '25px' }} />} />
     );
-
     const nextArrow = (
         <Button icon={<CaretRightOutlined style={{ color: 'white', fontSize: '25px' }} />} />
     );
@@ -74,6 +71,6 @@ const PhotoCarousel = ({ images }: PhotoCarouselProps) => {
             ))}
         </Carousel>
     );
-};
+});
 
 export default PhotoCarousel;
