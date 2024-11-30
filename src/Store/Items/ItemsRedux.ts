@@ -1,10 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type items = {
+	[x: string]: any;
 	items: i.item[];
 	total: number;
-} | null;
+};
+
 export declare namespace i {
 	type createNewItem = {
 		category_id: string;
@@ -33,7 +34,7 @@ export declare namespace i {
 }
 
 export interface AuthState {
-	items: items;
+	items: items | null;
 	getItemsStatus: "loading" | "success" | "error" | null;
 	selectedItem: number | null;
 }
@@ -57,7 +58,7 @@ export const itemsSlice = createSlice({
 			state.getItemsStatus = action.payload;
 		},
 		setItems: (state, action: PayloadAction<items>) => {
-			state.items = action.payload;
+			state.items = action.payload; 
 		},
 		setSelectedItem: (state, action: PayloadAction<i.setSelectedItem>) => {
 			state.selectedItem = action.payload.id;

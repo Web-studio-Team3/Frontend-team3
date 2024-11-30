@@ -38,7 +38,7 @@ const MarketItemPage: FC = () => {
 	const changeDesc = useRef<any>(null);
 	const changeTitle = useRef<any>(null);
 	const params = useParams();
-	console.log(params);
+
 	const path = `/account/id`;
 	const navigate = useNavigate();
 	const { setBreadcrumbs, breadcrumbs } = useContext(
@@ -47,6 +47,7 @@ const MarketItemPage: FC = () => {
 	const CurrenItem = useSelector((state: RootState) =>
 		state.Items.items?.items.filter((item) => item.id === params.id)
 	);
+
 	const getPhoto = async () => {
 		const data = await axios.get(
 			`http://217.28.220.136:8000/api/picture_item_relations/item/${params.id}`
