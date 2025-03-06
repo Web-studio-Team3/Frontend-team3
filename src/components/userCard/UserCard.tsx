@@ -57,7 +57,7 @@ const UserCard: FC<userCardProps> = ({
 		>
 			<div className={styles.photoBlock}>
 				<img
-					src={`http://217.28.220.136:8000/${user_photo}/`}
+					src={`http://82.146.43.171:8000/${user_photo}/`}
 					alt="user"
 					className={styles.photo}
 					width={169}

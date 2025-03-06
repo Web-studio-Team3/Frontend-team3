@@ -45,15 +45,14 @@ const MarketItemPage: FC = () => {
 		BreadcrumbsContext
 	) as IBreadcrumbsContext;
 	const CurrenItem = useSelector((state: RootState) =>
-		state.Items.items?.items.filter((item) => item.id === params.id)
+		state.Items.items?.filter((item: any) => item.id === params.id)
 	);
-
 	const getPhoto = async () => {
 		const data = await axios.get(
-			`http://217.28.220.136:8000/api/picture_item_relations/item/${params.id}`
+			`http://82.146.43.171:8000/api/picture_item_relations/item/${params.id}`
 		);
 		const url = await axios.get(
-			`http://217.28.220.136:8000/api/pictures/${data.data[0].picture_id}`
+			`http://82.146.43.171:8000/api/pictures/${data.data[0].picture_id}`
 		);
 		setUrl(url.data.picture_url);
 	};
