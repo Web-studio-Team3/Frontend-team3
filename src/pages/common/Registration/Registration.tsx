@@ -128,9 +128,12 @@ export const Registration = () => {
 							}}
 						>
 							<Upload
+								fileList={form.getFieldValue('picture')}
 								maxCount={1}
 								multiple={false}
 								beforeUpload={() => false}
+
+								onChange={(e) => form.setFieldsValue({picture: e.fileList})}
 							>
 								<Button>Загрузить фотографию</Button>
 							</Upload>
