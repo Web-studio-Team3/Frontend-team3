@@ -65,7 +65,7 @@ export const Controller = styled.div`
 const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 	const dispatch = useDispatch();
 	const [currenFilter, setFilter] = useState("Популярные");
-	const items = useSelector((state: RootState) => state.Items.items);
+	const itemsData = useSelector((state: RootState) => state.Items.items);
 
 	const [itemsShort, setItemsShort] = useState(ShopItemSize.standart);
 
@@ -82,8 +82,10 @@ const Items: React.FC<ItemsProps> = ({ ItemsNumber }) => {
 		dispatch(Actions.Items.getItems());
 	}, []);
 
-	if (!items || !items.items) return null;
-	const FilteredItems = [...items.items];
+	if (!itemsData || itemsData.length === 0) return null;
+
+	const FilteredItems = [...itemsData as any];
+
 	const handleShopItemClick = (id: string, title: string) => {
 		setBreadcrumbs({
 			[`/advert/${id}`]: title,

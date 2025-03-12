@@ -14,7 +14,7 @@ const ItemApi = {
 		formData.set("cost", data.cost);
 		formData.set("description", data.description);
 		formData.set("item_status", data.item_status);
-		formData.set("pictures", data.picture);
+		formData.set("picture", data.picture);
 		formData.set("title", data.title);
 		const token = sessionStorage.getItem("jwt_token");
 		return await Request.post(url, formData, {
