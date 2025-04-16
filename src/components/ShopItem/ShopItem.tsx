@@ -1,5 +1,6 @@
+
 '@ts-ignore'
-import { FC, useState, useEffect, MouseEvent } from "react"; // Добавлен useEffect\
+import { FC, useState, useEffect, MouseEvent } from "react"; 
 import { FavoriteIcon } from "@assets/icons/Icons";
 import cn from "classnames";
 import { useNavigate } from "react-router-dom";
@@ -50,39 +51,32 @@ export const ShopItem: FC<ShopItemProps> = ({
 	const isShortVariant =
 		size === ShopItemSize.short || size === ShopItemSize.shortXs;
 
-	useEffect(() => {
-		const getPhoto = async () => {
-			try {
-				setLoading(true);
 
-
-				const relationsResponse = await axios.get(
-					`http://82.146.43.171:8000/api/picture_item_relations/item/${id}`
+	const getPhoto = async () => {
+		try {
+			const { data } = await axios.get(
+				`http://82.146.43.171:8000/api/picture_item_relations/item/${id}`
 			);
 
+			const pictureId = data[0].picture_id;
 
-				if (!relationsResponse.data?.length) {
-					throw new Error("No images found");
-				}
+			const pictureRes = await axios.get(
+				`http://82.146.43.171:8000/api/pictures/${pictureId}`,
+				{ responseType: "blob" } 
+			);
 
+			const imageUrl = URL.createObjectURL(pictureRes.data); 
+			setUrl(imageUrl);
+			setLoading(false);
+		} catch (error) {
+			console.error("Ошибка при загрузке картинки:", error);
+			setLoading(false);
+		}
+	};
 
-				const firstImageId = relationsResponse.data[0].picture_id;
-
-				const resp = await axios.get(`http://82.146.43.171:8000/api/pictures/${firstImageId}`)
-
-				if (!resp.data) throw new Error("No images found");
-
-				setId(resp.data.picture_url)
-			} catch (error) {
-				console.error("Error loading image:", error);
-				setId(null); // Сброс URL при ошибке
-			} finally {
-				setLoading(false);
-			}
-		};
-
-		if (id) getPhoto();
-	}, [id]); // Зависимость от ID
+	useEffect(() => {
+		getPhoto();
+	}, [id]);
 
 	const handleItemClick = () => {
 		onClick?.();
@@ -94,24 +88,7 @@ export const ShopItem: FC<ShopItemProps> = ({
 			className={cn(styles[`item${size}`], styles.link)}
 			onClick={handleItemClick}
 		>
-			{/* Добавили обработку загрузки и ошибок */}
-			{loading ? (
-				<div className={styles.loader}>Loading...</div>
-			) : (
-				<img
-					src={
-						pID
-						? `http://82.146.43.171:8000/${pID}`
-						:fb // Добавили fallback
-					}
-					onError={
-						(e) => ((e.target as any).src = fb)
-					}
-					alt={title}
-				/>
-			)}
-
-
+			<img src={url || image} alt="mock items" />
 			{isShortVariant && (
 				<div className={styles.imagePointers}>
 					<span className={cn(styles.pointer, styles.pointerActive)} />
