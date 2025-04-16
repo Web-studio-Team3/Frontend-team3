@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { FavoriteIcon } from "@assets/icons/Icons";
 import cn from "classnames";
 import { useNavigate } from "react-router-dom";
@@ -44,17 +44,32 @@ export const ShopItem: FC<ShopItemProps> = ({
 
 	const isShortVariant =
 		size === ShopItemSize.short || size === ShopItemSize.shortXs;
-	const getPhoto = async () => {
-		const data = await axios.get(
-			`http://82.146.43.171:8000/api/picture_item_relations/item/${id}`
-		);
-		const url = await axios.get(
-			`http://82.146.43.171:8000/api/pictures/${data.data[0].picture_id}`
-		);
-		setLoading(false);
 
-		setUrl(url.data.picture_url);
+	const getPhoto = async () => {
+		try {
+			const { data } = await axios.get(
+				`http://82.146.43.171:8000/api/picture_item_relations/item/${id}`
+			);
+
+			const pictureId = data[0].picture_id;
+
+			const pictureRes = await axios.get(
+				`http://82.146.43.171:8000/api/pictures/${pictureId}`,
+				{ responseType: "blob" } // 💥 ВАЖНО
+			);
+
+			const imageUrl = URL.createObjectURL(pictureRes.data); // 💥 Превращаем blob в объектный URL
+			setUrl(imageUrl);
+			setLoading(false);
+		} catch (error) {
+			console.error("Ошибка при загрузке картинки:", error);
+			setLoading(false);
+		}
 	};
+
+	useEffect(() => {
+		getPhoto();
+	}, [id]);
 
 	const handleItemClick = () => {
 		if (onClick) {
@@ -63,16 +78,12 @@ export const ShopItem: FC<ShopItemProps> = ({
 		navigate(path);
 	};
 
-	getPhoto();
 	return (
 		<div
 			className={cn(styles[`item${size}`], styles.link)}
 			onClick={handleItemClick}
 		>
-			<img
-				src={url ? `http://82.146.43.171:8000/${url}/` : image}
-				alt="mock items"
-			/>
+			<img src={url || image} alt="mock items" />
 			{isShortVariant ? (
 				<div className={styles.imagePointers}>
 					<span
