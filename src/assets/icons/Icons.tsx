@@ -923,7 +923,9 @@ export const UploadIcon = (): JSX.Element => {
 	);
 };
 
-export const FavoriteIcon = ({ width = 36, height = 36 }): JSX.Element => {
+export const FavoriteIcon = ({ width = 36, height = 36, active = false }): JSX.Element & {
+	active?: boolean
+} => {
 	return (
 		<svg
 			width={width}
@@ -933,19 +935,19 @@ export const FavoriteIcon = ({ width = 36, height = 36 }): JSX.Element => {
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<g clipPath="url(#clip0_473_710)">
-				<circle cx="18" cy="18" r="17.5" stroke="#727272" />
+				<circle cx="18" cy="18" r="17.5" stroke="#727272" fill={active ? "#7E5AF0": undefined} />
 				<path
 					fillRule="evenodd"
 					clipRule="evenodd"
 					d="M9.7995 19.3689C8.81941 16.2035 9.96574 12.2679 13.1782 11.1983C14.868 10.6342 16.9533 11.1048 18.138 12.7952C19.2551 11.0424 21.4007 10.638 23.0887 11.1983C26.3003 12.2679 27.453 16.2035 26.4738 19.3689C24.9484 24.3864 19.626 27 18.138 27C16.651 27 11.3761 24.445 9.7995 19.3689Z"
-					stroke="#7E5AF0"
+					stroke={active ? "white" :"#7E5AF0" }
 					strokeWidth="1.5"
 					strokeLinecap="round"
 					strokeLinejoin="round"
 				/>
 				<path
 					d="M21.5508 14.7556C22.6533 14.8728 23.3429 15.7771 23.3018 17.0442"
-					stroke="#7E5AF0"
+					stroke={active ? "white" :"#7E5AF0" }
 					strokeWidth="1.5"
 					strokeLinecap="round"
 					strokeLinejoin="round"

@@ -1,4 +1,6 @@
-import { FC, useEffect, useState } from "react";
+
+'@ts-ignore'
+import { FC, useState, useEffect, MouseEvent } from "react"; 
 import { FavoriteIcon } from "@assets/icons/Icons";
 import cn from "classnames";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +10,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "src/Store/store";
 import axios from "axios";
 import Button from "@components/Button";
+import {Button as ButtonAntd} from "antd"
+import fb from './fallback.jpg'
 
 export enum ShopItemSize {
 	short = "Short",
@@ -27,23 +31,26 @@ export type ShopItemProps = {
 };
 
 export const ShopItem: FC<ShopItemProps> = ({
-	id,
-	image,
-	title,
-	price,
-	information,
-	phoneCall,
-	size = ShopItemSize.standart,
-	onClick,
-}) => {
+		id,
+		image,
+		title,
+		price,
+		information,
+		phoneCall,
+		size = ShopItemSize.standart,
+		onClick,
+	}) => {
 	const token = useSelector((state: RootState) => state.Auth.token);
-	const [url, setUrl] = useState("");
+	const [active, setActive] = useState<boolean>(false)
+	//const [url, setUrl] = useState("");
+	const [pID, setId] = useState<null | string>(null);
 	const [loading, setLoading] = useState(true);
 	const path = `/advert/${id}`;
 	const navigate = useNavigate();
 
 	const isShortVariant =
 		size === ShopItemSize.short || size === ShopItemSize.shortXs;
+
 
 	const getPhoto = async () => {
 		try {
@@ -55,10 +62,10 @@ export const ShopItem: FC<ShopItemProps> = ({
 
 			const pictureRes = await axios.get(
 				`http://82.146.43.171:8000/api/pictures/${pictureId}`,
-				{ responseType: "blob" } // 💥 ВАЖНО
+				{ responseType: "blob" } 
 			);
 
-			const imageUrl = URL.createObjectURL(pictureRes.data); // 💥 Превращаем blob в объектный URL
+			const imageUrl = URL.createObjectURL(pictureRes.data); 
 			setUrl(imageUrl);
 			setLoading(false);
 		} catch (error) {
@@ -72,9 +79,7 @@ export const ShopItem: FC<ShopItemProps> = ({
 	}, [id]);
 
 	const handleItemClick = () => {
-		if (onClick) {
-			onClick();
-		}
+		onClick?.();
 		navigate(path);
 	};
 
@@ -84,15 +89,13 @@ export const ShopItem: FC<ShopItemProps> = ({
 			onClick={handleItemClick}
 		>
 			<img src={url || image} alt="mock items" />
-			{isShortVariant ? (
+			{isShortVariant && (
 				<div className={styles.imagePointers}>
-					<span
-						className={cn(styles.pointer, styles.pointerActive)}
-					/>
+					<span className={cn(styles.pointer, styles.pointerActive)} />
 					<span className={styles.pointer} />
 					<span className={styles.pointer} />
 				</div>
-			) : null}
+			)}
 
 			<div className={styles.info}>
 				<p className={styles.title}>{title}</p>
@@ -103,11 +106,13 @@ export const ShopItem: FC<ShopItemProps> = ({
 					<p className={styles.date}>Сегодня, 15:40</p>
 				)}
 				<div className={styles.button}>
-					<Button onClick={() => {}} variant="ghost" size="xs">
-						<FavoriteIcon />
-					</Button>
+					<ButtonAntd onClick={(e) => {
+						e.stopPropagation()
+						setActive((p) => !p)
+					}} type='link' icon={<FavoriteIcon active={active} />}      />
 				</div>
 			</div>
+
 			<Tooltip
 				title={
 					token
