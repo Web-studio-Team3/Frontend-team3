@@ -1,6 +1,5 @@
-
 '@ts-ignore'
-import { FC, useState, useEffect, MouseEvent } from "react"; 
+import { FC, useState, useEffect, MouseEvent } from "react";
 import { FavoriteIcon } from "@assets/icons/Icons";
 import cn from "classnames";
 import { useNavigate } from "react-router-dom";
@@ -31,18 +30,18 @@ export type ShopItemProps = {
 };
 
 export const ShopItem: FC<ShopItemProps> = ({
-		id,
-		image,
-		title,
-		price,
-		information,
-		phoneCall,
-		size = ShopItemSize.standart,
-		onClick,
-	}) => {
+	id,
+	image,
+	title,
+	price,
+	information,
+	phoneCall,
+	size = ShopItemSize.standart,
+	onClick,
+}) => {
 	const token = useSelector((state: RootState) => state.Auth.token);
 	const [active, setActive] = useState<boolean>(false)
-	//const [url, setUrl] = useState("");
+	const [url, setUrl] = useState("");
 	const [pID, setId] = useState<null | string>(null);
 	const [loading, setLoading] = useState(true);
 	const path = `/advert/${id}`;
@@ -62,10 +61,10 @@ export const ShopItem: FC<ShopItemProps> = ({
 
 			const pictureRes = await axios.get(
 				`http://82.146.43.171:8000/api/pictures/${pictureId}`,
-				{ responseType: "blob" } 
+				{ responseType: "blob" }
 			);
 
-			const imageUrl = URL.createObjectURL(pictureRes.data); 
+			const imageUrl = URL.createObjectURL(pictureRes.data);
 			setUrl(imageUrl);
 			setLoading(false);
 		} catch (error) {
