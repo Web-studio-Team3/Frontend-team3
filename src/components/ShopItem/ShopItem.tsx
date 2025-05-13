@@ -54,13 +54,13 @@ export const ShopItem: FC<ShopItemProps> = ({
 	const getPhoto = async () => {
 		try {
 			const { data } = await axios.get(
-				`http://82.146.43.171:8000/api/picture_item_relations/item/${id}`
+				`http://109.172.100.202:8000/api/picture_item_relations/item/${id}`
 			);
 
 			const pictureId = data[0].picture_id;
 
 			const pictureRes = await axios.get(
-				`http://82.146.43.171:8000/api/pictures/${pictureId}`,
+				`http://109.172.100.202:8000/api/pictures/${pictureId}`,
 				{ responseType: "blob" }
 			);
 

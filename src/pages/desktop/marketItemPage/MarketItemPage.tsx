@@ -49,10 +49,10 @@ const MarketItemPage: FC = () => {
 	);
 	const getPhoto = async () => {
 		const data = await axios.get(
-			`http://82.146.43.171:8000/api/picture_item_relations/item/${params.id}`
+			`http://109.172.100.202:8000/api/picture_item_relations/item/${params.id}`
 		);
 		const url = await axios.get(
-			`http://82.146.43.171:8000/api/pictures/${data.data[0].picture_id}`
+			`http://109.172.100.202:8000/api/pictures/${data.data[0].picture_id}`
 		);
 		setUrl(url.data.picture_url);
 	};
